@@ -16,8 +16,3 @@
 .. |space| unicode:: U+0020 .. space
 
 
-
-
-
-Index
------------
