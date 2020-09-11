@@ -7,7 +7,7 @@
 
 
     Home <index.ipynb>
-    Practical 1 <practical1.ipynb>    
+    Practical 1 <introduction.ipynb>    
 
 
 |space|
@@ -16,3 +16,8 @@
 .. |space| unicode:: U+0020 .. space
 
 
+
+
+
+Index
+-----------
