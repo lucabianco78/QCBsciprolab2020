@@ -21,10 +21,10 @@ on_rtd = os.environ.get('READTHEDOCS') == 'True'
 jm = jmt.Jupman()
 
 # TODO CHANGE
-jm.subtitle = "A template manager for online books made with Jupyter notebooks and NBSphinx doc generator""" 
-jm.course = "Applied Pythonics" # TODO CHANGE
-jm.degree = "Nuclear Templates Engineering" # TODO CHANGE
-author = 'People That Write a Lot' # TODO CHANGE
+jm.subtitle = "The page of the Scientific Programming Lab for QCB 2020""" 
+jm.course = "Scientific Programming" # TODO CHANGE
+jm.degree = "QCB" # TODO CHANGE
+author = 'Luca Bianco' # TODO CHANGE
 # TODO FIRST YEAR
 copyright = '# 2020 - %s, %s' % (datetime.datetime.now().year, author)
 
@@ -46,7 +46,7 @@ jm.chapter_files = ['jupman.py', 'my_lib.py', '_static/img/cc-by.png',
                     '_static/js/pytutor-embed.bundle.min.js',]
 
 jm.chapter_patterns =  ['*/']
-jm.chapter_exclude_patterns =  ['[^_]*/','exams/', 'project/']
+jm.chapter_exclude_patterns =  ['[^_]*/','exams/', 'project/','file_samples/', 'material/','docs/','img/']
 
 # words used in ipynb files - you might want to translate these in your language. Use plural.
 jm.ipynb_solutions = "SOLUTIONS"
@@ -127,6 +127,7 @@ exclude_patterns = [jm.build,
                     "_templates/exam-server",
                      "_private",
                      "_test",                     
+                     "file_samples",
                      'README.md', 
                      'readme.md']
 
