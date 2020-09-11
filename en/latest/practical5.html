@@ -1,0 +1,1789 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Practical 5 &mdash; Jupman</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/jupman.js"></script>
+        <script type="text/javascript" src="_static/js/pytutor-embed.bundle.min.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/jupman.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/jupman-web.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="toc-page.html" class="icon icon-home"> Jupman
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Scientific Programming for QCB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#General-Info">General Info</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#Timetable-and-lecture-rooms">Timetable and lecture rooms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#Tutoring">Tutoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#Slides">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#Acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="toc.html"> </a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="toc-page.html">Jupman</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+    <div id='jupman-langs'></div>
+
+     <!-- <li> <h2 style="background-color:red; color:yellow">WARNING! THIS VERSION IS OLD !  <br/>
+    <a style=" text-decoration: underline;" href="https://jupman.readthedocs.io/en/latest">GOT TO LATEST VERSION</a></li>
+ </h2></li>-->
+    <!-- Commented because doesn't work with sections,
+         see https://github.com/DavidLeoni/jupman/issues/39
+    <li><a href="toc-page.html">Docs</a> &raquo;</li>
+    
+    <li>Practical 5</li>
+    -->
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Practical-5">
+<h1>Practical 5<a class="headerlink" href="#Practical-5" title="Permalink to this headline">¶</a></h1>
+<p>In this practical we will add some information on loops and introduce dictionaries.</p>
+<div class="section" id="Slides">
+<h2>Slides<a class="headerlink" href="#Slides" title="Permalink to this headline">¶</a></h2>
+<p>The slides of the introduction can be found here: <a class="reference external" href="docs/Practical5.pdf">Intro</a></p>
+</div>
+<div class="section" id="More-on-loops">
+<h2>More on loops<a class="headerlink" href="#More-on-loops" title="Permalink to this headline">¶</a></h2>
+<p>As seen in the previous practical and in the lecture, there are three different ways of execution flow:</p>
+<p><img alt="image0" src="_images/PKLR.png" /></p>
+<p>We have already seen the <em>if</em>, <em>for</em> and <em>while</em> loops and their variants. The code block of each of these statements is defined by the <em>indentation</em> (i.e. spacing).</p>
+<div class="section" id="Ternary-operator">
+<h3>Ternary operator<a class="headerlink" href="#Ternary-operator" title="Permalink to this headline">¶</a></h3>
+<p>In some cases it is handy to be able to initialize a variable depending on the value of another one.</p>
+<p><strong>Example</strong>: The discount rate applied to a purchase depends on the amount of the sale. Create a variable <em>discount</em> setting its value to 0 if the variable <em>amount</em> is lower than 100 euros, to 10% if it is higher.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">amount</span> <span class="o">=</span> <span class="mi">110</span>
+<span class="n">discount</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">amount</span> <span class="o">&gt;</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">discount</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">discount</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># not necessary</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total amount:&quot;</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="s2">&quot;discount:&quot;</span><span class="p">,</span> <span class="n">discount</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Total amount: 110 discount: 0.1
+</pre></div></div>
+</div>
+<p>The previous code can be written more coincisely as:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">amount</span> <span class="o">=</span> <span class="mi">110</span>
+<span class="n">discount</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="k">if</span> <span class="n">amount</span> <span class="o">&gt;</span> <span class="mi">100</span> <span class="k">else</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total amount:&quot;</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="s2">&quot;discount:&quot;</span><span class="p">,</span> <span class="n">discount</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Total amount: 110 discount: 0.1
+</pre></div></div>
+</div>
+<p>The basic syntax of the ternary operator is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>variable = value if condition else other_value
+</pre></div>
+</div>
+<p>meaning that the <em>variable</em> is initialized to <em>value</em> if the <em>condition</em> holds, otherwise to <em>other_value</em>.</p>
+<p>Python also allows in line operations separated by a “;”</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+10 11 13
+</pre></div></div>
+</div>
+<div class="admonition warning">
+<p><strong>Note:</strong> Although the ternary operator and in line operations are sometimes useful and less verbose than the explicit definition, they are considered “non-pythonic” and advised against.</p>
+</div>
+</div>
+<div class="section" id="Break-and-continue">
+<h3>Break and continue<a class="headerlink" href="#Break-and-continue" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes it is useful to skip an entire iteration of a loop or end the loop before its supposed end. This can be achieved with two different statements: <strong>continue</strong> and <strong>break</strong>.</p>
+<div class="section" id="Continue-statement">
+<h4>Continue statement<a class="headerlink" href="#Continue-statement" title="Permalink to this headline">¶</a></h4>
+<p>Within a <strong>for</strong> or <strong>while</strong> loop, <strong>continue</strong> makes the interpreter skip that iteration and move to the next.</p>
+<p><strong>Example:</strong> Print all the odd numbers from 1 to 20.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#Two equivalent ways</span>
+<span class="c1">#1. Testing remainder == 1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">21</span><span class="p">):</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+<span class="c1">#2. Skipping if remainder == 0 in for</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">21</span><span class="p">):</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1 3 5 7 9 11 13 15 17 19
+1 3 5 7 9 11 13 15 17 19
+</pre></div></div>
+</div>
+<p>Continue can be used also within while loops but we need to be careful to update the value of the variable before reaching the continue statement or we will get stuck in never-ending loops. <strong>Example:</strong> Print all the odd numbers from 1 to 20.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#Wrong code:</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">21</span><span class="p">):</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># NEVER EXECUTED IF i % 2 == 0!!!!</span>
+</pre></div>
+</div>
+</div>
+<p>a possible correct solution using while:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="k">while</span><span class="p">(</span> <span class="n">i</span><span class="o">&lt;</span> <span class="mi">20</span><span class="p">):</span>       <span class="c1">#i is incremented in the loop, so 20!!!</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>        <span class="c1">#the variable is updated no matter what</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">):</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1 3 5 7 9 11 13 15 17 19
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Break-statement">
+<h4>Break statement<a class="headerlink" href="#Break-statement" title="Permalink to this headline">¶</a></h4>
+<p>Within a <strong>for</strong> or <strong>while</strong> loop, <strong>break</strong> makes the interpreter exit the loop and continue with the sequential execution. Sometimes it is useful to get out of the loop if to complete our task we do not need to get to the end of the loop.</p>
+<p><strong>Example:</strong> Given the following list of integers [1,5,6,4,7,1,2,3,7] print them until a number already printed is found.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">found</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="ow">in</span> <span class="n">found</span><span class="p">):</span>
+        <span class="k">break</span>
+
+    <span class="n">found</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1 5 6 4 7
+</pre></div></div>
+</div>
+<p><strong>Example:</strong> Pick a random number from 1 and 50 and count how many times it takes to randomly choose number 27. Limit the number of random picks to 40 (i.e. if more than 40 picks have been done and 27 has not been found exit anyway with a message).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">iterations</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">picks</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">while</span><span class="p">(</span><span class="n">iterations</span> <span class="o">&lt;=</span> <span class="mi">40</span><span class="p">):</span>
+    <span class="n">pick</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">picks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pick</span><span class="p">)</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">pick</span> <span class="o">==</span> <span class="mi">27</span><span class="p">):</span>
+        <span class="k">break</span>
+    <span class="n">iterations</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">iterations</span> <span class="o">==</span> <span class="mi">41</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sorry number 27 was never found!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;27 found in &quot;</span><span class="p">,</span> <span class="n">iterations</span><span class="p">,</span> <span class="s2">&quot;iterations&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">picks</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+27 found in  7 iterations
+[30, 29, 16, 3, 42, 1, 27]
+</pre></div></div>
+</div>
+<p>An alternative way without using the break statement makes use of a <em>flag</em> variable (that when changes value will make the loop end):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="n">found</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># This is called flag</span>
+<span class="n">iterations</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">picks</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">while</span> <span class="n">iterations</span> <span class="o">&lt;=</span> <span class="mi">40</span> <span class="ow">and</span> <span class="n">found</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span> <span class="c1">#the flag is used to exit</span>
+    <span class="n">pick</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">picks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pick</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pick</span> <span class="o">==</span> <span class="mi">27</span><span class="p">:</span>
+        <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>     <span class="c1">#update the flag, will exit at next iteration</span>
+    <span class="n">iterations</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">if</span> <span class="n">iterations</span> <span class="o">==</span> <span class="mi">41</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sorry number 27 was never found!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;27 found in &quot;</span><span class="p">,</span> <span class="n">iterations</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;iterations&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">picks</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+27 found in  20 iterations
+[29, 13, 17, 14, 45, 21, 39, 26, 34, 17, 23, 10, 49, 13, 39, 6, 4, 2, 22, 27]
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="List-comprehension">
+<h3>List comprehension<a class="headerlink" href="#List-comprehension" title="Permalink to this headline">¶</a></h3>
+<p>List comprehension is a quick way of creating a list. The resulting list is normally obtained by applying a function or a method to the elements of another list that <strong>remains unchanged</strong>.</p>
+<p>The basic syntax is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>new_list = [ some_function (x) for x in start_list]
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>new_list = [ x.some_method() for x in start_list]
+</pre></div>
+</div>
+<p>List comprehension can also be used to filter elements of a list and produce another list as sublist of the first one (<strong>remember that the original list is not changed</strong>).</p>
+<p>In this case the syntax is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>new_list = [ some_function (x) for x in start_list if condition]
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>new_list = [ x.some_method() for x in start_list if condition]
+</pre></div>
+</div>
+<p>where the element x in start_list becomes part of new_list if and only if the condition holds True.</p>
+<p>Let’s see some examples:</p>
+<p><strong>Example:</strong> Given a list of strings [“hi”, “there”, “from”, “python”] create a list with the length of the corresponding element (i.e. the one with the same index).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">elems</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="s2">&quot;there&quot;</span><span class="p">,</span> <span class="s2">&quot;from&quot;</span><span class="p">,</span> <span class="s2">&quot;python&quot;</span><span class="p">]</span>
+
+<span class="n">newList</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">elems</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">elems</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">elems</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s2">&quot; has length &quot;</span><span class="p">,</span> <span class="n">newList</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+hi  has length  2
+there  has length  5
+from  has length  4
+python  has length  6
+</pre></div></div>
+</div>
+<p><strong>Example:</strong> Given a list of strings [“dog”, “cat”, “rabbit”, “guinea pig”, “hamster”, “canary”, “goldfish”] create a list with the elements starting with a “c” or “g”.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pets</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;rabbit&quot;</span><span class="p">,</span> <span class="s2">&quot;guinea pig&quot;</span><span class="p">,</span> <span class="s2">&quot;hamster&quot;</span><span class="p">,</span> <span class="s2">&quot;canary&quot;</span><span class="p">,</span> <span class="s2">&quot;goldfish&quot;</span><span class="p">]</span>
+
+<span class="n">cg_pets</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">pets</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">x</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pets</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Filtered:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cg_pets</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Original:
+[&#39;dog&#39;, &#39;cat&#39;, &#39;rabbit&#39;, &#39;guinea pig&#39;, &#39;hamster&#39;, &#39;canary&#39;, &#39;goldfish&#39;]
+Filtered:
+[&#39;cat&#39;, &#39;guinea pig&#39;, &#39;canary&#39;, &#39;goldfish&#39;]
+</pre></div></div>
+</div>
+<p><strong>Example:</strong> Create a list with all the numbers divisible by 17 from 1 to 200.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">17</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[17, 34, 51, 68, 85, 102, 119, 136, 153, 170, 187]
+</pre></div></div>
+</div>
+<p><strong>Example:</strong> Transpose the matrix <span class="math notranslate nohighlight">\(\begin{bmatrix}1 &amp; 10\\2 &amp; 20\\3 &amp; 30\\4 &amp; 40\end{bmatrix}\)</span> stored as a list of lists (i.e. matrix = [[1, 10], [2,20], [3,30], [4,40]]). The output matrix should be: <span class="math notranslate nohighlight">\(\begin{bmatrix}1 &amp; 2 &amp; 3 &amp; 4\\10 &amp; 20 &amp; 30 &amp; 40\end{bmatrix}\)</span>, represented as [[1, 2, 3, 4], [10, 20, 30, 40]]</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">30</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">40</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+<span class="n">transpose</span> <span class="o">=</span> <span class="p">[[</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">transpose</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[1, 10], [2, 20], [3, 30], [4, 40]]
+[[1, 2, 3, 4], [10, 20, 30, 40]]
+</pre></div></div>
+</div>
+<p><strong>Example:</strong> Given the list: [“Hotel”, “Icon”,” Bus”,”Train”, “Hotel”, “Eye”, “Rain”, “Elephant”] create a list with all the first letters.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hotel&quot;</span><span class="p">,</span> <span class="s2">&quot;Icon&quot;</span><span class="p">,</span><span class="s2">&quot; Bus&quot;</span><span class="p">,</span><span class="s2">&quot;Train&quot;</span><span class="p">,</span> <span class="s2">&quot;Hotel&quot;</span><span class="p">,</span> <span class="s2">&quot;Eye&quot;</span><span class="p">,</span> <span class="s2">&quot;Rain&quot;</span><span class="p">,</span> <span class="s2">&quot;Elephant&quot;</span><span class="p">]</span>
+<span class="n">initials</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">myList</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">initials</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">initials</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;Hotel&#39;, &#39;Icon&#39;, &#39; Bus&#39;, &#39;Train&#39;, &#39;Hotel&#39;, &#39;Eye&#39;, &#39;Rain&#39;, &#39;Elephant&#39;]
+[&#39;H&#39;, &#39;I&#39;, &#39; &#39;, &#39;T&#39;, &#39;H&#39;, &#39;E&#39;, &#39;R&#39;, &#39;E&#39;]
+HI THERE
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="Dictionaries">
+<h2>Dictionaries<a class="headerlink" href="#Dictionaries" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>dictionary</strong> is a map between one object, the <strong>key</strong>, and another object, the <strong>value</strong>. Dictionaries are <strong>mutable objects</strong> and contain sequences of mappings <em>key</em> –&gt; <em>object</em> but there is not specific ordering among them. Dictionaries are defined using the curly braces <strong>{key1 : value1, key2 : value2}</strong> and <strong>:</strong> to separate keys from values.</p>
+<p>Some examples on how to define dictionaries follow:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">first_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;one&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;four&quot;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First:&quot;</span><span class="p">,</span> <span class="n">first_dict</span><span class="p">)</span>
+
+<span class="n">empty_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Empty:&quot;</span><span class="p">,</span><span class="n">empty_dict</span><span class="p">)</span>
+
+<span class="n">second_dict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span> <span class="p">:</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span> <span class="p">:</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span> <span class="p">:</span><span class="mi">3</span> <span class="p">}</span> <span class="c1">#BAD IDEA BUT POSSIBLE!!!</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">second_dict</span><span class="p">)</span>
+
+<span class="n">third_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="s2">&quot;one&quot;</span><span class="p">,</span><span class="s2">&quot;two&quot;</span><span class="p">,</span><span class="s2">&quot;three&quot;</span><span class="p">,</span><span class="s2">&quot;four&quot;</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">third_dict</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_dict</span> <span class="o">==</span> <span class="n">third_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+First: {&#39;one&#39;: 1, &#39;two&#39;: 2, &#39;three&#39;: 3, &#39;four&#39;: 4}
+Empty: {}
+{1: &#39;one&#39;, 2: &#39;two&#39;, &#39;three&#39;: 3}
+{&#39;one&#39;: 1, &#39;two&#39;: 2, &#39;three&#39;: 3, &#39;four&#39;: 4}
+True
+</pre></div></div>
+</div>
+<p>Note that there is no ordering of the keys, and that the order in which they have been inserted is not preserved. Moreover, keys and values can be dishomogeneous (e.g. keys strings and values integers). An interesting case is <em>third_dict</em> where the function <em>zip</em> followed by <em>dict</em> is used to map the keys of the first list into the values present in the second.</p>
+<p>Note that keys can be <strong>dishomogeneous</strong>, even though this is a bad idea normally. The only requirement for the <strong>keys</strong> is that they <strong>must be immutable objects</strong>. Trying to use a mutable object as a key will make the interpreter crash with the error: <strong>unhashable type</strong>. Finally, keys must be unique. We cannot associate more than one value to the same key.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#a,b are tuples: hence immutable</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">a</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="mi">9</span> <span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">)</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="c1">#c,d are lists: hence mutable</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="n">dict2</span> <span class="o">=</span> <span class="p">{</span><span class="n">c</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="n">d</span> <span class="p">:</span> <span class="mi">9</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dict2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{(1, 2, 3): 6, (1, 3, 5): 9}
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-21-0fe98c7f5acd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      8</span> d <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">      9</span>
+<span class="ansi-green-fg">---&gt; 10</span><span class="ansi-red-fg"> </span>dict2 <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">{</span>c <span class="ansi-blue-fg">:</span> <span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">,</span> d <span class="ansi-blue-fg">:</span> <span class="ansi-cyan-fg">9</span><span class="ansi-blue-fg">}</span>
+<span class="ansi-green-intense-fg ansi-bold">     11</span> print<span class="ansi-blue-fg">(</span>dict2<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">TypeError</span>: unhashable type: &#39;list&#39;
+</pre></div></div>
+</div>
+<div class="section" id="Functions-working-on-dictionaries">
+<h3>Functions working on dictionaries<a class="headerlink" href="#Functions-working-on-dictionaries" title="Permalink to this headline">¶</a></h3>
+<p>As for the other data types, python provides several operators that can be applied to dictionaries. The following operators are available and they basically work as in lists. The only exception being that the operator <strong>in</strong> checks whether the specified object is present among the <strong>keys</strong>.</p>
+<p><img alt="image0" src="_images/PKLR.png" /></p>
+<p>Some usage examples follow:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">myDict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;one&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;twentyfive&quot;</span> <span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">myDict</span><span class="p">)</span>
+<span class="n">myDict</span><span class="p">[</span><span class="s2">&quot;ten&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">myDict</span><span class="p">[</span><span class="s2">&quot;twenty&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myDict</span><span class="p">)</span>
+<span class="n">myDict</span><span class="p">[</span><span class="s2">&quot;ten&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;10-again&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myDict</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The dictionary has &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">myDict</span><span class="p">),</span> <span class="s2">&quot; elements&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of </span><span class="se">\&quot;</span><span class="s2">ten</span><span class="se">\&quot;</span><span class="s2"> is:&quot;</span><span class="p">,</span> <span class="n">myDict</span><span class="p">[</span><span class="s2">&quot;ten&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of </span><span class="se">\&quot;</span><span class="s2">two</span><span class="se">\&quot;</span><span class="s2"> is:&quot;</span><span class="p">,</span> <span class="n">myDict</span><span class="p">[</span><span class="s2">&quot;two&quot;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is </span><span class="se">\&quot;</span><span class="s2">twentyfive</span><span class="se">\&quot;</span><span class="s2"> in dictionary?&quot;</span><span class="p">,</span> <span class="s2">&quot;twentyfive&quot;</span> <span class="ow">in</span> <span class="n">myDict</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is </span><span class="se">\&quot;</span><span class="s2">seven</span><span class="se">\&quot;</span><span class="s2"> in dictionary?&quot;</span><span class="p">,</span> <span class="s2">&quot;seven&quot;</span> <span class="ow">in</span> <span class="n">myDict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;one&#39;: 1, &#39;two&#39;: 2, &#39;twentyfive&#39;: 25}
+{&#39;one&#39;: 1, &#39;two&#39;: 2, &#39;twentyfive&#39;: 25, &#39;ten&#39;: 10, &#39;twenty&#39;: 20}
+{&#39;one&#39;: 1, &#39;two&#39;: 2, &#39;twentyfive&#39;: 25, &#39;ten&#39;: &#39;10-again&#39;, &#39;twenty&#39;: 20}
+The dictionary has  5  elements
+The value of &#34;ten&#34; is: 10-again
+The value of &#34;two&#34; is: 2
+Is &#34;twentyfive&#34; in dictionary? True
+Is &#34;seven&#34; in dictionary? False
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Dictionary-methods">
+<h3>Dictionary methods<a class="headerlink" href="#Dictionary-methods" title="Permalink to this headline">¶</a></h3>
+<p>Recall what seen in the lecture, the following methods are available for dictionaries:</p>
+<p><img alt="image0" src="_images/PKLR.png" /></p>
+<p>These methods are new to dictionaries and can be used to loop through the elements in them.</p>
+<div class="admonition warning">
+<p><strong>ERRATUM:</strong> <code class="docutils literal notranslate"><span class="pre">dict.keys()</span></code> returns a <code class="docutils literal notranslate"><span class="pre">dict_keys</span></code> object not a list. To cast it to list, we need to call <code class="docutils literal notranslate"><span class="pre">list(dict.keys())</span></code>. The same applies to <code class="docutils literal notranslate"><span class="pre">dict.values()</span></code> that returns a <code class="docutils literal notranslate"><span class="pre">dict_values</span></code> object that needs conversion to a list with <code class="docutils literal notranslate"><span class="pre">list(dict.values())</span></code>.</p>
+</div>
+<p><strong>Example</strong> Given the protein sequence below, store in a dictionary all the aminoacids present and count how many times they appear. Finally print out the stats (e.g. how many amino-acids are present, the most frequent, the least frequent and the frequency of all of them <strong>in alphabetical order</strong>).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;sp|P00517|KAPCA_BOVIN cAMP-dependent protein kinase catalytic subunit alpha
+MGNAAAAKKGSEQESVKEFLAKAKEDFLKKWENPAQNTAHLDQFERIKTLGTGSFGRVML
+VKHMETGNHYAMKILDKQKVVKLKQIEHTLNEKRILQAVNFPFLVKLEFSFKDNSNLYMV
+MEYVPGGEMFSHLRRIGRFSEPHARFYAAQIVLTFEYLHSLDLIYRDLKPENLLIDQQGY
+IQVTDFGFAKRVKGRTWTLCGTPEYLAPEIILSKGYNKAVDWWALGVLIYEMAAGYPPFF
+ADQPIQIYEKIVSGKVRFPSHFSSDLKDLLRNLLQVDLTKRFGNLKNGVNDIKNHKWFAT
+TDWIAIYQRKVEAPFIPKFKGPGDTSNFDDYEEEEIRVSINEKCGKEFSEF
+</pre></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">protein</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;MGNAAAAKKGSEQESVKEFLAKAKEDFLKKWENPAQNTAHLDQFERIKTLGTGSFGRVML</span>
+<span class="s2">VKHMETGNHYAMKILDKQKVVKLKQIEHTLNEKRILQAVNFPFLVKLEFSFKDNSNLYMV</span>
+<span class="s2">MEYVPGGEMFSHLRRIGRFSEPHARFYAAQIVLTFEYLHSLDLIYRDLKPENLLIDQQGY</span>
+<span class="s2">IQVTDFGFAKRVKGRTWTLCGTPEYLAPEIILSKGYNKAVDWWALGVLIYEMAAGYPPFF</span>
+<span class="s2">ADQPIQIYEKIVSGKVRFPSHFSSDLKDLLRNLLQVDLTKRFGNLKNGVNDIKNHKWFAT</span>
+<span class="s2">TDWIAIYQRKVEAPFIPKFKGPGDTSNFDDYEEEEIRVSINEKCGKEFSEF&quot;&quot;&quot;</span>
+
+<span class="n">protein</span> <span class="o">=</span> <span class="n">protein</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">protein</span><span class="p">)</span>
+
+<span class="n">amino_acids</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">protein</span><span class="p">:</span>
+    <span class="k">if</span><span class="p">(</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">amino_acids</span><span class="p">):</span>
+        <span class="n">amino_acids</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">amino_acids</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">amino_acids</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+<span class="n">num_aminos</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">amino_acids</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number of amino-acids present is &quot;</span><span class="p">,</span> <span class="n">num_aminos</span><span class="p">)</span>
+<span class="c1">#let&#39;s get all aminoacids</span>
+<span class="c1">#and sort them alphabetically</span>
+<span class="n">a_keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">amino_acids</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="n">a_keys</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="n">mostF</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;frequency&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;aminoacid&quot;</span> <span class="p">:</span> <span class="s2">&quot;-&quot;</span><span class="p">}</span>
+<span class="n">leastF</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;frequency&quot;</span> <span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">protein</span><span class="p">),</span> <span class="s2">&quot;aminoacid&quot;</span> <span class="p">:</span> <span class="s2">&quot;-&quot;</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">a_keys</span><span class="p">:</span>
+    <span class="n">freq</span> <span class="o">=</span> <span class="n">amino_acids</span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">mostF</span><span class="p">[</span><span class="s2">&quot;frequency&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">freq</span><span class="p">):</span>
+        <span class="n">mostF</span><span class="p">[</span><span class="s2">&quot;frequency&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">freq</span>
+        <span class="n">mostF</span><span class="p">[</span><span class="s2">&quot;aminoacid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">leastF</span><span class="p">[</span><span class="s2">&quot;frequency&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">freq</span><span class="p">):</span>
+        <span class="n">leastF</span><span class="p">[</span><span class="s2">&quot;frequency&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">freq</span>
+        <span class="n">leastF</span><span class="p">[</span><span class="s2">&quot;aminoacid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot; is present&quot;</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="s2">&quot;times&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Amino&quot;</span><span class="p">,</span> <span class="n">leastF</span><span class="p">[</span><span class="s2">&quot;aminoacid&quot;</span><span class="p">],</span> <span class="s2">&quot;has the lowest freq. (&quot;</span><span class="p">,</span><span class="n">leastF</span><span class="p">[</span><span class="s2">&quot;frequency&quot;</span><span class="p">],</span><span class="s2">&quot;)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Amino&quot;</span><span class="p">,</span> <span class="n">mostF</span><span class="p">[</span><span class="s2">&quot;aminoacid&quot;</span><span class="p">],</span> <span class="s2">&quot;has the highest freq. (&quot;</span><span class="p">,</span><span class="n">mostF</span><span class="p">[</span><span class="s2">&quot;frequency&quot;</span><span class="p">],</span><span class="s2">&quot;)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+MGNAAAAKKGSEQESVKEFLAKAKEDFLKKWENPAQNTAHLDQFERIKTLGTGSFGRVMLVKHMETGNHYAMKILDKQKVVKLKQIEHTLNEKRILQAVNFPFLVKLEFSFKDNSNLYMVMEYVPGGEMFSHLRRIGRFSEPHARFYAAQIVLTFEYLHSLDLIYRDLKPENLLIDQQGYIQVTDFGFAKRVKGRTWTLCGTPEYLAPEIILSKGYNKAVDWWALGVLIYEMAAGYPPFFADQPIQIYEKIVSGKVRFPSHFSSDLKDLLRNLLQVDLTKRFGNLKNGVNDIKNHKWFATTDWIAIYQRKVEAPFIPKFKGPGDTSNFDDYEEEEIRVSINEKCGKEFSEF
+The number of amino-acids present is  20
+A  is present 23 times
+C  is present 2 times
+D  is present 18 times
+E  is present 27 times
+F  is present 25 times
+G  is present 22 times
+H  is present 9 times
+I  is present 21 times
+K  is present 34 times
+L  is present 32 times
+M  is present 8 times
+N  is present 17 times
+P  is present 14 times
+Q  is present 14 times
+R  is present 15 times
+S  is present 16 times
+T  is present 14 times
+V  is present 20 times
+W  is present 6 times
+Y  is present 14 times
+Amino C has the lowest freq. ( 2 )
+Amino K has the highest freq. ( 34 )
+</pre></div></div>
+</div>
+<p><strong>Important NOTE</strong>. Accessing a value through the key of a dictionary requires that the pair key-value one searches for is present in the dictionary. If the searched key is not present the interpreter crashes out throwing a KeyError as follows:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">myDict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;one&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">myDict</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myDict</span><span class="p">[</span><span class="s2">&quot;seven&quot;</span><span class="p">])</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-24-a05b31e54a02&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>myDict<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;one&#34;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>myDict<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;seven&#34;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">KeyError</span>: &#39;seven&#39;
+</pre></div></div>
+</div>
+<p>This could be avoided by checking that the key is present in the dictionary beforehand:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">myDict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;one&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+
+<span class="n">search_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;seven&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">search_keys</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">myDict</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;key:&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="s2">&quot;value:&quot;</span><span class="p">,</span> <span class="n">myDict</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="s2">&quot;not found in dictionary&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+key: one value: 1
+key seven not found in dictionary
+</pre></div></div>
+</div>
+<p>or by using the dictionary method <strong>get</strong> that has two inputs: the key and a default value to return in case key is not present in the dictionary:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">myDict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;one&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+
+<span class="n">search_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;seven&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">search_keys</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;key:&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="s2">&quot;value:&quot;</span><span class="p">,</span> <span class="n">myDict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s2">&quot;not found&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+key: one value: 1
+key: seven value: not found
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="Exercises">
+<h2>Exercises<a class="headerlink" href="#Exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Given the following two lists of integers: [1, 13, 22, 7, 43, 81, 77, 12, 15,21, 84,100] and [44,32,7, 100, 81, 13, 1, 21, 71]:</p>
+<ol class="arabic simple">
+<li><p>Sort the two lists</p></li>
+<li><p>Create a third list as intersection of the two lists (i.e. an element is in the intersection if it is present in both lists).</p></li>
+<li><p>Print the three lists.</p></li>
+</ol>
+</li>
+</ol>
+<div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
+</div><div id="ex1" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">44</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">71</span><span class="p">]</span>
+
+<span class="n">L1</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">L2</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">intersection</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L1</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L2</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L1:    &quot;</span><span class="p">,</span> <span class="n">L1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L2:    &quot;</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;inters:&quot;</span><span class="p">,</span> <span class="n">intersection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+L1:     [1, 7, 12, 13, 15, 21, 22, 43, 77, 81, 84, 100]
+L2:     [1, 7, 13, 21, 32, 44, 71, 81, 100]
+inters: [1, 7, 13, 21, 81, 100]
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="2">
+<li><p>Given the string “nOBody Said iT was eAsy, No oNe Ever saId it WoulD be tHis hArd…”</p>
+<ol class="arabic simple">
+<li><p>Create a list with all the letters that are capitalized (use str.isupper)</p></li>
+<li><p>Print the list</p></li>
+<li><p>Use the string method <strong>join</strong> to concatenate all the letters in a string, using “*” as separator. The syntax of join is str.join(list) and it outputs a string with all the elements in list joined with the character in str (es. “+”.join([1,2,3]) returns “1+2+3”).</p></li>
+</ol>
+</li>
+</ol>
+<p>The expected output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;O&#39;, &#39;B&#39;, &#39;S&#39;, &#39;T&#39;, &#39;A&#39;, &#39;N&#39;, &#39;N&#39;, &#39;E&#39;, &#39;I&#39;, &#39;W&#39;, &#39;D&#39;, &#39;H&#39;, &#39;A&#39;]
+O*B*S*T*A*N*N*E*I*W*D*H*A
+</pre></div>
+</div>
+<div class="tggle" onclick="toggleVisibility('ex2');"><p>Show/Hide Solution</p>
+</div><div id="ex2" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;nOBody Said iT was eAsy, No oNe Ever saId it WoulD be tHis hArd…&quot;</span>
+<span class="n">initials</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">isupper</span><span class="p">()]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">initials</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">initials</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;O&#39;, &#39;B&#39;, &#39;S&#39;, &#39;T&#39;, &#39;A&#39;, &#39;N&#39;, &#39;N&#39;, &#39;E&#39;, &#39;I&#39;, &#39;W&#39;, &#39;D&#39;, &#39;H&#39;, &#39;A&#39;]
+O*B*S*T*A*N*N*E*I*W*D*H*A
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="3">
+<li><p>Given the following sequence:</p></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>AUGCUGUCUCCCUCACUGUAUGUAAAUUGCAUCUAGAAUAGCA
+UCUGGAGCACUAAUUGACACAUAGUGGGUAUCAAUUAUUA
+UUCCAGGUACUAGAGAUACCUGGACCAUUAACGGAUAAAU
+AGAAGAUUCAUUUGUUGAGUGACUGAGGAUGGCAGUUCCU
+GCUACCUUCAAGGAUCUGGAUGAUGGGGAGAAACAGAGAA
+CAUAGUGUGAGAAUACUGUGGUAAGGAAAGUACAGAGGAC
+UGGUAGAGUGUCUAACCUAGAUUUGGAGAAGGACCUAGAA
+GUCUAUCCCAGGGAAAUAAAAAUCUAAGCUAAGGUUUGAG
+GAAUCAGUAGGAAUUGGCAAAGGAAGGACAUGUUCCAGAU
+GAUAGGAACAGGUUAUGCAAAGAUCCUGAAAUGGUCAGAG
+CUUGGUGCUUUUUGAGAACCAAAAGUAGAUUGUUAUGGAC
+CAGUGCUACUCCCUGCCUCUUGCCAAGGGACCCCGCCAAG
+CACUGCAUCCCUUCCCUCUGACUCCACCUUUCCACUUGCC
+CAGUAUUGUUGGUG
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">considering only first forward open reading frame (i.e. the string as it is <strong>remembering to remove newlines</strong>): 1. create a list of all the codons and print it.</div>
+<div class="line">2. create then a dictionary in which codons are keys and values are how many times that codon is present in the first forward open reading frame and print it; 3. retrieve from the dictionary and print the number of times codons: “AUG”, “AGA”, “GGG”, “AUA” are present. If a codon is not present the script should print “NOT present” rather than crash.</div>
+</div>
+<div class="tggle" onclick="toggleVisibility('ex3a');"><p>Show/Hide Solution</p>
+</div><div id="ex3a" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">seq</span><span class="o">=</span> <span class="s2">&quot;&quot;&quot;AUGCUGUCUCCCUCACUGUAUGUAAAUUGCAUCUAGAAUAGCA</span>
+<span class="s2">UCUGGAGCACUAAUUGACACAUAGUGGGUAUCAAUUAUUA</span>
+<span class="s2">UUCCAGGUACUAGAGAUACCUGGACCAUUAACGGAUAAAU</span>
+<span class="s2">AGAAGAUUCAUUUGUUGAGUGACUGAGGAUGGCAGUUCCU</span>
+<span class="s2">GCUACCUUCAAGGAUCUGGAUGAUGGGGAGAAACAGAGAA</span>
+<span class="s2">CAUAGUGUGAGAAUACUGUGGUAAGGAAAGUACAGAGGAC</span>
+<span class="s2">UGGUAGAGUGUCUAACCUAGAUUUGGAGAAGGACCUAGAA</span>
+<span class="s2">GUCUAUCCCAGGGAAAUAAAAAUCUAAGCUAAGGUUUGAG</span>
+<span class="s2">GAAUCAGUAGGAAUUGGCAAAGGAAGGACAUGUUCCAGAU</span>
+<span class="s2">GAUAGGAACAGGUUAUGCAAAGAUCCUGAAAUGGUCAGAG</span>
+<span class="s2">CUUGGUGCUUUUUGAGAACCAAAAGUAGAUUGUUAUGGAC</span>
+<span class="s2">CAGUGCUACUCCCUGCCUCUUGCCAAGGGACCCCGCCAAG</span>
+<span class="s2">CACUGCAUCCCUUCCCUCUGACUCCACCUUUCCACUUGCC</span>
+<span class="s2">CAGUAUUGUUGGUG&quot;&quot;&quot;</span>
+
+
+<span class="n">seq</span> <span class="o">=</span> <span class="n">seq</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+<span class="n">codons</span> <span class="o">=</span> <span class="p">[</span><span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">),</span><span class="mi">3</span><span class="p">)]</span>
+
+<span class="n">count_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">codons</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">el</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">count_dict</span><span class="p">:</span>
+        <span class="n">count_dict</span><span class="p">[</span><span class="n">el</span><span class="p">]</span> <span class="o">=</span> <span class="n">codons</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1st fwd ORF codons:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">codons</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Codon counts:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">count_dict</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">to_check</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;AUG&quot;</span><span class="p">,</span> <span class="s2">&quot;AGA&quot;</span><span class="p">,</span> <span class="s2">&quot;GGG&quot;</span><span class="p">,</span> <span class="s2">&quot;AUA&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">to_check</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">count_dict</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">c</span> <span class="p">,</span> <span class="s2">&quot;is present&quot;</span><span class="p">,</span> <span class="n">count_dict</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="s2">&quot;times&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="s2">&quot;is NOT present&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1st fwd ORF codons:
+[&#39;AUG&#39;, &#39;CUG&#39;, &#39;UCU&#39;, &#39;CCC&#39;, &#39;UCA&#39;, &#39;CUG&#39;, &#39;UAU&#39;, &#39;GUA&#39;, &#39;AAU&#39;, &#39;UGC&#39;, &#39;AUC&#39;, &#39;UAG&#39;, &#39;AAU&#39;, &#39;AGC&#39;, &#39;AUC&#39;, &#39;UGG&#39;, &#39;AGC&#39;, &#39;ACU&#39;, &#39;AAU&#39;, &#39;UGA&#39;, &#39;CAC&#39;, &#39;AUA&#39;, &#39;GUG&#39;, &#39;GGU&#39;, &#39;AUC&#39;, &#39;AAU&#39;, &#39;UAU&#39;, &#39;UAU&#39;, &#39;UCC&#39;, &#39;AGG&#39;, &#39;UAC&#39;, &#39;UAG&#39;, &#39;AGA&#39;, &#39;UAC&#39;, &#39;CUG&#39;, &#39;GAC&#39;, &#39;CAU&#39;, &#39;UAA&#39;, &#39;CGG&#39;, &#39;AUA&#39;, &#39;AAU&#39;, &#39;AGA&#39;, &#39;AGA&#39;, &#39;UUC&#39;, &#39;AUU&#39;, &#39;UGU&#39;, &#39;UGA&#39;, &#39;GUG&#39;, &#39;ACU&#39;, &#39;GAG&#39;, &#39;GAU&#39;, &#39;GGC&#39;, &#39;AGU&#39;, &#39;UCC&#39;, &#39;UGC&#39;, &#39;UAC&#39;, &#39;CUU&#39;, &#39;CAA&#39;, &#39;GGA&#39;, &#39;UCU&#39;, &#39;GGA&#39;, &#39;UGA&#39;, &#39;UGG&#39;, &#39;GGA&#39;, &#39;GAA&#39;, &#39;ACA&#39;, &#39;GAG&#39;, &#39;AAC&#39;, &#39;AUA&#39;, &#39;GUG&#39;, &#39;UGA&#39;, &#39;GAA&#39;, &#39;UAC&#39;, &#39;UGU&#39;, &#39;GGU&#39;, &#39;AAG&#39;, &#39;GAA&#39;, &#39;AGU&#39;, &#39;ACA&#39;, &#39;GAG&#39;, &#39;GAC&#39;, &#39;UGG&#39;, &#39;UAG&#39;, &#39;AGU&#39;, &#39;GUC&#39;, &#39;UAA&#39;, &#39;CCU&#39;, &#39;AGA&#39;, &#39;UUU&#39;, &#39;GGA&#39;, &#39;GAA&#39;, &#39;GGA&#39;, &#39;CCU&#39;, &#39;AGA&#39;, &#39;AGU&#39;, &#39;CUA&#39;, &#39;UCC&#39;, &#39;CAG&#39;, &#39;GGA&#39;, &#39;AAU&#39;, &#39;AAA&#39;, &#39;AAU&#39;, &#39;CUA&#39;, &#39;AGC&#39;, &#39;UAA&#39;, &#39;GGU&#39;, &#39;UUG&#39;, &#39;AGG&#39;, &#39;AAU&#39;, &#39;CAG&#39;, &#39;UAG&#39;, &#39;GAA&#39;, &#39;UUG&#39;, &#39;GCA&#39;, &#39;AAG&#39;, &#39;GAA&#39;, &#39;GGA&#39;, &#39;CAU&#39;, &#39;GUU&#39;, &#39;CCA&#39;, &#39;GAU&#39;, &#39;GAU&#39;, &#39;AGG&#39;, &#39;AAC&#39;, &#39;AGG&#39;, &#39;UUA&#39;, &#39;UGC&#39;, &#39;AAA&#39;, &#39;GAU&#39;, &#39;CCU&#39;, &#39;GAA&#39;, &#39;AUG&#39;, &#39;GUC&#39;, &#39;AGA&#39;, &#39;GCU&#39;, &#39;UGG&#39;, &#39;UGC&#39;, &#39;UUU&#39;, &#39;UUG&#39;, &#39;AGA&#39;, &#39;ACC&#39;, &#39;AAA&#39;, &#39;AGU&#39;, &#39;AGA&#39;, &#39;UUG&#39;, &#39;UUA&#39;, &#39;UGG&#39;, &#39;ACC&#39;, &#39;AGU&#39;, &#39;GCU&#39;, &#39;ACU&#39;, &#39;CCC&#39;, &#39;UGC&#39;, &#39;CUC&#39;, &#39;UUG&#39;, &#39;CCA&#39;, &#39;AGG&#39;, &#39;GAC&#39;, &#39;CCC&#39;, &#39;GCC&#39;, &#39;AAG&#39;, &#39;CAC&#39;, &#39;UGC&#39;, &#39;AUC&#39;, &#39;CCU&#39;, &#39;UCC&#39;, &#39;CUC&#39;, &#39;UGA&#39;, &#39;CUC&#39;, &#39;CAC&#39;, &#39;CUU&#39;, &#39;UCC&#39;, &#39;ACU&#39;, &#39;UGC&#39;, &#39;CCA&#39;, &#39;GUA&#39;, &#39;UUG&#39;, &#39;UUG&#39;, &#39;GUG&#39;]
+Codon counts:
+{&#39;AUG&#39;: 2, &#39;CUG&#39;: 3, &#39;UCU&#39;: 2, &#39;CCC&#39;: 3, &#39;UCA&#39;: 1, &#39;UAU&#39;: 3, &#39;GUA&#39;: 2, &#39;AAU&#39;: 8, &#39;UGC&#39;: 7, &#39;AUC&#39;: 4, &#39;UAG&#39;: 4, &#39;AGC&#39;: 3, &#39;UGG&#39;: 5, &#39;ACU&#39;: 4, &#39;UGA&#39;: 5, &#39;CAC&#39;: 3, &#39;AUA&#39;: 3, &#39;GUG&#39;: 4, &#39;GGU&#39;: 3, &#39;UCC&#39;: 5, &#39;AGG&#39;: 5, &#39;UAC&#39;: 4, &#39;AGA&#39;: 8, &#39;GAC&#39;: 3, &#39;CAU&#39;: 2, &#39;UAA&#39;: 3, &#39;CGG&#39;: 1, &#39;UUC&#39;: 1, &#39;AUU&#39;: 1, &#39;UGU&#39;: 2, &#39;GAG&#39;: 3, &#39;GAU&#39;: 4, &#39;GGC&#39;: 1, &#39;AGU&#39;: 6, &#39;CUU&#39;: 2, &#39;CAA&#39;: 1, &#39;GGA&#39;: 7, &#39;GAA&#39;: 7, &#39;ACA&#39;: 2, &#39;AAC&#39;: 2, &#39;AAG&#39;: 3, &#39;GUC&#39;: 2, &#39;CCU&#39;: 4, &#39;UUU&#39;: 2, &#39;CUA&#39;: 2, &#39;CAG&#39;: 2, &#39;AAA&#39;: 3, &#39;UUG&#39;: 7, &#39;GCA&#39;: 1, &#39;GUU&#39;: 1, &#39;CCA&#39;: 3, &#39;UUA&#39;: 2, &#39;GCU&#39;: 2, &#39;ACC&#39;: 2, &#39;CUC&#39;: 3, &#39;GCC&#39;: 1}
+
+
+AUG is present 2 times
+AGA is present 8 times
+GGG is NOT present
+AUA is present 3 times
+</pre></div></div>
+</div>
+</div><ol class="arabic" start="4">
+<li><p>Given the following list of gene correlations:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>geneCorr = [[&quot;G1C2W9&quot;, &quot;G1C2Q7&quot;, 0.2], [&quot;G1C2W9&quot;, &quot;G1C2Q4&quot;, 0.9],
+[&quot;Q6NMS1&quot;, &quot;G1C2W9&quot;, 0.8],[&quot;G1C2W9&quot;, &quot;Q6NMS1&quot;,0.4], [&quot;G1C2Q7&quot;, &quot;G1C2Q4&quot;,0.76]]
+</pre></div>
+</div>
+<p>where each sublist [“gene1”, “gene2”, corr] represents a correlation between <em>gene1</em> and <em>gene2</em> with correlation <em>corr</em>, create another list containing only the elements having an high correlation (i.e. &gt; 0.75). Print this list.</p>
+</li>
+</ol>
+<p>Expected result:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[[&#39;G1C2W9&#39;, &#39;G1C2Q4&#39;, 0.9], [&#39;Q6NMS1&#39;, &#39;G1C2W9&#39;, 0.8], [&#39;G1C2Q7&#39;, &#39;G1C2Q4&#39;, 0.76]]
+</pre></div>
+</div>
+<div class="tggle" onclick="toggleVisibility('ex3');"><p>Show/Hide Solution</p>
+</div><div id="ex3" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">geneCorr</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;G1C2W9&quot;</span><span class="p">,</span> <span class="s2">&quot;G1C2Q7&quot;</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;G1C2W9&quot;</span><span class="p">,</span> <span class="s2">&quot;G1C2Q4&quot;</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Q6NMS1&quot;</span><span class="p">,</span> <span class="s2">&quot;G1C2W9&quot;</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">],</span>
+            <span class="p">[</span><span class="s2">&quot;G1C2W9&quot;</span><span class="p">,</span> <span class="s2">&quot;Q6NMS1&quot;</span><span class="p">,</span><span class="mf">0.4</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;G1C2Q7&quot;</span><span class="p">,</span> <span class="s2">&quot;G1C2Q4&quot;</span><span class="p">,</span><span class="mf">0.76</span><span class="p">]]</span>
+
+<span class="n">highlyCorr</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">geneCorr</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.75</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">geneCorr</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">highlyCorr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;G1C2W9&#39;, &#39;G1C2Q7&#39;, 0.2], [&#39;G1C2W9&#39;, &#39;G1C2Q4&#39;, 0.9], [&#39;Q6NMS1&#39;, &#39;G1C2W9&#39;, 0.8], [&#39;G1C2W9&#39;, &#39;Q6NMS1&#39;, 0.4], [&#39;G1C2Q7&#39;, &#39;G1C2Q4&#39;, 0.76]]
+
+[[&#39;G1C2W9&#39;, &#39;G1C2Q4&#39;, 0.9], [&#39;Q6NMS1&#39;, &#39;G1C2W9&#39;, 0.8], [&#39;G1C2Q7&#39;, &#39;G1C2Q4&#39;, 0.76]]
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="5">
+<li><p>Given the following sequence of DNA:</p></li>
+</ol>
+<p>DNA = “GATTACATATATCAGTACAGATATATACGCGCGGGCTTACTATTAAAAACCCC”</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. Create a dictionary reporting the frequency of each base (i.e. key is the
+base and value is the frequency).
+2. Create a dictionary representing an index of all possible dimers (i.e. 2
+bases, 16 dimers in total): AA, AT, AC, AG, TA, TT, TC, TG, ... . In this case,
+keys of the dictionary are dimers and values are lists with all possible starting
+positions of the dimer.
+3. Print the DNA string.
+4. Print for each base its frequency
+4. Print all positions of the dimer &quot;AT&quot;
+</pre></div>
+</div>
+<p>The expected result is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sequence: GATTACATATATCAGTACAGATATATACGCGCGGGCTTACTATTAAAAACCCC
+G has frequency: 0.1509433962264151
+C has frequency: 0.22641509433962265
+A has frequency: 0.3584905660377358
+T has frequency: 0.2641509433962264
+{&#39;GG&#39;: [32, 33], &#39;TC&#39;: [11], &#39;GT&#39;: [14], &#39;CA&#39;: [5, 12, 17], &#39;TT&#39;: [2, 36, 42],
+&#39;CG&#39;: [27, 29, 31], &#39;TA&#39;: [3, 7, 9, 15, 21, 23, 25, 37, 40, 43], &#39;AG&#39;: [13, 18],
+&#39;GA&#39;: [0, 19], &#39;CT&#39;: [35, 39], &#39;GC&#39;: [28, 30, 34], &#39;AT&#39;: [1, 6, 8, 10, 20, 22, 24, 41],
+&#39;CC&#39;: [49, 50, 51], &#39;AA&#39;: [44, 45, 46, 47], &#39;AC&#39;: [4, 16, 26, 38, 48]}
+
+Dimer AT is found at: [1, 6, 8, 10, 20, 22, 24, 41]
+</pre></div>
+</div>
+<div class="tggle" onclick="toggleVisibility('ex4');"><p>Show/Hide Solution</p>
+</div><div id="ex4" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">DNA</span> <span class="o">=</span> <span class="s2">&quot;GATTACATATATCAGTACAGATATATACGCGCGGGCTTACTATTAAAAACCCC&quot;</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">DNA</span><span class="p">)</span>
+
+<span class="n">baseFreq</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span> <span class="p">:</span> <span class="n">DNA</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span> <span class="p">:</span> <span class="n">DNA</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">,</span>
+            <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="n">DNA</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span> <span class="p">:</span> <span class="n">DNA</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">)</span><span class="o">/</span><span class="n">n</span> <span class="p">}</span>
+
+<span class="n">dimersDict</span> <span class="o">=</span><span class="p">{}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sequence:&quot;</span><span class="p">,</span> <span class="n">DNA</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">baseFreq</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="s2">&quot;has frequency:&quot;</span><span class="p">,</span> <span class="n">baseFreq</span><span class="p">[</span><span class="n">base</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">DNA</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span> <span class="p">):</span> <span class="c1">#need -1 because at each iteration I get the dimer [ind:ind+1]</span>
+    <span class="n">dimer</span> <span class="o">=</span> <span class="n">DNA</span><span class="p">[</span><span class="n">ind</span><span class="p">:</span><span class="n">ind</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">dimer</span> <span class="ow">in</span> <span class="n">dimersDict</span><span class="p">):</span>
+        <span class="n">dimersDict</span><span class="p">[</span><span class="n">dimer</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dimersDict</span><span class="p">[</span><span class="n">dimer</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">ind</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dimersDict</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dimer AT is found at:&quot;</span><span class="p">,</span> <span class="n">dimersDict</span><span class="p">[</span><span class="s2">&quot;AT&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+sequence: GATTACATATATCAGTACAGATATATACGCGCGGGCTTACTATTAAAAACCCC
+A has frequency: 0.3584905660377358
+T has frequency: 0.2641509433962264
+C has frequency: 0.22641509433962265
+G has frequency: 0.1509433962264151
+{&#39;GA&#39;: [0, 19], &#39;AT&#39;: [1, 6, 8, 10, 20, 22, 24, 41], &#39;TT&#39;: [2, 36, 42], &#39;TA&#39;: [3, 7, 9, 15, 21, 23, 25, 37, 40, 43], &#39;AC&#39;: [4, 16, 26, 38, 48], &#39;CA&#39;: [5, 12, 17], &#39;TC&#39;: [11], &#39;AG&#39;: [13, 18], &#39;GT&#39;: [14], &#39;CG&#39;: [27, 29, 31], &#39;GC&#39;: [28, 30, 34], &#39;GG&#39;: [32, 33], &#39;CT&#39;: [35, 39], &#39;AA&#39;: [44, 45, 46, 47], &#39;CC&#39;: [49, 50, 51]}
+
+Dimer AT is found at: [1, 6, 8, 10, 20, 22, 24, 41]
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="6">
+<li><p>Given the following table, reporting molecular weights for each amino acid, store them in a dictionary where the key is the one letter code and the value is the molecular weight (e.g. {“A” : 89, “R”:174”}).</p></li>
+</ol>
+<p><img alt="image0" src="_images/PKLR.png" /></p>
+<p>Write a python script to answer the following questions:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. What is the average molecular weight of an amino acid?
+2. What is the total molecular weight and number of aminoacids
+of the P53 peptide GSRAHSSHLKSKKGQSTSRHK?
+3. What is the total molecular weight and number of aminoacids
+of the peptide YTSLIHSLIEESQNQQEKNEQELLELDKWASLWNWF?
+</pre></div>
+</div>
+<div class="tggle" onclick="toggleVisibility('ex5');"><p>Show/Hide Solution</p>
+</div><div id="ex5" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">mws</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span> <span class="p">:</span> <span class="mi">89</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span> <span class="p">:</span> <span class="mi">174</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span> <span class="p">:</span> <span class="mi">132</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span> <span class="p">:</span> <span class="mi">133</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="mi">133</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="mi">121</span><span class="p">,</span> <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="mi">146</span><span class="p">,</span>
+       <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="mi">147</span><span class="p">,</span> <span class="s2">&quot;Z&quot;</span><span class="p">:</span> <span class="mi">147</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="mi">75</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">:</span> <span class="mi">155</span><span class="p">,</span> <span class="s2">&quot;I&quot;</span><span class="p">:</span> <span class="mi">131</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span> <span class="p">:</span> <span class="mi">131</span><span class="p">,</span>
+      <span class="s2">&quot;K&quot;</span> <span class="p">:</span> <span class="mi">146</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span> <span class="p">:</span> <span class="mi">149</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span> <span class="p">:</span> <span class="mi">165</span><span class="p">,</span> <span class="s2">&quot;P&quot;</span> <span class="p">:</span> <span class="mi">115</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span> <span class="p">:</span> <span class="mi">105</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span> <span class="p">:</span> <span class="mi">119</span><span class="p">,</span>
+       <span class="s2">&quot;W&quot;</span> <span class="p">:</span> <span class="mi">204</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="mi">181</span><span class="p">,</span> <span class="s2">&quot;V&quot;</span> <span class="p">:</span> <span class="mi">117</span>
+      <span class="p">}</span>
+<span class="n">avgW</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">amino</span> <span class="ow">in</span> <span class="n">mws</span><span class="p">:</span>
+    <span class="n">avgW</span> <span class="o">=</span> <span class="n">avgW</span> <span class="o">+</span> <span class="n">mws</span><span class="p">[</span><span class="n">amino</span><span class="p">]</span>
+
+<span class="n">avgW</span> <span class="o">=</span> <span class="n">avgW</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">mws</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The average molecular weight of amino acids is:&quot;</span><span class="p">,</span> <span class="n">avgW</span><span class="p">)</span>
+
+<span class="n">P53amino</span> <span class="o">=</span> <span class="s2">&quot;GSRAHSSHLKSKKGQSTSRHK&quot;</span>
+
+<span class="n">totW</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">amino</span> <span class="ow">in</span> <span class="n">P53amino</span><span class="p">:</span>
+    <span class="n">totW</span> <span class="o">+=</span> <span class="n">mws</span><span class="p">[</span><span class="n">amino</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Peptide &quot;</span><span class="p">,</span> <span class="n">P53amino</span><span class="p">,</span> <span class="s2">&quot;has&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">P53amino</span><span class="p">),</span> <span class="s2">&quot;amino acids and a total mw of&quot;</span><span class="p">,</span><span class="n">totW</span><span class="p">,</span> <span class="s2">&quot;Da&quot;</span><span class="p">)</span>
+
+<span class="n">totW</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#reusing same variable name</span>
+<span class="n">peptide</span> <span class="o">=</span> <span class="s2">&quot;YTSLIHSLIEESQNQQEKNEQELLELDKWASLWNWF&quot;</span>
+<span class="k">for</span> <span class="n">amino</span> <span class="ow">in</span> <span class="n">peptide</span><span class="p">:</span>
+    <span class="n">totW</span> <span class="o">+=</span> <span class="n">mws</span><span class="p">[</span><span class="n">amino</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Peptide &quot;</span><span class="p">,</span> <span class="n">peptide</span><span class="p">,</span> <span class="s2">&quot;has&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">peptide</span><span class="p">),</span> <span class="s2">&quot;amino acids and a total mw of&quot;</span><span class="p">,</span><span class="n">totW</span><span class="p">,</span> <span class="s2">&quot;Da&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The average molecular weight of amino acids is: 137.04545454545453
+Peptide  GSRAHSSHLKSKKGQSTSRHK has 21 amino acids and a total mw of 2662 Da
+Peptide  YTSLIHSLIEESQNQQEKNEQELLELDKWASLWNWF has 36 amino acids and a total mw of 5076 Da
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="7">
+<li><p>The following string is an extract of a <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/2231712">blast</a> alignment with compacted textual output. This is a comma (“,”) separated text file where the columns report the following info: the first column is the query_id, the second the subject_id (i.e. the reference on which we aligned the query), the third is the percentage of identity and then we have the alignment length, number of mismatches, gap opens, start point of the alignment on the query, end
+point of the alignment on the query, start point of the alignment on the subject, end point of the alignment on the subject and evalue of the alignment.</p></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Fields:q.id,s.id,% ident,align len,mismatches,gap opens,q.start,q.end,s.start,s.end,evalue
+ab1_400a,scaffold16155,98.698,384,4,1,12,394,6700,7083,0.0
+ab1_400b,scaffold14620,98.698,384,4,1,12,394,1240,857,0.0
+92A2_SP6_344a,scaffold14394,95.575,113,5,0,97,209,250760,250648,2.92e-44
+92A2_SP6_344b,scaffold10682,97.849,93,2,0,18,110,898,990,3.81e-38
+92A2_T7_558a,scaffold277,88.746,311,31,3,21,330,26630,26937,5.81e-103
+92A2_T7_558b,scaffold277,89.545,220,21,2,27,246,27167,26950,6.06e-73
+92A2_T7_558c,scaffold1125,88.125,320,31,5,30,346,231532,231847,7.51e-102
+ab1_675a,scaffold4896,100.000,661,0,0,15,675,79051,78391,0.0
+ab1_676b,scaffold4896,99.552,670,0,3,7,673,78421,79090,0.0
+</pre></div>
+</div>
+<ol class="arabic">
+<li><p>For each alignment, store the subject id, the percentage of identity and evalue, subject start and end in a dictionary using the query id as key. All this information can be stored in a dictionary having subject id as key and a dictionary with all the information as value:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>alignments[&quot;ab1_400&quot;] = {&quot;subjectid&quot; : scaffold16155, &quot;perc_id&quot; : 98.698, &quot;evalue&quot; : 0.0}
+</pre></div>
+</div>
+</li>
+<li><p>Print the whole dictionary</p></li>
+<li><p>Print only the alignments having percentage of identity &gt; 90%</p></li>
+</ol>
+<p>Note: skip the first comment line (i.e. skip line if starts with “#”). Note1: when storing the percentage of identity remember to convert the string into a float.</p>
+<p>The expected output is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;92A2_T7_558a&#39;: {&#39;perc_id&#39;: 88.746, &#39;subjectid&#39;: &#39;scaffold277&#39;, &#39;evalue&#39;: &#39;5.81e-103&#39;},
+&#39;92A2_T7_558b&#39;: {&#39;perc_id&#39;: 89.545, &#39;subjectid&#39;: &#39;scaffold277&#39;, &#39;evalue&#39;: &#39;6.06e-73&#39;},
+&#39;92A2_SP6_344b&#39;: {&#39;perc_id&#39;: 97.849, &#39;subjectid&#39;: &#39;scaffold10682&#39;, &#39;evalue&#39;: &#39;3.81e-38&#39;},
+&#39;92A2_T7_558c&#39;: {&#39;perc_id&#39;: 88.125, &#39;subjectid&#39;: &#39;scaffold1125&#39;, &#39;evalue&#39;: &#39;7.51e-102&#39;},
+&#39;ab1_400a&#39;: {&#39;perc_id&#39;: 98.698, &#39;subjectid&#39;: &#39;scaffold16155&#39;, &#39;evalue&#39;: &#39;0.0&#39;},
+&#39;ab1_675a&#39;: {&#39;perc_id&#39;: 100.0, &#39;subjectid&#39;: &#39;scaffold4896&#39;, &#39;evalue&#39;: &#39;0.0&#39;},
+&#39;ab1_400b&#39;: {&#39;perc_id&#39;: 98.698, &#39;subjectid&#39;: &#39;scaffold14620&#39;, &#39;evalue&#39;: &#39;0.0&#39;},
+&#39;92A2_SP6_344a&#39;: {&#39;perc_id&#39;: 95.575, &#39;subjectid&#39;: &#39;scaffold14394&#39;, &#39;evalue&#39;: &#39;2.92e-44&#39;},
+&#39;ab1_676b&#39;: {&#39;perc_id&#39;: 99.552, &#39;subjectid&#39;: &#39;scaffold4896&#39;, &#39;evalue&#39;: &#39;0.0&#39;}}
+
+
+Alignments with identity &gt; 90%:
+
+Query id    Subject id  % ident evalue
+92A2_SP6_344b    scaffold10682   97.849      3.81e-38
+ab1_400a     scaffold16155   98.698      0.0
+ab1_675a     scaffold4896    100.0   0.0
+ab1_400b     scaffold14620   98.698      0.0
+92A2_SP6_344a    scaffold14394   95.575      2.92e-44
+ab1_676b     scaffold4896    99.552      0.0
+</pre></div>
+</div>
+<div class="tggle" onclick="toggleVisibility('ex6');"><p>Show/Hide Solution</p>
+</div><div id="ex6" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">blast_out</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;#Fields:q.id,s.id,</span><span class="si">% i</span><span class="s2">dent,align len,mismatches,gap opens,q.start,q.end,s.start,s.end,evalue</span>
+<span class="s2">ab1_400a,scaffold16155,98.698,384,4,1,12,394,6700,7083,0.0</span>
+<span class="s2">ab1_400b,scaffold14620,98.698,384,4,1,12,394,1240,857,0.0</span>
+<span class="s2">92A2_SP6_344a,scaffold14394,95.575,113,5,0,97,209,250760,250648,2.92e-44</span>
+<span class="s2">92A2_SP6_344b,scaffold10682,97.849,93,2,0,18,110,898,990,3.81e-38</span>
+<span class="s2">92A2_T7_558a,scaffold277,88.746,311,31,3,21,330,26630,26937,5.81e-103</span>
+<span class="s2">92A2_T7_558b,scaffold277,89.545,220,21,2,27,246,27167,26950,6.06e-73</span>
+<span class="s2">92A2_T7_558c,scaffold1125,88.125,320,31,5,30,346,231532,231847,7.51e-102</span>
+<span class="s2">ab1_675a,scaffold4896,100.000,661,0,0,15,675,79051,78391,0.0</span>
+<span class="s2">ab1_676b,scaffold4896,99.552,670,0,3,7,673,78421,79090,0.0&quot;&quot;&quot;</span>
+
+
+
+<span class="n">alignments</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">align</span> <span class="ow">in</span> <span class="n">blast_out</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">align</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="n">align_info</span> <span class="o">=</span> <span class="n">align</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+        <span class="n">alignments</span><span class="p">[</span><span class="n">align_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;subjectid&quot;</span> <span class="p">:</span> <span class="n">align_info</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                     <span class="s2">&quot;perc_id&quot;</span> <span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">align_info</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
+                                    <span class="s2">&quot;evalue&quot;</span> <span class="p">:</span> <span class="n">align_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                                    <span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">alignments</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Alignments with identity &gt; 90%:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Query id</span><span class="se">\t</span><span class="s2">Subject id</span><span class="se">\t</span><span class="si">% i</span><span class="s2">dent</span><span class="se">\t</span><span class="s2">evalue&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">alignments</span><span class="p">:</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">alignments</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="s2">&quot;perc_id&quot;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">90</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">alignments</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="s2">&quot;subjectid&quot;</span><span class="p">],</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">alignments</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="s2">&quot;perc_id&quot;</span><span class="p">],</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">alignments</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="s2">&quot;evalue&quot;</span><span class="p">])</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;ab1_400a&#39;: {&#39;subjectid&#39;: &#39;scaffold16155&#39;, &#39;perc_id&#39;: 98.698, &#39;evalue&#39;: &#39;0.0&#39;}, &#39;ab1_400b&#39;: {&#39;subjectid&#39;: &#39;scaffold14620&#39;, &#39;perc_id&#39;: 98.698, &#39;evalue&#39;: &#39;0.0&#39;}, &#39;92A2_SP6_344a&#39;: {&#39;subjectid&#39;: &#39;scaffold14394&#39;, &#39;perc_id&#39;: 95.575, &#39;evalue&#39;: &#39;2.92e-44&#39;}, &#39;92A2_SP6_344b&#39;: {&#39;subjectid&#39;: &#39;scaffold10682&#39;, &#39;perc_id&#39;: 97.849, &#39;evalue&#39;: &#39;3.81e-38&#39;}, &#39;92A2_T7_558a&#39;: {&#39;subjectid&#39;: &#39;scaffold277&#39;, &#39;perc_id&#39;: 88.746, &#39;evalue&#39;: &#39;5.81e-103&#39;}, &#39;92A2_T7_558b&#39;: {&#39;subjectid&#39;: &#39;scaffold277&#39;, &#39;perc_id&#39;: 89.545, &#39;evalue&#39;: &#39;6.06e-73&#39;}, &#39;92A2_T7_558c&#39;: {&#39;subjectid&#39;: &#39;scaffold1125&#39;, &#39;perc_id&#39;: 88.125, &#39;evalue&#39;: &#39;7.51e-102&#39;}, &#39;ab1_675a&#39;: {&#39;subjectid&#39;: &#39;scaffold4896&#39;, &#39;perc_id&#39;: 100.0, &#39;evalue&#39;: &#39;0.0&#39;}, &#39;ab1_676b&#39;: {&#39;subjectid&#39;: &#39;scaffold4896&#39;, &#39;perc_id&#39;: 99.552, &#39;evalue&#39;: &#39;0.0&#39;}}
+
+
+Alignments with identity &gt; 90%:
+
+Query id        Subject id      % ident evalue
+ab1_400a         scaffold16155   98.698          0.0
+ab1_400b         scaffold14620   98.698          0.0
+92A2_SP6_344a    scaffold14394   95.575          2.92e-44
+92A2_SP6_344b    scaffold10682   97.849          3.81e-38
+ab1_675a         scaffold4896    100.0   0.0
+ab1_676b         scaffold4896    99.552          0.0
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="8">
+<li><p>The following text (separated with a comma “,”) is an extract of protein-protein interactions network stored in the database <a class="reference external" href="https://string-db.org/">STRING</a> involving <a class="reference external" href="https://www.ncbi.nlm.nih.gov/gene/5313">PKLR</a> (Pyruvate kinase, liver and RBC) that plays a key role in glycolysis:</p></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#node1,node2,node1_ext_id,node2_ext_id,
+ENO1,TPI1,ENSP00000234590,ENSP00000229270
+PKLR,ENO1,ENSP00000339933,ENSP00000234590
+PKLR,ENO3,ENSP00000339933,ENSP00000324105
+PGK1,ENO1,ENSP00000362413,ENSP00000234590
+PGK1,TPI1,ENSP00000362413,ENSP00000229270
+GPI,TPI1,ENSP00000405573,ENSP00000229270
+PKLR,ENO2,ENSP00000339933,ENSP00000229277
+PGK1,ENO3,ENSP00000362413,ENSP00000324105
+PGK1,ENO2,ENSP00000362413,ENSP00000229277
+GPI,PKLR,ENSP00000405573,ENSP00000339933
+ENO2,TPI1,ENSP00000229277,ENSP00000229270
+PGK2,ENO1,ENSP00000305995,ENSP00000234590
+ENO3,PGK2,ENSP00000324105,ENSP00000305995
+PGK2,TPI1,ENSP00000305995,ENSP00000229270
+ENO3,TPI1,ENSP00000324105,ENSP00000229270
+PGK2,ENO2,ENSP00000305995,ENSP00000229277
+GPI,ENO3,ENSP00000405573,ENSP00000324105
+PKLR,LDHB,ENSP00000339933,ENSP00000229319
+PKLR,LDHC,ENSP00000339933,ENSP00000280704
+PKLR,TPI1,ENSP00000339933,ENSP00000229270
+PGK1,PKLR,ENSP00000362413,ENSP00000339933
+GPI,ENO2,ENSP00000405573,ENSP00000229277
+PKLR,PGK2,ENSP00000339933,ENSP00000305995
+GPI,PGK1,ENSP00000405573,ENSP00000362413
+ME3,PKLR,ENSP00000352657,ENSP00000339933
+ME3,LDHB,ENSP00000352657,ENSP00000229319
+ME3,LDHC,ENSP00000352657,ENSP00000280704
+GPI,PGK2,ENSP00000405573,ENSP00000305995
+GPI,ENO1,ENSP00000405573,ENSP00000234590
+GPI,LDHB,ENSP00000405573,ENSP00000229319
+ENO3,ENO2,ENSP00000324105,ENSP00000229277
+GPI,LDHC,ENSP00000405573,ENSP00000280704
+ENO3,LDHB,ENSP00000324105,ENSP00000229319
+ENO3,LDHC,ENSP00000324105,ENSP00000280704
+ENO1,LDHB,ENSP00000234590,ENSP00000229319
+LDHB,TPI1,ENSP00000229319,ENSP00000229270
+LDHC,TPI1,ENSP00000280704,ENSP00000229270
+PGK2,LDHC,ENSP00000305995,ENSP00000280704
+PGK1,LDHB,ENSP00000362413,ENSP00000229319
+PGK1,PGK2,ENSP00000362413,ENSP00000305995
+ENO1,ENO2,ENSP00000234590,ENSP00000229277
+LDHC,ENO1,ENSP00000280704,ENSP00000234590
+LDHB,ENO2,ENSP00000229319,ENSP00000229277
+LDHC,ENO2,ENSP00000280704,ENSP00000229277
+ENO3,ENO1,ENSP00000324105,ENSP00000234590
+PGK1,LDHC,ENSP00000362413,ENSP00000280704
+GPI,ME3,ENSP00000405573,ENSP00000352657
+PGK2,LDHB,ENSP00000305995,ENSP00000229319
+ME3,TPI1,ENSP00000352657,ENSP00000229270
+</pre></div>
+</div>
+<p>Here is a graphic representation of the protein-protein interactions:</p>
+<p><img alt="image0" src="_images/PKLR.png" /></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Note: we can assume that relations between nodes are transitive. node1 --&gt; node2
+implies node2 --&gt; node1.
+
+1. Store the network information in a dictionary having node1 as key and
+the list of all nodes2 associated to it as value (remember to skip the first
+line that is the header). Remember transitivity, therefore add also node2 --&gt;node1
+2. Find all first neighbours of &quot;PKLR&quot; (i.e. the nodes that are directly connected
+to &quot;PKLR&quot;) and print them
+3. Find all first neighbours of &quot;ME3&quot; (i.e. the nodes that are directly connected
+to &quot;PKLR&quot;) and print them
+4. Find all the second neighbours of &quot;ME3&quot; (i.e. the nodes that are connected to nodes
+directly connected to &quot;ME3&quot;, but not directly to &quot;ME3&quot;).
+</pre></div>
+</div>
+<div class="tggle" onclick="toggleVisibility('ex7');"><p>Show/Hide Solution</p>
+</div><div id="ex7" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">networkStr</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;#node1,node2,node1_ext_id,node2_ext_id,</span>
+<span class="s2">ENO1,TPI1,ENSP00000234590,ENSP00000229270</span>
+<span class="s2">PKLR,ENO1,ENSP00000339933,ENSP00000234590</span>
+<span class="s2">PKLR,ENO3,ENSP00000339933,ENSP00000324105</span>
+<span class="s2">PGK1,ENO1,ENSP00000362413,ENSP00000234590</span>
+<span class="s2">PGK1,TPI1,ENSP00000362413,ENSP00000229270</span>
+<span class="s2">GPI,TPI1,ENSP00000405573,ENSP00000229270</span>
+<span class="s2">PKLR,ENO2,ENSP00000339933,ENSP00000229277</span>
+<span class="s2">PGK1,ENO3,ENSP00000362413,ENSP00000324105</span>
+<span class="s2">PGK1,ENO2,ENSP00000362413,ENSP00000229277</span>
+<span class="s2">GPI,PKLR,ENSP00000405573,ENSP00000339933</span>
+<span class="s2">ENO2,TPI1,ENSP00000229277,ENSP00000229270</span>
+<span class="s2">PGK2,ENO1,ENSP00000305995,ENSP00000234590</span>
+<span class="s2">ENO3,PGK2,ENSP00000324105,ENSP00000305995</span>
+<span class="s2">PGK2,TPI1,ENSP00000305995,ENSP00000229270</span>
+<span class="s2">ENO3,TPI1,ENSP00000324105,ENSP00000229270</span>
+<span class="s2">PGK2,ENO2,ENSP00000305995,ENSP00000229277</span>
+<span class="s2">GPI,ENO3,ENSP00000405573,ENSP00000324105</span>
+<span class="s2">PKLR,LDHB,ENSP00000339933,ENSP00000229319</span>
+<span class="s2">PKLR,LDHC,ENSP00000339933,ENSP00000280704</span>
+<span class="s2">PKLR,TPI1,ENSP00000339933,ENSP00000229270</span>
+<span class="s2">PGK1,PKLR,ENSP00000362413,ENSP00000339933</span>
+<span class="s2">GPI,ENO2,ENSP00000405573,ENSP00000229277</span>
+<span class="s2">PKLR,PGK2,ENSP00000339933,ENSP00000305995</span>
+<span class="s2">GPI,PGK1,ENSP00000405573,ENSP00000362413</span>
+<span class="s2">ME3,PKLR,ENSP00000352657,ENSP00000339933</span>
+<span class="s2">ME3,LDHB,ENSP00000352657,ENSP00000229319</span>
+<span class="s2">ME3,LDHC,ENSP00000352657,ENSP00000280704</span>
+<span class="s2">GPI,PGK2,ENSP00000405573,ENSP00000305995</span>
+<span class="s2">GPI,ENO1,ENSP00000405573,ENSP00000234590</span>
+<span class="s2">GPI,LDHB,ENSP00000405573,ENSP00000229319</span>
+<span class="s2">ENO3,ENO2,ENSP00000324105,ENSP00000229277</span>
+<span class="s2">GPI,LDHC,ENSP00000405573,ENSP00000280704</span>
+<span class="s2">ENO3,LDHB,ENSP00000324105,ENSP00000229319</span>
+<span class="s2">ENO3,LDHC,ENSP00000324105,ENSP00000280704</span>
+<span class="s2">ENO1,LDHB,ENSP00000234590,ENSP00000229319</span>
+<span class="s2">LDHB,TPI1,ENSP00000229319,ENSP00000229270</span>
+<span class="s2">LDHC,TPI1,ENSP00000280704,ENSP00000229270</span>
+<span class="s2">PGK2,LDHC,ENSP00000305995,ENSP00000280704</span>
+<span class="s2">PGK1,LDHB,ENSP00000362413,ENSP00000229319</span>
+<span class="s2">PGK1,PGK2,ENSP00000362413,ENSP00000305995</span>
+<span class="s2">ENO1,ENO2,ENSP00000234590,ENSP00000229277</span>
+<span class="s2">LDHC,ENO1,ENSP00000280704,ENSP00000234590</span>
+<span class="s2">LDHB,ENO2,ENSP00000229319,ENSP00000229277</span>
+<span class="s2">LDHC,ENO2,ENSP00000280704,ENSP00000229277</span>
+<span class="s2">ENO3,ENO1,ENSP00000324105,ENSP00000234590</span>
+<span class="s2">PGK1,LDHC,ENSP00000362413,ENSP00000280704</span>
+<span class="s2">GPI,ME3,ENSP00000405573,ENSP00000352657</span>
+<span class="s2">PGK2,LDHB,ENSP00000305995,ENSP00000229319</span>
+<span class="s2">ME3,TPI1,ENSP00000352657,ENSP00000229270&quot;&quot;&quot;</span>
+
+<span class="n">netData</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">networkStr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)</span> <span class="p">):</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+        <span class="c1">#insert node1</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">netData</span><span class="p">):</span>
+            <span class="n">netData</span><span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">netData</span><span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="c1">#insert node2</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">netData</span><span class="p">):</span>
+            <span class="n">netData</span><span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">netData</span><span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">netData</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">PKLR is directly connected to:&quot;</span><span class="p">,</span> <span class="n">netData</span><span class="p">[</span><span class="s2">&quot;PKLR&quot;</span><span class="p">]</span> <span class="p">)</span>
+
+<span class="n">firstNeigh</span> <span class="o">=</span> <span class="n">netData</span><span class="p">[</span><span class="s2">&quot;ME3&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">ME3 is directly connected to:&quot;</span><span class="p">,</span> <span class="n">firstNeigh</span>  <span class="p">)</span>
+
+<span class="n">secondNeigh</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">firstNeigh</span><span class="p">:</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">node</span> <span class="ow">in</span> <span class="n">netData</span><span class="p">):</span> <span class="c1">#important, the node might not have connections</span>
+        <span class="n">neighbours</span> <span class="o">=</span> <span class="n">netData</span><span class="p">[</span><span class="n">node</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">neighbours</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">secondNeigh</span> <span class="ow">and</span>  <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">firstNeigh</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">!=</span> <span class="s2">&quot;ME3&quot;</span><span class="p">):</span>
+                <span class="n">secondNeigh</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">ME3&#39;s second neighbours:&quot;</span><span class="p">,</span> <span class="n">secondNeigh</span>  <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;ENO1&#39;: [&#39;TPI1&#39;, &#39;PKLR&#39;, &#39;PGK1&#39;, &#39;PGK2&#39;, &#39;GPI&#39;, &#39;LDHB&#39;, &#39;ENO2&#39;, &#39;LDHC&#39;, &#39;ENO3&#39;], &#39;TPI1&#39;: [&#39;ENO1&#39;, &#39;PGK1&#39;, &#39;GPI&#39;, &#39;ENO2&#39;, &#39;PGK2&#39;, &#39;ENO3&#39;, &#39;PKLR&#39;, &#39;LDHB&#39;, &#39;LDHC&#39;, &#39;ME3&#39;], &#39;PKLR&#39;: [&#39;ENO1&#39;, &#39;ENO3&#39;, &#39;ENO2&#39;, &#39;GPI&#39;, &#39;LDHB&#39;, &#39;LDHC&#39;, &#39;TPI1&#39;, &#39;PGK1&#39;, &#39;PGK2&#39;, &#39;ME3&#39;], &#39;ENO3&#39;: [&#39;PKLR&#39;, &#39;PGK1&#39;, &#39;PGK2&#39;, &#39;TPI1&#39;, &#39;GPI&#39;, &#39;ENO2&#39;, &#39;LDHB&#39;, &#39;LDHC&#39;, &#39;ENO1&#39;], &#39;PGK1&#39;: [&#39;ENO1&#39;, &#39;TPI1&#39;, &#39;ENO3&#39;, &#39;ENO2&#39;, &#39;PKLR&#39;, &#39;GPI&#39;, &#39;LDHB&#39;, &#39;PGK2&#39;, &#39;LDHC&#39;], &#39;GPI&#39;: [&#39;TPI1&#39;, &#39;PKLR&#39;, &#39;ENO3&#39;, &#39;ENO2&#39;, &#39;PGK1&#39;, &#39;PGK2&#39;, &#39;ENO1&#39;, &#39;LDHB&#39;, &#39;LDHC&#39;, &#39;ME3&#39;], &#39;ENO2&#39;: [&#39;PKLR&#39;, &#39;PGK1&#39;, &#39;TPI1&#39;, &#39;PGK2&#39;, &#39;GPI&#39;, &#39;ENO3&#39;, &#39;ENO1&#39;, &#39;LDHB&#39;, &#39;LDHC&#39;], &#39;PGK2&#39;: [&#39;ENO1&#39;, &#39;ENO3&#39;, &#39;TPI1&#39;, &#39;ENO2&#39;, &#39;PKLR&#39;, &#39;GPI&#39;, &#39;LDHC&#39;, &#39;PGK1&#39;, &#39;LDHB&#39;], &#39;LDHB&#39;: [&#39;PKLR&#39;, &#39;ME3&#39;, &#39;GPI&#39;, &#39;ENO3&#39;, &#39;ENO1&#39;, &#39;TPI1&#39;, &#39;PGK1&#39;, &#39;ENO2&#39;, &#39;PGK2&#39;], &#39;LDHC&#39;: [&#39;PKLR&#39;, &#39;ME3&#39;, &#39;GPI&#39;, &#39;ENO3&#39;, &#39;TPI1&#39;, &#39;PGK2&#39;, &#39;ENO1&#39;, &#39;ENO2&#39;, &#39;PGK1&#39;], &#39;ME3&#39;: [&#39;PKLR&#39;, &#39;LDHB&#39;, &#39;LDHC&#39;, &#39;GPI&#39;, &#39;TPI1&#39;]}
+
+PKLR is directly connected to: [&#39;ENO1&#39;, &#39;ENO3&#39;, &#39;ENO2&#39;, &#39;GPI&#39;, &#39;LDHB&#39;, &#39;LDHC&#39;, &#39;TPI1&#39;, &#39;PGK1&#39;, &#39;PGK2&#39;, &#39;ME3&#39;]
+
+ME3 is directly connected to: [&#39;PKLR&#39;, &#39;LDHB&#39;, &#39;LDHC&#39;, &#39;GPI&#39;, &#39;TPI1&#39;]
+
+ME3&#39;s second neighbours: [&#39;ENO1&#39;, &#39;ENO3&#39;, &#39;ENO2&#39;, &#39;PGK1&#39;, &#39;PGK2&#39;]
+</pre></div></div>
+</div>
+</div></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright # 2020 - 2020, Luca Bianco
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

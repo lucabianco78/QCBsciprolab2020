@@ -1,0 +1,2482 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Practical 6 &mdash; Jupman</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/jupman.js"></script>
+        <script type="text/javascript" src="_static/js/pytutor-embed.bundle.min.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/jupman.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/jupman-web.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="toc-page.html" class="icon icon-home"> Jupman
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Scientific Programming for QCB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#General-Info">General Info</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#Timetable-and-lecture-rooms">Timetable and lecture rooms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#Tutoring">Tutoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#Slides">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#Acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="toc.html"> </a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="toc-page.html">Jupman</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+    <div id='jupman-langs'></div>
+
+     <!-- <li> <h2 style="background-color:red; color:yellow">WARNING! THIS VERSION IS OLD !  <br/>
+    <a style=" text-decoration: underline;" href="https://jupman.readthedocs.io/en/latest">GOT TO LATEST VERSION</a></li>
+ </h2></li>-->
+    <!-- Commented because doesn't work with sections,
+         see https://github.com/DavidLeoni/jupman/issues/39
+    <li><a href="toc-page.html">Docs</a> &raquo;</li>
+    
+    <li>Practical 6</li>
+    -->
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Practical-6">
+<h1>Practical 6<a class="headerlink" href="#Practical-6" title="Permalink to this headline">¶</a></h1>
+<p>In this practical we will see how to define functions to reuse code, we will talk about the scope of variables and finally will see how to deal with files in Python.</p>
+<div class="section" id="Slides">
+<h2>Slides<a class="headerlink" href="#Slides" title="Permalink to this headline">¶</a></h2>
+<p>The slides of the introduction can be found here: <a class="reference external" href="docs/Practical6.pdf">Intro</a></p>
+</div>
+<div class="section" id="Functions">
+<h2>Functions<a class="headerlink" href="#Functions" title="Permalink to this headline">¶</a></h2>
+<p>A function is a block of code that has a name and that performs a task. A function can be thought of as a box that gets an input and returns an output.</p>
+<p><strong>Why should we use functions?</strong> For a lot of reasons including:</p>
+<ol class="arabic simple">
+<li><p><em>Reduce code duplication</em>: put in functions parts of code that are needed several times in the whole program so that you don’t need to repeat the same code over and over again;</p></li>
+<li><p><em>Decompose a complex task</em>: make the code easier to write and understand by splitting the whole program in several easier functions;</p></li>
+</ol>
+<p>both things improve code readability and make your code easier to understand.</p>
+<p>The basic definition of a function is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def function_name(input) :
+    #code implementing the function
+    ...
+    ...
+    return return_value
+</pre></div>
+</div>
+<p>Functions are defined with the <strong>def</strong> keyword that proceeds the <em>function_name</em> and then a list of parameters is passed in the brackets. A colon <strong>:</strong> is used to end the line holding the definition of the function. The code implementing the function is specified by using indentation. A function <strong>might</strong> or <strong>might not</strong> return a value. In the first case a <strong>return</strong> statement is used.</p>
+<p><strong>Example:</strong> Define a function that implements the sum of two integer lists (note that there is no check that the two lists actually contain integers and that they have the same size).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">int_list_sum</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span><span class="n">l2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;implements the sum of two lists of integers having the same size</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ret</span> <span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">l1</span><span class="p">)):</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">l2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">ret</span>
+
+<span class="n">L1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L1:&quot;</span><span class="p">,</span> <span class="n">L1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L2:&quot;</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">int_list_sum</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span><span class="n">L2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L1+L2:&quot;</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">int_list_sum</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span><span class="n">L1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L1+L1&quot;</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+L1: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+L2: [20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+L1+L2: [21, 23, 25, 27, 29, 31, 33, 35, 37]
+L1+L1 [2, 4, 6, 8, 10, 12, 14, 16, 18]
+</pre></div></div>
+</div>
+<p>Note that once the function has been defined, it can be called as many times as wanted with different input parameters. Moreover, <strong>a function does not do anything until it is actually called.</strong> A function can return <strong>0</strong> (in this case the return value would be “None”), <strong>1</strong> or <strong>more</strong> results. Notice also that collecting the results of a function is <strong>not mandatory</strong>.</p>
+<p><strong>Example:</strong> Let’s write a function that, given a list of elements, prints only the even-placed ones without returning anything.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">get_even_placed</span><span class="p">(</span><span class="n">myList</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;returns the even placed elements of myList&quot;&quot;&quot;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">[</span><span class="n">myList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">myList</span><span class="p">))</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+
+<span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="s2">&quot;there&quot;</span><span class="p">,</span> <span class="s2">&quot;from&quot;</span><span class="p">,</span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="s2">&quot;!&quot;</span><span class="p">]</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">13</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L1:&quot;</span><span class="p">,</span> <span class="n">L1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L2:&quot;</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;even L1:&quot;</span><span class="p">)</span>
+<span class="n">get_even_placed</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;even L2:&quot;</span><span class="p">)</span>
+<span class="n">get_even_placed</span><span class="p">(</span><span class="n">L2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+L1: [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;python&#39;, &#39;!&#39;]
+L2: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+even L1:
+[&#39;hi&#39;, &#39;from&#39;, &#39;!&#39;]
+even L2:
+[0, 2, 4, 6, 8, 10, 12]
+</pre></div></div>
+</div>
+<p><strong>Note that the function above is polymorphic</strong> (i.e. it works on several data types, provided that we can iterate through them).</p>
+<p><strong>Example:</strong> Let’s write a function that, given a list of integers, returns the number of elements, the maximum and minimum.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">get_info</span><span class="p">(</span><span class="n">myList</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;returns len of myList, min and max value (assumes elements are integers)&quot;&quot;&quot;</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">myList</span><span class="p">[:]</span> <span class="c1">#copy the input list</span>
+    <span class="n">tmp</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp</span><span class="p">),</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tmp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#return type is a tuple</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">125</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original A:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">get_info</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Len:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;Min:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;Max:&quot;</span><span class="p">,</span><span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A now:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Original A: [7, 1, 125, 4, -1, 0]
+
+Len: 6 Min: -1 Max: 125
+
+A now: [7, 1, 125, 4, -1, 0]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">my_sum</span><span class="p">(</span><span class="n">myList</span><span class="p">):</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">myList</span><span class="p">:</span>
+        <span class="n">ret</span> <span class="o">+=</span> <span class="n">el</span> <span class="c1"># == ret = ret + el</span>
+    <span class="k">return</span> <span class="n">ret</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">my_sum</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;List A:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sum:&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">my_sum</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;List B:&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sum:&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+List A: [1, 2, 3, 4, 5, 6]
+Sum: 21
+List B: [7, 9, 4]
+Sum: 20
+</pre></div></div>
+</div>
+<p>Please note that the return value above is actually a tuple. Importantly enough, a function needs to be defined (i.e. its code has to be written) before it can actually be used.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">my_sum</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">my_sum</span><span class="p">(</span><span class="n">myList</span><span class="p">):</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">myList</span><span class="p">:</span>
+        <span class="n">ret</span> <span class="o">+=</span> <span class="n">el</span>
+    <span class="k">return</span> <span class="n">ret</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Namespace-and-variable-scope">
+<h2>Namespace and variable scope<a class="headerlink" href="#Namespace-and-variable-scope" title="Permalink to this headline">¶</a></h2>
+<p><strong>Namespaces</strong> are mappings from <em>names</em> to objects, or in other words places where names are associated to objects. Namespaces can be considered as the context. According to Python’s reference a <strong>scope</strong> is a <em>textual region of a Python program, where a namespace is directly accessible</em>, which means that Python will look into that <em>namespace</em> to find the object associated to a name. Four <strong>namespaces</strong> are made available by Python:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. **Local**: the innermost that contains local names (inside a function or a class);
+
+2. **Enclosing**: the scope of the enclosing function,
+it does not contain local nor global names (nested functions) ;
+
+3. **Global**: contains the global names;
+
+4. **Built-in**: contains all built in names
+(e.g. print, if, while, for,...)
+</pre></div>
+</div>
+<p>When one refers to a name, Python tries to find it in the current namespace, if it is not found it continues looking in the namespace that contains it until the built-in namespace is reached. If the name is not found there either, the Python interpreter will throw a <strong>NameError</strong> exception, meaning it cannot find the name. The order in which namespaces are considered is: Local, Enclosing, Global and Built-in (LEGB).</p>
+<p>Consider the following example:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span>
+    <span class="n">var</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1">#local variable</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Local:&quot;</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;my string&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Local:&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="n">var</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1">#global variable</span>
+<span class="n">my_function</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Global:&quot;</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Local: 1
+Local: my string
+Global: 7
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-6-da11a41b34ff&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      8</span> my_function<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      9</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Global:&#34;</span><span class="ansi-blue-fg">,</span> var<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 10</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>b<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     11</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;b&#39; is not defined
+</pre></div></div>
+</div>
+<p>Variables defined within a function can only be seen within the function. That is why variable b is defined only within the function. Variables defined outside all functions are <strong>global</strong> to the whole program. The namespace of the local variable is within the function my_function, while outside it the variable will have its global value.</p>
+<p>And the following:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">outer_function</span><span class="p">():</span>
+    <span class="n">var</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#outer</span>
+
+    <span class="k">def</span> <span class="nf">inner_function</span><span class="p">():</span>
+        <span class="n">var</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1">#inner</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inner:&quot;</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inner:&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+
+    <span class="n">inner_function</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Outer:&quot;</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+
+
+<span class="n">var</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1">#global</span>
+<span class="n">B</span> <span class="o">=</span> <span class="s2">&quot;This is B&quot;</span>
+<span class="n">outer_function</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Global:&quot;</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Global:&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Inner: 2
+Inner: This is B
+Outer: 1
+Global: 3
+Global: This is B
+</pre></div></div>
+</div>
+<p>Note in particular that the variable B is global, therefore it is accessible everywhere and also inside the inner_function. On the contrary, the value of var defined within the inner_function is accessible only in the namespace defined by it, outside it will assume different values as shown in the example.</p>
+<p>In a nutshell, remember the three simple rules seen in the lecture. Within a <strong>def</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. Name assignments create local names by default;
+2. Name references search the following four scopes in the order:
+local, enclosing functions (if any), then global and finally built-in (LEGB)
+3. Names declared in global and nonlocal statements map assigned names to
+enclosing module and function scopes.
+</pre></div>
+</div>
+</div>
+<div class="section" id="Argument-passing">
+<h2>Argument passing<a class="headerlink" href="#Argument-passing" title="Permalink to this headline">¶</a></h2>
+<p>Arguments are the parameters and data we pass to functions. When passing arguments, there are three important things to bear in mind are:</p>
+<ol class="arabic simple">
+<li><p>Passing an argument is actually assigning an object to a local variable name;</p></li>
+<li><p>Assigning an object to a variable name within a function <strong>does not affect the caller</strong>;</p></li>
+<li><p>Changing a <strong>mutable</strong> object variable name within a function <strong>affects the caller</strong></p></li>
+</ol>
+<p>Consider the following examples:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Assigning the argument does not affect the caller&quot;&quot;&quot;</span>
+
+<span class="k">def</span> <span class="nf">my_f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;local value&quot;</span> <span class="c1">#local</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Local: &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;global value&quot;</span> <span class="c1">#global</span>
+<span class="n">my_f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Global:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">my_f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Local:  local value
+Global: global value
+Local:  local value
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Changing a mutable affects the caller&quot;&quot;&quot;</span>
+
+<span class="k">def</span> <span class="nf">my_f</span><span class="p">(</span><span class="n">myList</span><span class="p">):</span>
+    <span class="n">myList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;new value1&quot;</span>
+    <span class="n">myList</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;new value2&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Local: &quot;</span><span class="p">,</span> <span class="n">myList</span><span class="p">)</span>
+
+<span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;old value&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Global:&quot;</span><span class="p">,</span> <span class="n">myList</span><span class="p">)</span>
+<span class="n">my_f</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Global now: &quot;</span><span class="p">,</span> <span class="n">myList</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Global: [&#39;old value&#39;, &#39;old value&#39;, &#39;old value&#39;, &#39;old value&#39;]
+Local:  [&#39;old value&#39;, &#39;new value1&#39;, &#39;old value&#39;, &#39;new value2&#39;]
+Global now:  [&#39;old value&#39;, &#39;new value1&#39;, &#39;old value&#39;, &#39;new value2&#39;]
+</pre></div></div>
+</div>
+<p>Recall what seen in the lecture:</p>
+<p><img alt="image0" src="_images/io_met_fun.png" /></p>
+<p>The behaviour above is because <strong>immutable objects</strong> are passed <strong>by value</strong> (therefore it is like making a copy), while <strong>mutable objects</strong> are passed <strong>by reference</strong> (therefore changing them effectively changes the original object).</p>
+<p>To avoid making changes to a <strong>mutable object</strong> passed as parameter one needs to <strong>explicitely make a copy</strong> of it.</p>
+<p>Consider the example seen before. <strong>Example:</strong> Let’s write a function that, given a list of integers, returns the number of elements, the maximum and minimum.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">get_info</span><span class="p">(</span><span class="n">myList</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;returns len of myList, min and max value (assumes elements are integers)&quot;&quot;&quot;</span>
+    <span class="n">myList</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">myList</span><span class="p">),</span> <span class="n">myList</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">myList</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#return type is a tuple</span>
+
+
+<span class="k">def</span> <span class="nf">get_info_copy</span><span class="p">(</span><span class="n">myList</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;returns len of myList, min and max value (assumes elements are integers)&quot;&quot;&quot;</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">myList</span><span class="p">[:]</span> <span class="c1">#copy the input list!!!!</span>
+    <span class="n">tmp</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp</span><span class="p">),</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tmp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#return type is a tuple</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">125</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1250</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">get_info</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Len:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;Min:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;Max:&quot;</span><span class="p">,</span><span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A now:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span> <span class="c1">#whoops A is changed!!!</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">###### With copy now ########&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">B:&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">get_info_copy</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Len:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;Min:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;Max:&quot;</span><span class="p">,</span><span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B now:&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span> <span class="c1">#B is not changed!!!</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+A: [7, 1, 125, 4, -1, 0]
+Len: 6 Min: -1 Max: 125
+A now: [-1, 0, 1, 4, 7, 125]
+
+###### With copy now ########
+
+B: [70, 10, 1250, 40, -10, 0, 10]
+Len: 7 Min: -10 Max: 1250
+B now: [70, 10, 1250, 40, -10, 0, 10]
+</pre></div></div>
+</div>
+<div class="section" id="Positional-arguments">
+<h3>Positional arguments<a class="headerlink" href="#Positional-arguments" title="Permalink to this headline">¶</a></h3>
+<p>Arguments can be passed to functions following the order in which they appear in the function definition.</p>
+<p>Consider the following example:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">print_parameters</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1st param:&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2nd param:&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3rd param:&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4th param:&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+
+
+<span class="n">print_parameters</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1st param: A
+2nd param: B
+3rd param: C
+4th param: D
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Passing-arguments-by-keyword">
+<h3>Passing arguments by keyword<a class="headerlink" href="#Passing-arguments-by-keyword" title="Permalink to this headline">¶</a></h3>
+<p>Given the name of an argument as specified in the definition of the function, parameters can be passed using the <strong>name = value</strong> syntax.</p>
+<p>For example:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">print_parameters</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1st param:&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2nd param:&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3rd param:&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4th param:&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+
+
+<span class="n">print_parameters</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">###############</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">print_parameters</span><span class="p">(</span><span class="s2">&quot;first&quot;</span><span class="p">,</span><span class="s2">&quot;second&quot;</span><span class="p">,</span><span class="n">d</span><span class="o">=</span><span class="s2">&quot;fourth&quot;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;third&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">###############</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1st param: 1
+2nd param: 2
+3rd param: 3
+4th param: 4
+
+###############
+
+1st param: first
+2nd param: second
+3rd param: third
+4th param: fourth
+
+###############
+
+</pre></div></div>
+</div>
+<p>Arguments passed positionally and by name can be used at the same time, but parameters passed by name must always be to the left of those passed by name. The following code in fact is not accepted by the Python interpreter:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">print_parameters</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1st param:&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2nd param:&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3rd param:&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4th param:&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+
+<span class="n">print_parameters</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="s2">&quot;fourth&quot;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;third&quot;</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span><span class="p">,</span><span class="s2">&quot;second&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-13-4991b2c31842&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">7</span>
+<span class="ansi-red-fg">    print_parameters(d=&#34;fourth&#34;,c=&#34;third&#34;, &#34;first&#34;,&#34;second&#34;)</span>
+                                          ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> positional argument follows keyword argument
+
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Specifying-default-values">
+<h3>Specifying default values<a class="headerlink" href="#Specifying-default-values" title="Permalink to this headline">¶</a></h3>
+<p>During the definition of a function it is possible to specify default values. The syntax is the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def my_function(par1 = val1, par2 = val2, par3 = val3):
+</pre></div>
+</div>
+<p>Consider the following example:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">print_parameters</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="s2">&quot;defaultA&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="s2">&quot;defaultB&quot;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;defaultC&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a:&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b:&quot;</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;c:&quot;</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+
+<span class="n">print_parameters</span><span class="p">(</span><span class="s2">&quot;param_A&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">#################</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">print_parameters</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="s2">&quot;PARAMETER_B&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">#################</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">print_parameters</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">#################</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">print_parameters</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;PARAMETER_C&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="s2">&quot;PAR_B&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+a: param_A
+b: defaultB
+c: defaultC
+
+#################
+
+a: defaultA
+b: PARAMETER_B
+c: defaultC
+
+#################
+
+a: defaultA
+b: defaultB
+c: defaultC
+
+#################
+
+a: defaultA
+b: PAR_B
+c: PARAMETER_C
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="File-input-and-output">
+<h2>File input and output<a class="headerlink" href="#File-input-and-output" title="Permalink to this headline">¶</a></h2>
+<p>Files are non volatile data stored at specific locations in memory. To read or write from/to a file, one first needs to create a reference to the file. This is called the <strong>handle</strong> to the file.</p>
+<p>Recall from the lecture that Python provides programmers with the following functions and methods:</p>
+<p><img alt="image0" src="_images/io_met_fun.png" /></p>
+<p>To read or write to a file one first needs to open it with the python’s built-in function <strong>open</strong> that returns a handler to the file. The handler can then be used to read or write the content of the file.</p>
+<p><strong>Example:</strong> Download the file <a class="reference external" href="file_samples/textFile.txt">textFile.txt</a> to your favourite location and read it from python, printing out all its content. <strong>NOTE:</strong> the path of your file might be different from mine.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fh</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file_samples/textFile.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="c1">#read-only mode</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- File content ---&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fh</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1">#no need to add a new line</span>
+
+<span class="n">fh</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- File closed ---&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+--- File content ---
+Hi everybody,
+This is my first file
+and it contains a total of
+four lines!
+--- File closed ---
+</pre></div></div>
+</div>
+<p>The usual interaction with files is done in three steps: <strong>open the file</strong>, <strong>read or write its content</strong>, <strong>close the file</strong>.</p>
+<div class="section" id="Opening-a-file">
+<h3>Opening a file<a class="headerlink" href="#Opening-a-file" title="Permalink to this headline">¶</a></h3>
+<p>As said, a file needs to be opened before working with it. This can be done by using the function <strong>open</strong>.</p>
+<p>The standard syntax is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>file_handle = open(&quot;file_name&quot;, &quot;file_mode&quot;)
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">file_name</span></code> is a string representing the path to reach the file (either absolute or relative to the .py module we are writing) and <code class="docutils literal notranslate"><span class="pre">file_mode</span></code> is the string representing the opening mode of the file. <code class="docutils literal notranslate"><span class="pre">file_mode</span></code> can be:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code> which is the default and opens the file in read only mode;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code> write only mode. <strong>Note that this would overwrite an existing file</strong>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code> append mode (i.e. add information at the end of an existing file or create a new file)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;t&quot;</span></code> text mode. The file will be a text file (this is the default).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;b&quot;</span></code> binary mode. The file will not be a textual file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code> exclusive creation. This will fail if the file already exists.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;+&quot;</span></code> update mode. The file will be opened with read and write permissions.</p></li>
+</ol>
+<p>Opening modes can be combined (ex. <code class="docutils literal notranslate"><span class="pre">&quot;ra&quot;</span></code> would read and append, <code class="docutils literal notranslate"><span class="pre">&quot;wb&quot;</span></code> would write (and overwrite) a binary file, <code class="docutils literal notranslate"><span class="pre">&quot;r+b&quot;</span></code> read and write a binary file).</p>
+</div>
+<div class="section" id="Closing-a-file">
+<h3>Closing a file<a class="headerlink" href="#Closing-a-file" title="Permalink to this headline">¶</a></h3>
+<p>A opened file always needs to be closed. The basic syntax is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>file_handle.close()
+</pre></div>
+</div>
+<p>this will free up resources and will not allow any more operations on the same file.</p>
+<p>The following code will in fact crash, because the file has been closed and therefore no more operations can be performed on it.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fh</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file_samples/textFile.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="c1">#read-only mode</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- File content ---&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fh</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1">#no need to add a new line</span>
+
+<span class="n">fh</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- File closed ---&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">fh</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+--- File content ---
+Hi everybody,
+This is my first file
+and it contains a total of
+four lines!
+--- File closed ---
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-16-0367c74d60af&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">     10</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;\n--- File closed ---&#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     11</span>
+<span class="ansi-green-fg">---&gt; 12</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>fh<span class="ansi-blue-fg">.</span>readline<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">ValueError</span>: I/O operation on closed file.
+</pre></div></div>
+</div>
+<p>An alternative way to open and implicitly close the file is by using the <strong>with</strong> keyword. The basic syntax is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>with open(&quot;file&quot;) as f:
+    #do some stuff
+    #until done with it
+</pre></div>
+</div>
+<p>The previous example would become:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- File content ---&quot;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file_samples/textFile.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1">#no need to add a new line</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- File closed ---&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+--- File content ---
+Hi everybody,
+This is my first file
+and it contains a total of
+four lines!
+--- File closed ---
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Reading-from-a-file">
+<h3>Reading from a file<a class="headerlink" href="#Reading-from-a-file" title="Permalink to this headline">¶</a></h3>
+<p>There are several ways for reading a file that has been opened in <em>read</em> mode having file handle <code class="docutils literal notranslate"><span class="pre">fh</span></code>:</p>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">content</span> <span class="pre">=</span> <span class="pre">fh.read()</span></code> reads the whole file in the content string. Good for small and not structured files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line</span> <span class="pre">=</span> <span class="pre">fh.readline()</span></code> reads the file one line at a time storing it in the string <code class="docutils literal notranslate"><span class="pre">line</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lines</span> <span class="pre">=</span> <span class="pre">fh.readlines()</span></code> reads all the lines of the file storing them as a list <code class="docutils literal notranslate"><span class="pre">lines</span></code></p></li>
+<li><p>using the iterator:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for line in f:
+#process the information
+</pre></div>
+</div>
+<p>which is the most convenient way for big files.</p>
+</li>
+</ol>
+<p>Let’s see some examples. Note that to restart reading a file from the beginning we need to close it and open it gain.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fh</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file_samples/textFile.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="c1">#read-only mode</span>
+
+<span class="n">content</span> <span class="o">=</span> <span class="n">fh</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Mode1 (the whole file in a string) ---&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="n">fh</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Mode2 (line by line) ---&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file_samples/textFile.txt&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Line1: &quot;</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">(),</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Line2: &quot;</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">(),</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Mode3 (all lines as a list) ---&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file_samples/textFile.txt&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Mode4 (as a stream) ---&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file_samples/textFile.txt&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+--- Mode1 (the whole file in a string) ---
+Hi everybody,
+This is my first file
+and it contains a total of
+four lines!
+
+--- Mode2 (line by line) ---
+Line1:  Hi everybody,
+Line2:  This is my first file
+
+--- Mode3 (all lines as a list) ---
+[&#39;Hi everybody,\n&#39;, &#39;This is my first file\n&#39;, &#39;and it contains a total of\n&#39;, &#39;four lines!&#39;]
+
+--- Mode4 (as a stream) ---
+Hi everybody,
+This is my first file
+and it contains a total of
+four lines!
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Writing-to-a-file">
+<h3>Writing to a file<a class="headerlink" href="#Writing-to-a-file" title="Permalink to this headline">¶</a></h3>
+<p>To write some data to a file it must first be opened in write mode (i.e. “w”) or append mode (“a”, “+”). The actual writing can be performed by the method <strong>write</strong> that has the following basic syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>file_handle.write(data_to_be_written)
+</pre></div>
+</div>
+<p>To make sure all data is written to the file, we must remember to close the file after writing on it.</p>
+<p><strong>Example:</strong> Given the matrix represented as list of lists, M = [[1,2,3], [4,5,6], [7,8,9]] let’s write it on a file <em>my_matrix.txt</em> as <span class="math notranslate nohighlight">\(\begin{matrix}1 &amp; 2 &amp; 3\\4 &amp; 5 &amp; 6\\7 &amp; 8 &amp; 9\end{matrix}\)</span></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">M</span> <span class="o">=</span>  <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file_samples/my_matrix.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">M</span><span class="p">:</span>
+        <span class="n">str_line</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">line</span><span class="p">]</span> <span class="c1">#to make this &quot;joinable&quot;</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">str_line</span><span class="p">))</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1">#no need to put the close because we used with</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="String-formatting-with-format">
+<h3>String formatting with format<a class="headerlink" href="#String-formatting-with-format" title="Permalink to this headline">¶</a></h3>
+<p>Strings can be formatted with the method <strong>format</strong>. A lot of information on the use of format can be found <a class="reference external" href="https://docs.python.org/3/library/string.html#format-string-syntax">here</a>.</p>
+<p>Format can be used to add values to a string in specific placeholders (normally defined with the syntax <strong>{}</strong>) or to format values according to the user specifications (e.g. number of decimal places for floating point numbers).</p>
+<p>In the following we will see some simple examples.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#simple empty placeholders</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I like </span><span class="si">{}</span><span class="s2"> more than </span><span class="si">{}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;java&quot;</span><span class="p">))</span>
+
+<span class="c1">#indexed placeholders, note order</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I like </span><span class="si">{0}</span><span class="s2"> more than </span><span class="si">{1}</span><span class="s2"> or </span><span class="si">{2}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;java&quot;</span><span class="p">,</span> <span class="s2">&quot;C++&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I like </span><span class="si">{2}</span><span class="s2"> more than </span><span class="si">{1}</span><span class="s2"> or </span><span class="si">{0}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;java&quot;</span><span class="p">,</span> <span class="s2">&quot;C++&quot;</span><span class="p">))</span>
+
+<span class="c1">#indexed and named placeholders</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I like </span><span class="si">{1}</span><span class="s2"> more than </span><span class="si">{c}</span><span class="s2"> or </span><span class="si">{0}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;java&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;C++&quot;</span><span class="p">))</span>
+
+<span class="c1">#with type specification</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The square root of </span><span class="si">{0}</span><span class="s2"> is </span><span class="si">{1:f}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+
+<span class="c1">#with type and format specification (NOTE: {.2f})</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The square root of </span><span class="si">{0}</span><span class="s2"> is </span><span class="si">{1:.2f}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+
+<span class="c1">#spacing data properly</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:2s}</span><span class="s2">|</span><span class="si">{:5}</span><span class="s2">|</span><span class="si">{:6}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;N&quot;</span><span class="p">,</span><span class="s2">&quot;sqrt&quot;</span><span class="p">,</span><span class="s2">&quot;square&quot;</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:2d}</span><span class="s2">|</span><span class="si">{:5.3f}</span><span class="s2">|</span><span class="si">{:6d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+I like python more than java.
+
+I like python more than java or C++.
+
+I like C++ more than java or python.
+
+I like java more than C++ or python.
+
+The square root of 2 is 1.414214.
+
+The square root of 2 is 1.41.
+
+N |sqrt |square
+ 0|0.000|     0
+ 1|1.000|     1
+ 2|1.414|     4
+ 3|1.732|     9
+ 4|2.000|    16
+ 5|2.236|    25
+ 6|2.449|    36
+ 7|2.646|    49
+ 8|2.828|    64
+ 9|3.000|    81
+10|3.162|   100
+11|3.317|   121
+12|3.464|   144
+13|3.606|   169
+14|3.742|   196
+15|3.873|   225
+16|4.000|   256
+17|4.123|   289
+18|4.243|   324
+19|4.359|   361
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="Exercises">
+<h2>Exercises<a class="headerlink" href="#Exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Implement a function that takes in input a string representing a DNA sequence and computes its reverse-complement. Take care to reverse complement any character other than (A,T,C,G,a,t,c,g) to N. The function should preserve the case of each letter (i.e. A becomes T, but a becomes t). For simplicity all bases that do not represent nucleotides are converted to a capital N. <strong>Hint: create a dictionary revDict with bases as keys and their complements as values</strong>. Ex. revDict = {“A” : “T” , “a” :
+“t”, …}.</p>
+<ol class="arabic simple">
+<li><p>Apply the function to the DNA sequence “ATTACATATCATACTATCGCNTTCTAAATA”</p></li>
+<li><p>Apply the function to the DNA sequence “acaTTACAtagataATACTaccataGCNTTCTAAATA”</p></li>
+<li><p>Apply the function to the DNA sequence “TTTTACCKKKAKTUUUITTTARRRRRAIUTYYA”</p></li>
+<li><p>Check that the reverse complement of the reverse complement of the sequence in 1. is exactly as the original sequence.</p></li>
+</ol>
+</li>
+</ol>
+<div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
+</div><div id="ex1" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">reverse_complement</span><span class="p">(</span><span class="n">DNA</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;the function reverse complements a string of DNA&quot;&quot;&quot;</span>
+    <span class="n">revDict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span> <span class="p">:</span> <span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span> <span class="p">:</span> <span class="s2">&quot;t&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;C&quot;</span> <span class="p">:</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span> <span class="p">:</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;G&quot;</span> <span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span> <span class="p">:</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;T&quot;</span> <span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span> <span class="p">:</span> <span class="s2">&quot;a&quot;</span>
+            <span class="p">}</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">DNA</span><span class="p">:</span>
+        <span class="c1">### dict.get(val, default) : returns default if val not in</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">revDict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">result</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="c1"># Second version (equivalent)</span>
+<span class="k">def</span> <span class="nf">reverse_complement2</span><span class="p">(</span><span class="n">DNA</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;the function reverse complements a string of DNA&quot;&quot;&quot;</span>
+    <span class="n">revDict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span> <span class="p">:</span> <span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span> <span class="p">:</span> <span class="s2">&quot;t&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;C&quot;</span> <span class="p">:</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span> <span class="p">:</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;G&quot;</span> <span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span> <span class="p">:</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;T&quot;</span> <span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span> <span class="p">:</span> <span class="s2">&quot;a&quot;</span>
+            <span class="p">}</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">DNAlist</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">DNA</span><span class="p">)</span>
+    <span class="n">DNAlist</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="n">revComp</span> <span class="o">=</span><span class="p">[</span><span class="n">revDict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">DNAlist</span><span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">revComp</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="c1"># Third version (equivalent)</span>
+<span class="k">def</span> <span class="nf">reverse_complement3</span><span class="p">(</span><span class="n">DNA</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;the function reverse complements a string of DNA&quot;&quot;&quot;</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="s2">&quot;AaTtCcGg&quot;</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="s2">&quot;TtAaGgCc&quot;</span>
+    <span class="n">revDict</span>  <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">k</span><span class="p">)):</span>
+        <span class="n">revDict</span><span class="p">[</span><span class="n">k</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">DNAlist</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">DNA</span><span class="p">)</span>
+    <span class="n">DNAlist</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="n">revComp</span> <span class="o">=</span><span class="p">[</span><span class="n">revDict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">DNAlist</span><span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">revComp</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="n">S1</span> <span class="o">=</span> <span class="s2">&quot;ATTACATATCATACTATCGCNTTCTAAATA&quot;</span>
+<span class="n">S2</span> <span class="o">=</span> <span class="s2">&quot;acaTTACAtagataATACTaccataGCNTTCTAAATA&quot;</span>
+<span class="n">S3</span> <span class="o">=</span> <span class="s2">&quot;TTTTACCKKKAKTUUUITTTARRRRRAIUTYYA&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;S1 </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">S1</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;rc S1&quot;</span><span class="p">,</span> <span class="n">reverse_complement</span><span class="p">(</span><span class="n">S1</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">S2   &quot;</span><span class="p">,</span> <span class="n">S2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;rc S2&quot;</span><span class="p">,</span> <span class="n">reverse_complement</span><span class="p">(</span><span class="n">S2</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">S3   &quot;</span><span class="p">,</span> <span class="n">S3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;rc S3&quot;</span><span class="p">,</span> <span class="n">reverse_complement</span><span class="p">(</span><span class="n">S3</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">rev_comp(rev_comp(S1)): </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">reverse_complement</span><span class="p">(</span><span class="n">reverse_complement</span><span class="p">(</span><span class="n">S1</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">rev_comp(rev_comp(S1) == S1?)&quot;</span><span class="p">,</span> <span class="n">reverse_complement</span><span class="p">(</span><span class="n">reverse_complement</span><span class="p">(</span><span class="n">S1</span><span class="p">))</span> <span class="o">==</span> <span class="n">S1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+S1 ATTACATATCATACTATCGCNTTCTAAATA
+rc S1 TATTTAGAANGCGATAGTATGATATGTAAT
+
+S2    acaTTACAtagataATACTaccataGCNTTCTAAATA
+rc S2 TATTTAGAANGCtatggtAGTATtatctaTGTAAtgt
+
+S3    TTTTACCKKKAKTUUUITTTARRRRRAIUTYYA
+rc S3 TNNANNTNNNNNTAAANNNNANTNNNGGTAAAA
+
+rev_comp(rev_comp(S1)): ATTACATATCATACTATCGCNTTCTAAATA
+
+rev_comp(rev_comp(S1) == S1?) True
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="2">
+<li><p>Write the following python functions and test them with some parameters of your choice:</p>
+<ol class="arabic simple">
+<li><p><em>getDivisors</em>: the function has a positive integer as parameter and returns a list of all the positive divisors of the integer in input (excluding the number itself). Example: <code class="docutils literal notranslate"><span class="pre">getDivisors(6)</span> <span class="pre">--&gt;</span> <span class="pre">[1,2,3]</span></code></p></li>
+<li><p><em>checkSum</em>: the function has a list and an integer as parameters and returns True if the sum of all elements in the list equals the integer, False otherwise. Example: <code class="docutils literal notranslate"><span class="pre">checkSum([1,2,3],</span> <span class="pre">6)</span> <span class="pre">--&gt;</span> <span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">checkSum([1,2,3],1)</span> <span class="pre">--&gt;</span> <span class="pre">False</span></code>.</p></li>
+<li><p><em>checkPerfect</em>: the function gets an integer as parameter and returns True if the integer is a <a class="reference external" href="https://en.wikipedia.org/wiki/Perfect_number">perfect number</a>, False otherwise. A number is perfect if all its divisors (excluding itself) sum to its value. Example: <code class="docutils literal notranslate"><span class="pre">checkPerfect(6)</span> <span class="pre">--&gt;</span> <span class="pre">True</span></code> because 1+2+3 = 6. Hint: use the functions implemented before.</p></li>
+</ol>
+</li>
+</ol>
+<p>Use the three implemented functions to write a fourth function:</p>
+<p><em>getFirstNperfects</em>: the function gets an integer N as parameter and returns a dictionary with the first N perfect numbers. The key of the dictionary is the perfect number, while the value of the dictionary is the list of its divisors. Example: <code class="docutils literal notranslate"><span class="pre">getFirstNperfects(1)</span> <span class="pre">--&gt;</span> <span class="pre">{6</span> <span class="pre">:</span> <span class="pre">[1,2,3]}</span></code></p>
+<p>Get and print the first 4 perfect numbers and finally test if 33550336 is a perfect number.</p>
+<p><strong>WARNING:</strong> do not try to find more than 4 perfect numbers as it might take a while!!!</p>
+<div class="tggle" onclick="toggleVisibility('ex6');"><p>Show/Hide Solution</p>
+</div><div id="ex6" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">getDivisors</span><span class="p">(</span><span class="n">intVal</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;returns the integer divisors of intVal&quot;&quot;&quot;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">intVal</span><span class="o">//</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">intVal</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="c1">#OR:</span>
+    <span class="c1">#for i in range(1,intVal//2+1):</span>
+    <span class="c1">#    if(intVal % i == 0):</span>
+    <span class="c1">#        ret.append(i)</span>
+    <span class="k">return</span> <span class="n">ret</span>
+
+<span class="k">def</span> <span class="nf">checkSum</span><span class="p">(</span><span class="n">intList</span><span class="p">,</span> <span class="n">intVal</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;checks if the sum of elements in intList equals intVal&quot;&quot;&quot;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">intList</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">s</span> <span class="o">==</span> <span class="n">intVal</span>
+
+<span class="k">def</span> <span class="nf">checkPerfect</span><span class="p">(</span><span class="n">intVal</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;checks if intVal is a perfect number&quot;&quot;&quot;</span>
+    <span class="n">divisors</span> <span class="o">=</span> <span class="n">getDivisors</span><span class="p">(</span><span class="n">intVal</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">checkSum</span><span class="p">(</span><span class="n">divisors</span><span class="p">,</span><span class="n">intVal</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">getFirstNPerfects</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Finds the first N perfect numbers&quot;&quot;&quot;</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">):</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">checkPerfect</span><span class="p">(</span><span class="n">val</span><span class="p">)):</span>
+            <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+            <span class="n">ret</span><span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="o">=</span> <span class="n">getDivisors</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+            <span class="n">val</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">val</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+    <span class="k">return</span> <span class="n">ret</span>
+
+
+<span class="n">perfects</span> <span class="o">=</span> <span class="n">getFirstNPerfects</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="c1">#do not go higher than 4, or it might take a while</span>
+<span class="n">perKeys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">perfects</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">perKeys</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">perKeys</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="s2">&quot; = &quot;</span><span class="p">,</span> <span class="s2">&quot;+&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">perfects</span><span class="p">[</span><span class="n">p</span><span class="p">]]))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is 33550336 a perfect number?&quot;</span><span class="p">,</span> <span class="n">checkPerfect</span><span class="p">(</span><span class="mi">33550336</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+6  =  1+2+3
+28  =  1+2+4+7+14
+496  =  1+2+4+8+16+31+62+124+248
+8128  =  1+2+4+8+16+32+64+127+254+508+1016+2032+4064
+Is 33550336 a perfect number? True
+</pre></div></div>
+</div>
+</div><ol class="arabic" start="3">
+<li><p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/2231712">Blast</a> is a well known tool to perform sequence alignment between a pool of query sequences and a pool of subject sequences. Among the other formats, it can produce an text output that is tab separated (<code class="docutils literal notranslate"><span class="pre">\t</span></code>) capturing user specified output. Comments in the file are written in lines starting with an hash key (“#”). A sample blast output file is <a class="reference external" href="file_samples/blast_sample.tsv">blast_sample.tsv</a>, please download it and spend some time to
+look at it. The meaning of all columns is specified in the file header:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Fields: query id, subject id, query length, % identity, alignment length,
+identical, gap opens, q. start, q. end, s. start, s. end, evalue
+</pre></div>
+</div>
+<p>Write a python program with:</p>
+<ol class="arabic simple">
+<li><p>A function (<em>readBlast</em>) that reads in the blast .tsv file (storing each line in a list) ignoring comment lines;</p></li>
+<li><p>A function (<em>filterBlast</em>) that gets a string in input representing a blast alignment and filters it according to the user specified parameters below. It should return True if all filters are passed, false otherwise:</p>
+<ol class="arabic simple">
+<li><p>% identity &gt; identity_threshold (default 0%)</p></li>
+<li><p>evalue &lt; evalue_thrshold (default 0.5)</p></li>
+<li><p>alignment length / query length &gt; align_threshold (default 0)</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>The program should report how many entries out of the total passed the filter.</p>
+<p>Test several combinations of filters like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. identity_theshold = 97, all others default
+2. evalue_threshold = 0.5, all others default
+3. align_threshold = 0.9, all others default
+4. align_threshold = 0.9, identity_threshold = 97
+</pre></div>
+</div>
+<div class="tggle" onclick="toggleVisibility('ex2');"><p>Show/Hide Solution</p>
+</div><div id="ex2" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+
+
+<span></span><span class="k">def</span> <span class="nf">filterBlast</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">id_thr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">eval_thr</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">al_thr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;filters an alignment represented as a string. Returns True if filters OK, False otherwise&quot;&quot;&quot;</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="n">seq</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">infos</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">id_thr</span> <span class="ow">and</span> <span class="nb">float</span><span class="p">(</span><span class="n">infos</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">eval_thr</span> <span class="ow">and</span> <span class="nb">float</span><span class="p">(</span><span class="n">infos</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span><span class="o">/</span><span class="nb">int</span><span class="p">(</span><span class="n">infos</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">al_thr</span>
+
+<span class="k">def</span> <span class="nf">readBlast</span><span class="p">(</span><span class="n">inFile</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Reads the blast .tsv file and returns a list&quot;&quot;&quot;</span>
+    <span class="n">fh</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">inFile</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">alignments</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fh</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">):</span>
+            <span class="n">alignments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">alignments</span>
+
+<span class="k">def</span> <span class="nf">filterAndCount</span><span class="p">(</span><span class="n">alignList</span><span class="p">,</span> <span class="n">id_thr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">eval_thr</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">al_thr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;filters alignments and counts the ones passing the filter&quot;&quot;&quot;</span>
+    <span class="n">passed</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">alignList</span> <span class="k">if</span> <span class="n">filterBlast</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">id_thr</span><span class="p">,</span> <span class="n">eval_thr</span><span class="p">,</span> <span class="n">al_thr</span><span class="p">)]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> out of </span><span class="si">{}</span><span class="s2"> aligns passed filter (id_thr:</span><span class="si">{}</span><span class="s2">,eval_thr:</span><span class="si">{}</span><span class="s2">,al_thr:</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="nb">len</span><span class="p">(</span><span class="n">passed</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">alignList</span><span class="p">),</span> <span class="n">id_thr</span><span class="p">,</span><span class="n">eval_thr</span><span class="p">,</span><span class="n">al_thr</span><span class="p">))</span>
+
+<span class="n">blastF</span> <span class="o">=</span> <span class="s2">&quot;file_samples/blast_sample.tsv&quot;</span>
+
+<span class="n">myAligns</span> <span class="o">=</span> <span class="n">readBlast</span><span class="p">(</span><span class="n">blastF</span><span class="p">)</span>
+
+<span class="n">filterAndCount</span><span class="p">(</span><span class="n">myAligns</span><span class="p">,</span> <span class="n">id_thr</span><span class="o">=</span><span class="mi">97</span><span class="p">)</span>
+<span class="n">filterAndCount</span><span class="p">(</span><span class="n">myAligns</span><span class="p">,</span> <span class="n">eval_thr</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">filterAndCount</span><span class="p">(</span><span class="n">myAligns</span><span class="p">,</span> <span class="n">al_thr</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="n">filterAndCount</span><span class="p">(</span><span class="n">myAligns</span><span class="p">,</span> <span class="n">al_thr</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">id_thr</span><span class="o">=</span><span class="mi">97</span><span class="p">)</span>
+
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+8390 out of 90790 aligns passed filter (id_thr:97,eval_thr:1,al_thr:0)
+90780 out of 90790 aligns passed filter (id_thr:0,eval_thr:1,al_thr:0)
+27711 out of 90790 aligns passed filter (id_thr:0,eval_thr:1,al_thr:0.9)
+804 out of 90790 aligns passed filter (id_thr:97,eval_thr:1,al_thr:0.9)
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="4">
+<li><p>Fasta is a <a class="reference external" href="https://en.wikipedia.org/wiki/FASTA_format">format</a> representing nucleotide or peptide sequences. Each entry of a fasta file starts with a “&gt;” followed by the identifier of the entry (the header of the sequence). All the lines following a header represent the sequence belonging to that identifier. Here you can find an example of fasta file: <a class="reference external" href="file_samples/contigs82.fasta">contigs82.fasta</a>. Please download it and have a look at its content.</p></li>
+</ol>
+<p>Write a python program that reads a fasta file and prints to screen the identifier of the sequence and the frequency of all the characters in the sequence (note that sequences might contain all IUPAC codes in case of SNPs). Hint: use a dictionary.</p>
+<p>Sample output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MDC020656.85 :
+     N has freq 0.052
+     T has freq 0.273
+     A has freq 0.308
+     G has freq 0.203
+     C has freq 0.163
+MDC001115.177 :
+     N has freq 0.018
+     G has freq 0.157
+     A has freq 0.302
+     T has freq 0.316
+     C has freq 0.207
+     ...
+</pre></div>
+</div>
+<div class="tggle" onclick="toggleVisibility('ex3');"><p>Show/Hide Solution</p>
+</div><div id="ex3" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">countFrequency</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;gets a sequence in input and returns</span>
+<span class="sd">    a dictionary with bases as keys and frequence as value&quot;&quot;&quot;</span>
+    <span class="n">bases</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">b</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">bases</span><span class="p">:</span>
+            <span class="n">bases</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">bases</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bases</span><span class="p">:</span>
+        <span class="n">bases</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">bases</span><span class="p">[</span><span class="n">b</span><span class="p">]</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">bases</span>
+
+<span class="k">def</span> <span class="nf">printData</span><span class="p">(</span><span class="n">ident</span><span class="p">,</span> <span class="n">freqDict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;get the identifier and a dictionary with all frequencies</span>
+<span class="sd">    and prints both information on the screen&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ident</span><span class="p">,</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">freqDict</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> has freq </span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">freqDict</span><span class="p">[</span><span class="n">f</span><span class="p">]))</span>
+
+<span class="k">def</span> <span class="nf">processFasta</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;&gt;&quot;</span><span class="p">)):</span>
+                <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">header</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">):</span>
+                    <span class="c1">#first entry:</span>
+                    <span class="n">header</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1">#this is a new entry</span>
+                    <span class="n">freqData</span> <span class="o">=</span> <span class="n">countFrequency</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+                    <span class="n">printData</span><span class="p">(</span><span class="n">header</span><span class="p">,</span><span class="n">freqData</span><span class="p">)</span>
+                    <span class="n">seq</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                    <span class="n">header</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">seq</span> <span class="o">+=</span><span class="n">line</span>
+    <span class="c1">#processing the final entry</span>
+    <span class="n">freqData</span> <span class="o">=</span> <span class="n">countFrequency</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+    <span class="n">printData</span><span class="p">(</span><span class="n">header</span><span class="p">,</span><span class="n">freqData</span><span class="p">)</span>
+
+
+<span class="n">inFasta</span> <span class="o">=</span> <span class="s2">&quot;file_samples/contigs82.fasta&quot;</span>
+<span class="n">processFasta</span><span class="p">(</span><span class="n">inFasta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+MDC020656.85 :
+         C has freq 0.163
+         T has freq 0.273
+         A has freq 0.308
+         N has freq 0.052
+         G has freq 0.203
+MDC001115.177 :
+         C has freq 0.207
+         T has freq 0.316
+         A has freq 0.302
+         N has freq 0.018
+         G has freq 0.157
+MDC013284.379 :
+         C has freq 0.171
+         T has freq 0.321
+         A has freq 0.309
+         N has freq 0.005
+         G has freq 0.194
+MDC018185.243 :
+         S has freq 0.000
+         W has freq 0.000
+         K has freq 0.000
+         G has freq 0.181
+         N has freq 0.001
+         M has freq 0.000
+         R has freq 0.001
+         C has freq 0.204
+         T has freq 0.304
+         A has freq 0.307
+         Y has freq 0.001
+MDC018185.241 :
+         S has freq 0.000
+         W has freq 0.000
+         K has freq 0.001
+         G has freq 0.183
+         N has freq 0.006
+         M has freq 0.001
+         R has freq 0.001
+         C has freq 0.168
+         T has freq 0.304
+         A has freq 0.335
+         Y has freq 0.002
+MDC004527.213 :
+         C has freq 0.273
+         T has freq 0.332
+         A has freq 0.227
+         N has freq 0.013
+         G has freq 0.155
+MDC003661.174 :
+         C has freq 0.213
+         T has freq 0.301
+         A has freq 0.246
+         N has freq 0.007
+         G has freq 0.232
+MDC012176.157 :
+         C has freq 0.240
+         T has freq 0.253
+         A has freq 0.343
+         N has freq 0.001
+         G has freq 0.163
+MDC001204.812 :
+         C has freq 0.221
+         T has freq 0.298
+         A has freq 0.293
+         N has freq 0.000
+         G has freq 0.187
+MDC001204.810 :
+         C has freq 0.182
+         T has freq 0.340
+         A has freq 0.297
+         N has freq 0.017
+         G has freq 0.164
+MDC004389.256 :
+         C has freq 0.277
+         T has freq 0.203
+         A has freq 0.285
+         N has freq 0.028
+         G has freq 0.207
+MDC024257.15 :
+         C has freq 0.144
+         T has freq 0.331
+         A has freq 0.319
+         N has freq 0.022
+         G has freq 0.184
+MDC018297.229 :
+         C has freq 0.181
+         T has freq 0.305
+         A has freq 0.275
+         N has freq 0.031
+         G has freq 0.209
+MDC001802.364 :
+         C has freq 0.203
+         T has freq 0.328
+         A has freq 0.252
+         N has freq 0.037
+         G has freq 0.180
+MDC016621.241 :
+         C has freq 0.206
+         T has freq 0.262
+         A has freq 0.302
+         N has freq 0.063
+         G has freq 0.168
+MDC014057.243 :
+         C has freq 0.263
+         T has freq 0.212
+         A has freq 0.291
+         N has freq 0.016
+         G has freq 0.217
+MDC021015.302 :
+         C has freq 0.143
+         T has freq 0.223
+         A has freq 0.302
+         N has freq 0.081
+         G has freq 0.251
+MDC018185.242 :
+         S has freq 0.000
+         W has freq 0.000
+         K has freq 0.000
+         G has freq 0.189
+         N has freq 0.000
+         M has freq 0.001
+         R has freq 0.002
+         C has freq 0.200
+         T has freq 0.289
+         A has freq 0.316
+         Y has freq 0.001
+MDC051782.000 :
+         N has freq 0.044
+         W has freq 0.001
+         K has freq 0.001
+         S has freq 0.001
+         G has freq 0.177
+         M has freq 0.000
+         R has freq 0.002
+         C has freq 0.180
+         T has freq 0.306
+         A has freq 0.285
+         Y has freq 0.002
+MDC017187.314 :
+         C has freq 0.206
+         T has freq 0.276
+         A has freq 0.289
+         N has freq 0.003
+         G has freq 0.225
+MDC017187.311 :
+         S has freq 0.000
+         W has freq 0.001
+         K has freq 0.000
+         G has freq 0.185
+         N has freq 0.068
+         M has freq 0.000
+         R has freq 0.002
+         C has freq 0.179
+         T has freq 0.315
+         A has freq 0.248
+         Y has freq 0.001
+MDC012865.410 :
+         C has freq 0.162
+         T has freq 0.328
+         A has freq 0.289
+         N has freq 0.003
+         G has freq 0.218
+MDC000427.83 :
+         C has freq 0.165
+         T has freq 0.274
+         A has freq 0.392
+         N has freq 0.010
+         G has freq 0.159
+MDC017187.319 :
+         C has freq 0.181
+         T has freq 0.331
+         A has freq 0.282
+         N has freq 0.006
+         G has freq 0.200
+MDC017187.318 :
+         K has freq 0.000
+         N has freq 0.001
+         G has freq 0.232
+         C has freq 0.187
+         T has freq 0.305
+         A has freq 0.275
+MDC004081.319 :
+         C has freq 0.106
+         T has freq 0.197
+         A has freq 0.172
+         G has freq 0.098
+         N has freq 0.428
+MDC021913.275 :
+         C has freq 0.155
+         T has freq 0.169
+         A has freq 0.199
+         N has freq 0.334
+         G has freq 0.143
+MDC015147.205 :
+         C has freq 0.154
+         T has freq 0.350
+         A has freq 0.298
+         N has freq 0.002
+         G has freq 0.196
+MDC000038.355 :
+         S has freq 0.000
+         W has freq 0.000
+         K has freq 0.000
+         G has freq 0.158
+         N has freq 0.025
+         M has freq 0.000
+         R has freq 0.000
+         C has freq 0.170
+         T has freq 0.315
+         A has freq 0.331
+         Y has freq 0.000
+MDC016032.95 :
+         S has freq 0.001
+         W has freq 0.001
+         K has freq 0.002
+         G has freq 0.222
+         N has freq 0.003
+         R has freq 0.002
+         C has freq 0.142
+         T has freq 0.286
+         A has freq 0.342
+         Y has freq 0.001
+MDC052568.000 :
+         N has freq 0.008
+         W has freq 0.001
+         K has freq 0.000
+         S has freq 0.001
+         G has freq 0.178
+         M has freq 0.001
+         R has freq 0.002
+         C has freq 0.207
+         T has freq 0.302
+         A has freq 0.300
+         Y has freq 0.001
+MDC008119.414 :
+         C has freq 0.245
+         T has freq 0.316
+         A has freq 0.209
+         N has freq 0.001
+         G has freq 0.229
+MDC026201.7 :
+         C has freq 0.247
+         T has freq 0.250
+         A has freq 0.313
+         G has freq 0.191
+MDC003995.601 :
+         S has freq 0.000
+         W has freq 0.001
+         K has freq 0.000
+         G has freq 0.167
+         N has freq 0.006
+         M has freq 0.001
+         R has freq 0.001
+         C has freq 0.166
+         T has freq 0.334
+         A has freq 0.323
+         Y has freq 0.001
+MDC009211.561 :
+         C has freq 0.237
+         T has freq 0.286
+         A has freq 0.306
+         N has freq 0.001
+         G has freq 0.171
+MDC009211.567 :
+         C has freq 0.167
+         T has freq 0.327
+         A has freq 0.318
+         N has freq 0.006
+         G has freq 0.181
+MDC054294.001 :
+         W has freq 0.001
+         K has freq 0.001
+         S has freq 0.000
+         G has freq 0.186
+         M has freq 0.001
+         R has freq 0.002
+         C has freq 0.186
+         T has freq 0.318
+         A has freq 0.303
+         Y has freq 0.002
+MDC004364.265 :
+         S has freq 0.000
+         W has freq 0.000
+         K has freq 0.000
+         G has freq 0.198
+         N has freq 0.007
+         R has freq 0.001
+         C has freq 0.170
+         T has freq 0.302
+         A has freq 0.323
+         Y has freq 0.001
+MDC002360.219 :
+         C has freq 0.204
+         T has freq 0.303
+         A has freq 0.316
+         N has freq 0.003
+         G has freq 0.173
+MDC003408.117 :
+         C has freq 0.215
+         T has freq 0.247
+         A has freq 0.329
+         N has freq 0.017
+         G has freq 0.191
+MDC015155.172 :
+         C has freq 0.202
+         T has freq 0.277
+         A has freq 0.272
+         N has freq 0.003
+         G has freq 0.247
+MDC053310.000 :
+         W has freq 0.001
+         K has freq 0.001
+         S has freq 0.000
+         G has freq 0.185
+         M has freq 0.001
+         R has freq 0.003
+         C has freq 0.167
+         T has freq 0.310
+         A has freq 0.330
+         Y has freq 0.002
+MDC019140.398 :
+         C has freq 0.163
+         T has freq 0.302
+         A has freq 0.352
+         N has freq 0.005
+         G has freq 0.178
+MDC019140.399 :
+         C has freq 0.165
+         T has freq 0.346
+         A has freq 0.301
+         N has freq 0.001
+         G has freq 0.187
+MDC011390.337 :
+         G has freq 0.177
+         N has freq 0.046
+         R has freq 0.000
+         C has freq 0.228
+         T has freq 0.298
+         A has freq 0.251
+         Y has freq 0.000
+MDC007154.375 :
+         C has freq 0.197
+         T has freq 0.292
+         A has freq 0.307
+         N has freq 0.003
+         G has freq 0.201
+MDC006346.716 :
+         C has freq 0.199
+         T has freq 0.290
+         A has freq 0.296
+         N has freq 0.024
+         G has freq 0.191
+MDC010588.505 :
+         C has freq 0.257
+         T has freq 0.237
+         A has freq 0.305
+         N has freq 0.006
+         G has freq 0.195
+MDC002519.240 :
+         N has freq 0.001
+         G has freq 0.188
+         M has freq 0.000
+         R has freq 0.000
+         C has freq 0.178
+         T has freq 0.321
+         A has freq 0.312
+         Y has freq 0.000
+MDC031322.5 :
+         S has freq 0.000
+         W has freq 0.000
+         K has freq 0.000
+         G has freq 0.202
+         N has freq 0.002
+         M has freq 0.001
+         R has freq 0.002
+         C has freq 0.149
+         T has freq 0.299
+         A has freq 0.342
+         Y has freq 0.002
+MDC010588.502 :
+         C has freq 0.184
+         T has freq 0.311
+         A has freq 0.282
+         N has freq 0.009
+         G has freq 0.215
+MDC006346.711 :
+         G has freq 0.187
+         N has freq 0.006
+         M has freq 0.000
+         C has freq 0.191
+         T has freq 0.295
+         A has freq 0.321
+MDC011551.182 :
+         R has freq 0.001
+         W has freq 0.000
+         K has freq 0.000
+         N has freq 0.007
+         G has freq 0.190
+         M has freq 0.000
+         Y has freq 0.001
+         C has freq 0.189
+         T has freq 0.297
+         A has freq 0.313
+         S has freq 0.000
+MDC002717.156 :
+         C has freq 0.219
+         T has freq 0.284
+         A has freq 0.298
+         N has freq 0.003
+         G has freq 0.196
+MDC006346.719 :
+         C has freq 0.183
+         T has freq 0.306
+         A has freq 0.286
+         N has freq 0.006
+         G has freq 0.219
+MDC007838.447 :
+         C has freq 0.200
+         T has freq 0.299
+         A has freq 0.326
+         N has freq 0.009
+         G has freq 0.166
+MDC007018.186 :
+         C has freq 0.160
+         T has freq 0.262
+         A has freq 0.226
+         N has freq 0.151
+         G has freq 0.202
+MDC017873.233 :
+         C has freq 0.133
+         T has freq 0.231
+         A has freq 0.262
+         N has freq 0.235
+         G has freq 0.139
+MDC016296.138 :
+         C has freq 0.172
+         T has freq 0.346
+         A has freq 0.277
+         N has freq 0.016
+         G has freq 0.188
+MDC019067.226 :
+         C has freq 0.144
+         T has freq 0.376
+         A has freq 0.293
+         N has freq 0.007
+         G has freq 0.181
+MDC036568.1 :
+         C has freq 0.154
+         T has freq 0.348
+         A has freq 0.331
+         N has freq 0.006
+         G has freq 0.161
+MDC014019.318 :
+         C has freq 0.249
+         T has freq 0.319
+         A has freq 0.221
+         N has freq 0.002
+         G has freq 0.209
+MDC007995.528 :
+         C has freq 0.166
+         T has freq 0.340
+         A has freq 0.305
+         N has freq 0.009
+         G has freq 0.181
+MDC026961.60 :
+         C has freq 0.201
+         T has freq 0.288
+         A has freq 0.300
+         N has freq 0.005
+         G has freq 0.206
+MDC013443.168 :
+         C has freq 0.203
+         T has freq 0.330
+         A has freq 0.289
+         N has freq 0.005
+         G has freq 0.173
+MDC022800.298 :
+         C has freq 0.131
+         T has freq 0.334
+         A has freq 0.323
+         N has freq 0.008
+         G has freq 0.203
+MDC021558.159 :
+         C has freq 0.176
+         T has freq 0.334
+         A has freq 0.298
+         N has freq 0.002
+         G has freq 0.190
+MDC002479.192 :
+         C has freq 0.151
+         T has freq 0.304
+         A has freq 0.305
+         N has freq 0.009
+         G has freq 0.232
+MDC010751.301 :
+         C has freq 0.172
+         T has freq 0.291
+         A has freq 0.318
+         N has freq 0.006
+         G has freq 0.214
+MDC000219.190 :
+         S has freq 0.000
+         G has freq 0.168
+         N has freq 0.003
+         M has freq 0.000
+         R has freq 0.000
+         C has freq 0.160
+         T has freq 0.335
+         A has freq 0.332
+         Y has freq 0.001
+MDC020963.161 :
+         C has freq 0.248
+         T has freq 0.315
+         A has freq 0.287
+         N has freq 0.002
+         G has freq 0.148
+MDC020963.162 :
+         W has freq 0.000
+         G has freq 0.207
+         N has freq 0.005
+         R has freq 0.000
+         C has freq 0.214
+         T has freq 0.265
+         A has freq 0.309
+         S has freq 0.000
+MDC051637.000 :
+         N has freq 0.010
+         K has freq 0.001
+         Y has freq 0.005
+         G has freq 0.169
+         M has freq 0.001
+         R has freq 0.003
+         C has freq 0.175
+         T has freq 0.328
+         A has freq 0.307
+         W has freq 0.001
+         S has freq 0.000
+MDC005174.220 :
+         C has freq 0.198
+         T has freq 0.283
+         A has freq 0.311
+         N has freq 0.022
+         G has freq 0.186
+MDC040033.7 :
+         C has freq 0.195
+         T has freq 0.301
+         A has freq 0.297
+         N has freq 0.003
+         G has freq 0.204
+MDC019674.147 :
+         S has freq 0.000
+         W has freq 0.000
+         G has freq 0.167
+         N has freq 0.004
+         R has freq 0.000
+         C has freq 0.137
+         T has freq 0.366
+         A has freq 0.324
+         Y has freq 0.001
+MDC010450.877 :
+         C has freq 0.190
+         T has freq 0.285
+         A has freq 0.293
+         N has freq 0.058
+         G has freq 0.174
+MDC007097.457 :
+         C has freq 0.126
+         T has freq 0.299
+         A has freq 0.289
+         N has freq 0.070
+         G has freq 0.217
+MDC016278.70 :
+         C has freq 0.183
+         T has freq 0.303
+         A has freq 0.277
+         N has freq 0.084
+         G has freq 0.153
+MDC013723.254 :
+         C has freq 0.212
+         T has freq 0.329
+         A has freq 0.279
+         N has freq 0.001
+         G has freq 0.179
+MDC002838.179 :
+         C has freq 0.163
+         T has freq 0.297
+         A has freq 0.359
+         N has freq 0.013
+         G has freq 0.167
+MDC009771.217 :
+         C has freq 0.185
+         T has freq 0.335
+         A has freq 0.315
+         N has freq 0.001
+         G has freq 0.163
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="5">
+<li><p>Write a python program that reads two files. The first is a one column text file (<a class="reference external" href="file_samples/contig_ids.txt">contig_ids.txt</a>) with the identifiers of some contigs that are present in the second file, which is a fasta formatted file (<a class="reference external" href="file_samples/contigs82.fasta">contigs82.fasta</a>). The program will write on a third, fasta formatted file (e.g. filtered_contigs.fasta) only those entries in <em>contigs82.fasta</em> having identifier in <em>contig_ids.txt</em>.</p></li>
+</ol>
+<div class="tggle" onclick="toggleVisibility('ex4');"><p>Show/Hide Solution</p>
+</div><div id="ex4" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">readIDS</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;reads a one column file in and stores</span>
+<span class="sd">    the ids in a dictionary that is returned at the end&quot;&quot;&quot;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">line</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ret</span><span class="p">):</span>
+                <span class="n">ret</span><span class="p">[</span><span class="n">line</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">ret</span>
+
+<span class="k">def</span> <span class="nf">filterFasta</span><span class="p">(</span><span class="n">inF</span><span class="p">,</span> <span class="n">outF</span><span class="p">,</span> <span class="n">ids2keep</span><span class="p">):</span>
+    <span class="n">oF</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outF</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+
+    <span class="n">outputME</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">inF</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;&gt;&quot;</span><span class="p">)):</span>
+                <span class="c1">#this is the header</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="ow">in</span> <span class="n">ids2keep</span><span class="p">):</span>
+                    <span class="n">oF</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span> <span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">outputME</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Writing contig &quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">outputME</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">outputME</span><span class="p">):</span>
+                    <span class="n">oF</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span> <span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">oF</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="n">idsFile</span> <span class="o">=</span> <span class="s2">&quot;file_samples/contig_ids.txt&quot;</span>
+<span class="n">inFasta</span> <span class="o">=</span> <span class="s2">&quot;file_samples/contigs82.fasta&quot;</span>
+<span class="n">outFasta</span> <span class="o">=</span> <span class="s2">&quot;file_samples/filtered_contigs.fasta&quot;</span>
+
+<span class="n">ids</span> <span class="o">=</span> <span class="n">readIDS</span><span class="p">(</span><span class="n">idsFile</span><span class="p">)</span>
+<span class="n">filterFasta</span><span class="p">(</span><span class="n">inFasta</span><span class="p">,</span><span class="n">outFasta</span><span class="p">,</span> <span class="n">ids</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Writing contig  MDC001115.177
+Writing contig  MDC013284.379
+Writing contig  MDC018185.243
+Writing contig  MDC018185.241
+Writing contig  MDC004527.213
+Writing contig  MDC012176.157
+Writing contig  MDC001204.810
+Writing contig  MDC004389.256
+Writing contig  MDC018297.229
+Writing contig  MDC001802.364
+Writing contig  MDC014057.243
+Writing contig  MDC021015.302
+Writing contig  MDC017187.314
+Writing contig  MDC012865.410
+Writing contig  MDC000427.83
+Writing contig  MDC017187.319
+Writing contig  MDC004364.265
+Writing contig  MDC002360.219
+Writing contig  MDC015155.172
+Writing contig  MDC019140.398
+Writing contig  MDC019140.399
+Writing contig  MDC011390.337
+Writing contig  MDC007154.375
+Writing contig  MDC010588.505
+Writing contig  MDC002519.240
+Writing contig  MDC006346.711
+Writing contig  MDC011551.182
+Writing contig  MDC002717.156
+Writing contig  MDC006346.719
+Writing contig  MDC007838.447
+Writing contig  MDC007018.186
+Writing contig  MDC017873.233
+Writing contig  MDC016296.138
+Writing contig  MDC019067.226
+Writing contig  MDC014019.318
+Writing contig  MDC007995.528
+Writing contig  MDC026961.60
+Writing contig  MDC020963.161
+Writing contig  MDC005174.220
+Writing contig  MDC040033.7
+Writing contig  MDC019674.147
+Writing contig  MDC010450.877
+Writing contig  MDC007097.457
+Writing contig  MDC016278.70
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="6">
+<li><p>Write a python program that:</p>
+<ol class="arabic simple">
+<li><p>reads the text file <a class="reference external" href="file_samples/sample_text.txt">sample_text.txt</a> and stores in a dictionary how many times each word appears (hint: the key is the word and the count is the value);</p></li>
+<li><p>prints to screen how many lines the file has and how many distinct words are in the file;</p></li>
+<li><p>writes to a text file (scientist_histo.csv) the histogram of the words in comma separated value format (i.e. word,count). Words must be sorted alphabetically;</p></li>
+<li><p>Finally, write a function that prints to screen (alphabetically) all the words that have a count higher than a threshold N and apply it with N = 5.</p></li>
+</ol>
+</li>
+</ol>
+<div class="tggle" onclick="toggleVisibility('ex5');"><p>Show/Hide Solution</p>
+</div><div id="ex5" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">wordHisto</span><span class="p">(</span><span class="n">myText</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;this function returns a dictionary</span>
+<span class="sd">    with the count of each word in myText (separated by &quot; &quot; or &quot;\n&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">myDict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">myText</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tmp</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">):</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">myDict</span><span class="p">):</span>
+            <span class="n">myDict</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">myDict</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">myDict</span>
+
+<span class="k">def</span> <span class="nf">writeWordHisto</span><span class="p">(</span><span class="n">outF</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;this function writes to outFile</span>
+<span class="sd">    the word histogram data contained in the dictionary data</span>
+<span class="sd">    the output format is comma separated</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fh</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outF</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+    <span class="n">dictKeys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">dictKeys</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;#word,count</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">dictKeys</span><span class="p">:</span>
+        <span class="n">curVal</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="n">myStr</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">curVal</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="c1">#string to write in file</span>
+        <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">myStr</span><span class="p">)</span>
+    <span class="n">fh</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c1">#remember to close the file</span>
+
+<span class="k">def</span> <span class="nf">printWords</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;prints the words in data that have a count higher than N&quot;&quot;&quot;</span>
+    <span class="n">dictKeys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">dictKeys</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">dictKeys</span><span class="p">:</span>
+        <span class="n">cnt</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">w</span><span class="p">]</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">cnt</span> <span class="o">&gt;</span> <span class="n">N</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Word </span><span class="se">\&quot;</span><span class="si">{}</span><span class="se">\&quot;</span><span class="s2"> is present </span><span class="si">{}</span><span class="s2"> times&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">w</span><span class="p">,</span> <span class="n">cnt</span><span class="p">))</span>
+
+
+<span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;file_samples/sample_text.txt&quot;</span>
+<span class="n">outFile</span> <span class="o">=</span> <span class="s2">&quot;file_samples/sample_text_histo.csv&quot;</span>
+<span class="n">wholeText</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">fh</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">wholeText</span> <span class="o">=</span> <span class="n">fh</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">wholeText</span> <span class="o">=</span> <span class="n">wholeText</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="c1">#to remove the final newline character</span>
+
+<span class="n">fh</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The file </span><span class="si">{}</span><span class="s2"> has </span><span class="si">{}</span><span class="s2"> lines&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">wholeText</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">+</span><span class="mi">1</span> <span class="p">))</span> <span class="c1">#n lines have n-1 \n</span>
+
+<span class="c1">#Let&#39;s do the job:</span>
+<span class="n">wordD</span> <span class="o">=</span> <span class="n">wordHisto</span><span class="p">(</span><span class="n">wholeText</span><span class="p">)</span>
+<span class="n">writeWordHisto</span><span class="p">(</span><span class="n">outFile</span><span class="p">,</span> <span class="n">wordD</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The total number of distinct words is &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">wordD</span><span class="p">))</span>
+<span class="n">printWords</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="n">wordD</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The file file_samples/sample_text.txt has 28 lines
+The total number of distinct words is  308
+Word &#34;challenge&#34; is present 6 times
+Word &#34;future&#34; is present 22 times
+Word &#34;reply&#34; is present 7 times
+Word &#34;shop&#34; is present 6 times
+Word &#34;thunder&#34; is present 11 times
+Word &#34;umbrella&#34; is present 10 times
+</pre></div></div>
+</div>
+</div></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright # 2020 - 2020, Luca Bianco
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Jupman Project &mdash; Jupman</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/js/jupman.js"></script>
+        <script type="text/javascript" src="../_static/js/pytutor-embed.bundle.min.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/jupman.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/jupman-web.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../toc-page.html" class="icon icon-home"> Jupman
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Scientific Programming for QCB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html#General-Info">General Info</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#Timetable-and-lecture-rooms">Timetable and lecture rooms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#Tutoring">Tutoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#Slides">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#Acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../toc.html"> </a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../toc-page.html">Jupman</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+    <div id='jupman-langs'></div>
+
+     <!-- <li> <h2 style="background-color:red; color:yellow">WARNING! THIS VERSION IS OLD !  <br/>
+    <a style=" text-decoration: underline;" href="https://jupman.readthedocs.io/en/latest">GOT TO LATEST VERSION</a></li>
+ </h2></li>-->
+    <!-- Commented because doesn't work with sections,
+         see https://github.com/DavidLeoni/jupman/issues/39
+    <li><a href="../toc-page.html">Docs</a> &raquo;</li>
+    
+    <li>Jupman Project</li>
+    -->
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Jupman-Project">
+<h1>Jupman Project<a class="headerlink" href="#Jupman-Project" title="Permalink to this headline">¶</a></h1>
+<p>METTERE:</p>
+<p>TITOLO</p>
+<p>NOME - MATRICOLA</p>
+<p>DATA</p>
+<div class="section" id="Introduzione">
+<h2>Introduzione<a class="headerlink" href="#Introduzione" title="Permalink to this headline">¶</a></h2>
+<p>Descrivere</p>
+<ul class="simple">
+<li><p>gli obbiettivi che ci si è posti</p></li>
+<li><p>risultati attesi (i.e. file CSV con dati integrati da mostrare su Umap)</p></li>
+<li><p>librerie Python utilizzate per il progetto</p></li>
+</ul>
+</div>
+<div class="section" id="Sorgenti-dati">
+<h2>Sorgenti dati<a class="headerlink" href="#Sorgenti-dati" title="Permalink to this headline">¶</a></h2>
+<p>Descrivere le sorgenti dati (almeno due), mettendo:</p>
+<ul class="simple">
+<li><p>nome origine e possibilmente URL</p></li>
+<li><p>le licenze</p></li>
+<li><p>encoding</p></li>
+<li><p>dimensione in Kb (i file dovrebbero essere max 50 megabyte, se più grandi cercate un modo per ridurli e se avete problemi chiedete come fare)</p></li>
+<li><p>schemi dei dati</p>
+<ul>
+<li><p>CSV: intestazione colonne, tipi delle colonne (stringa, numero, data …)</p></li>
+<li><p>JSON: spiegare sommariamente le scheletro del JSON ( se volete strafare scrivete un <a class="reference external" href="http://json-schema.org">JSON schema</a>, ma non l’abbiamo visto a lezione)</p></li>
+<li><p>XML: spiegare sommariamente le scheletro dell’XML (possibilmente guardate se l’XML già fornisce un <a class="reference external" href="https://en.wikipedia.org/wiki/XML_schema">XML schema</a>, ma non l’abbiamo fatto a lezione, se avete dubbi chiedete)</p></li>
+<li><p>SQL: mettere schema del DB (molti browser di database possono generare diagrammi per gli schemi)</p></li>
+<li><p>per altri formati: descrivere a parole</p></li>
+</ul>
+</li>
+<li><p>qualche dato di esempio</p></li>
+<li><p>Se i dati sono da ottenere tramite <a class="reference external" href="https://en.wikipedia.org/wiki/Web_API">web API</a>, chiedersi se è possibile ottenere gratuitamente tutti i dati desiderati entro i limiti d’uso dell’API</p></li>
+</ul>
+<p><strong>IMPORTANTE: ricordarsi di includere nella cartella del progetto una copia dei dati! Questa è fondamentale ai fini della riproducibilità del notebook, e vale in particolare per i dati ottenuti da Web API e pagine HTML, che possono variare nel tempo (i.e. dati meteo).</strong></p>
+</div>
+<div class="section" id="Pulizia-e-integrazione-dati">
+<h2>Pulizia e integrazione dati<a class="headerlink" href="#Pulizia-e-integrazione-dati" title="Permalink to this headline">¶</a></h2>
+<p>Elencare eventuali problemi da correggere, e come li si è risolti. Esempi:</p>
+<ul class="simple">
+<li><p>dati mal formattati</p></li>
+<li><p>interpretazione dati mancanti, come li si è convertiti</p>
+<ul>
+<li><p>i valori assenti sono da assumersi uguali a 0, stringa vuota, <code class="docutils literal notranslate"><span class="pre">None</span></code>, lista vuota ? …</p></li>
+</ul>
+</li>
+<li><p>Mappe con punti in posti assurdi</p></li>
+</ul>
+</div>
+<div class="section" id="Analisi">
+<h2>Analisi<a class="headerlink" href="#Analisi" title="Permalink to this headline">¶</a></h2>
+<p>Mettere qualche analisi sui dati. Esempi:</p>
+<ul class="simple">
+<li><p>mostrare raggruppamenti, grafici frequenze</p></li>
+<li><p>correlazioni tra valori con Pandas</p></li>
+<li><p>mostrare punti su mappa con UMap, notare raggruppamenti</p></li>
+<li><p>ricavare qualche modello dai dati, con plot su grafico(es: relazione lineare pressione / temperatura)</p></li>
+<li><p>mettere qualche widget per variare parametri del modello</p></li>
+</ul>
+</div>
+<div class="section" id="Problematiche-riscontrate">
+<h2>Problematiche riscontrate<a class="headerlink" href="#Problematiche-riscontrate" title="Permalink to this headline">¶</a></h2>
+<p>Descrivere i problemi maggiori riscontrati nel progetto</p>
+</div>
+<div class="section" id="Conclusioni">
+<h2>Conclusioni<a class="headerlink" href="#Conclusioni" title="Permalink to this headline">¶</a></h2>
+<p>Descrivere:</p>
+<ul class="simple">
+<li><p>se si sono raggiunti gli obbiettivi posti</p></li>
+<li><p>eventualmente cosa si potrebbe aggiungere di interessante</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright # 2020 - 2020, Luca Bianco
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

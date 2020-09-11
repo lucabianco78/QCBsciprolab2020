@@ -1,0 +1,1068 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Practical 7 &mdash; Jupman</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/jupman.js"></script>
+        <script type="text/javascript" src="_static/js/pytutor-embed.bundle.min.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/jupman.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/jupman-web.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="toc-page.html" class="icon icon-home"> Jupman
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Scientific Programming for QCB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#General-Info">General Info</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#Timetable-and-lecture-rooms">Timetable and lecture rooms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#Tutoring">Tutoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#Slides">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#Acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="toc.html"> </a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="toc-page.html">Jupman</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+    <div id='jupman-langs'></div>
+
+     <!-- <li> <h2 style="background-color:red; color:yellow">WARNING! THIS VERSION IS OLD !  <br/>
+    <a style=" text-decoration: underline;" href="https://jupman.readthedocs.io/en/latest">GOT TO LATEST VERSION</a></li>
+ </h2></li>-->
+    <!-- Commented because doesn't work with sections,
+         see https://github.com/DavidLeoni/jupman/issues/39
+    <li><a href="toc-page.html">Docs</a> &raquo;</li>
+    
+    <li>Practical 7</li>
+    -->
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Practical-7">
+<h1>Practical 7<a class="headerlink" href="#Practical-7" title="Permalink to this headline">¶</a></h1>
+<p>In this practical we will keep practicing with functions and will see how to get input from the command line.</p>
+<div class="section" id="Slides">
+<h2>Slides<a class="headerlink" href="#Slides" title="Permalink to this headline">¶</a></h2>
+<p>The slides of the introduction can be found here: <a class="reference external" href="docs/Practical7.pdf">Intro</a></p>
+</div>
+<div class="section" id="Functions">
+<h2>Functions<a class="headerlink" href="#Functions" title="Permalink to this headline">¶</a></h2>
+<p>Reminder. The basic definition of a function is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def function_name(input) :
+    #code implementing the function
+    ...
+    ...
+    return return_value
+</pre></div>
+</div>
+<p>Functions are defined with the <strong>def</strong> keyword that proceeds the <em>function_name</em> and then a list of parameters is passed in the brackets. A colon <strong>:</strong> is used to end the line holding the definition of the function. The code implementing the function is specified by using indentation. A function <strong>might</strong> or <strong>might not</strong> return a value. In the first case a <strong>return</strong> statement is used.</p>
+</div>
+<div class="section" id="Getting-input-from-the-command-line">
+<h2>Getting input from the command line<a class="headerlink" href="#Getting-input-from-the-command-line" title="Permalink to this headline">¶</a></h2>
+<p>To call a program <code class="docutils literal notranslate"><span class="pre">my_python_program.py</span></code> from command line, you just have to open a terminal (in Linux) or the command prompt (in Windows) and, assuming that python is present in the path, you can <code class="docutils literal notranslate"><span class="pre">cd</span></code> into the folder containing your python program, (eg. <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">C:\python\my_exercises\</span></code>) and just type in <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">my_python_program.py</span></code> or <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">my_python_program.py</span></code> In case of arguments to be passed by command line, one has to put them after the specification of the program name (eg.
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">my_python_program.py</span> <span class="pre">parm1</span> <span class="pre">param2</span> <span class="pre">param3</span></code>).</p>
+<p>Python provides the module <strong>sys</strong> to interact with the interpreter. In particular, <strong>sys.argv</strong> is a list representing all the arguments passed to the python script from the command line.</p>
+<p>Consider the following code:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="sd">&quot;&quot;&quot;Test input from command line in systest.py&quot;&quot;&quot;</span>
+
+<span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dear user, I was expecting 3 params. You gave me &quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Param </span><span class="si">{}</span><span class="s2">:</span><span class="si">{}</span><span class="s2"> (</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="nb">type</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Dear user, I was expecting 3 params. You gave me  2
+</pre></div></div>
+</div>
+<p>Invoking the <code class="docutils literal notranslate"><span class="pre">systest.py</span></code> script from command line with the command <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">exercises/systest.py</span> <span class="pre">1st_param</span> <span class="pre">2nd</span> <span class="pre">3</span></code> will return:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Param 0: exercises/systest.py (&lt;class &#39;str&#39;&gt;)
+Param 1: 1st_param (&lt;class &#39;str&#39;&gt;)
+Param 2: 2nd (&lt;class &#39;str&#39;&gt;)
+Param 3: 3 (&lt;class &#39;str&#39;&gt;)
+</pre></div>
+</div>
+<p>Invoking the <code class="docutils literal notranslate"><span class="pre">systest.py</span></code> script from command line with the command <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">exercises/systest.py</span> <span class="pre">1st_param</span></code> will return:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Dear user, I was expecting three parameters. You gave me  1
+</pre></div>
+</div>
+<p>Note that the parameter at index 0, <code class="docutils literal notranslate"><span class="pre">sys.argv[0]</span></code> holds the name of the script, and that all parameters are actually <strong>strings</strong> (and therefore need to be cast to numbers if we want to do mathematical operations on them).</p>
+<p><strong>Example:</strong> Write a script that takes two integers in input, i1 and i2, and computes the sum, difference, multiplication and division on them.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="sd">&quot;&quot;&quot;Maths example with input from command line&quot;&quot;&quot;</span>
+
+<span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dear user, I was expecting 2 params. You gave me &quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">i1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">i2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> + </span><span class="si">{}</span><span class="s2"> = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span><span class="n">i2</span><span class="p">,</span> <span class="n">i1</span> <span class="o">+</span> <span class="n">i2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> - </span><span class="si">{}</span><span class="s2"> = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span><span class="n">i2</span><span class="p">,</span> <span class="n">i1</span> <span class="o">-</span> <span class="n">i2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> * </span><span class="si">{}</span><span class="s2"> = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span><span class="n">i2</span><span class="p">,</span> <span class="n">i1</span> <span class="o">*</span> <span class="n">i2</span><span class="p">))</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> / </span><span class="si">{}</span><span class="s2"> = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span><span class="n">i2</span><span class="p">,</span> <span class="n">i1</span> <span class="o">/</span> <span class="n">i2</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> / </span><span class="si">{}</span><span class="s2"> = Infinite&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span><span class="n">i2</span><span class="p">))</span>
+
+</pre></div>
+</div>
+</div>
+<p>Which, depending on user input, should give something like:</p>
+<p><img alt="image0" src="_images/pka_ppi.png" /></p>
+<p>note that we need to check if the values given in input are actually numbers, otherwise the execution will crash (third example). This is easy in case of integers (<code class="docutils literal notranslate"><span class="pre">str.isdigit()</span></code>) but in case of floats it is more complex and might require Exception handling.</p>
+<p>A more flexible and powerful way of getting input from command line makes use of the <code class="docutils literal notranslate"><span class="pre">Argparse</span></code> <a class="reference external" href="https://docs.python.org/3/howto/argparse.html">module</a>.</p>
+</div>
+<div class="section" id="Argparse">
+<h2>Argparse<a class="headerlink" href="#Argparse" title="Permalink to this headline">¶</a></h2>
+<p>Argparse is a command line parsing module which deals with user specified parameters (positional arguments) and optional arguments.</p>
+<p>Very briefly, the basic syntax of the <code class="docutils literal notranslate"><span class="pre">Argparse</span> <span class="pre">module</span></code> (for more information check the <a class="reference external" href="https://docs.python.org/3/howto/argparse.html">official documentation</a>) is the following.</p>
+<ol class="arabic simple">
+<li><p>Import the module:</p></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import argparse
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Define a argparse object:</p></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>parser = argparse.ArgumentParser(description=&quot;This is the description of the program&quot;)
+</pre></div>
+</div>
+<p>note the parameter <em>description</em> that is a string to describe the program;</p>
+<ol class="arabic" start="3">
+<li><p>Add positional arguments:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>parser.add_argument(&quot;arg_name&quot;, type = obj,
+                help = &quot;Description of the parameter)
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">arg_name</span></code> is the name of the argument (which will be used to retrieve its value). The argument has type <code class="docutils literal notranslate"><span class="pre">obj</span></code> (the type will be automatically checked for us) and a description specified in the <code class="docutils literal notranslate"><span class="pre">help</span></code>string.</p>
+</li>
+<li><p>Add optional arguments:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>parser.add_argument(&quot;-p&quot;, &quot;--optional_arg&quot;, type = obj, default = def_val,
+                    help = &quot;Description of the parameter)
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">-p</span></code> is a short form of the parameter (and it is optional), <code class="docutils literal notranslate"><span class="pre">--optional_arg</span></code> is the extended name and it requires a value after it is specified, <code class="docutils literal notranslate"><span class="pre">default</span></code> is optional and gives a default value to the parameter. If not specified and no argument is passed, the argument will get the value “None”. <code class="docutils literal notranslate"><span class="pre">Help</span></code> is again the description string.</p>
+</li>
+<li><p>Parse the arguments:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>args = parser.parse_args()
+</pre></div>
+</div>
+<p>the parser checks the arguments and stores their values in the <code class="docutils literal notranslate"><span class="pre">argparse</span></code> object that we called <code class="docutils literal notranslate"><span class="pre">args</span></code>.</p>
+</li>
+<li><p>Retrieve and process arguments:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>myArgName = args.arg_name
+myOptArg = args.optional_arg
+</pre></div>
+</div>
+<p>now variables contain the values specified by the user and we can use them.</p>
+</li>
+</ol>
+<p><strong>Example:</strong> Let’s write a program that gets a string (S) and an integer (N) in input and prints the string repeated N times. Three optional parameters are specified: verbosity (-v) to make the software print a more descriptive output, separator (-s) to separate each copy of the string (defaults to ” “) and trailpoints (-p) to add several “.” at the end of the string (defaults to 1).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;This script gets a string</span>
+<span class="s2">                                 and an integer and repeats the string N times&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+                    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The string to be repeated&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The number of times to repeat the string&quot;</span><span class="p">)</span>
+
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-v&quot;</span><span class="p">,</span> <span class="s2">&quot;--verbose&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+                    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;increase output verbosity&quot;</span><span class="p">)</span>
+
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-p&quot;</span><span class="p">,</span> <span class="s2">&quot;--trailpoints&quot;</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="nb">int</span><span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Adds these many trailing points&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-s&quot;</span><span class="p">,</span> <span class="s2">&quot;--separator&quot;</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="nb">str</span><span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">,</span>
+                    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The separator between repeated strings&quot;</span><span class="p">)</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="n">mySTR</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">string</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">separator</span>
+<span class="n">trailP</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span> <span class="o">*</span> <span class="n">args</span><span class="o">.</span><span class="n">trailpoints</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">mySTR</span> <span class="o">*</span> <span class="n">args</span><span class="o">.</span><span class="n">N</span>
+
+<span class="n">answer</span> <span class="o">=</span> <span class="n">answer</span><span class="p">[:</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">separator</span><span class="p">)]</span> <span class="o">+</span> <span class="n">trailP</span> <span class="c1">#to remove the last separator</span>
+
+<span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the string </span><span class="si">{}</span><span class="s2"> repeated </span><span class="si">{}</span><span class="s2"> is:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">str</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">N</span><span class="p">,</span> <span class="n">answer</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<p>Executing the program from command line without parameters gives the message:</p>
+<p><img alt="image0" src="_images/pka_ppi.png" /></p>
+<p>Calling it with the <code class="docutils literal notranslate"><span class="pre">-h</span></code> flag:</p>
+<p><img alt="image1" src="_images/filereadnov.png" /></p>
+<p>With the positional arguments <code class="docutils literal notranslate"><span class="pre">&quot;ciao</span> <span class="pre">a</span> <span class="pre">tutti&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">3</span></code>:</p>
+<p><img alt="image2" src="_images/pos_args.png" /></p>
+<p>With the positional arguments <code class="docutils literal notranslate"><span class="pre">&quot;ciao</span> <span class="pre">a</span> <span class="pre">tutti&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">3</span></code>, and with the optional parameters <code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">&quot;___&quot;</span> <span class="pre">-p</span> <span class="pre">3</span> <span class="pre">-v</span></code></p>
+<p><img alt="image3" src="_images/sample.png" /></p>
+<p><strong>Example:</strong> Let’s write a program that reads and prints to screen a text file specified by the user. Optionally, the file might be compressed with gzip to save space. The user should be able to read also gzipped files. Hint: use the module gzip which is very similar to the standard file management method (<a class="reference external" href="https://docs.python.org/3/library/gzip.html?highlight=gzip#module-gzip">more info here</a>). You can find a text file here <a class="reference external" href="file_samples/textFile.txt">textFile.txt</a> and its gzipped version
+here <a class="reference external" href="file_samples/textFile.gz">text.gz</a>:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">gzip</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;Reads and prints a text file&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The file name&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-z&quot;</span><span class="p">,</span> <span class="s2">&quot;--gzipped&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+                    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;If set, input file is assumed gzipped&quot;</span><span class="p">)</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="n">inputFile</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">filename</span>
+<span class="n">fh</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="k">if</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gzipped</span><span class="p">):</span>
+    <span class="n">fh</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">inputFile</span><span class="p">,</span> <span class="s2">&quot;rt&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">fh</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">inputFile</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fh</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+<span class="n">fh</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+<p>The output:</p>
+<p><img alt="image0" src="_images/pka_ppi.png" /></p>
+<p><strong>Example:</strong> Let’s write a program that reads the content of a file and prints to screen some stats like the number of lines, the number of characters and maximum number of characters in one line. Optionally (if flag -v is set) it should print the content of the file. You can find a text file here <a class="reference external" href="file_samples/textFile.txt">textFile.txt</a>:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">argparse</span>
+
+
+<span class="k">def</span> <span class="nf">readText</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;reads the file and returns a list with</span>
+<span class="sd">    each line as separate element&quot;&quot;&quot;</span>
+    <span class="n">myF</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">myF</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">ret</span>
+
+
+<span class="k">def</span> <span class="nf">computeStats</span><span class="p">(</span><span class="n">fileList</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;returns a tuple (num.lines, num.characters,max_char.line)&quot;&quot;&quot;</span>
+    <span class="n">num_lines</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">fileList</span><span class="p">)</span>
+    <span class="n">lines_len</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fileList</span><span class="p">]</span>
+    <span class="n">num_char</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">lines_len</span><span class="p">)</span>
+    <span class="n">max_char</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">lines_len</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">num_lines</span><span class="p">,</span> <span class="n">num_char</span><span class="p">,</span> <span class="n">max_char</span><span class="p">)</span>
+
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Computes file stats&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;inputFile&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The input file&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+    <span class="s2">&quot;-v&quot;</span><span class="p">,</span> <span class="s2">&quot;--verbose&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;if set, prints the file content&quot;</span><span class="p">)</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="n">inFile</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">inputFile</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">readText</span><span class="p">(</span><span class="n">inFile</span><span class="p">)</span>
+<span class="n">stats</span> <span class="o">=</span> <span class="n">computeStats</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File content:</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Stats:</span><span class="se">\n</span><span class="s2">N.lines:</span><span class="si">{}</span><span class="se">\n</span><span class="s2">N.chars:</span><span class="si">{}</span><span class="se">\n</span><span class="s2">Max. char in line:</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">stats</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">stats</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">stats</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+
+</pre></div>
+</div>
+</div>
+<p>Output with -v flag:</p>
+<p><img alt="image0" src="_images/pka_ppi.png" /></p>
+<p>Output without -v flag:</p>
+<p><img alt="image1" src="_images/filereadnov.png" /></p>
+</div>
+<div class="section" id="Exercises">
+<h2>Exercises<a class="headerlink" href="#Exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Modify the program of Exercise 5 of Practical 6 in order to allow users to specify the input and output files from command line. Then test it with the provided files. The text of the exercise follows:</p></li>
+</ol>
+<p>Write a python program that reads two files. The first is a one column text file (<a class="reference external" href="file_samples/contig_ids.txt">contig_ids.txt</a>) with the identifiers of some contigs that are present in the second file, which is a fasta formatted file (<a class="reference external" href="file_samples/contigs82.fasta">contigs82.fasta</a>). The program will write on a third, fasta formatted file (e.g. filtered_contigs.fasta) only those entries in <em>contigs82.fasta</em> having identifier in <em>contig_ids.txt</em>.</p>
+<div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
+</div><div id="ex1" style="display:none;"><div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;exercises/filterFasta.py&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="k">def</span> <span class="nf">readIDS</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;reads a one column file in and stores</span>
+<span class="sd">    the ids in a dictionary that is returned at the end&quot;&quot;&quot;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">line</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ret</span><span class="p">):</span>
+                <span class="n">ret</span><span class="p">[</span><span class="n">line</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">ret</span>
+
+<span class="k">def</span> <span class="nf">filterFasta</span><span class="p">(</span><span class="n">inF</span><span class="p">,</span> <span class="n">outF</span><span class="p">,</span> <span class="n">ids2keep</span><span class="p">):</span>
+    <span class="n">oF</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outF</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+
+    <span class="n">outputME</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">inF</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;&gt;&quot;</span><span class="p">):</span>
+                <span class="c1">#this is the header</span>
+                <span class="k">if</span> <span class="n">ids2keep</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span><span class="kc">False</span><span class="p">):</span>
+                    <span class="n">oF</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span> <span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">outputME</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Writing contig &quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">outputME</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">outputME</span><span class="p">:</span>
+                    <span class="n">oF</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span> <span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">oF</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Filters a fasta file&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;inputFasta&quot;</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="nb">str</span><span class="p">,</span> <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;The input fasta file&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;inputIDS&quot;</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="nb">str</span><span class="p">,</span> <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;The IDS to keep&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;outputFasta&quot;</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="nb">str</span><span class="p">,</span>
+                    <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;The output fasta file with filtered entries&quot;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="n">idsFile</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">inputIDS</span>
+<span class="n">inFasta</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">inputFasta</span>
+<span class="n">outFasta</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">outputFasta</span>
+
+<span class="n">ids</span> <span class="o">=</span> <span class="n">readIDS</span><span class="p">(</span><span class="n">idsFile</span><span class="p">)</span>
+<span class="n">filterFasta</span><span class="p">(</span><span class="n">inFasta</span><span class="p">,</span><span class="n">outFasta</span><span class="p">,</span> <span class="n">ids</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div><ol class="arabic" start="2">
+<li><p><a class="reference external" href="https://www.cytoscape.org">Cytoscape</a> is a well known tool to perform network analysis. It is well integrated with several online databases housing for example protein-protein interactions like EBI’s <a class="reference external" href="https://www.ebi.ac.uk/intact/">IntAct</a>. It is also able to read and write a very simple text file called <code class="docutils literal notranslate"><span class="pre">.sif</span></code> to represent interactions between the nodes of a network. Sif formatted files are tab separated (<code class="docutils literal notranslate"><span class="pre">\t</span></code>) and each line represents a connection between the nodes of the
+network. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>node1 interaction1 node2
+node1 interaction2 node3
+node2 interaction1 node3
+</pre></div>
+</div>
+<p>represents two types of interactions between node1, node2 and node3. Normally nodes are represented as circles in a network (graph) and interactions as lines (that can be of different kinds) connecting nodes (edges). The following is an extract from the file <a class="reference external" href="file_samples/pka.sif">pka.sif</a> that has been downloaded by Cytoscape from the database IntAct and represents the interactions of the Protein Kinase A (PKA) of E.coli:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>P75742  EBI-9168813 P76594
+P21513  EBI-888473  P76594
+P21513  EBI-15543881    P76594
+</pre></div>
+</div>
+<p>the first and third columns represent proteins and the second is the interaction joining them. All the values are identifiers from the IntAct database. The cytoscape representation of the full set of interactions is:</p>
+</li>
+</ol>
+<p><img alt="image0" src="_images/pka_ppi.png" /></p>
+<p>Write a python script that reads in the .sif file (<a class="reference external" href="file_samples/pka.sif">pka.sif</a> is here but even better if any .sif file specified in input by the user) and stores the information in one (or more) suitable objects to be able to:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. Print the interaction that is more present among the nodes;
+2. Print the node that is connected to the highest number of
+other nodes (no matter if on the left or right of the interaction);
+</pre></div>
+</div>
+<p><strong>Hint:</strong> you can store the information in a dictionary having the interaction as key and a list of tuples (node1,node2) as value. Although redundant, it is convenient to keep a list of unique nodes. <strong>Note:</strong> This will use more memory but it is acceptable for small examples as it allows to quickly answer the questions.</p>
+<p>Optional: check what these ids refer to on the <a class="reference external" href="https://www.ebi.ac.uk/intact/">IntAct database</a>.</p>
+<div class="tggle" onclick="toggleVisibility('ex2');"><p>Show/Hide Solution</p>
+</div><div id="ex2" style="display:none;"><div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;exercises/parseSif.py&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="k">def</span> <span class="nf">readSif</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;reads in the sif file fn and ouptputs a</span>
+<span class="sd">    dictionary and a list:</span>
+<span class="sd">    interDict : has &quot;interaction&quot; as key</span>
+<span class="sd">    and [(node1,node2), (node3,node4)] as values</span>
+<span class="sd">    nodes list : is the list of unique node names</span>
+<span class="sd">    (both on the right or left hand of an interaction)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">interDict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">nodes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">myfile</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="p">[</span><span class="n">n1</span><span class="p">,</span><span class="n">inter</span><span class="p">,</span><span class="n">n2</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">inter</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">interDict</span><span class="p">:</span>
+                <span class="n">interDict</span><span class="p">[</span><span class="n">inter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[(</span><span class="n">n1</span><span class="p">,</span><span class="n">n2</span><span class="p">)]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">interDict</span><span class="p">[</span><span class="n">inter</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">n1</span><span class="p">,</span><span class="n">n2</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="n">n1</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+                <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">n2</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+                <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">interDict</span><span class="p">,</span><span class="n">nodes</span>
+
+<span class="k">def</span> <span class="nf">getMostPresentInteraction</span><span class="p">(</span><span class="n">iDict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;gets the interaction dictionary as defined above and returns the</span>
+<span class="sd">    most present interaction (with its count). If more than one, all are</span>
+<span class="sd">    returned comma separated&quot;&quot;&quot;</span>
+    <span class="n">mpInter</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">mpInterCount</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">inter</span> <span class="ow">in</span> <span class="n">iDict</span><span class="p">:</span>
+
+        <span class="n">cnt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">iDict</span><span class="p">[</span><span class="n">inter</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">mpInterCount</span> <span class="o">&lt;</span> <span class="n">cnt</span><span class="p">:</span>
+            <span class="n">mpInterCount</span> <span class="o">=</span> <span class="n">cnt</span>
+            <span class="n">mpInter</span> <span class="o">=</span> <span class="n">inter</span>
+        <span class="k">elif</span> <span class="n">mpInterCount</span> <span class="o">==</span> <span class="n">cnt</span><span class="p">:</span>
+            <span class="c1">#mpInterCount = cnt #not necessary</span>
+            <span class="n">mpInter</span> <span class="o">=</span> <span class="n">mpInter</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">inter</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">mpInter</span><span class="p">,</span><span class="n">mpInterCount</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">getMostPresentNode</span><span class="p">(</span><span class="n">iDict</span><span class="p">,</span> <span class="n">nodeList</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;gets the most highly connected node (or nodes, comma separated)</span>
+<span class="sd">    and returns it with its count</span>
+<span class="sd">    iDict : the interaction dictionary seen above</span>
+<span class="sd">    nodeList : the node of unique node names seen above</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mostPresentNode</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">mostPresentCount</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1">#NOTE: iDict : {&quot;inter1&quot; : [(n1,n2), (n2,n3),(n3,n1), (n1,n3)],</span>
+    <span class="c1">#               &quot;inter2&quot; : [(n5,n1), (n1,n2)] }</span>
+    <span class="c1">#</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nodeList</span><span class="p">:</span>
+        <span class="c1">#the number of times a node is present is the sum of its count</span>
+        <span class="c1">#in all interactions</span>
+        <span class="c1">#both as first or second member of the couple</span>
+        <span class="n">curCnt</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">iDict</span><span class="p">:</span>
+            <span class="n">pairsContainingN</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">iDict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+            <span class="n">curCnt</span> <span class="o">=</span> <span class="n">curCnt</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">pairsContainingN</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">curCnt</span> <span class="o">&gt;</span> <span class="n">mostPresentCount</span><span class="p">):</span>
+            <span class="n">mostPresentNode</span> <span class="o">=</span> <span class="n">n</span>
+            <span class="n">mostPresentCount</span> <span class="o">=</span> <span class="n">curCnt</span>
+        <span class="k">elif</span> <span class="n">curCnt</span> <span class="o">==</span> <span class="n">mostPresentCount</span><span class="p">:</span>
+            <span class="n">postPresentNode</span> <span class="o">+=</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">n</span>
+            <span class="n">mostPresentCount</span> <span class="o">=</span> <span class="n">curCnt</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">mostPresentNode</span><span class="p">,</span><span class="n">mostPresentCount</span><span class="p">)</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;Reads and processes a .sif file&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The .sif file name&quot;</span><span class="p">)</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="n">inputFile</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">filename</span>
+<span class="c1">#inputFile = &quot;file_samples/pka.sif&quot;</span>
+<span class="n">interactions</span><span class="p">,</span> <span class="n">nodeL</span> <span class="o">=</span> <span class="n">readSif</span><span class="p">(</span><span class="n">inputFile</span><span class="p">)</span>
+<span class="p">(</span><span class="n">mpI</span><span class="p">,</span><span class="n">mpICount</span><span class="p">)</span> <span class="o">=</span> <span class="n">getMostPresentInteraction</span><span class="p">(</span><span class="n">interactions</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The most present interaction(s): </span><span class="si">{}</span><span class="s2">. Present </span><span class="si">{}</span><span class="s2"> times&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mpI</span><span class="p">,</span><span class="n">mpICount</span><span class="p">))</span>
+<span class="p">(</span><span class="n">mpN</span><span class="p">,</span> <span class="n">mpNCount</span><span class="p">)</span> <span class="o">=</span> <span class="n">getMostPresentNode</span><span class="p">(</span><span class="n">interactions</span><span class="p">,</span><span class="n">nodeL</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The most present node(s) </span><span class="si">{}</span><span class="s2">. Present </span><span class="si">{}</span><span class="s2"> times&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mpN</span><span class="p">,</span><span class="n">mpNCount</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div><ol class="arabic simple" start="3">
+<li><p>Given a <a class="reference external" href="https://en.wikipedia.org/wiki/FASTA_format">fasta</a> file like <a class="reference external" href="file_samples/contigs82.fasta">contigs82.fasta</a> specified in input by a user, write a python script that counts, for each sequence, the number of times that a DNA or protein string specified in input appears.</p></li>
+</ol>
+<p>If we run something like: python3 <code class="docutils literal notranslate"><span class="pre">find_stringInFasta.py</span> <span class="pre">contigs82.fasta</span> <span class="pre">TGCTCACAG</span></code></p>
+<p>the result should print lines like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TGCTCACAG in MDC052568.000: 1 times
+TGCTCACAG in MDC002479.192: 1 times
+TGCTCACAG in MDC040033.7: 1 times
+</pre></div>
+</div>
+<p>Modify the program so that it outputs also the list of all the indexes where the string appears in each sequence in the fasta file. Try to look for the following sequences:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TTTTCCTAGG
+TGCTCCGAGCATGTGATAATCATTCCAAGCTCCAT
+TAAACAT
+GATTACA
+</pre></div>
+</div>
+<div class="tggle" onclick="toggleVisibility('ex3');"><p>Show/Hide Solution</p>
+</div><div id="ex3" style="display:none;"><div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;exercises/find_stringInFasta.py&quot;&quot;&quot;</span>
+
+
+<span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="k">def</span> <span class="nf">getIndexes</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span><span class="n">string2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;checks if string2 is present in string1 and returns</span>
+<span class="sd">    all the positions at which string2 occurs in string1&quot;&quot;&quot;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">string1</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">string2</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">ind</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">ind</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">string1</span><span class="p">)):</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span>
+        <span class="n">ind</span> <span class="o">=</span> <span class="n">string1</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">string2</span><span class="p">,</span><span class="n">ind</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ret</span>
+
+<span class="k">def</span> <span class="nf">processFasta</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="n">testStr</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;reads a fasta file entry by entry checks if the input string</span>
+<span class="sd">       testStr is present in each sequence. Reporting how many times and where.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;&gt;&quot;</span><span class="p">)):</span>
+                <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">header</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">):</span>
+                    <span class="c1">#first entry:</span>
+                    <span class="n">header</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1">#this is a new entry</span>
+                    <span class="n">indexes</span> <span class="o">=</span> <span class="n">getIndexes</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span><span class="n">testStr</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">indexes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> in </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2"> times (</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">testStr</span><span class="p">,</span>
+                                                               <span class="n">header</span><span class="p">,</span>
+                                                               <span class="nb">len</span><span class="p">(</span><span class="n">indexes</span><span class="p">),</span>
+                                                               <span class="n">indexes</span><span class="p">))</span>
+                    <span class="n">seq</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                    <span class="n">header</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">seq</span> <span class="o">+=</span><span class="n">line</span>
+    <span class="c1">#processing the final entry</span>
+    <span class="n">indexes</span> <span class="o">=</span> <span class="n">getIndexes</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span><span class="n">testStr</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">indexes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> in </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2"> times (</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">testStr</span><span class="p">,</span>
+                                               <span class="n">header</span><span class="p">,</span>
+                                               <span class="nb">len</span><span class="p">(</span><span class="n">indexes</span><span class="p">),</span>
+                                               <span class="n">indexes</span><span class="p">))</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;Checks if a sequence is exactly contained in a fasta file&quot;&quot;&quot;</span>
+<span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The fasta file name&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;query&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The query string&quot;</span><span class="p">)</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="c1">#inFasta = args.filename</span>
+<span class="c1">#testS = args.query</span>
+<span class="n">inFasta</span> <span class="o">=</span> <span class="s2">&quot;file_samples/contigs82.fasta&quot;</span>
+<span class="n">testS</span> <span class="o">=</span> <span class="s2">&quot;TAAACAT&quot;</span>
+<span class="n">processFasta</span><span class="p">(</span><span class="n">inFasta</span><span class="p">,</span> <span class="n">testS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div><ol class="arabic simple" start="4">
+<li><p>The <a class="reference external" href="http://onlinelibrary.wiley.com/doi/10.1111/j.1469-1809.1936.tb02137.x/abstract">Fisher’s dataset</a> regarding Petal and Sepal length and width in csv format can be found <a class="reference external" href="file_samples/Fishers_Iris.csv">here</a>. These are the measurements of the flowers of fifty plants each of the two species Iris setosa and Iris versicolor.</p></li>
+</ol>
+<p>The header of the file is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Species Number,Species Name,Petal width,Petal length,Sepal length,Sepal width
+</pre></div>
+</div>
+<p>Write a python script that reads this file in input (feel free to hard-code the filename in the code) and computes the average petal length and width and sepal length and width for each of the three different Iris species. Print them to the screen alongside the number of elements.</p>
+<div class="tggle" onclick="toggleVisibility('ex4');"><p>Show/Hide Solution</p>
+</div><div id="ex4" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">readCSV</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;reads the csv dataset and returns a dictionary with</span>
+<span class="sd">    species name as key and, as value, a dictionary with</span>
+<span class="sd">    four keys : petalLen, sepalLen, petalWidth, sepalWidth</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Species Number&quot;</span><span class="p">):</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+                <span class="n">speciesName</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">pWidth</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                <span class="n">pLen</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+                <span class="n">sLen</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+                <span class="n">sWidth</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">speciesName</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ret</span><span class="p">):</span>
+                    <span class="n">ret</span><span class="p">[</span><span class="n">speciesName</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;petalLen&quot;</span> <span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;sepalLen&quot;</span> <span class="p">:</span> <span class="p">[],</span>
+                                        <span class="s2">&quot;petalWidth&quot;</span> <span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;sepalWidth&quot;</span> <span class="p">:</span> <span class="p">[]</span>
+                                       <span class="p">}</span>
+                <span class="n">ret</span><span class="p">[</span><span class="n">speciesName</span><span class="p">][</span><span class="s2">&quot;petalLen&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pLen</span><span class="p">)</span>
+                <span class="n">ret</span><span class="p">[</span><span class="n">speciesName</span><span class="p">][</span><span class="s2">&quot;sepalLen&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sLen</span><span class="p">)</span>
+                <span class="n">ret</span><span class="p">[</span><span class="n">speciesName</span><span class="p">][</span><span class="s2">&quot;sepalWidth&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sWidth</span><span class="p">)</span>
+                <span class="n">ret</span><span class="p">[</span><span class="n">speciesName</span><span class="p">][</span><span class="s2">&quot;petalWidth&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pWidth</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ret</span>
+
+<span class="k">def</span> <span class="nf">printData</span><span class="p">(</span><span class="n">dataDict</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">dataDict</span><span class="p">:</span>
+        <span class="n">avgPlen</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">dataDict</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s2">&quot;petalLen&quot;</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">dataDict</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s2">&quot;petalLen&quot;</span><span class="p">])</span>
+        <span class="n">avgPwid</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">dataDict</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s2">&quot;petalWidth&quot;</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">dataDict</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s2">&quot;petalWidth&quot;</span><span class="p">])</span>
+        <span class="n">avgSlen</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">dataDict</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s2">&quot;sepalLen&quot;</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">dataDict</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s2">&quot;sepalLen&quot;</span><span class="p">])</span>
+        <span class="n">avgSwid</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">dataDict</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s2">&quot;sepalWidth&quot;</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">dataDict</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s2">&quot;sepalWidth&quot;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Species </span><span class="si">{}</span><span class="s2"> has </span><span class="si">{}</span><span class="s2"> measurements:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataDict</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s2">&quot;petalLen&quot;</span><span class="p">])))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2"> petal length </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">avgPlen</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2"> petal width </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">avgPwid</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2"> sepal length </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">avgSlen</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2"> sepal width </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">avgSwid</span><span class="p">))</span>
+
+
+
+
+<span class="n">inFile</span> <span class="o">=</span> <span class="s2">&quot;file_samples/Fishers_Iris.csv&quot;</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">readCSV</span><span class="p">(</span><span class="n">inFile</span><span class="p">)</span>
+<span class="n">printData</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Species I. Setosa has 50 measurements:
+         petal length 14.62
+         petal width 2.46
+         sepal length 34.28
+         sepal width 50.1
+Species I. Verginica has 50 measurements:
+         petal length 55.52
+         petal width 20.06
+         sepal length 29.74
+         sepal width 65.88
+Species I. Versicolor has 50 measurements:
+         petal length 43.22
+         petal width 13.26
+         sepal length 27.64
+         sepal width 59.36
+</pre></div></div>
+</div>
+</div></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright # 2020 - 2020, Luca Bianco
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

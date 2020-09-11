@@ -1,0 +1,1771 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Practical 3 &mdash; Jupman</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/jupman.js"></script>
+        <script type="text/javascript" src="_static/js/pytutor-embed.bundle.min.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/jupman.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/jupman-web.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="toc-page.html" class="icon icon-home"> Jupman
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Scientific Programming for QCB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#General-Info">General Info</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#Timetable-and-lecture-rooms">Timetable and lecture rooms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#Tutoring">Tutoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#Slides">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#Acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="toc.html"> </a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="toc-page.html">Jupman</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+    <div id='jupman-langs'></div>
+
+     <!-- <li> <h2 style="background-color:red; color:yellow">WARNING! THIS VERSION IS OLD !  <br/>
+    <a style=" text-decoration: underline;" href="https://jupman.readthedocs.io/en/latest">GOT TO LATEST VERSION</a></li>
+ </h2></li>-->
+    <!-- Commented because doesn't work with sections,
+         see https://github.com/DavidLeoni/jupman/issues/39
+    <li><a href="toc-page.html">Docs</a> &raquo;</li>
+    
+    <li>Practical 3</li>
+    -->
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Practical-3">
+<h1>Practical 3<a class="headerlink" href="#Practical-3" title="Permalink to this headline">¶</a></h1>
+<p>In this practical we will work with lists and tuples.</p>
+<div class="section" id="Slides">
+<h2>Slides<a class="headerlink" href="#Slides" title="Permalink to this headline">¶</a></h2>
+<p>The slides of the introduction can be found here: <a class="reference external" href="docs/Practical3.pdf">Intro</a></p>
+</div>
+<div class="section" id="Lists">
+<h2>Lists<a class="headerlink" href="#Lists" title="Permalink to this headline">¶</a></h2>
+<p>Python lists are <strong>ordered</strong> collections of (homogeneous) objects, but they can hold also non-homogeneous data. List are <strong>mutable objects</strong>. Elements of the collection are specified within two square brackets <strong>[]</strong> and are comma separated.</p>
+<p>We can use the function print to print the content of lists. Some examples of list definitions follow:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_first_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;first:&quot;</span> <span class="p">,</span> <span class="n">my_first_list</span><span class="p">)</span>
+
+<span class="n">my_second_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="c1">#elements can appear several times</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;second: &quot;</span><span class="p">,</span> <span class="n">my_second_list</span><span class="p">)</span>
+
+<span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;pear&quot;</span><span class="p">,</span> <span class="s2">&quot;peach&quot;</span><span class="p">,</span> <span class="s2">&quot;strawberry&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">]</span> <span class="c1">#elements can be strings</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fruits:&quot;</span><span class="p">,</span> <span class="n">fruits</span><span class="p">)</span>
+
+<span class="n">an_empty_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;empty:&quot;</span> <span class="p">,</span> <span class="n">an_empty_list</span><span class="p">)</span>
+
+<span class="n">another_empty_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;another empty:&quot;</span><span class="p">,</span> <span class="n">another_empty_list</span><span class="p">)</span>
+
+<span class="n">a_list_containing_other_lists</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]]</span> <span class="c1">#elements can be other lists</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list of lists:&quot;</span><span class="p">,</span> <span class="n">a_list_containing_other_lists</span><span class="p">)</span>
+
+<span class="n">my_final_example</span> <span class="o">=</span> <span class="p">[</span><span class="n">my_first_list</span><span class="p">,</span> <span class="n">a_list_containing_other_lists</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a list of lists of lists:&quot;</span><span class="p">,</span> <span class="n">my_final_example</span><span class="p">)</span>
+
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+first: [1, 2, 3]
+second:  [1, 2, 3, 1, 3]
+fruits: [&#39;apple&#39;, &#39;pear&#39;, &#39;peach&#39;, &#39;strawberry&#39;, &#39;cherry&#39;]
+empty: []
+another empty: []
+list of lists: [[1, 2], [3, 4, 5, 6]]
+a list of lists of lists: [[1, 2, 3], [[1, 2], [3, 4, 5, 6]]]
+</pre></div></div>
+</div>
+<div class="section" id="Operators-for-lists">
+<h3>Operators for lists<a class="headerlink" href="#Operators-for-lists" title="Permalink to this headline">¶</a></h3>
+<p>Python provides several operators to handle lists. The following behave like on strings (<strong>remember that as in strings, the first position is 0!</strong>):</p>
+<p><img alt="image0" src="_images/tuple_methods.png" /></p>
+<p>While this requires that the whole tested obj is present in the list</p>
+<p><img alt="image1" src="_images/operators2.png" /></p>
+<p>and</p>
+<p><img alt="image2" src="_images/operators3.png" /></p>
+<p>can also change the corresponding value of the list (<strong>lists are mutable objects</strong>).</p>
+<p>Some examples follow.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A is a &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="s2">&quot; has length: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A[0]: &quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot; A[1]:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot; A[-1]:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="s2">&quot; has length: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is A equal to B?&quot;</span><span class="p">,</span> <span class="n">A</span> <span class="o">==</span> <span class="n">B</span><span class="p">)</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is C equal to B?&quot;</span><span class="p">,</span> <span class="n">B</span> <span class="o">==</span> <span class="n">C</span><span class="p">)</span>
+<span class="n">D</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="mi">8</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+
+<span class="n">E</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="mi">12</span><span class="p">:</span><span class="mi">18</span><span class="p">]</span> <span class="c1">#slicing</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is A*2 equal to E?&quot;</span><span class="p">,</span> <span class="n">A</span><span class="o">*</span><span class="mi">2</span> <span class="o">==</span> <span class="n">E</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+A is a  &lt;class &#39;list&#39;&gt;
+[1, 2, 3]  has length:  3
+A[0]:  1  A[1]: 2  A[-1]: 3
+[1, 2, 3, 1, 2]  has length:  5
+Is A equal to B? False
+[1, 2, 3, 1, 2]
+Is C equal to B? True
+[1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3]
+[1, 2, 3, 1, 2, 3]
+Is A*2 equal to E? True
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B:&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is B in A?&quot;</span><span class="p">,</span> <span class="n">B</span> <span class="ow">in</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A</span><span class="se">\&#39;</span><span class="s2">s ID:&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="n">A</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="c1">#we can add elements</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A</span><span class="se">\&#39;</span><span class="s2">s ID:&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A has length:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is now B in A?&quot;</span><span class="p">,</span> <span class="n">B</span> <span class="ow">in</span> <span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+A: [1, 2, 3, 4, 5, 6]
+B: [1, 3, 5]
+Is B in A? False
+A&#39;s ID: 140546986337864
+[1, 2, 3, 4, 5, [1, 3, 5]]
+A&#39;s ID: 140546986337864
+A has length: 6
+Is now B in A? True
+</pre></div></div>
+</div>
+<div class="admonition warning">
+<p><strong>Note:</strong> When slicing do not exceed the list boundaries (or you will be prompted a <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">index</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">range</span></code> error).</p>
+</div>
+<p>Consider the following example:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A has length:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First element:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;7th-element: &quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+A has length: 6
+First element: 1
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">IndexError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-4-699e5f04cae0&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;First element:&#34;</span><span class="ansi-blue-fg">,</span> A<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;7th-element: &#34;</span><span class="ansi-blue-fg">,</span> A<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">IndexError</span>: list index out of range
+</pre></div></div>
+</div>
+<p><strong>Example</strong>: Consider the matrix <span class="math notranslate nohighlight">\(M = \begin{bmatrix}1 &amp; 2 &amp; 3\\ 1 &amp; 2 &amp; 1\\ 1 &amp; 1 &amp; 3\end{bmatrix}\)</span> and the vector <span class="math notranslate nohighlight">\(v=[10, 5, 10]^T\)</span>. What is the matrix-vector product <span class="math notranslate nohighlight">\(M*v\)</span>?</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}1 &amp; 2 &amp; 3\\ 1 &amp; 2 &amp; 1\\ 1 &amp; 1 &amp; 3\end{bmatrix}*[10,5,10]^T = [50, 30, 45]^T\end{split}\]</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">M</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+<span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">prod</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#at the beginning the product is the null vector</span>
+
+<span class="n">prod</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">prod</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">prod</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;M: &quot;</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;v: &quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;M*v: &quot;</span><span class="p">,</span> <span class="n">prod</span><span class="p">)</span>
+
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+M:  [[1, 2, 3], [1, 2, 1], [1, 1, 3]]
+v:  [10, 5, 10]
+M*v:  [50, 30, 45]
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Methods-of-the-class-list">
+<h3>Methods of the class list<a class="headerlink" href="#Methods-of-the-class-list" title="Permalink to this headline">¶</a></h3>
+<p>The class list has some methods to operate on it. Recall from the lecture the following methods:</p>
+<p><img alt="image0" src="_images/tuple_methods.png" /></p>
+<div class="admonition note">
+<p><strong>Note:</strong> Lists are <strong>mutable objects</strong> and therefore virtually all the previous methods (except <em>count</em>) do not have an output value, but they <strong>modify</strong> the list.</p>
+</div>
+<p>Some usage examples follow:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#A numeric list</span>
+<span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A has id:&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="n">A</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">72</span><span class="p">)</span> <span class="c1">#appends one and only one object</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A has id:&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="n">A</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">124</span><span class="p">,</span> <span class="mi">99</span><span class="p">])</span> <span class="c1">#adds all these objects, one after the other.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">A</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">A</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Min value: &quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># In this simple case, could have used min(A)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Max value: &quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#In this simple case, could have used max(A)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number 1 appears:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s2">&quot; times&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;While number 837: &quot;</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">837</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Done with numbers, let&#39;s go strings...</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1">#A string list</span>
+<span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;pineapple&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">,</span><span class="s2">&quot;pear&quot;</span><span class="p">,</span> <span class="s2">&quot;almond&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">]</span>
+<span class="c1">#Let&#39;s get a reverse lexicographic order:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;banana&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;wild apple&quot;</span><span class="p">)</span> <span class="c1">#put wild apple after apple.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Sorted fruits:&quot;</span><span class="p">)</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span> <span class="c1"># does not return anything. Modifies list!</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[1, 2, 3]
+A has id: 140547045876232
+[1, 2, 3, 72]
+A has id: 140547045876232
+[1, 2, 3, 72, 1, 5, 124, 99]
+[99, 124, 5, 1, 72, 3, 2, 1]
+[1, 1, 2, 3, 5, 72, 99, 124]
+Min value:  1
+Max value:  124
+Number 1 appears: 2  times
+While number 837:  0
+
+Done with numbers, let&#39;s go strings...
+
+[&#39;apple&#39;, &#39;banana&#39;, &#39;pineapple&#39;, &#39;cherry&#39;, &#39;pear&#39;, &#39;almond&#39;, &#39;orange&#39;]
+[&#39;pineapple&#39;, &#39;pear&#39;, &#39;orange&#39;, &#39;cherry&#39;, &#39;banana&#39;, &#39;apple&#39;, &#39;almond&#39;]
+[&#39;pineapple&#39;, &#39;pear&#39;, &#39;orange&#39;, &#39;cherry&#39;, &#39;apple&#39;, &#39;almond&#39;]
+[&#39;pineapple&#39;, &#39;pear&#39;, &#39;orange&#39;, &#39;cherry&#39;, &#39;apple&#39;, &#39;wild apple&#39;, &#39;almond&#39;]
+
+Sorted fruits:
+[&#39;almond&#39;, &#39;apple&#39;, &#39;cherry&#39;, &#39;orange&#39;, &#39;pear&#39;, &#39;pineapple&#39;, &#39;wild apple&#39;]
+</pre></div></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Some things to remember</strong></p>
+<ol class="arabic simple">
+<li><p>append and extend work quite differently:</p></li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="n">A</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">B</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[1, 2, 3, 4, 5]
+[1, 2, 3, [4, 5]]
+</pre></div></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>To remove an object it must exist:</p></li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="p">[[</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]],</span> <span class="mi">8</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">A</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">A</span><span class="o">.</span><span class="n">remove</span><span class="p">([[</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">A</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[1, 2, 3, [[4], [5, 6]], 8]
+[1, 3, [[4], [5, 6]], 8]
+[1, 3, 8]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-8-cef337401de9&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> A<span class="ansi-blue-fg">.</span>remove<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">4</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span> print<span class="ansi-blue-fg">(</span>A<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg"> </span>A<span class="ansi-blue-fg">.</span>remove<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">7</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">ValueError</span>: list.remove(x): x not in list
+</pre></div></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>To sort a list, its elements must be sortable (i.e. homogeneous)!</p></li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">A</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">A</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;banana&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">A</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[4, 3, 1, 7, 2]
+[1, 2, 3, 4, 7]
+[1, 2, 3, 4, 7, &#39;banana&#39;]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-1-91b77adb823f&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> A<span class="ansi-blue-fg">.</span>append<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;banana&#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span> print<span class="ansi-blue-fg">(</span>A<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg"> </span>A<span class="ansi-blue-fg">.</span>sort<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      8</span> print<span class="ansi-blue-fg">(</span>A<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">TypeError</span>: &#39;&lt;&#39; not supported between instances of &#39;str&#39; and &#39;int&#39;
+</pre></div></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Important to remember:</strong></p>
+<p>Lists are <strong>mutable objects</strong> and this has some consequences! Since lists are mutable objects, they hold references to objects rather than objects.</p>
+<p>Take a look at the following examples:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">LL</span> <span class="o">=</span> <span class="p">[</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;l1:&quot;</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;l2:&quot;</span><span class="p">,</span><span class="n">l2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LL:&quot;</span><span class="p">,</span> <span class="n">LL</span><span class="p">)</span>
+<span class="n">l1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Appending 7 to l1...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;l1:&quot;</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LL now: &quot;</span><span class="p">,</span> <span class="n">LL</span><span class="p">)</span>
+
+<span class="n">LL</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Setting LL[0][1]=-1...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LL now:&quot;</span> <span class="p">,</span> <span class="n">LL</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;l1 now&quot;</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span>
+<span class="c1">#but the list can point also to a different object,</span>
+<span class="c1">#without affecting the original list.</span>
+<span class="n">LL</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Setting LL[0] = 100&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LL now:&quot;</span><span class="p">,</span> <span class="n">LL</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;l1 now&quot;</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+l1: [1, 2]
+l2: [4, 3]
+LL: [[1, 2], [4, 3]]
+
+Appending 7 to l1...
+l1: [1, 2, 7]
+LL now:  [[1, 2, 7], [4, 3]]
+
+Setting LL[0][1]=-1...
+LL now: [[1, -1, 7], [4, 3]]
+l1 now [1, -1, 7]
+
+Setting LL[0] = 100
+LL now: [100, [4, 3]]
+l1 now [1, -1, 7]
+</pre></div></div>
+</div>
+<p><strong>Making copies</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="s2">&quot;there&quot;</span><span class="p">]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">A</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B:&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="n">A</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s2">&quot;from&quot;</span><span class="p">,</span> <span class="s2">&quot;python&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A now: &quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B now: &quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">---- copy example -------&quot;</span><span class="p">)</span>
+<span class="c1">#Let&#39;s make a distinct copy of A.</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:]</span> <span class="c1">#all the elements of A have been copied in C</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C:&quot;</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+<span class="n">A</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;java&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A now:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C now:&quot;</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">---- be careful though -------&quot;</span><span class="p">)</span>
+<span class="c1">#Watch out though that...</span>
+<span class="n">D</span> <span class="o">=</span> <span class="p">[</span><span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">]</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">D</span><span class="p">[:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;D:&quot;</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;E:&quot;</span><span class="p">,</span> <span class="n">E</span><span class="p">)</span>
+
+<span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">D now:&quot;</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;E now:&quot;</span><span class="p">,</span> <span class="n">E</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A now:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+A: [&#39;hi&#39;, &#39;there&#39;]
+B: [&#39;hi&#39;, &#39;there&#39;]
+A now:  [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;python&#39;]
+B now:  [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;python&#39;]
+
+---- copy example -------
+C: [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;python&#39;]
+A now: [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]
+C now: [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;python&#39;]
+
+---- be careful though -------
+D: [[&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;], [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]]
+E: [[&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;], [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]]
+
+D now: [[&#39;hello&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;], [&#39;hello&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]]
+E now: [[&#39;hello&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;], [&#39;hello&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]]
+A now: [&#39;hello&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]
+</pre></div></div>
+</div>
+<p><strong>Equality and identity</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">A</span>
+<span class="n">C</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is A equal to B?&quot;</span><span class="p">,</span> <span class="n">A</span> <span class="o">==</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is A actually B?&quot;</span><span class="p">,</span> <span class="n">A</span> <span class="ow">is</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is A equal to C?&quot;</span><span class="p">,</span> <span class="n">A</span> <span class="o">==</span> <span class="n">C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is A actually C?&quot;</span><span class="p">,</span> <span class="n">A</span> <span class="ow">is</span> <span class="n">C</span><span class="p">)</span>
+<span class="c1">#in fact:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">A&#39;s id:&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B&#39;s id:&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C&#39;s id:&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
+<span class="c1">#just to confirm that:</span>
+<span class="n">A</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">B</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">A now: &quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B now: &quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Is A equal to B? True
+Is A actually B? True
+Is A equal to C? True
+Is A actually C? False
+
+A&#39;s id: 140546986339208
+B&#39;s id: 140546986339208
+C&#39;s id: 140546977413576
+
+A now:  [1, 2, 3, 4, 5]
+B now:  [1, 2, 3, 4, 5]
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="From-strings-to-lists,-the-split-method">
+<h3>From strings to lists, the <code class="docutils literal notranslate"><span class="pre">split</span></code> method<a class="headerlink" href="#From-strings-to-lists,-the-split-method" title="Permalink to this headline">¶</a></h3>
+<p>Strings have a method <em>split</em> that can literally split the string at specific characters.</p>
+<p><strong>Example</strong> Recall the protein seen in the previous practical:</p>
+<p>chain_a = “”“SSSVPSQKTYQGSYGFRLGFLHSGTAKSVTCTYSPALNKM FCQLAKTCPVQLWVDSTPPPGTRVRAMAIYKQSQHMTEVV RRCPHHERCSDSDGLAPPQHLIRVEGNLRVEYLDDRNTFR HSVVVPYEPPEVGSDCTTIHYNYMCNSSCMGGMNRRPILT IITLEDSSGNLLGRNSFEVRVCACPGRDRRTEEENLRKKG EPHHELPPGSTKRALPNNT”“”</p>
+<p>how can we split it into several lines?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">chain_a</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SSSVPSQKTYQGSYGFRLGFLHSGTAKSVTCTYSPALNKM</span>
+<span class="s2">FCQLAKTCPVQLWVDSTPPPGTRVRAMAIYKQSQHMTEVV</span>
+<span class="s2">RRCPHHERCSDSDGLAPPQHLIRVEGNLRVEYLDDRNTFR</span>
+<span class="s2">HSVVVPYEPPEVGSDCTTIHYNYMCNSSCMGGMNRRPILT</span>
+<span class="s2">IITLEDSSGNLLGRNSFEVRVCACPGRDRRTEEENLRKKG</span>
+<span class="s2">EPHHELPPGSTKRALPNNT&quot;&quot;&quot;</span>
+
+<span class="n">lines</span> <span class="o">=</span> <span class="n">chain_a</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original sequence:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">chain_a</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#some spacing to keep things clear</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;line by line:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1st line:&quot;</span> <span class="p">,</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2nd line:&quot;</span> <span class="p">,</span><span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3rd line:&quot;</span> <span class="p">,</span><span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4th line:&quot;</span> <span class="p">,</span><span class="n">lines</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;5th line:&quot;</span> <span class="p">,</span><span class="n">lines</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;6th line:&quot;</span> <span class="p">,</span><span class="n">lines</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Split the 1st line in correspondence to FRL:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;FRL&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Original sequence:
+SSSVPSQKTYQGSYGFRLGFLHSGTAKSVTCTYSPALNKM
+FCQLAKTCPVQLWVDSTPPPGTRVRAMAIYKQSQHMTEVV
+RRCPHHERCSDSDGLAPPQHLIRVEGNLRVEYLDDRNTFR
+HSVVVPYEPPEVGSDCTTIHYNYMCNSSCMGGMNRRPILT
+IITLEDSSGNLLGRNSFEVRVCACPGRDRRTEEENLRKKG
+EPHHELPPGSTKRALPNNT
+
+line by line:
+1st line: SSSVPSQKTYQGSYGFRLGFLHSGTAKSVTCTYSPALNKM
+2nd line: FCQLAKTCPVQLWVDSTPPPGTRVRAMAIYKQSQHMTEVV
+3rd line: RRCPHHERCSDSDGLAPPQHLIRVEGNLRVEYLDDRNTFR
+4th line: HSVVVPYEPPEVGSDCTTIHYNYMCNSSCMGGMNRRPILT
+5th line: IITLEDSSGNLLGRNSFEVRVCACPGRDRRTEEENLRKKG
+6th line: EPHHELPPGSTKRALPNNT
+
+Split the 1st line in correspondence to FRL:
+ [&#39;SSSVPSQKTYQGSYG&#39;, &#39;GFLHSGTAKSVTCTYSPALNKM&#39;]
+</pre></div></div>
+</div>
+<p><strong>Note that in the last instruction, the substring FRL is disappeared (as happened to the newline)</strong>.</p>
+</div>
+<div class="section" id="And-back-to-strings-with-the-join-method">
+<h3>And back to strings with the <code class="docutils literal notranslate"><span class="pre">join</span></code> method<a class="headerlink" href="#And-back-to-strings-with-the-join-method" title="Permalink to this headline">¶</a></h3>
+<p>Given a list, one can join the elements of the list together into a string by using the <code class="docutils literal notranslate"><span class="pre">join</span></code> method of the class string. The syntax is the following: <em>str.join(list)</em> which joins together all the elements in the list in a string separating them with the string <em>str</em>.</p>
+<p><strong>Example</strong> Given the list [‘Oct’, ‘5’, ‘2018’, ‘15:30’], let’s combine all its elements in a string joining the elements with a dash (“-“) and print them. Let’s finally join them with a tab (“\t”) and print them.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Oct&#39;</span><span class="p">,</span> <span class="s1">&#39;5th&#39;</span><span class="p">,</span> <span class="s1">&#39;2018&#39;</span><span class="p">,</span> <span class="s1">&#39;15:30&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
+<span class="n">myStr</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">myStr</span><span class="p">)</span>
+<span class="n">myStr</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">myStr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;Oct&#39;, &#39;5th&#39;, &#39;2018&#39;, &#39;15:30&#39;]
+
+Oct-5th-2018-15:30
+
+Oct     5th     2018    15:30
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="Tuples">
+<h2>Tuples<a class="headerlink" href="#Tuples" title="Permalink to this headline">¶</a></h2>
+<p>Tuples are the <strong>immutable</strong> version of lists (i.e. it is not possible to change their content without actually changing the object). They are sequential collections of objects, and elements of tuples are assumed to be in a particular order. They can hold heterogeneous information. They are defined with the brackets <strong>()</strong>. Some examples:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">first_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_tuple</span><span class="p">)</span>
+
+<span class="n">second_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span> <span class="c1">#this contains one element only, but we need the comma!</span>
+<span class="n">var</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#This is not a tuple!!!</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">second_tuple</span><span class="p">,</span> <span class="s2">&quot; type:&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">second_tuple</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="s2">&quot; type:&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">var</span><span class="p">))</span>
+<span class="n">empty_tuple</span> <span class="o">=</span> <span class="p">()</span> <span class="c1">#fairly useless</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">empty_tuple</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">third_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;January&quot;</span><span class="p">,</span> <span class="mi">1</span> <span class="p">,</span><span class="mi">2007</span><span class="p">)</span> <span class="c1">#heterogeneous info</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">third_tuple</span><span class="p">)</span>
+
+<span class="n">days</span> <span class="o">=</span> <span class="p">(</span><span class="n">third_tuple</span><span class="p">,(</span><span class="s2">&quot;February&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1998</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;March&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1978</span><span class="p">),(</span><span class="s2">&quot;June&quot;</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">1978</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">days</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1">#Remember tuples are immutable objects...</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Days has id: &quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">days</span><span class="p">))</span>
+<span class="n">days</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Mon&quot;</span><span class="p">,</span><span class="s2">&quot;Tue&quot;</span><span class="p">,</span><span class="s2">&quot;Wed&quot;</span><span class="p">,</span><span class="s2">&quot;Thu&quot;</span><span class="p">,</span><span class="s2">&quot;Fri&quot;</span><span class="p">,</span><span class="s2">&quot;Sat&quot;</span><span class="p">,</span><span class="s2">&quot;Sun&quot;</span><span class="p">)</span>
+<span class="c1">#...hence reassignment creates a new object</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Days now has id: &quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">days</span><span class="p">))</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(1, 2, 3)
+(1,)  type: &lt;class &#39;tuple&#39;&gt;
+1  type: &lt;class &#39;int&#39;&gt;
+()
+
+(&#39;January&#39;, 1, 2007)
+((&#39;January&#39;, 1, 2007), (&#39;February&#39;, 2, 1998), (&#39;March&#39;, 2, 1978), (&#39;June&#39;, 12, 1978))
+
+Days has id:  140546977398040
+Days now has id:  140546995078232
+</pre></div></div>
+</div>
+<p>The following operators work on tuples and they behave exactly as on lists:</p>
+<p><img alt="image0" src="_images/tuple_methods.png" /></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">practical1</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Friday&quot;</span><span class="p">,</span> <span class="s2">&quot;28/09/2018&quot;</span><span class="p">)</span>
+<span class="n">practical2</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Tuesday&quot;</span><span class="p">,</span> <span class="s2">&quot;02/10/2018&quot;</span><span class="p">)</span>
+<span class="n">practical3</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Friday&quot;</span><span class="p">,</span> <span class="s2">&quot;05/10/2018&quot;</span><span class="p">)</span>
+
+<span class="c1">#A tuple containing 3 tuples</span>
+<span class="n">lectures</span> <span class="o">=</span> <span class="p">(</span><span class="n">practical1</span><span class="p">,</span> <span class="n">practical2</span><span class="p">,</span> <span class="n">practical3</span><span class="p">)</span>
+<span class="c1">#One tuple only</span>
+<span class="n">mergedLectures</span> <span class="o">=</span> <span class="n">practical1</span> <span class="o">+</span> <span class="n">practical2</span> <span class="o">+</span> <span class="n">practical3</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The first three lectures:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">lectures</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mergedLectures:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">mergedLectures</span><span class="p">)</span>
+
+<span class="c1">#This returns the whole tuple</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1st lecture was on: &quot;</span><span class="p">,</span> <span class="n">lectures</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1">#2 elements from the same tuple</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1st lecture was on &quot;</span><span class="p">,</span> <span class="n">mergedLectures</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;, &quot;</span><span class="p">,</span> <span class="n">mergedLectures</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Return type is tuple!</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3rd lecture was on: &quot;</span><span class="p">,</span> <span class="n">lectures</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="c1">#2 elements from the same tuple returned in tuple</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3rd lecture was on &quot;</span><span class="p">,</span> <span class="n">mergedLectures</span><span class="p">[</span><span class="mi">4</span><span class="p">:],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The first three lectures:
+ ((&#39;Friday&#39;, &#39;28/09/2018&#39;), (&#39;Tuesday&#39;, &#39;02/10/2018&#39;), (&#39;Friday&#39;, &#39;05/10/2018&#39;))
+
+mergedLectures:
+ (&#39;Friday&#39;, &#39;28/09/2018&#39;, &#39;Tuesday&#39;, &#39;02/10/2018&#39;, &#39;Friday&#39;, &#39;05/10/2018&#39;)
+1st lecture was on:  (&#39;Friday&#39;, &#39;28/09/2018&#39;)
+
+1st lecture was on  Friday ,  28/09/2018
+
+3rd lecture was on:  (&#39;Friday&#39;, &#39;05/10/2018&#39;)
+3rd lecture was on  (&#39;Friday&#39;, &#39;05/10/2018&#39;)
+
+</pre></div></div>
+</div>
+<p>The following methods are available for tuples:</p>
+<p><img alt="image0" src="_images/tuple_methods.png" /></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">practical1</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Friday&quot;</span><span class="p">,</span> <span class="s2">&quot;28/09/2018&quot;</span><span class="p">)</span>
+<span class="n">practical2</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Tuesday&quot;</span><span class="p">,</span> <span class="s2">&quot;02/10/2018&quot;</span><span class="p">)</span>
+<span class="n">practical3</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Friday&quot;</span><span class="p">,</span> <span class="s2">&quot;05/10/2018&quot;</span><span class="p">)</span>
+
+
+<span class="n">mergedLectures</span> <span class="o">=</span> <span class="n">practical1</span> <span class="o">+</span> <span class="n">practical2</span> <span class="o">+</span> <span class="n">practical3</span>  <span class="c1">#One tuple only</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mergedLectures</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;Friday&quot;</span><span class="p">),</span> <span class="s2">&quot; lectures were on Friday&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mergedLectures</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;Tuesday&quot;</span><span class="p">),</span> <span class="s2">&quot; lecture was on Tuesday&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Index:&quot;</span><span class="p">,</span> <span class="n">practical2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Tuesday&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Index:&quot;</span><span class="p">,</span> <span class="n">practical2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Wednesday&quot;</span><span class="p">))</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2  lectures were on Friday
+1  lecture was on Tuesday
+Index: 0
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-16-fc543d476575&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      9</span>
+<span class="ansi-green-intense-fg ansi-bold">     10</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Index:&#34;</span><span class="ansi-blue-fg">,</span> practical2<span class="ansi-blue-fg">.</span>index<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Tuesday&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 11</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Index:&#34;</span><span class="ansi-blue-fg">,</span> practical2<span class="ansi-blue-fg">.</span>index<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Wednesday&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">ValueError</span>: tuple.index(x): x not in tuple
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Exercises">
+<h2>Exercises<a class="headerlink" href="#Exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Given the following text string:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;&quot;&quot;this is a text
+string on
+several lines that does not say anything.&quot;&quot;&quot;
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="loweralpha simple">
+<li><p>print it; b) print how many lines, words and characters it contains. Finally, c)sort the words alphabetically and print the first and the last in lexicographic order.</p></li>
+</ol>
+<div class="tggle" onclick="toggleVisibility('ex0');"><p>Show/Hide Solution</p>
+</div><div id="ex0" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">T</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;this is a text</span>
+<span class="s2">string on</span>
+<span class="s2">several lines that does not say anything.&quot;&quot;&quot;</span>
+
+<span class="c1">#a) print it</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="c1">#b) print the lines, words and characters</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">#NOTE: words are split by a space or a newline!</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+
+<span class="n">num_chars</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lines:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">),</span> <span class="s2">&quot;words:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">),</span> <span class="s2">&quot;chars:&quot;</span><span class="p">,</span> <span class="n">num_chars</span><span class="p">)</span>
+<span class="c1"># alternative way for number of characters:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">characters</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="n">num_chars2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num_chars2</span><span class="p">)</span>
+
+<span class="n">words</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1">#NOTE: it does not return ANYTHING!!!</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First word: &quot;</span><span class="p">,</span> <span class="n">words</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Last word:&quot;</span><span class="p">,</span> <span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+this is a text
+string on
+several lines that does not say anything.
+
+Lines: 3 words: 13 chars: 66
+
+[&#39;t&#39;, &#39;h&#39;, &#39;i&#39;, &#39;s&#39;, &#39; &#39;, &#39;i&#39;, &#39;s&#39;, &#39; &#39;, &#39;a&#39;, &#39; &#39;, &#39;t&#39;, &#39;e&#39;, &#39;x&#39;, &#39;t&#39;, &#39;\n&#39;, &#39;s&#39;, &#39;t&#39;, &#39;r&#39;, &#39;i&#39;, &#39;n&#39;, &#39;g&#39;, &#39; &#39;, &#39;o&#39;, &#39;n&#39;, &#39;\n&#39;, &#39;s&#39;, &#39;e&#39;, &#39;v&#39;, &#39;e&#39;, &#39;r&#39;, &#39;a&#39;, &#39;l&#39;, &#39; &#39;, &#39;l&#39;, &#39;i&#39;, &#39;n&#39;, &#39;e&#39;, &#39;s&#39;, &#39; &#39;, &#39;t&#39;, &#39;h&#39;, &#39;a&#39;, &#39;t&#39;, &#39; &#39;, &#39;d&#39;, &#39;o&#39;, &#39;e&#39;, &#39;s&#39;, &#39; &#39;, &#39;n&#39;, &#39;o&#39;, &#39;t&#39;, &#39; &#39;, &#39;s&#39;, &#39;a&#39;, &#39;y&#39;, &#39; &#39;, &#39;a&#39;, &#39;n&#39;, &#39;y&#39;, &#39;t&#39;, &#39;h&#39;, &#39;i&#39;, &#39;n&#39;, &#39;g&#39;, &#39;.&#39;]
+66
+[&#39;this&#39;, &#39;that&#39;, &#39;text&#39;, &#39;string&#39;, &#39;several&#39;, &#39;say&#39;, &#39;on&#39;, &#39;not&#39;, &#39;lines&#39;, &#39;is&#39;, &#39;does&#39;, &#39;anything.&#39;, &#39;a&#39;]
+
+First word:  a
+Last word: this
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="2">
+<li><p>The variant calling format (<a class="reference external" href="http://www.internationalgenome.org/wiki/Analysis/vcf4.0/">VCF</a>) is a format to represent structural variants of genomes (i.e. SNPs, insertions, deletions) . Each line of this format represents a variant, every piece of information within a line is separated by a tab (\t in python). The first 5 fields of this format report the chromosome (chr), the position (pos), the name of the variant (name), the reference allele (REF) and the alternative allele (ALT).
+Assuming to have a variable VCF defined containing the following three lines (representing three SNPs):</p></li>
+</ol>
+<p>VCF = “”“MDC000001.124\t7112\tFB_AFFY_0000024\tG\tA MDC000002.328\t941\tFB_AFFY_0000144\tC\tT MDC000004.272\t2015\tFB_AFFY_0000222\tG\tA”“”</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. Store these three variants as a list of lists, where each one of the fields is kept separate
+(e.g. the list should be similar to:
+[[chr1,pos1,name1,ref1,alt1], [chr2, pos2, name2, ref2, alt2], ...] where all the elements
+are as specified in the string VCF (note that &quot;...&quot; means that the list is not complete).
+
+2. Print each variant changing its format in:  &quot;name|chr|pos|REF/ALT&quot;.
+</pre></div>
+</div>
+<div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
+</div><div id="ex1" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">VCF</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;MDC000001.124</span><span class="se">\t</span><span class="s2">7112</span><span class="se">\t</span><span class="s2">FB_AFFY_0000024</span><span class="se">\t</span><span class="s2">G</span><span class="se">\t</span><span class="s2">A</span>
+<span class="s2">MDC000002.328</span><span class="se">\t</span><span class="s2">941</span><span class="se">\t</span><span class="s2">FB_AFFY_0000144</span><span class="se">\t</span><span class="s2">C</span><span class="se">\t</span><span class="s2">T</span>
+<span class="s2">MDC000004.272</span><span class="se">\t</span><span class="s2">2015</span><span class="se">\t</span><span class="s2">FB_AFFY_0000222</span><span class="se">\t</span><span class="s2">G</span><span class="se">\t</span><span class="s2">A&quot;&quot;&quot;</span>
+
+<span class="n">variants</span> <span class="o">=</span> <span class="n">VCF</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">variants</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">variants</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">variants</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">variants</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">variants</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">variants</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">variants</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">variants</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">variants</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">variants</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">info</span> <span class="o">=</span> <span class="n">variants</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;|&quot;</span> <span class="o">+</span> <span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;|&quot;</span> <span class="o">+</span> <span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;|&quot;</span> <span class="o">+</span> <span class="n">info</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span><span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">info</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">variants</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;|&quot;</span> <span class="o">+</span> <span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;|&quot;</span> <span class="o">+</span> <span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;|&quot;</span> <span class="o">+</span> <span class="n">info</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span><span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">info</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">variants</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;|&quot;</span> <span class="o">+</span> <span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;|&quot;</span> <span class="o">+</span> <span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;|&quot;</span> <span class="o">+</span> <span class="n">info</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span><span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">info</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;MDC000001.124&#39;, &#39;7112&#39;, &#39;FB_AFFY_0000024&#39;, &#39;G&#39;, &#39;A&#39;], [&#39;MDC000002.328&#39;, &#39;941&#39;, &#39;FB_AFFY_0000144&#39;, &#39;C&#39;, &#39;T&#39;], [&#39;MDC000004.272&#39;, &#39;2015&#39;, &#39;FB_AFFY_0000222&#39;, &#39;G&#39;, &#39;A&#39;]]
+[&#39;MDC000001.124&#39;, &#39;7112&#39;, &#39;FB_AFFY_0000024&#39;, &#39;G&#39;, &#39;A&#39;]
+[&#39;MDC000002.328&#39;, &#39;941&#39;, &#39;FB_AFFY_0000144&#39;, &#39;C&#39;, &#39;T&#39;]
+[&#39;MDC000004.272&#39;, &#39;2015&#39;, &#39;FB_AFFY_0000222&#39;, &#39;G&#39;, &#39;A&#39;]
+
+FB_AFFY_0000024|MDC000001.124|7112|G/A
+FB_AFFY_0000144|MDC000002.328|941|C/T
+FB_AFFY_0000222|MDC000004.272|2015|G/A
+FB_AFFY_0000024|MDC000001.124|7112|G/A
+FB_AFFY_0000144|MDC000002.328|941|C/T
+FB_AFFY_0000222|MDC000004.272|2015|G/A
+</pre></div></div>
+</div>
+</div><ol class="arabic" start="3">
+<li><p>Given the list L = [“walnut”, “eggplant”, “lemon”, “lime”, “date”, “onion”, “nectarine”, “endive” ]:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. Create another list (called newList) containing the first letter of each element of L
+(e.g newList =[&quot;w&quot;, &quot;e&quot;, ...]).
+2. Add a space to newList at position 4 and append an exclamation mark (!) at the end.
+3. Print the list.
+4. Print the content of the list joining all the elements with an empty space
+(i.e. use the method join: &quot;&quot;.join(newList) )
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="tggle" onclick="toggleVisibility('ex2');"><p>Show/Hide Solution</p>
+</div><div id="ex2" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;walnut&quot;</span><span class="p">,</span> <span class="s2">&quot;eggplant&quot;</span><span class="p">,</span> <span class="s2">&quot;lemon&quot;</span><span class="p">,</span> <span class="s2">&quot;lime&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;onion&quot;</span><span class="p">,</span> <span class="s2">&quot;nectarine&quot;</span><span class="p">,</span> <span class="s2">&quot;endive&quot;</span> <span class="p">]</span>
+
+<span class="n">newList</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">newList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">newList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">newList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">newList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">newList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">newList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">newList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">newList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">newList</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">newList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;!&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">newList</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">newList</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;w&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39; &#39;, &#39;d&#39;, &#39;o&#39;, &#39;n&#39;, &#39;e&#39;, &#39;!&#39;]
+
+ well done!
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="4">
+<li><p>Fastq is a standard format for storing sequences and quality information. More information on the format can be found <a class="reference external" href="https://en.wikipedia.org/wiki/FASTQ_format">here</a>. This format can be used to store sequencing information coming from the sequencer. Each entry represents a read (i.e. a sequence) and carries four different pieces of information. A sample entry is the following:</p></li>
+</ol>
+<p>&#64;HWI-ST1296:75:C3F7CACXX:1:1101:19142:14904 CCAACAACTTTGACGCTAAGGATAGCTCCATGGCAGCATATCTGGCACAA + FHIIJIJJGIJJJJJIHHHFFFFFEE:;CIDDDDDDDDDDDDEDDDDDDB”“”</p>
+<p>where:</p>
+<ul class="simple">
+<li><ol class="lowerroman simple">
+<li><p>the first line is the read identifier starts with a “&#64;” and carries several types of information regarding the instrument used for sequencing (the reported example is an illumina read - if you are interested, you can find more info on the format of the ID <a class="reference external" href="https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/NamingConvention_FASTQ-files-swBS.htm">here</a>.</p></li>
+</ol>
+</li>
+<li><p>(ii). the second information is the sequence of the read (note that it can span several lines, not in our simple example though);</p></li>
+<li><ol class="lowerroman simple" start="3">
+<li><p>a “+” sign to mark the end of the sequence information (optionally the read identifier can be repeated);</p></li>
+</ol>
+</li>
+<li><ol class="lowerroman simple" start="4">
+<li><p>the phred quality score of the read encoded as a text string. It must contain the same number of elements that are in the sequence. To decode each character into a the corresponding phred score, one needs to convert it into the unicode integer representation of it - 33. For example, the conversion of a character “I” in python can be done using the <em>ord</em> built in function in the following way: ord(“I”) - 33 = 40. Finally the phred score can be converted into probability of the base to be
+wrong with the following formula: <span class="math notranslate nohighlight">\(P = 10^{-Q/10}\)</span>, where <span class="math notranslate nohighlight">\(Q\)</span> is the phred quality score.</p></li>
+</ol>
+</li>
+</ul>
+<p>Given the entry above:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. Check that the ID starts with a @
+2. Store the sequence as a string and as list where each element is one single base
+(e.g. sequence =[&#39;T&#39;, &#39;A&#39;,...])
+3. Store the quality as a list where each element is one single quality character
+(e.g. qualChar = [&#39;C&#39;, &#39;C&#39;, ...])
+4. Check that the length of the sequence and quality are the same
+(hint: use the sequence string, not the list)
+5. Count how many times the sequence &quot;TCCA&quot; appears in the read
+6. Retrieve the sub-list containing the quality values corresponding to the &quot;TCCA&quot; string
+7. Convert each value in the list at point 6 in the corresponding probability of the base
+being wrong
+</pre></div>
+</div>
+<div class="tggle" onclick="toggleVisibility('ex3');"><p>Show/Hide Solution</p>
+</div><div id="ex3" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">entry</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;@HWI-ST1296:75:C3F7CACXX:1:1101:19142:14904</span>
+<span class="s2">CCAACAACTTTGACGCTAAGGATAGCTCCATGGCAGCATATCTGGCACAA</span>
+<span class="s2">+</span>
+<span class="s2">FHIIJIJJGIJJJJJIHHHFFFFFEE:;CIDDDDDDDDDDDDEDDDDDDB</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Does header start with @?&quot;</span><span class="p">,</span> <span class="n">entry</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">))</span>
+<span class="n">entryList</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">sequence</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">entryList</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">qualChar</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">entryList</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sequence and quality have the same length:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">qualChar</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sequence </span><span class="se">\&quot;</span><span class="s2">ACAA</span><span class="se">\&quot;</span><span class="s2"> is present &quot;</span><span class="p">,</span> <span class="n">entryList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;TCCA&quot;</span><span class="p">),</span> <span class="s2">&quot; times&quot;</span> <span class="p">)</span>
+
+<span class="n">pos</span> <span class="o">=</span> <span class="n">entryList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;TCCA&quot;</span><span class="p">)</span>
+
+<span class="n">qVals</span> <span class="o">=</span> <span class="n">qualChar</span><span class="p">[</span><span class="n">pos</span><span class="p">:</span><span class="n">pos</span><span class="o">+</span><span class="mi">4</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sequence: &quot;</span><span class="p">,</span> <span class="n">entryList</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">pos</span><span class="p">:</span><span class="n">pos</span><span class="o">+</span><span class="mi">4</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Quality: &quot;</span><span class="p">,</span> <span class="n">qVals</span><span class="p">)</span>
+
+<span class="n">phredS</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">phredS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">qVals</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">33</span><span class="p">)</span>
+<span class="n">phredS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">qVals</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="mi">33</span><span class="p">)</span>
+<span class="n">phredS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">qVals</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">-</span> <span class="mi">33</span><span class="p">)</span>
+<span class="n">phredS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">qVals</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">-</span> <span class="mi">33</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Phred score:&quot;</span><span class="p">,</span> <span class="n">phredS</span><span class="p">)</span>
+
+<span class="n">probVals</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">probVals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="mi">0</span><span class="o">-</span><span class="n">phredS</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">probVals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="mi">0</span><span class="o">-</span><span class="n">phredS</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">probVals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="mi">0</span><span class="o">-</span><span class="n">phredS</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">probVals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="mi">0</span><span class="o">-</span><span class="n">phredS</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error Probabilities:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">probVals</span><span class="p">)</span>
+
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Does header start with @? True
+Sequence and quality have the same length: True
+Sequence &#34;ACAA&#34; is present  1  times
+Sequence:  TCCA
+Quality:  [&#39;:&#39;, &#39;;&#39;, &#39;C&#39;, &#39;I&#39;]
+Phred score: [25, 26, 34, 40]
+Error Probabilities:
+ [0.0031622776601683794, 0.0025118864315095794, 0.00039810717055349735, 0.0001]
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="5">
+<li><p>Given the list L = [10, 60, 72, 118, 11, 71, 56, 89, 120, 175] find the min, max and median value (hint: sort it and extract the right values). Create a list with only the elements at even indexes (i.e. [10, 72, 11, ..], note that the “..” means that the list is not complete) and re-compute min, max and median values. Finally, re-do the same for the elements located at odd indexes (i.e. [60, 118,..]).</p></li>
+</ol>
+<div class="tggle" onclick="toggleVisibility('ex3');"><p>Show/Hide Solution</p>
+</div><div id="ex3" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">118</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">175</span><span class="p">]</span>
+<span class="n">Lodd</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="c1">#get only odd-indexed elements</span>
+<span class="n">Leven</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="c1">#get only even-indexed elements</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original:&quot;</span> <span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lodd:&quot;</span><span class="p">,</span> <span class="n">Lodd</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Leven:&quot;</span><span class="p">,</span> <span class="n">Leven</span><span class="p">)</span>
+<span class="n">L</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">Lodd</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">Leven</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sorted:  &quot;</span> <span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sorted Lodd:  &quot;</span> <span class="p">,</span> <span class="n">Lodd</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sorted Leven:  &quot;</span> <span class="p">,</span> <span class="n">Leven</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L: Min: &quot;</span><span class="p">,</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot; Max.&quot;</span> <span class="p">,</span> <span class="n">L</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot; Median: &quot;</span><span class="p">,</span> <span class="n">L</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lodd: Min: &quot;</span><span class="p">,</span> <span class="n">Lodd</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot; Max.&quot;</span> <span class="p">,</span> <span class="n">Lodd</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot; Median: &quot;</span><span class="p">,</span> <span class="n">Lodd</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">Lodd</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Leven: Min: &quot;</span><span class="p">,</span> <span class="n">Leven</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot; Max.&quot;</span> <span class="p">,</span> <span class="n">Leven</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot; Median: &quot;</span><span class="p">,</span> <span class="n">Leven</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">Leven</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+original: [10, 60, 72, 118, 11, 71, 56, 89, 120, 175]
+Lodd: [60, 118, 71, 89, 175]
+Leven: [10, 72, 11, 56, 120]
+sorted:   [10, 11, 56, 60, 71, 72, 89, 118, 120, 175]
+sorted Lodd:   [60, 71, 89, 118, 175]
+sorted Leven:   [10, 11, 56, 72, 120]
+L: Min:  10  Max. 175  Median:  72
+Lodd: Min:  60  Max. 175  Median:  89
+Leven: Min:  10  Max. 120  Median:  56
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="6">
+<li><p>Given the string pets = “siamese cat,dog,songbird,guinea pig,rabbit,hampster” convert it into a list. Create then a tuple of tuples where each tuple has two information: the name of the pet and the length of the name. E.g. ((“dog”,3), ( “hampster”,8)). Print the tuple.</p></li>
+</ol>
+<div class="tggle" onclick="toggleVisibility('ex5');"><p>Show/Hide Solution</p>
+</div><div id="ex5" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pets</span> <span class="o">=</span> <span class="s2">&quot;cat,dog,bird,guinea pig,rabbit,hampster&quot;</span>
+
+<span class="n">pet_list</span> <span class="o">=</span> <span class="n">pets</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pet_list</span><span class="p">)</span>
+
+<span class="n">pet_tuples</span> <span class="o">=</span> <span class="p">((</span><span class="n">pet_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">pet_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])),</span>
+              <span class="p">(</span><span class="n">pet_list</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">pet_list</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span>
+              <span class="p">(</span><span class="n">pet_list</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">pet_list</span><span class="p">[</span><span class="mi">2</span><span class="p">])),</span>
+              <span class="p">(</span><span class="n">pet_list</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">pet_list</span><span class="p">[</span><span class="mi">3</span><span class="p">])),</span>
+              <span class="p">(</span><span class="n">pet_list</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">pet_list</span><span class="p">[</span><span class="mi">4</span><span class="p">])),</span>
+              <span class="p">(</span><span class="n">pet_list</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">pet_list</span><span class="p">[</span><span class="mi">5</span><span class="p">])))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pet_tuples</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;cat&#39;, &#39;dog&#39;, &#39;bird&#39;, &#39;guinea pig&#39;, &#39;rabbit&#39;, &#39;hampster&#39;]
+((&#39;cat&#39;, 3), (&#39;dog&#39;, 3), (&#39;bird&#39;, 4), (&#39;guinea pig&#39;, 10), (&#39;rabbit&#39;, 6), (&#39;hampster&#39;, 8))
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="7">
+<li><p>Given the string S=”apple|pear|apple|cherry|pear|apple|pear|pear|cherry|pear|strawberry”. Store the elements separated by the “|” in a list.</p>
+<ol class="arabic simple">
+<li><p>How many elements does the list have?</p></li>
+<li><p>Knowing that the list created at the previous point has only four distinct elements (i.e. “apple”,”pear”,”cherry” and “strawberry”), create another list where each element is a tuple containing the name of the fruit and its multiplicity (that is how many times it appears in the original list). Ex. list_of_tuples = [(“apple”, 3), (“pear”, “5”),…]</p></li>
+<li><p>Print the content of each tuple in a separate line (ex. first line: apple is present 3 times)</p></li>
+</ol>
+</li>
+</ol>
+<div class="tggle" onclick="toggleVisibility('ex4');"><p>Show/Hide Solution</p>
+</div><div id="ex4" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">S</span><span class="o">=</span><span class="s2">&quot;apple|pear|apple|cherry|pear|apple|pear|pear|cherry|pear|strawberry&quot;</span>
+
+<span class="n">Slist</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;|&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Slist</span><span class="p">)</span>
+
+<span class="n">appleT</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="n">Slist</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">))</span>
+<span class="n">pearT</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;pear&quot;</span><span class="p">,</span> <span class="n">Slist</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;pear&quot;</span><span class="p">))</span>
+<span class="n">cherryT</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;cherry&quot;</span><span class="p">,</span> <span class="n">Slist</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;cherry&quot;</span><span class="p">))</span>
+<span class="n">strawberryT</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;strawberry&quot;</span><span class="p">,</span> <span class="n">Slist</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;strawberry&quot;</span><span class="p">))</span>
+<span class="n">list_of_tuples</span> <span class="o">=</span><span class="p">[</span><span class="n">appleT</span><span class="p">,</span> <span class="n">pearT</span><span class="p">,</span> <span class="n">cherryT</span><span class="p">,</span> <span class="n">strawberryT</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">list_of_tuples</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#adding newline to separate elements</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">appleT</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot; is present &quot;</span><span class="p">,</span> <span class="n">appleT</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot; times&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pearT</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot; is present &quot;</span><span class="p">,</span> <span class="n">pearT</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot; times&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cherryT</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot; is present &quot;</span><span class="p">,</span> <span class="n">cherryT</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot; times&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">strawberryT</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot; is present &quot;</span><span class="p">,</span> <span class="n">strawberryT</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot; times&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;apple&#39;, &#39;pear&#39;, &#39;apple&#39;, &#39;cherry&#39;, &#39;pear&#39;, &#39;apple&#39;, &#39;pear&#39;, &#39;pear&#39;, &#39;cherry&#39;, &#39;pear&#39;, &#39;strawberry&#39;]
+[(&#39;apple&#39;, 3), (&#39;pear&#39;, 5), (&#39;cherry&#39;, 2), (&#39;strawberry&#39;, 1)]
+
+apple  is present  3  times
+pear  is present  5  times
+cherry  is present  2  times
+strawberry  is present  1  times
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="8">
+<li><p>Define three tuples representing points in the 3D space: A = (10,20,30), B = (1,72, 100) and C = (4, 9, 20).</p>
+<ol class="arabic simple">
+<li><p>Compute the Euclidean distance between A and B (let’s call it AB), A and C (AC), B and C (BC) and print them. Remember that the distance <span class="math notranslate nohighlight">\(d\)</span> between two points <span class="math notranslate nohighlight">\(X_1 = (x_1,y_1,z_1)\)</span> and <span class="math notranslate nohighlight">\(X_2 = (x_2,y_2,z_2)\)</span> is <span class="math notranslate nohighlight">\(d = \sqrt{(x_2-x_1)^2 + (y_2 - y_1)^2 + (z_2-z_1)^2}\)</span>. Hint: remember to import math to use the <em>sqrt</em> method.</p></li>
+<li><p>Create a point D multiplying every element of C by 10. (Hint: do not use C*10, as this will repeat C 10 times). And compute the distance AD, BD, CD.</p></li>
+<li><p>Answer to the following questions (writing a suitable boolean expression and printing the result):</p>
+<ol class="arabic simple">
+<li><p>Is A closer to B than to C?</p></li>
+<li><p>Is A closer to C than to B or to D?</p></li>
+<li><p>Is B closer to A than to C to D?</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<div class="tggle" onclick="toggleVisibility('ex6');"><p>Show/Hide Solution</p>
+</div><div id="ex6" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">72</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">D</span> <span class="o">=</span> <span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span> <span class="n">C</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">AB</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">AC</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">BC</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">B</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">AD</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">BD</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">B</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">CD</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance AB: &quot;</span><span class="p">,</span> <span class="n">AB</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance AC: &quot;</span><span class="p">,</span> <span class="n">AC</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance AD: &quot;</span><span class="p">,</span> <span class="n">AD</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance BC: &quot;</span><span class="p">,</span> <span class="n">BC</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance BD: &quot;</span><span class="p">,</span> <span class="n">BD</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance CD: &quot;</span><span class="p">,</span> <span class="n">CD</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A is closer to B than to C: &quot;</span><span class="p">,</span> <span class="n">AB</span> <span class="o">&lt;</span> <span class="n">AC</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A is closer to C than to B or D:&quot;</span><span class="p">,</span> <span class="n">AC</span> <span class="o">&lt;</span> <span class="n">AB</span> <span class="ow">and</span> <span class="n">AC</span> <span class="o">&lt;</span> <span class="n">AD</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B is closer to A than C to D:&quot;</span><span class="p">,</span> <span class="n">AB</span> <span class="o">&lt;</span> <span class="n">CD</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Distance AB:  87.66413177577246
+Distance AC:  16.0312195418814
+Distance AD:  186.27936010197158
+Distance BC:  101.87246929372037
+Distance BD:  108.83473710171766
+Distance CD:  200.64147128647159
+A is closer to B than to C:  False
+A is closer to C than to B or D: True
+B is closer to A than C to D: True
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="9">
+<li><p>Given the matrix <span class="math notranslate nohighlight">\(M =\begin{bmatrix}1 &amp; 2 &amp; 3\\ 4 &amp; 5 &amp; 6\\ 7 &amp; 8 &amp; 9\end{bmatrix}\)</span> compute <span class="math notranslate nohighlight">\(M^2 = \begin{bmatrix}1 &amp; 2 &amp; 3\\ 4 &amp; 5 &amp; 6\\ 7 &amp; 8 &amp; 9\end{bmatrix} \times \begin{bmatrix}1 &amp; 2 &amp; 3\\ 4 &amp; 5 &amp; 6\\ 7 &amp; 8 &amp; 9\end{bmatrix} = \begin{bmatrix}30 &amp; 36 &amp; 42\\ 66 &amp; 81 &amp; 96\\ 102 &amp; 126 &amp; 150\end{bmatrix}\)</span></p></li>
+</ol>
+<div class="tggle" onclick="toggleVisibility('ex7');"><p>Show/Hide Solution</p>
+</div><div id="ex7" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">M</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+
+<span class="n">Msq</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span><span class="c1"># the output is initialized to the zero matrix</span>
+<span class="c1">#Msq[i,j] is represented as Msq[i][j]</span>
+<span class="n">Msq</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Msq</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">Msq</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">Msq</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Msq</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">Msq</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">Msq</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Msq</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">Msq</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Msq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[30, 36, 42], [66, 81, 96], [102, 126, 150]]
+</pre></div></div>
+</div>
+</div></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright # 2020 - 2020, Luca Bianco
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
