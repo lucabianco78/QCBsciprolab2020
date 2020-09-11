@@ -21,7 +21,7 @@ on_rtd = os.environ.get('READTHEDOCS') == 'True'
 jm = jmt.Jupman()
 
 # TODO CHANGE
-jm.subtitle = "The page of the Scientific Programming Lab for QCB 2020""" 
+jm.subtitle = "The webpage of the Scientific Programming Lab for QCB 2020""" 
 jm.course = "Scientific Programming" # TODO CHANGE
 jm.degree = "QCB" # TODO CHANGE
 author = 'Luca Bianco' # TODO CHANGE
