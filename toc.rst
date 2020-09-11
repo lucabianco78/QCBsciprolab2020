@@ -7,7 +7,7 @@
 
 
     Home <index.ipynb>
-    Practical 1 <introduction.ipynb>    
+    Practical 1 <introduction-new.ipynb>    
 
 
 |space|
