@@ -602,16 +602,13 @@ sum is: 17  division is: 1.4285714285714286
 <p><img alt="img7" src="_images/visual_studio_code.png" /></p>
 <p>You can find useful information on this tool <a class="reference external" href="https://code.visualstudio.com/docs#vscode">here</a>. Please spend some time having a look at that page. Once you are done with it you can close this window pressing on the “x”.</p>
 <div class="admonition warning">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>**Attention! Important note**
-
-The following procedure is quite important and you will need to remember it to do the exams on the PCs of the lab.
-</pre></div>
-</div>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Attention! Important note</strong></p>
+<p>The following procedure is quite important and you will need to remember it to do the exams on the PCs of the lab.</p>
 </div>
 <p>The first thing to do is to set the python interpreter to use. Click on <strong>View –&gt; Command Palette</strong> and type <strong>“Python”</strong> in the text search space. Select <strong>Python: Select Workspace Interpreter</strong> as shown in the picture below.</p>
 <p><img alt="img8" src="_images/pythoninterpreter.png" /></p>
 <p>Finally, select the python version you want to use (e.g. Python3.x).</p>
-<p>Now you can click on <strong>Open Folder</strong> to create a new folder to place all the scripts you are going to create. You can call it something like “exercises”. Next you can create a new file, <em>example1.py</em> (<em>.py</em> extension stands for python).</p>
+<p>Now you can click on <strong>Open Folder</strong> to create a new folder to place all the scripts you are going to create. You can call it something like “exercises”. Next you can create a new file, <em>example1.py</em> (as you might have guessed the <strong>.py</strong> extension stands for python).</p>
 <p>Visual Studio Code will understand that you are writing Python code and will help you writing valid syntax in your scripts.</p>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Warning:</strong></p>
@@ -619,7 +616,7 @@ The following procedure is quite important and you will need to remember it to d
 <p><img alt="img9" src="_images/pylint.png" /></p>
 <p>click on <strong>Install Pylint</strong> which is a useful tool to help your coding experience.</p>
 </div>
-<p>Add the following text to your <em>example1.py</em> file.</p>
+<p>Add the following text to your <strong>example1.py</strong> file.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -645,7 +642,7 @@ The following procedure is quite important and you will need to remember it to d
 a: 10  b: 33  a/b= 0.30303030303030304
 </pre></div></div>
 </div>
-<p>A couple of things worth nothing. The first three lines opened and closed by “”” are some text describing the content of the script. Moreover, comments are proceeded by the hash key (#) and they are just ignored by the python interpreter.</p>
+<p>A couple of things worth nothing: the first three lines opened and closed by “”” are some text describing the content of the script. Moreover, comments are proceeded by the hash key (#) and they are just ignored by the python interpreter.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong></p>
 <p>Good <em>Pythonic</em> code follows some syntactic rules on how to write things, naming conventions etc. The IDE will help you writing pythonic code even though we will not enforce this too much in this course. If you are interested in getting more details on this, you can have a look at the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8 Python Style Guide</a> (Python Enanchement Proposals - index 8).</p>
@@ -670,7 +667,7 @@ file again (Ctrl+S), you will see all these problems disappearing as well as the
 <p>Now it is time to execute the code. By right-clicking in the code panel and selecting <strong>Run Python File in Terminal</strong> (see picture below) you can execute the code you have just written.</p>
 <p><img alt="img13" src="_images/pythonrun.png" /></p>
 <p>Upon clicking on <em>Run Python File in Terminal</em> a terminal panel should pop up in the lower section of the coding panel and the result shown above should be reported.</p>
-<p>Saving script files like the <em>example1.py</em> above is also handy because they can be invoked several times (later on we will learn how to get inputs from the command line to make them more useful…). To do so, you just need to call the python intepreter passing the script file as parameter. From the folder containing the <em>example1.py</em> script:</p>
+<p>Saving script files like the <strong>example1.py</strong> above is also handy because they can be invoked several times (later on we will learn how to get inputs from the command line to make them more useful…). To do so, you just need to call the python intepreter passing the script file as parameter. From the folder containing the <em>example1.py</em> script:</p>
 <p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">example1.py</span></code></p>
 <p>will in fact return:</p>
 <p>a: 10 b: 33 a/b= 0.30303030303030304</p>
