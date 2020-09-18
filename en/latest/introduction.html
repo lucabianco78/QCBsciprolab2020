@@ -489,7 +489,7 @@ box</a>.</p></li>
 <p>To access the console on Linux just open a terminal and type:</p>
 <p><code class="docutils literal notranslate"><span class="pre">python3</span></code></p>
 <p>while in Windows you have to look for “Python” and run “Python 3.8”. The console should look like this:</p>
-<p><img alt="image5" src="_images/jupyter.png" /></p>
+<p><img alt="img6" src="_images/pythonconsole.png" /></p>
 <p>Now we are all set to start interacting with the Python interpreter. In the console, type the following instructions:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -592,17 +592,17 @@ sum is: 17  division is: 1.4285714285714286
 <div class="section" id="Visual-Studio-Code">
 <h2>Visual Studio Code<a class="headerlink" href="#Visual-Studio-Code" title="Permalink to this headline">¶</a></h2>
 <p>Once you open the IDE Visual Studio Code you will see the welcome screen:</p>
-<p><img alt="image0" src="_images/triangle.png" /></p>
+<p><img alt="img7" src="_images/visual_studio_code.png" /></p>
 <p>You can find useful information on this tool <a class="reference external" href="https://code.visualstudio.com/docs#vscode">here</a>. Please spend some time having a look at that page.</p>
 <p>Once you are done with it you can close this window pressing on the “x”. First thing to do is to set the python interpreter to use. Click on View –&gt; Command Palette and type “Python” in the text search space. Select <strong>Python: Select Workspace Interpreter</strong> as shown in the picture below.</p>
-<p><img alt="image1" src="_images/watch.png" /></p>
+<p><img alt="img8" src="_images/pythoninterpreter.png" /></p>
 <p>Finally, select the python version you want to use (e.g. Python3).</p>
 <p>Now you can click on <strong>Open Folder</strong> to create a new folder to place all the scripts you are going to create. You can call it something like “exercises”. Next you can create a new file, <em>example1.py</em> (<em>.py</em> extension stands for python).</p>
 <p>Visual Studio Code will understand that you are writing Python code and will help you writing valid syntax in your scripts.</p>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Warning:</strong></p>
 <p>If you get the following error message:</p>
-<p><img alt="image2" src="_images/breakpoint.png" /></p>
+<p><img alt="img9" src="_images/pylint.png" /></p>
 <p>click on <strong>Install Pylint</strong> which is a useful tool to help your coding experience.</p>
 </div>
 <p>Add the following text to your <em>example1.py</em> file.</p>
@@ -641,9 +641,9 @@ a: 10  b: 33  a/b= 0.30303030303030304
 <p>Please remember to comment your code, as it helps readability and will make your life easier when you have to modify or just understand the code you wrote some time in the past.**</p>
 </div>
 <p>Please notice that Visual Studio Code will help you writing your Python scripts. For example, when you start writing the <strong>print</strong> line it will complete the code for you (<strong>if the Pylint extension mentioned above is installed</strong>), suggesting the functions that match the letters written. This useful feature is called <em>code completion</em> and, alongside suggesting possible matches, it also visualizes a description of the function and parameters it needs. Here is an example:</p>
-<p><img alt="image0" src="_images/triangle.png" /></p>
+<p><img alt="img10" src="_images/codecompletion.png" /></p>
 <p>Save the file (Ctrl+S as shortcut). It is convenient to ask the IDE to highlight potential <em>syntactic</em> problems found in the code. You can toggle this function on/off by clicking on <strong>View –&gt; Problems</strong>. The <em>Problems</em> panel should look like this</p>
-<p><img alt="image1" src="_images/watch.png" /></p>
+<p><img alt="img11" src="_images/problems.png" /></p>
 <p>Visual Studio Code is warning us that the variable names <em>a,b,c</em> at lines 4,5,6 do not follow Python naming conventions for constants. This is because they have been defined at the top level (there is no structure to our script yet) and therefore are interpreted as constants. The naming convention for constants states that they should be in capital letters. To amend the code, you can just replace all the names with the corresponding capitalized name (i.e. A,B,C). If you do that, and you save the
 file again (Ctrl+S), you will see all these problems disappearing as well as the green underlining of the variable names. If your code does not have an empty line before the end, you might get another warning “<em>Final new line missing</em>”.</p>
 <div class="admonition note">
@@ -651,10 +651,10 @@ file again (Ctrl+S), you will see all these problems disappearing as well as the
 <p>Note that these were just warnings and the interpreter <strong>in this case</strong> will happily and correctly execute the code anyway, but it is always good practice to understand what the warnings are telling us before deciding to ignore them!</p>
 </div>
 <p>Had we by mistake mispelled the <em>print</em> function name (something that should not happen with the code completion tool that suggests functions names!) writing <em>printt</em> (note the double t), upon saving the file, the IDE would have underlined in red the function name and flagged it up as a problem.</p>
-<p><img alt="image2" src="_images/breakpoint.png" /></p>
+<p><img alt="img12" src="_images/errors.png" /></p>
 <p>This is because the builtin function <em>printt</em> does not exist and the python interpreter does not know what to do when it reads it. Note that <em>printt</em> is actually underlined in red, meaning that there is an error which will cause the interpreter to stop the execution with a failure. <strong>Please remember that before running any piece of code all errors must be fixed</strong>.</p>
 <p>Now it is time to execute the code. By right-clicking in the code panel and selecting <strong>Run Python File in Terminal</strong> (see picture below) you can execute the code you have just written.</p>
-<p><img alt="image3" src="_images/step0.png" /></p>
+<p><img alt="img13" src="_images/pythonrun.png" /></p>
 <p>Upon clicking on <em>Run Python File in Terminal</em> a terminal panel should pop up in the lower section of the coding panel and the result shown above should be reported.</p>
 <p>Saving script files like the <em>example1.py</em> above is also handy because they can be invoked several times (later on we will learn how to get inputs from the command line to make them more useful…). To do so, you just need to call the python intepreter passing the script file as parameter. From the folder containing the <em>example1.py</em> script:</p>
 <p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">example1.py</span></code></p>
@@ -746,17 +746,17 @@ The sum of the first 1200 integers is:  720600
 </div>
 <p>How does this code work? How does the value of S and i change as the code is executed? These are questions that can be answered by the debugger.</p>
 <p>To start the debugger, click on <strong>Debug –&gt; Start Debugging</strong> (shortcut F5). The following small panel should pop up:</p>
-<p><img alt="image0" src="_images/triangle.png" /></p>
+<p><img alt="img14" src="_images/debug.png" /></p>
 <p>We will use it shortly, but before that, let’s focus on what we want to track. On the left hand side of the main panel, a <em>Watch</em> panel appeared. This is where we need to add the things we want to monitor as the execution of the program goes. With respect to the code written above, we are interested in keeping an eye on the variables S, i and also of the expression S+i (that will give us the value of S of the next iteration). Add these three expressions in the watch panel (click on <strong>+</strong> to add
 new expressions). The watch panel should look like this:</p>
-<p><img alt="image1" src="_images/watch.png" /></p>
+<p><img alt="img15" src="_images/watch.png" /></p>
 <p>do not worry about the message “<em>name X is not defined</em>”, this is normal as no execution has taken place yet and the interpreter still does not know the value of these expressions.</p>
 <p>The final thing before starting to debug is to set some breakpoints, places where the execution will stop so that we can check the value of the watched expressions. This can be done by hovering with the mouse on the left of the line number. A small reddish dot should appear, place the mouse over the correct line (e.g. the line corresponding to <em>S = S + 1</em> and click to add the breakpoint (a red dot should appear once you click).</p>
-<p><img alt="image2" src="_images/breakpoint.png" /></p>
+<p><img alt="img16" src="_images/breakpoint.png" /></p>
 <p>Now we are ready to start debugging the code. Click on the green triangle on the small debug panel and you will see that the yellow arrow moved to the breakpoint and that the watch panel updated the value of all our expressions.</p>
-<p><img alt="image3" src="_images/step0.png" /></p>
+<p><img alt="img17" src="_images/step0.png" /></p>
 <p>The value of all expressions is zero because the debugger stopped <strong>before</strong> executing the code specified at the breakpoint line (recall that S is initialized to 0 and that i will range from 0 to 1200). If you click again on the green arrow, execution will continue until the next breakpoint (we are in a for loop, so this will be again the same line - trust me for the time being).</p>
-<p><img alt="image4" src="_images/step1.png" /></p>
+<p><img alt="img18" src="_images/step1.png" /></p>
 <p>Now i has been increased to 1, S is still 0 (remember that the execution stopped <strong>before</strong> executing the code at the breakpoint) and therefore S + i is now 1. Click one more time on the green arrow and values should update accordingly (i.e. S to 1, i to 2 and S + i to 3), another round of execution should update S to 3, i to 3 and S + i to 6. Got how this works? Variable i is increased by one each time, while S increases by i. You can go on for a few more iterations and see if this makes any
 sense to you, once you are done with debugging you can stop the execution by pressing the red square on the small debug panel.</p>
 <p>Other editors are available, if you already have your favourite one you can stick to it. Some examples are:</p>
@@ -779,11 +779,11 @@ language**</a> - see <a class="reference external" href="https://github.com/adam
 </pre></div>
 </div>
 <p>This should fire up a browser on a page where you can start creating your notebooks or modifying existing ones. To create a new notebook you simply click on <strong>New</strong>:</p>
-<p><img alt="image5" src="_images/jupyter.png" /></p>
+<p><img alt="img19" src="_images/jupyter.png" /></p>
 <p>and then you can start adding cells (i.e. containers of code and text). The type of each cell is specified by selecting the cell and selecting the right type in the dropdown list:</p>
-<p><img alt="image6" src="_images/juptyter2b.png" /></p>
+<p><img alt="img20" src="_images/juptyter2b.png" /></p>
 <p>Cells can be executed by clicking on the <strong>Run</strong> button. This will get the code to execute (and output to be written) and text to be processed to provide the final page layout. To go back to the edit mode, just double click on an executed cell.</p>
-<p><img alt="image7" src="_images/jupyter3.png" /></p>
+<p><img alt="img21" src="_images/jupyter3.png" /></p>
 <p><em>Please take some more time to familiarize with Visual Studio Code (creating files, saving files, interacting with the debugger etc.) as in the next practicals we will take this ability for granted. Once you are done you can move on and do the following exercises.</em></p>
 </div>
 </div>
