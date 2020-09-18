@@ -676,7 +676,7 @@ you can just replace all the names with the corresponding capitalized name (i.e.
 <p>Before ending this section, let me add another note on errors. The IDE will diligently point you out <strong>syntactic</strong> warnings and errors (i.e. errors/warnings concerning the structure of the written code like name of functions, number and type of parameters, etc.) but it will not detect <strong>semantic</strong> or <strong>runtime</strong> errors (i.e. connected to the meaning of your code or to the value of your variables). These sort of errors will most probably make your code crash or may result in unexpected
 results/behaviours. In the next section we will introduce the debugger, which is a useful tool to help detecting these errors.</p>
 </div>
-<p>Before getting into that, consider the following lines of code (do not focus on the <em>import</em> line, this is only to load the mathematics module and use its method <em>sqrt</em>):</p>
+<p>Before getting into that, consider the following lines of code (do not focus on the <em>import</em> line, this is only to load the mathematics module and use its method <em>sqrt</em> to compute the square root of its parameter):</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -773,6 +773,10 @@ new expressions). The watch panel should look like this:</p>
 <p><img alt="img18" src="_images/step1.png" /></p>
 <p>Now i has been increased to 1, S is still 0 (remember that the execution stopped <strong>before</strong> executing the code at the breakpoint) and therefore S + i is now 1. Click one more time on the green arrow and values should update accordingly (i.e. S to 1, i to 2 and S + i to 3), another round of execution should update S to 3, i to 3 and S + i to 6. Got how this works? Variable i is increased by one each time, while S increases by i. You can go on for a few more iterations and see if this makes any
 sense to you, once you are done with debugging you can stop the execution by pressing the red square on the small debug panel.</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong></p>
+<p>The debugger is very useful to understand what your program does. Please spend some time to understand how this works as being able to run the debugger properly is a good help to identify and solve <strong>semantic errors</strong> of your code.</p>
+</div>
 <p>Other editors are available, if you already have your favourite one you can stick to it. Some examples are:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pythonhosted.org/spyder/installation.html">Spyder</a></p></li>
@@ -815,222 +819,37 @@ language**</a> - see <a class="reference external" href="https://github.com/adam
 <li><p>Compute the area of a square having side (S) equal to 145 units. Assign the result to a variable named area and print it.</p></li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex2');"><p>Show/Hide Solution</p>
-</div><div id="ex2" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">S</span> <span class="o">=</span> <span class="mi">145</span>
-<span class="n">Area</span> <span class="o">=</span> <span class="n">S</span><span class="o">*</span><span class="n">S</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Square area is:&quot;</span><span class="p">,</span><span class="n">Area</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Square area is: 21025
-</pre></div></div>
-</div>
-</div><ol class="arabic simple" start="4">
+</div><div id="ex2" style="display:none;"></div><ol class="arabic simple" start="4">
 <li><p>Modify the program at point 2. to acquire the side S from the user at runtime. (Hint: <em>use the input function and remember to covert the acquired value into an int</em>).</p></li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex3');"><p>Show/Hide Solution</p>
-</div><div id="ex3" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">S_str</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Insert size: &quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">S_str</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">S_str</span><span class="p">)</span>
-<span class="n">S</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">S_str</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
-<span class="n">Area</span> <span class="o">=</span> <span class="n">S</span><span class="o">**</span><span class="mi">2</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Square area is:&quot;</span><span class="p">,</span><span class="n">Area</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Insert size: 27
-&lt;class &#39;str&#39;&gt;
-27
-&lt;class &#39;int&#39;&gt;
-27
-Square area is: 729
-</pre></div></div>
-</div>
-</div><ol class="arabic simple" start="5">
+</div><div id="ex3" style="display:none;"></div><ol class="arabic simple" start="5">
 <li><p>If you have not done so already, put the two previous scripts in two separate files (e.g. triangle_area.py and square_area.py and execute them from the terminal).</p></li>
 <li><p>Write a small script (trapezoid.py) that computes the area of a trapezoid having major base (MB) equal to 30 units, minor base (mb) equal to 12 and height (H) equal to 17. Print the resulting area. Try executing the script from inside Visual Studio Code and from the terminal.</p></li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex4');"><p>Show/Hide Solution</p>
-</div><div id="ex4" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;trapezoid.py&quot;&quot;&quot;</span>
-<span class="n">MB</span> <span class="o">=</span> <span class="mi">30</span>
-<span class="n">mb</span> <span class="o">=</span> <span class="mi">12</span>
-<span class="n">H</span> <span class="o">=</span> <span class="mi">17</span>
-<span class="n">Area</span> <span class="o">=</span> <span class="p">(</span><span class="n">MB</span> <span class="o">+</span> <span class="n">mb</span><span class="p">)</span><span class="o">*</span><span class="n">H</span><span class="o">/</span><span class="mi">2</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Trapezoid area is: &quot;</span><span class="p">,</span> <span class="n">Area</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Trapezoid area is:  357.0
-</pre></div></div>
-</div>
-</div><ol class="arabic simple" start="7">
+</div><div id="ex4" style="display:none;"></div><ol class="arabic simple" start="7">
 <li><p>Rewrite the example of the sum of the first 1200 integers by using the following equation: <span class="math notranslate nohighlight">\(\sum\limits_{i=1}^n i = \frac{n (n+1)}{2}\)</span>.</p></li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex5');"><p>Show/Hide Solution</p>
-</div><div id="ex5" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">1200</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sum of first 1200 integers: &quot;</span><span class="p">,</span> <span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Sum of first 1200 integers:  720600.0
-</pre></div></div>
-</div>
-</div><ol class="arabic simple" start="8">
+</div><div id="ex5" style="display:none;"></div><ol class="arabic simple" start="8">
 <li><p>Modify the program at point 6. to make it acquire the number of integers to sum N from the user at runtime.</p></li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex6');"><p>Show/Hide Solution</p>
-</div><div id="ex6" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Input number N:&quot;</span><span class="p">)</span>
-<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sum of first &quot;</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="s2">&quot; integers: &quot;</span><span class="p">,</span> <span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Input number N:
-7
-Sum of first  7  integers:  28.0
-</pre></div></div>
-</div>
-</div><ol class="arabic simple" start="9">
+</div><div id="ex6" style="display:none;"></div><ol class="arabic simple" start="9">
 <li><p>Write a small script to compute the length of the hypotenuse (c) of a right triangle having sides a=133 and b=72 units (see picture below). Hint: <em>remember the Pythagorean theorem and use math.sqrt</em>).</p></li>
 </ol>
 <p><img alt="img22" src="_images/triangle.png" /></p>
 <div class="tggle" onclick="toggleVisibility('ex7');"><p>Show/Hide Solution</p>
-</div><div id="ex7" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">math</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="mi">133</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">72</span>
-
-<span class="n">c</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hypotenuse: &quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Hypotenuse:  151.23822268196622
-</pre></div></div>
-</div>
-</div><ol class="arabic simple" start="10">
+</div><div id="ex7" style="display:none;"></div><ol class="arabic simple" start="10">
 <li><p>Rewrite the trapezoid script making it compute the area of the trapezoid starting from the major base (MB), minor base (mb) and height (H) taken in input. (Hint: <em>use the input function and remember to convert the acquired value into an int</em>).</p></li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex8');"><p>Show/Hide Solution</p>
-</div><div id="ex8" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;trapezoidV2.py&quot;&quot;&quot;</span>
-<span class="n">MB</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Input the major base (MB):&quot;</span><span class="p">))</span>
-<span class="n">mb</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Input the minor base (mb):&quot;</span><span class="p">))</span>
-<span class="n">H</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Input the height (H):&quot;</span><span class="p">))</span>
-<span class="n">Area</span> <span class="o">=</span> <span class="p">(</span><span class="n">MB</span> <span class="o">+</span> <span class="n">mb</span><span class="p">)</span><span class="o">*</span><span class="n">H</span><span class="o">/</span><span class="mi">2</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Given MB:&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">MB</span><span class="p">)</span> <span class="p">,</span> <span class="s2">&quot; mb:&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">mb</span><span class="p">)</span> <span class="p">,</span> <span class="s2">&quot; and H:&quot;</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The trapezoid area is: &quot;</span><span class="p">,</span> <span class="n">Area</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Input the major base (MB):5
-Input the minor base (mb):9
-Input the height (H):12
-Given MB: 5  mb: 9  and H: 12
-The trapezoid area is:  84.0
-</pre></div></div>
-</div>
-</div><ol class="arabic simple" start="11">
+</div><div id="ex8" style="display:none;"></div><ol class="arabic simple" start="11">
 <li><p>Write a script that reads the side of an heagon in input and computes its perimeter and area printing them to the screen. <em>Hint:</em> <span class="math notranslate nohighlight">\(Area = \frac{3*\sqrt{3}*side^{2}}{2}\)</span></p></li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex9');"><p>Show/Hide Solution</p>
-</div><div id="ex9" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">math</span>
-
-<span class="n">side</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please insert the side of the hexagon: &quot;</span><span class="p">))</span>
-
-<span class="n">P</span> <span class="o">=</span> <span class="mi">6</span><span class="o">*</span><span class="n">side</span>
-<span class="n">A</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">side</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Perimeter: &quot;</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="s2">&quot; Area: &quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Please insert the side of the hexagon: 6
-Perimeter:  36  Area:  93.53074360871938
-</pre></div></div>
-</div>
-</div></div>
+</div><div id="ex9" style="display:none;"></div></div>
 </div>
 
 
