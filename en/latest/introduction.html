@@ -714,8 +714,8 @@ A: 16  B: 4.0  C: 20.0
 <h2>The debugger<a class="headerlink" href="#The-debugger" title="Permalink to this headline">¶</a></h2>
 <p>Another important feature of advanced Integrated Development Environments (IDEs) is their debugging capabilities. Visual Studio Code comes with a debugging tool that can help you trace the execution of your code and understand where possible errors hide.</p>
 <p>Write the following code on a new file (let’s call it <em>integer_sum.py</em>) and execute it to get the result.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -729,6 +729,14 @@ A: 16  B: 4.0  C: 20.0
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The sum of the first 1200 integers is: &quot;</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The sum of the first 1200 integers is:  720600
+</pre></div></div>
 </div>
 <p>Without getting into too many details, the code you just wrote starts initializing a variable S to zero, and then loops from 0 to 1200 assigning each time the value to a variable i, accumulating the sum of S + i in the variable S.</p>
 <p><strong>A final thing to notice is indentation.</strong></p>
@@ -785,8 +793,8 @@ language**</a> - see <a class="reference external" href="https://github.com/adam
 <li><p>The size of the Sars-Cov-2 genome is 29,811 base pairs. 8,903 of these bases are adenines. Write some python code to compute the percentage of the genome that is an adenine and print it.</p></li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
-</div><div id="ex1" style="display:none;"><div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</div><div id="ex1" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -797,28 +805,24 @@ language**</a> - see <a class="reference external" href="https://github.com/adam
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-
-
-<span class="mf">2.</span> <span class="n">Compute</span> <span class="n">the</span> <span class="n">area</span> <span class="n">of</span> <span class="n">a</span> <span class="n">triangle</span> <span class="n">having</span> <span class="n">base</span> <span class="mi">120</span> <span class="n">units</span> <span class="p">(</span><span class="n">B</span><span class="p">)</span> <span class="ow">and</span> <span class="n">height</span> <span class="mi">33</span> <span class="p">(</span><span class="n">H</span><span class="p">)</span><span class="o">.</span> <span class="n">Assign</span> <span class="n">the</span> <span class="n">result</span> <span class="n">to</span> <span class="n">a</span> <span class="n">variable</span> <span class="n">named</span> <span class="n">area</span> <span class="ow">and</span> <span class="nb">print</span> <span class="n">it</span><span class="o">.</span>
-
-
-<span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;tggle&quot;</span> <span class="n">onclick</span><span class="o">=</span><span class="s2">&quot;toggleVisibility(&#39;ex1&#39;);&quot;</span><span class="o">&gt;</span><span class="n">Show</span><span class="o">/</span><span class="n">Hide</span> <span class="n">Solution</span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;ex1&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;display:none;&quot;</span><span class="o">&gt;</span>
-</pre></div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The Sars-Cov-2 genome has  29.864815001174062 % adenines
+</pre></div></div>
 </div>
-</div>
-</div><ol class="arabic simple" start="3">
+</div><ol class="arabic simple" start="2">
+<li><p>Compute the area of a triangle having base 120 units (B) and height 33 (H). Assign the result to a variable named area and print it.</p></li>
+</ol>
+<div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
+</div><div id="ex1" style="display:none;"></div><ol class="arabic simple" start="3">
 <li><p>Compute the area of a square having side (S) equal to 145 units. Assign the result to a variable named area and print it.</p></li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex2');"><p>Show/Hide Solution</p>
 </div><div id="ex2" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -841,7 +845,7 @@ Square area is: 21025
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex3');"><p>Show/Hide Solution</p>
 </div><div id="ex3" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -861,12 +865,12 @@ Square area is: 21025
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Insert size: 33
+Insert size: 27
 &lt;class &#39;str&#39;&gt;
-33
+27
 &lt;class &#39;int&#39;&gt;
-33
-Square area is: 1089
+27
+Square area is: 729
 </pre></div></div>
 </div>
 </div><ol class="arabic simple" start="5">
@@ -875,7 +879,7 @@ Square area is: 1089
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex4');"><p>Show/Hide Solution</p>
 </div><div id="ex4" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -901,7 +905,7 @@ Trapezoid area is:  357.0
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex5');"><p>Show/Hide Solution</p>
 </div><div id="ex5" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -924,7 +928,7 @@ Sum of first 1200 integers:  720600.0
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex6');"><p>Show/Hide Solution</p>
 </div><div id="ex6" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -940,8 +944,8 @@ Sum of first 1200 integers:  720600.0
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Input number N:
-77
-Sum of first  77  integers:  3003.0
+7
+Sum of first  7  integers:  28.0
 </pre></div></div>
 </div>
 </div><ol class="arabic simple" start="9">
@@ -950,7 +954,7 @@ Sum of first  77  integers:  3003.0
 <p><img alt="image0" src="_images/triangle.png" /></p>
 <div class="tggle" onclick="toggleVisibility('ex7');"><p>Show/Hide Solution</p>
 </div><div id="ex7" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -978,7 +982,7 @@ Hypotenuse:  151.23822268196622
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex8');"><p>Show/Hide Solution</p>
 </div><div id="ex8" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -997,11 +1001,11 @@ Hypotenuse:  151.23822268196622
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Input the major base (MB):33
-Input the minor base (mb):22
-Input the height (H):10
-Given MB: 33  mb: 22  and H: 10
-The trapezoid area is:  275.0
+Input the major base (MB):5
+Input the minor base (mb):9
+Input the height (H):12
+Given MB: 5  mb: 9  and H: 12
+The trapezoid area is:  84.0
 </pre></div></div>
 </div>
 </div><ol class="arabic simple" start="11">
@@ -1009,7 +1013,7 @@ The trapezoid area is:  275.0
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex9');"><p>Show/Hide Solution</p>
 </div><div id="ex9" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1028,8 +1032,8 @@ The trapezoid area is:  275.0
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Please insert the side of the hexagon: 9
-Perimeter:  54  Area:  210.4441731196186
+Please insert the side of the hexagon: 6
+Perimeter:  36  Area:  93.53074360871938
 </pre></div></div>
 </div>
 </div></div>
