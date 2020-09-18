@@ -596,7 +596,7 @@ sum is: 17  division is: 1.4285714285714286
 <p>You can find useful information on this tool <a class="reference external" href="https://code.visualstudio.com/docs#vscode">here</a>. Please spend some time having a look at that page.</p>
 <p>Once you are done with it you can close this window pressing on the “x”. First thing to do is to set the python interpreter to use. Click on View –&gt; Command Palette and type “Python” in the text search space. Select <strong>Python: Select Workspace Interpreter</strong> as shown in the picture below.</p>
 <p><img alt="img8" src="_images/pythoninterpreter.png" /></p>
-<p>Finally, select the python version you want to use (e.g. Python3).</p>
+<p>Finally, select the python version you want to use (e.g. Python3.x).</p>
 <p>Now you can click on <strong>Open Folder</strong> to create a new folder to place all the scripts you are going to create. You can call it something like “exercises”. Next you can create a new file, <em>example1.py</em> (<em>.py</em> extension stands for python).</p>
 <p>Visual Studio Code will understand that you are writing Python code and will help you writing valid syntax in your scripts.</p>
 <div class="admonition warning">
@@ -792,28 +792,8 @@ language**</a> - see <a class="reference external" href="https://github.com/adam
 <ol class="arabic simple">
 <li><p>The size of the Sars-Cov-2 genome is 29,811 base pairs. 8,903 of these bases are adenines. Write some python code to compute the percentage of the genome that is an adenine and print it.</p></li>
 </ol>
-<div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
-</div><div id="ex1" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">size</span> <span class="o">=</span> <span class="mi">29811</span>
-<span class="n">adenines</span> <span class="o">=</span> <span class="mi">8903</span>
-<span class="n">fraction</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">adenines</span><span class="o">/</span><span class="n">size</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Sars-Cov-2 genome has &quot;</span><span class="p">,</span> <span class="n">fraction</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% a</span><span class="s2">denines&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-The Sars-Cov-2 genome has  29.864815001174062 % adenines
-</pre></div></div>
-</div>
-</div><ol class="arabic simple" start="2">
+<div class="tggle" onclick="toggleVisibility('ex_new');"><p>Show/Hide Solution</p>
+</div><div id="ex_new" style="display:none;"></div><ol class="arabic simple" start="2">
 <li><p>Compute the area of a triangle having base 120 units (B) and height 33 (H). Assign the result to a variable named area and print it.</p></li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
@@ -951,7 +931,7 @@ Sum of first  7  integers:  28.0
 </div><ol class="arabic simple" start="9">
 <li><p>Write a small script to compute the length of the hypotenuse (c) of a right triangle having sides a=133 and b=72 units (see picture below). Hint: <em>remember the Pythagorean theorem and use math.sqrt</em>).</p></li>
 </ol>
-<p><img alt="image0" src="_images/triangle.png" /></p>
+<p><img alt="img22" src="_images/triangle.png" /></p>
 <div class="tggle" onclick="toggleVisibility('ex7');"><p>Show/Hide Solution</p>
 </div><div id="ex7" style="display:none;"><div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
