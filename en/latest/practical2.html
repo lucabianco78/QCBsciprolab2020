@@ -528,7 +528,7 @@ value: 5  type: &lt;class &#39;int&#39;&gt;  id: 10914624
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 value: 4  type: &lt;class &#39;int&#39;&gt;  id: 10914592
-value: four  type: &lt;class &#39;str&#39;&gt;  id: 140533679518248
+value: four  type: &lt;class &#39;str&#39;&gt;  id: 140614480883760
 </pre></div></div>
 </div>
 <div class="admonition warning">
@@ -690,14 +690,14 @@ is b equal to 77? False
 <div class="section" id="Real-numbers">
 <h3>Real numbers<a class="headerlink" href="#Real-numbers" title="Permalink to this headline">¶</a></h3>
 <p>Python stores real numbers (floating point numbers) in 64 bits of information divided in sign, exponent and mantissa.</p>
-<p><strong>Example:</strong> Let’s calculate the area of the center circle of a football pitch (radius = 9.15m) recalling that <span class="math notranslate nohighlight">\(area= Pi*R^2\)</span>:</p>
+<p><strong>Example:</strong> Let’s calculate the area of the center circle of a football pitch (radius = 9.15m) recalling that <span class="math notranslate nohighlight">\(area= \Pi*R^2\)</span>:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">R</span> <span class="o">=</span> <span class="mf">9.15</span>
-<span class="n">Pi</span> <span class="o">=</span> <span class="mf">3.1415926536</span>
+<span class="n">Pi</span> <span class="o">=</span> <span class="mf">3.141592653589793</span>
 <span class="n">Area</span> <span class="o">=</span> <span class="n">Pi</span><span class="o">*</span><span class="p">(</span><span class="n">R</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">Area</span><span class="p">)</span>
 </pre></div>
@@ -708,7 +708,30 @@ is b equal to 77? False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-263.02199094102605
+263.02199094017146
+</pre></div></div>
+</div>
+<p>Note that the builtin math module of python contains the definition of <span class="math notranslate nohighlight">\(\Pi\)</span>, therefore we could rewrite the code above as (not:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mf">9.15</span>
+<span class="n">Pi</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+<span class="n">Area</span> <span class="o">=</span> <span class="n">Pi</span><span class="o">*</span><span class="p">(</span><span class="n">R</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">Area</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+263.02199094017146
 </pre></div></div>
 </div>
 <p>Note that the parenthesis around the <code class="docutils literal notranslate"><span class="pre">R**2</span></code> are not necessary as operator <code class="docutils literal notranslate"><span class="pre">**</span></code> has the precedence, but I personally think it helps readability.</p>
@@ -716,7 +739,7 @@ is b equal to 77? False
 <p><img alt="img2" src="_images/precedence.png" /></p>
 <p><strong>Example:</strong> Let’s compute the GC content of a DNA sequence 33 base pairs long, having 12 As, 9 Ts, 5 Cs and 7Gs. The GC content can be expressed by the formula: <span class="math notranslate nohighlight">\(gc = \frac{G+C}{A+T+C+G}\)</span> where A,T,C,G represent the number of nucleotides of each kind. What is the AT content? Is the GC content higher than the AT content?</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -751,7 +774,7 @@ False
 <p>Strings are <strong>immutable objects</strong> (note the actual type is <strong>str</strong>) used by python to handle text data. Strings are sequences of <em>unicode code points</em> that can represent characters, but also formatting information (e.g. ‘\n’ for new line). Unlike other programming languages, python does not have the data type character, which is represented as a string of length 1.</p>
 <p>There are several ways to define a string:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -797,7 +820,7 @@ several lines
 <p><img alt="img3" src="_images/escapes.png" /></p>
 <p><strong>Example</strong>: Let’s print a string containing a quote and double quote (i.e. ‘ and “).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -817,7 +840,7 @@ This is how I &#39;quote&#39; and &#34;double quote&#34; things in strings
 <p>Strings can be converted to and from numbers with the functions <code class="docutils literal notranslate"><span class="pre">str()</span></code>, <code class="docutils literal notranslate"><span class="pre">int()</span></code> or <code class="docutils literal notranslate"><span class="pre">float()</span></code>.</p>
 <p><strong>Example</strong>: Let’s define a string <em>myString</em> with the value “47001” and convert it into an int. Try adding one and print the result.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -853,7 +876,7 @@ This is how I &#39;quote&#39; and &#34;double quote&#34; things in strings
 <p><img alt="img4" src="_images/stringoperators.png" /></p>
 <p><strong>Example</strong> A tandem repeat is a short sequence of DNA that is repeated several times in a row. Let’s create a string representing the tandem repeat of the motif “ATTCG” repeated 5 times. What is the length of the whole repetitive region? Is the motif “TCGAT” (m1) present in the region? The motif “TCCT” (m2)? Let’s give an orientation to the tandem repeat by adding the string “5’-” (5’ end) on the left and “-3’” (3’ end) to the right.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -892,7 +915,7 @@ Is  TCCT  in  ATTCGATTCGATTCGATTCGATTCG  ?  False
 <p><img alt="img5" src="_images/slicingstring.png" /></p>
 <p>Let’s see these aspects in action with an example:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -936,7 +959,7 @@ uhrClee
 <p>Recall that <strong>strings are immutable</strong>. For this reason we cannot directly change them with an assignment operator.</p>
 <p><strong>Example:</strong> Since the genetic code is degenerate, there are many codons encoding for the same aminoacid. Consider Proline, it can be encoded by the following codons: CCU, CCA,CCG, CCC. Let’s create a string proline and assign it to its possible codons one after the other.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -968,7 +991,7 @@ Proline can be encoded by:  CCU
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-17-9750dcfa1cbd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-18-9750dcfa1cbd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      5</span> proline <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;CCU&#34;</span>
 <span class="ansi-green-intense-fg ansi-bold">      6</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Proline can be encoded by: &#34;</span><span class="ansi-blue-fg">,</span> proline<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg"> </span>proline<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;A&#34;</span>
@@ -979,7 +1002,7 @@ Proline can be encoded by:  CCU
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1009,7 +1032,7 @@ Proline can be encoded by:  CCU
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1040,7 +1063,7 @@ Proline can be encoded by:  CCU
 </div>
 <p><strong>Example</strong>: Given the DNA sequence S = ” aTATGCCCATatcgctAAATTGCTGCCATTACA “. Print its length (removing any blank spaces at either sides), the number of adenines, cytosines, guanines and thymines present. Is the sequence “ATCG” present in S? Print how many times the substring “TGCC” appears in S and all the corresponding indexes.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1096,7 +1119,7 @@ No one ever said it would be this hard&quot;&quot;&quot;
 <p>write some python code that a)prints the whole string; b) prints the first and last character; c) prints the first 10 characters; d) prints from the 19th character to the 31st; e) prints the string all in capital letters.</p>
 <div class="tggle" onclick="toggleVisibility('ex0');"><p>Show/Hide Solution</p>
 </div><div id="ex0" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1147,7 +1170,7 @@ NO ONE EVER SAID IT WOULD BE THIS HARD
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
 </div><div id="ex1" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1183,7 +1206,7 @@ SNP2 ( 12188 ) in [ 12030 , 12174 ]? False
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex2');"><p>Show/Hide Solution</p>
 </div><div id="ex2" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1237,7 +1260,7 @@ SNP from iupac region:  R
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex3');"><p>Show/Hide Solution</p>
 </div><div id="ex3" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1276,7 +1299,7 @@ GTCTATCCCAGGGAAATAAAAATCTAAGCTAAGGTTTGAG GAATCAGTAGGAATTGGCAAAGGAAGGACATGTTCCAGA
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex4');"><p>Show/Hide Solution</p>
 </div><div id="ex4" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1341,7 +1364,7 @@ Has GC content increased after adapter trimmming?
 </div>
 <div class="tggle" onclick="toggleVisibility('ex5');"><p>Show/Hide Solution</p>
 </div><div id="ex5" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1402,7 +1425,7 @@ random.randint(start,end) function:</p>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex6');"><p>Show/Hide Solution</p>
 </div><div id="ex6" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1436,13 +1459,13 @@ random.randint(start,end) function:</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Random position is:  1074
-Is  1074  in geneA [ 1000 , 3400 ]?  True
-Is  1074  in geneB [ 3700 , 5201 ]?  False
-Is  1074  between the two genes?  False
-Is  1074  in one of the two genes?  True
-Is  1074  outside of both genes?  False
-Is  1074  within 100 bases from the start of geneA?  False
+Random position is:  2388
+Is  2388  in geneA [ 1000 , 3400 ]?  True
+Is  2388  in geneB [ 3700 , 5201 ]?  False
+Is  2388  between the two genes?  False
+Is  2388  in one of the two genes?  True
+Is  2388  outside of both genes?  False
+Is  2388  within 100 bases from the start of geneA?  False
 </pre></div></div>
 </div>
 </div><ol class="arabic simple" start="8">
@@ -1460,7 +1483,7 @@ Is  1074  within 100 bases from the start of geneA?  False
 </div>
 <div class="tggle" onclick="toggleVisibility('ex7');"><p>Show/Hide Solution</p>
 </div><div id="ex7" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1515,7 +1538,7 @@ The first line is:  SSSVPSQKTYQGSYGFRLGFLHSGTAKSVTCTYSPALNKM
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex8');"><p>Show/Hide Solution</p>
 </div><div id="ex8" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
