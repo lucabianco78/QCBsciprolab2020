@@ -503,13 +503,13 @@ value: 4  type: &lt;class &#39;int&#39;&gt;  id: 10914592
 value: 5  type: &lt;class &#39;int&#39;&gt;  id: 10914624
 </pre></div></div>
 </div>
-<p>The value of the variable sides has been changed from 4 to 5, but as stated in the table above, the type <code class="docutils literal notranslate"><span class="pre">int</span></code> is <strong>immutable</strong>. Luckily, this did not prevent us to change the value of sides from 4 to 5. What happened behind the scenes when we executed the instruction sides = 5 is that a new object has been created of type int (5 is still an integer) and it has been made accessible with the same name <em>sides</em>, but since it is a different object (i.e. the integer 5) you can see that the
-identifier is actually different.</p>
+<p>The value of the variable sides has been changed from 4 to 5, but as stated in the table above, the type <code class="docutils literal notranslate"><span class="pre">int</span></code> is <strong>immutable</strong>. <strong>Luckily, this did not prevent us to change the value of sides from 4 to 5.</strong> What happened behind the scenes when we executed the instruction sides = 5 is that a new object has been created of type int (5 is still an integer) and it has been made accessible with the same name <em>sides</em>, but since it is a different object (i.e. the integer 5). As a poof of this,
+<strong>check that the that the identifier printed above is actually different.</strong></p>
 <div class="admonition note">
 <p><strong>Note:</strong> You do not have to really worry about what happens behind the scenes, as the Python interpreter will take care of these aspects for you, but it is nice to know what it does.</p>
 </div>
-<p>You can even change the type of a variable during execution but that is normally a <strong>bad idea</strong> as it makes understanding the code more complicated.</p>
-<p>You can do (<strong>but, please, refrain!</strong>):</p>
+<p>You can even change the type of a variable during execution but that is normally a <strong>bad idea</strong> as it makes understanding the code more complicated and leaves more room for errors.</p>
+<p>Python allows you to do (<strong>but, please, REFRAIN FROM DOING SO!</strong>):</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -643,7 +643,7 @@ T or T:  True
 F or F:  False
 </pre></div></div>
 </div>
-<p>Numeric comparators are operators that return a boolean value. Here are some examples (from the lecture):</p>
+<p>Numeric comparators are operators that return a boolean value. Here are some examples:</p>
 <p><img alt="img1" src="_images/comparators.png" /></p>
 <p><strong>Example</strong>: Given a variable a = 10 and a variable b = 77, let’s swap their values (i.e. at the end a will be equal to 77 and b to 10). Let’s also check the values at the beginning and at the end.</p>
 <div class="nbinput docutils container">
