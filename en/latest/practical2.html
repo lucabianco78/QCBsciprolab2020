@@ -528,7 +528,7 @@ value: 5  type: &lt;class &#39;int&#39;&gt;  id: 10914624
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 value: 4  type: &lt;class &#39;int&#39;&gt;  id: 10914592
-value: four  type: &lt;class &#39;str&#39;&gt;  id: 140614480883760
+value: four  type: &lt;class &#39;str&#39;&gt;  id: 139938221962272
 </pre></div></div>
 </div>
 <div class="admonition warning">
@@ -734,7 +734,7 @@ is b equal to 77? False
 263.02199094017146
 </pre></div></div>
 </div>
-<p>Note that the parenthesis around the <code class="docutils literal notranslate"><span class="pre">R**2</span></code> are not necessary as operator <code class="docutils literal notranslate"><span class="pre">**</span></code> has the precedence, but I personally think it helps readability.</p>
+<p>Note that the parenthesis around the <code class="docutils literal notranslate"><span class="pre">R**2</span></code> are not necessary as the operator <code class="docutils literal notranslate"><span class="pre">**</span></code> has the precedence, but I personally think it helps readability.</p>
 <p>Here is a reminder of the precedence of operators:</p>
 <p><img alt="img2" src="_images/precedence.png" /></p>
 <p><strong>Example:</strong> Let’s compute the GC content of a DNA sequence 33 base pairs long, having 12 As, 9 Ts, 5 Cs and 7Gs. The GC content can be expressed by the formula: <span class="math notranslate nohighlight">\(gc = \frac{G+C}{A+T+C+G}\)</span> where A,T,C,G represent the number of nucleotides of each kind. What is the AT content? Is the GC content higher than the AT content?</p>
@@ -749,10 +749,11 @@ is b equal to 77? False
 <span class="n">G</span> <span class="o">=</span> <span class="mi">7</span>
 
 <span class="n">gc</span> <span class="o">=</span> <span class="p">(</span><span class="n">G</span><span class="o">+</span><span class="n">C</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">T</span><span class="o">+</span><span class="n">C</span><span class="o">+</span><span class="n">G</span><span class="p">)</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The GC content is: &quot;</span><span class="p">,</span> <span class="n">gc</span><span class="p">)</span>
 
 <span class="n">at</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">gc</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The AT content is: &quot;</span><span class="p">,</span> <span class="n">at</span><span class="p">)</span>
 
 <span class="nb">print</span> <span class="p">(</span><span class="n">gc</span> <span class="o">&gt;</span> <span class="n">at</span><span class="p">)</span>
 </pre></div>
@@ -764,6 +765,7 @@ is b equal to 77? False
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 The GC content is:  0.36363636363636365
+The AT content is:  0.6363636363636364
 False
 </pre></div></div>
 </div>
@@ -771,7 +773,7 @@ False
 </div>
 <div class="section" id="Strings">
 <h2>Strings<a class="headerlink" href="#Strings" title="Permalink to this headline">¶</a></h2>
-<p>Strings are <strong>immutable objects</strong> (note the actual type is <strong>str</strong>) used by python to handle text data. Strings are sequences of <em>unicode code points</em> that can represent characters, but also formatting information (e.g. ‘\n’ for new line). Unlike other programming languages, python does not have the data type character, which is represented as a string of length 1.</p>
+<p>Strings are <strong>immutable objects</strong> (note the actual type is <strong>str</strong>) used by python to handle text data. Strings are sequences of <em>unicode code points</em> that can represent characters, but also formatting information (e.g. ‘\n’ for new line). <strong>Unlike other programming languages, python does not have the data type character, which is represented as a string of length 1</strong>.</p>
 <p>There are several ways to define a string:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -844,20 +846,20 @@ This is how I &#39;quote&#39; and &#34;double quote&#34; things in strings
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">myString</span> <span class="o">=</span> <span class="s2">&quot;47001&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myString</span><span class="p">,</span> <span class="s2">&quot; has type &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">myString</span><span class="p">))</span>
+<span></span><span class="n">my_string</span> <span class="o">=</span> <span class="s2">&quot;47001&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_string</span><span class="p">,</span> <span class="s2">&quot; has type &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">my_string</span><span class="p">))</span>
 
-<span class="n">myInt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">myString</span><span class="p">)</span>
+<span class="n">my_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">my_string</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">myInt</span><span class="p">,</span> <span class="s2">&quot; has type &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">myInt</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_int</span><span class="p">,</span> <span class="s2">&quot; has type &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">my_int</span><span class="p">))</span>
 
-<span class="n">myInt</span> <span class="o">=</span> <span class="n">myInt</span> <span class="o">+</span> <span class="mi">1</span>   <span class="c1">#adds one</span>
+<span class="n">my_int</span> <span class="o">=</span> <span class="n">my_int</span> <span class="o">+</span> <span class="mi">1</span>   <span class="c1">#adds one</span>
 
-<span class="n">myString</span> <span class="o">=</span> <span class="n">myString</span> <span class="o">+</span> <span class="s2">&quot;1&quot;</span> <span class="c1">#cannot add 1 (we need to use a string).</span>
+<span class="n">my_string</span> <span class="o">=</span> <span class="n">my_string</span> <span class="o">+</span> <span class="s2">&quot;1&quot;</span> <span class="c1">#cannot add 1 (we need to use a string).</span>
                           <span class="c1">#This will append 1 at the end of the string</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">myInt</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myString</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_string</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1074,15 +1076,15 @@ Proline can be encoded by:  CCU
 <span class="nb">print</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
-<span class="n">tmpS</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="c1">#for simplicity to count only 4 different nucleotides</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A count: &quot;</span><span class="p">,</span> <span class="n">tmpS</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C count: &quot;</span><span class="p">,</span> <span class="n">tmpS</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T count: &quot;</span><span class="p">,</span> <span class="n">tmpS</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;G count: &quot;</span><span class="p">,</span> <span class="n">tmpS</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is ATCG in &quot;</span><span class="p">,</span> <span class="n">tmpS</span><span class="p">,</span> <span class="s2">&quot;? &quot;</span><span class="p">,</span> <span class="n">tmpS</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;ATCG&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#or tmpS.count(&quot;ATCG&quot;) &gt; 0</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TGCC is present &quot;</span><span class="p">,</span> <span class="n">tmpS</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;TGCC&quot;</span><span class="p">),</span> <span class="s2">&quot; times in &quot;</span><span class="p">,</span> <span class="n">tmpS</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TGCC is present at pos &quot;</span><span class="p">,</span> <span class="n">tmpS</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;TGCC&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TGCC is present at pos &quot;</span><span class="p">,</span> <span class="n">tmpS</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;TGCC&quot;</span><span class="p">))</span> <span class="c1">#or tmpS.find(&quot;TGCC&quot;,4)</span>
+<span class="n">tmp_s</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="c1">#for simplicity to count only 4 different nucleotides</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A count: &quot;</span><span class="p">,</span> <span class="n">tmp_s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C count: &quot;</span><span class="p">,</span> <span class="n">tmp_s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T count: &quot;</span><span class="p">,</span> <span class="n">tmp_s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;G count: &quot;</span><span class="p">,</span> <span class="n">tmp_s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is ATCG in &quot;</span><span class="p">,</span> <span class="n">tmp_s</span><span class="p">,</span> <span class="s2">&quot;? &quot;</span><span class="p">,</span> <span class="n">tmp_s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;ATCG&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#or tmp_s.count(&quot;ATCG&quot;) &gt; 0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TGCC is present &quot;</span><span class="p">,</span> <span class="n">tmp_s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;TGCC&quot;</span><span class="p">),</span> <span class="s2">&quot; times in &quot;</span><span class="p">,</span> <span class="n">tmp_s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TGCC is present at pos &quot;</span><span class="p">,</span> <span class="n">tmp_s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;TGCC&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TGCC is present at pos &quot;</span><span class="p">,</span> <span class="n">tmp_s</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;TGCC&quot;</span><span class="p">))</span> <span class="c1">#or tmp_S.find(&quot;TGCC&quot;,4)</span>
 
 </pre></div>
 </div>
@@ -1118,84 +1120,11 @@ No one ever said it would be this hard&quot;&quot;&quot;
 </div>
 <p>write some python code that a)prints the whole string; b) prints the first and last character; c) prints the first 10 characters; d) prints from the 19th character to the 31st; e) prints the string all in capital letters.</p>
 <div class="tggle" onclick="toggleVisibility('ex0');"><p>Show/Hide Solution</p>
-</div><div id="ex0" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Nobody said it was easy</span>
-<span class="s2">No one ever said it would be this hard&quot;&quot;&quot;</span>
-<span class="c1"># a) prints the whole text</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-
-<span class="c1">#some empty space...</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-
-<span class="c1"># b) 1st and last character</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1st char: &quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot; last char: &quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-
-<span class="c1">#c) the 1st 10 characters:</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1st 10 chars:&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
-
-<span class="c1">#d) from the 20th to the 31st char</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Characters from 19 to 31:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="mi">18</span><span class="p">:</span><span class="mi">31</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">All upper case:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Nobody said it was easy
-No one ever said it would be this hard
-
-1st char:  N  last char:  d
-1st 10 chars: Nobody sai
-
-Characters from 19 to 31:
- easy
-No one
-
-All upper case:
-NOBODY SAID IT WAS EASY
-NO ONE EVER SAID IT WOULD BE THIS HARD
-</pre></div></div>
-</div>
-</div><ol class="arabic simple" start="2">
+</div><div id="ex0" style="display:none;"></div><ol class="arabic simple" start="2">
 <li><p>An exon of a gene starts from position 12030 on a genome and ends at position 12174. Does an A/T SNP present at position 12111 affect this exon (i.e. is it inside the exon)? And what about a SNP present at position 12188? <em>Hint: test a suitable boolean expression to answer this question</em>.</p></li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
-</div><div id="ex1" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">E_start</span> <span class="o">=</span> <span class="mi">12030</span>
-<span class="n">E_end</span> <span class="o">=</span> <span class="mi">12174</span>
-<span class="n">SNP1_pos</span> <span class="o">=</span> <span class="mi">12111</span>
-<span class="n">SNP2_pos</span> <span class="o">=</span> <span class="mi">12188</span>
-
-<span class="n">Test1</span> <span class="o">=</span> <span class="p">(</span><span class="n">SNP1_pos</span> <span class="o">&gt;=</span> <span class="n">E_start</span> <span class="ow">and</span> <span class="n">SNP1_pos</span> <span class="o">&lt;=</span><span class="n">E_end</span><span class="p">)</span>
-<span class="n">Test2</span> <span class="o">=</span> <span class="p">(</span><span class="n">SNP2_pos</span> <span class="o">&gt;=</span> <span class="n">E_start</span> <span class="ow">and</span> <span class="n">SNP2_pos</span> <span class="o">&lt;=</span><span class="n">E_end</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;SNP1 (&quot;</span><span class="p">,</span> <span class="n">SNP1_pos</span><span class="p">,</span><span class="s2">&quot;) in [&quot;</span><span class="p">,</span> <span class="n">E_start</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">E_end</span><span class="p">,</span> <span class="s2">&quot;]?&quot;</span><span class="p">,</span> <span class="n">Test1</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;SNP2 (&quot;</span><span class="p">,</span> <span class="n">SNP2_pos</span><span class="p">,</span><span class="s2">&quot;) in [&quot;</span><span class="p">,</span> <span class="n">E_start</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">E_end</span><span class="p">,</span> <span class="s2">&quot;]?&quot;</span><span class="p">,</span> <span class="n">Test2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-SNP1 ( 12111 ) in [ 12030 , 12174 ]? True
-SNP2 ( 12188 ) in [ 12030 , 12174 ]? False
-</pre></div></div>
-</div>
-</div><ol class="arabic simple" start="3">
+</div><div id="ex1" style="display:none;"></div><ol class="arabic simple" start="3">
 <li><p>SNP FB_AFFY_0000024 of the Apple 480K SNP chip has 5’ flanking region (i.e. the forward probe) CATTATTTTCACTTGGGTCGAGGCCAGATTCCATC and 3’ flanking region (i.e. the reverse probe) GGATTGCCCGAAATCAGAGAAAAGTCG. The SNP is a G/A transversion. Answer the following questions:</p>
 <ol class="arabic simple">
 <li><p>What is the length of the 5’ flanking region? And that of the 3’ flanking region?</p></li>
@@ -1205,85 +1134,11 @@ SNP2 ( 12188 ) in [ 12030 , 12174 ]? False
 </li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex2');"><p>Show/Hide Solution</p>
-</div><div id="ex2" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">SNP_5prime</span> <span class="o">=</span>  <span class="s2">&quot;CATTATTTTCACTTGGGTCGAGGCCAGATTCCATC&quot;</span>
-<span class="n">SNP_3prime</span> <span class="o">=</span> <span class="s2">&quot;GGATTGCCCGAAATCAGAGAAAAGTCG&quot;</span>
-
-<span class="n">SNPseq</span> <span class="o">=</span> <span class="s2">&quot;G/A&quot;</span>
-<span class="n">SNPiupac</span> <span class="o">=</span> <span class="s2">&quot;R&quot;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Length of 5&#39; end: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">SNP_5prime</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Length of 3&#39; end: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">SNP_3prime</span><span class="p">))</span>
-<span class="n">region</span> <span class="o">=</span> <span class="n">SNP_5prime</span> <span class="o">+</span> <span class="s2">&quot;[&quot;</span> <span class="o">+</span> <span class="n">SNPseq</span> <span class="o">+</span> <span class="s2">&quot;]&quot;</span> <span class="o">+</span> <span class="n">SNP_3prime</span>
-<span class="n">region_iupac</span> <span class="o">=</span> <span class="n">SNP_5prime</span> <span class="o">+</span> <span class="n">SNPiupac</span> <span class="o">+</span> <span class="n">SNP_3prime</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">region</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">region_iupac</span><span class="p">)</span>
-
-<span class="c1">#string slicing and indexing!</span>
-
-<span class="n">snp_from_region</span> <span class="o">=</span> <span class="n">region</span><span class="p">[</span> <span class="nb">len</span><span class="p">(</span><span class="n">SNP_5prime</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">SNP_5prime</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span> <span class="p">]</span>
-<span class="n">snp_from_iupac</span> <span class="o">=</span> <span class="n">region_iupac</span><span class="p">[</span> <span class="nb">len</span><span class="p">(</span><span class="n">SNP_5prime</span><span class="p">)</span> <span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SNP from region: &quot;</span><span class="p">,</span> <span class="n">snp_from_region</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SNP from iupac region: &quot;</span><span class="p">,</span> <span class="n">snp_from_iupac</span><span class="p">)</span>
-
-<span class="c1"># Another way:</span>
-<span class="c1">#L_ind = region.find(&quot;[&quot;)</span>
-<span class="c1">#R_ind = region.find(&quot;]&quot;)</span>
-<span class="c1">#print(L_ind)</span>
-<span class="c1">#print(R_ind)</span>
-
-<span class="c1">#print(region[L_ind + 1 : R_ind])</span>
-
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Length of 5&#39; end:  35
-Length of 3&#39; end:  27
-CATTATTTTCACTTGGGTCGAGGCCAGATTCCATC[G/A]GGATTGCCCGAAATCAGAGAAAAGTCG
-CATTATTTTCACTTGGGTCGAGGCCAGATTCCATCRGGATTGCCCGAAATCAGAGAAAAGTCG
-SNP from region:  G/A
-SNP from iupac region:  R
-</pre></div></div>
-</div>
-</div><ol class="arabic simple" start="4">
+</div><div id="ex2" style="display:none;"></div><ol class="arabic simple" start="4">
 <li><p>Compute the melting temperature <span class="math notranslate nohighlight">\(T_m\)</span> of the primer with sequence “TTAGCACACGTGAGCCAATGGAGCAAACGGGTAATT”. The melting temperature <span class="math notranslate nohighlight">\(T_m\)</span> (in degrees Celtius) can be computed as: <span class="math notranslate nohighlight">\(T_m = 64.9 + 41(GC - 16.4)/N\)</span>, where <span class="math notranslate nohighlight">\(GC\)</span> is the total number of G and C in the primer and <span class="math notranslate nohighlight">\(N\)</span> is its length.</p></li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex3');"><p>Show/Hide Solution</p>
-</div><div id="ex3" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">primer</span> <span class="o">=</span> <span class="s2">&quot;TTAGCACACGTGAGCCAATGGAGCAAACGGGTAATT&quot;</span>
-<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">primer</span><span class="p">)</span>
-
-<span class="n">gc</span> <span class="o">=</span> <span class="p">(</span><span class="n">primer</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">primer</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">))</span>
-
-<span class="n">Tm</span> <span class="o">=</span> <span class="mf">64.9</span> <span class="o">+</span> <span class="mi">41</span> <span class="o">*</span> <span class="p">(</span><span class="n">gc</span> <span class="o">-</span> <span class="mf">16.4</span><span class="p">)</span><span class="o">/</span><span class="n">N</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The melting T for primer &quot;</span><span class="p">,</span> <span class="n">primer</span><span class="p">,</span> <span class="s2">&quot; is: &quot;</span><span class="p">,</span> <span class="n">Tm</span><span class="p">,</span> <span class="s2">&quot;°C&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-The melting T for primer  TTAGCACACGTGAGCCAATGGAGCAAACGGGTAATT  is:  65.58333333333334 °C
-</pre></div></div>
-</div>
-</div><ol class="arabic simple" start="5">
+</div><div id="ex3" style="display:none;"></div><ol class="arabic simple" start="5">
 <li><p>Convert the following extract of the <a class="reference external" href="http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000083093;r=16:23603160-23641310">PalB2</a> gene into mRNA (i.e. replace thymine with uracile): CTGTCTCCCTCACTGTATGTAAATTGCATCTAGAATAGCA TCTGGAGCACTAATTGACACATAGTGGGTATCAATTATTA TTCCAGGTACTAGAGATACCTGGACCATTAACGGATAAAT AGAAGATTCATTTGTTGAGTGACTGAGGATGGCAGTTCCT GCTACCTTCAAGGATCTGGATGATGGGGAGAAACAGAGAA CATAGTGTGAGAATACTGTGGTAAGGAAAGTACAGAGGAC TGGTAGAGTGTCTAACCTAGATTTGGAGAAGGACCTAGAA
 GTCTATCCCAGGGAAATAAAAATCTAAGCTAAGGTTTGAG GAATCAGTAGGAATTGGCAAAGGAAGGACATGTTCCAGAT GATAGGAACAGGTTATGCAAAGATCCTGAAATGGTCAGAG CTTGGTGCTTTTTGAGAACCAAAAGTAGATTGTTATGGAC CAGTGCTACTCCCTGCCTCTTGCCAAGGGACCCCGCCAAG CACTGCATCCCTTCCCTCTGACTCCACCTTTCCACTTGCC CAGTATTGTTGGTGT</p></li>
 </ol>
@@ -1298,59 +1153,7 @@ GTCTATCCCAGGGAAATAAAAATCTAAGCTAAGGTTTGAG GAATCAGTAGGAATTGGCAAAGGAAGGACATGTTCCAGA
 <li><p>What is the position of the rightmost Trp? Print the codon to double check correctness (hint: slicing).</p></li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex4');"><p>Show/Hide Solution</p>
-</div><div id="ex4" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">seq</span> <span class="o">=</span><span class="s2">&quot;&quot;&quot;CTGTCTCCCTCACTGTATGTAAATTGCATCTAGAATAGCA</span>
-<span class="s2">TCTGGAGCACTAATTGACACATAGTGGGTATCAATTATTA</span>
-<span class="s2">TTCCAGGTACTAGAGATACCTGGACCATTAACGGATAAAT</span>
-<span class="s2">AGAAGATTCATTTGTTGAGTGACTGAGGATGGCAGTTCCT</span>
-<span class="s2">GCTACCTTCAAGGATCTGGATGATGGGGAGAAACAGAGAA</span>
-<span class="s2">CATAGTGTGAGAATACTGTGGTAAGGAAAGTACAGAGGAC</span>
-<span class="s2">TGGTAGAGTGTCTAACCTAGATTTGGAGAAGGACCTAGAA</span>
-<span class="s2">GTCTATCCCAGGGAAATAAAAATCTAAGCTAAGGTTTGAG</span>
-<span class="s2">GAATCAGTAGGAATTGGCAAAGGAAGGACATGTTCCAGAT</span>
-<span class="s2">GATAGGAACAGGTTATGCAAAGATCCTGAAATGGTCAGAG</span>
-<span class="s2">CTTGGTGCTTTTTGAGAACCAAAAGTAGATTGTTATGGAC</span>
-<span class="s2">CAGTGCTACTCCCTGCCTCTTGCCAAGGGACCCCGCCAAG</span>
-<span class="s2">CACTGCATCCCTTCCCTCTGACTCCACCTTTCCACTTGCC</span>
-<span class="s2">CAGTATTGTTGGTGT&quot;&quot;&quot;</span>
-
-<span class="n">seq</span> <span class="o">=</span> <span class="n">seq</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="n">mRNA</span> <span class="o">=</span> <span class="n">seq</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">,</span><span class="s2">&quot;U&quot;</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of uracils: &quot;</span><span class="p">,</span> <span class="n">mRNA</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;U&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total length of the sequence: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">))</span>
-<span class="n">stopc</span> <span class="o">=</span> <span class="n">mRNA</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;UAA&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">mRNA</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;UGA&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">mRNA</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;UAG&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of stop codons: &quot;</span><span class="p">,</span> <span class="n">stopc</span><span class="p">)</span>
-<span class="n">gly</span> <span class="o">=</span> <span class="n">mRNA</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;GGU&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">mRNA</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;GGC&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">mRNA</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;GGA&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">mRNA</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;GGG&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of glycines: &quot;</span><span class="p">,</span> <span class="n">gly</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is Trp present? &quot;</span><span class="p">,</span> <span class="n">mRNA</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;UGG&quot;</span><span class="p">)</span><span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">rmTrp</span> <span class="o">=</span> <span class="n">mRNA</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;UGG&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Leftmost Trp at pos:&quot;</span><span class="p">,</span> <span class="n">rmTrp</span><span class="p">,</span> <span class="s2">&quot; Codon: &quot;</span><span class="p">,</span> <span class="n">mRNA</span><span class="p">[</span><span class="n">rmTrp</span> <span class="p">:</span> <span class="n">rmTrp</span> <span class="o">+</span> <span class="mi">3</span><span class="p">])</span>
-<span class="n">lmTrp</span> <span class="o">=</span> <span class="n">mRNA</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;UGG&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rightmost Trp at pos:&quot;</span><span class="p">,</span> <span class="n">mRNA</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;UGG&quot;</span><span class="p">),</span> <span class="s2">&quot; Codon: &quot;</span><span class="p">,</span> <span class="n">mRNA</span><span class="p">[</span><span class="n">lmTrp</span><span class="p">:</span><span class="n">lmTrp</span><span class="o">+</span><span class="mi">3</span><span class="p">])</span>
-
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Number of uracils:  140
-Total length of the sequence:  535
-Number of stop codons:  32
-Number of glycines:  34
-Is Trp present?  True
-Leftmost Trp at pos: 42  Codon:  UGG
-Rightmost Trp at pos: 529  Codon:  UGG
-</pre></div></div>
-</div>
-</div><ol class="arabic simple" start="6">
+</div><div id="ex4" style="display:none;"></div><ol class="arabic simple" start="6">
 <li><p>Consider the following Illumina HiSeq 4000 read: “”“AATGATACGGCGACCACCGAGATCTACACGCCTCCCTCGCGC CATCAGAGAGTCTGGGTCTCAGGTACCGCAGTTGTATCTTGCGCGACTATA ATCCACGGCTCTTATTCTAGCGTGCGCGTACGGCGGTGGGCGTCGTTACGCTATATT”“”.</p></li>
 </ol>
 <p>Answer the following questions:</p>
@@ -1363,60 +1166,7 @@ Has GC content increased after adapter trimmming?
 </pre></div>
 </div>
 <div class="tggle" onclick="toggleVisibility('ex5');"><p>Show/Hide Solution</p>
-</div><div id="ex5" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">read</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;AATGATACGGCGACCACCGAGATCTACACGCCTCCCTCGCGC</span>
-<span class="s2">CATCAGAGAGTCTGGGTCTCAGGTACCGCAGTTGTATCTTGCGCGACTATA</span>
-<span class="s2">ATCCACGGCTCTTATTCTAGCGTGCGCGTACGGCGGTGGGCGTCGTTACGCTATATT&quot;&quot;&quot;</span>
-
-<span class="n">read</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Read length is: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">read</span><span class="p">),</span> <span class="s2">&quot; base pairs&quot;</span><span class="p">)</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">)</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
-
-<span class="n">gc</span> <span class="o">=</span> <span class="p">(</span><span class="n">g</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">t</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="n">g</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GC content of read: &quot;</span><span class="p">,</span> <span class="n">gc</span><span class="p">)</span>
-
-<span class="n">adapter</span> <span class="o">=</span> <span class="s2">&quot;AATGATACGGCGACCACCGAGATCTACACGCCTCCCTCGCGCCATCAG&quot;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is the adapter present? &quot;</span><span class="p">,</span> <span class="n">adapter</span> <span class="ow">in</span> <span class="n">read</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Adapter length: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">adapter</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The adapter starts at: &quot;</span><span class="p">,</span> <span class="n">read</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">adapter</span><span class="p">))</span>
-
-<span class="n">trimmed_read</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">adapter</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-
-<span class="n">tr_g</span> <span class="o">=</span> <span class="n">trimmed_read</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">)</span>
-<span class="n">tr_c</span> <span class="o">=</span> <span class="n">trimmed_read</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
-<span class="n">tr_t</span> <span class="o">=</span> <span class="n">trimmed_read</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
-<span class="n">tr_a</span> <span class="o">=</span> <span class="n">trimmed_read</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
-
-<span class="n">tr_gc</span> <span class="o">=</span> <span class="p">(</span><span class="n">tr_g</span> <span class="o">+</span> <span class="n">tr_c</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">tr_a</span> <span class="o">+</span> <span class="n">tr_t</span> <span class="o">+</span> <span class="n">tr_c</span> <span class="o">+</span> <span class="n">tr_g</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GC content of trimmed read: &quot;</span><span class="p">,</span> <span class="n">tr_gc</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GC content has increased after trimming: &quot;</span><span class="p">,</span> <span class="n">tr_gc</span> <span class="o">&gt;</span> <span class="n">gc</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Read length is:  150  base pairs
-GC content of read:  0.56
-Is the adapter present?  True
-Adapter length:  48
-The adapter starts at:  0
-GC content of trimmed read:  0.5392156862745098
-GC content has increased after trimming:  False
-</pre></div></div>
-</div>
-</div><ol class="arabic" start="7">
+</div><div id="ex5" style="display:none;"></div><ol class="arabic" start="7">
 <li><p>Given <em>geneA</em> starting at position 1000 and ending at position 3400, and <em>geneB</em> starting at position 3700 and ending at position 6000. Randomly select a position (<em>pos</em>) from 1 to 5202 and check the following: a. is pos in geneA? b. is pos in geneB? c. is pos in between the two genes? d. is pos within one of the two genes? e. is pos outside both genes? f. is pos within 100 bases before the start of geneA? To pick a random number you can import the random module and use the
 random.randint(start,end) function:</p>
 <p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">random</span></code></p>
@@ -1424,51 +1174,7 @@ random.randint(start,end) function:</p>
 </li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex6');"><p>Show/Hide Solution</p>
-</div><div id="ex6" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">random</span>
-
-<span class="n">geneA_start</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="n">geneA_end</span> <span class="o">=</span> <span class="mi">3400</span>
-<span class="n">geneB_start</span> <span class="o">=</span> <span class="mi">3700</span>
-<span class="n">geneB_end</span> <span class="o">=</span> <span class="mi">5201</span>
-
-<span class="n">pos</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6000</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Random position is: &quot;</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
-
-<span class="n">answerA</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span> <span class="o">&gt;=</span> <span class="n">geneA_start</span> <span class="ow">and</span> <span class="n">pos</span> <span class="o">&lt;=</span> <span class="n">geneA_end</span><span class="p">)</span>
-<span class="n">answerB</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span> <span class="o">&gt;=</span> <span class="n">geneB_start</span> <span class="ow">and</span> <span class="n">pos</span> <span class="o">&lt;=</span> <span class="n">geneB_end</span><span class="p">)</span>
-<span class="n">answerC</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span> <span class="o">&gt;</span><span class="n">geneA_end</span> <span class="ow">and</span> <span class="n">pos</span> <span class="o">&lt;</span><span class="n">geneB_start</span><span class="p">)</span>
-<span class="n">answerD</span> <span class="o">=</span> <span class="p">(</span><span class="n">answerA</span> <span class="ow">or</span> <span class="n">answerB</span><span class="p">)</span>
-<span class="n">answerE</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span> <span class="o">&lt;</span> <span class="n">geneA_start</span> <span class="ow">or</span> <span class="p">(</span><span class="n">pos</span> <span class="o">&gt;</span> <span class="n">geneA_end</span> <span class="ow">and</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="n">geneB_start</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">pos</span> <span class="o">&gt;</span> <span class="n">geneB_end</span><span class="p">))</span>
-<span class="n">answerF</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span> <span class="o">&gt;=</span> <span class="n">geneA_start</span> <span class="o">-</span> <span class="mi">100</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">pos</span> <span class="o">&lt;</span> <span class="n">geneA_start</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is &quot;</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="s2">&quot; in geneA [&quot;</span><span class="p">,</span> <span class="n">geneA_start</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">geneA_end</span><span class="p">,</span> <span class="s2">&quot;]? &quot;</span><span class="p">,</span> <span class="n">answerA</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is &quot;</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="s2">&quot; in geneB [&quot;</span><span class="p">,</span> <span class="n">geneB_start</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">geneB_end</span><span class="p">,</span> <span class="s2">&quot;]? &quot;</span><span class="p">,</span> <span class="n">answerB</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is &quot;</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="s2">&quot; between the two genes? &quot;</span><span class="p">,</span> <span class="n">answerC</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is &quot;</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="s2">&quot; in one of the two genes? &quot;</span><span class="p">,</span> <span class="n">answerD</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is &quot;</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="s2">&quot; outside of both genes? &quot;</span><span class="p">,</span> <span class="n">answerE</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is &quot;</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="s2">&quot; within 100 bases from the start of geneA? &quot;</span><span class="p">,</span> <span class="n">answerF</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Random position is:  2388
-Is  2388  in geneA [ 1000 , 3400 ]?  True
-Is  2388  in geneB [ 3700 , 5201 ]?  False
-Is  2388  between the two genes?  False
-Is  2388  in one of the two genes?  True
-Is  2388  outside of both genes?  False
-Is  2388  within 100 bases from the start of geneA?  False
-</pre></div></div>
-</div>
-</div><ol class="arabic simple" start="8">
+</div><div id="ex6" style="display:none;"></div><ol class="arabic simple" start="8">
 <li><p>The DNA-binding domain of the Tumor Suppressor Protein TP53 can be represented by the string:</p></li>
 </ol>
 <p>chain_a = “”“SSSVPSQKTYQGSYGFRLGFLHSGTAKSVTCTYSPALNKM FCQLAKTCPVQLWVDSTPPPGTRVRAMAIYKQSQHMTEVV RRCPHHERCSDSDGLAPPQHLIRVEGNLRVEYLDDRNTFR HSVVVPYEPPEVGSDCTTIHYNYMCNSSCMGGMNRRPILT IITLEDSSGNLLGRNSFEVRVCACPGRDRRTEEENLRKKG EPHHELPPGSTKRALPNNT”“”</p>
@@ -1482,88 +1188,11 @@ Is  2388  within 100 bases from the start of geneA?  False
 </pre></div>
 </div>
 <div class="tggle" onclick="toggleVisibility('ex7');"><p>Show/Hide Solution</p>
-</div><div id="ex7" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">chain_a</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SSSVPSQKTYQGSYGFRLGFLHSGTAKSVTCTYSPALNKM</span>
-<span class="s2">FCQLAKTCPVQLWVDSTPPPGTRVRAMAIYKQSQHMTEVV</span>
-<span class="s2">RRCPHHERCSDSDGLAPPQHLIRVEGNLRVEYLDDRNTFR</span>
-<span class="s2">HSVVVPYEPPEVGSDCTTIHYNYMCNSSCMGGMNRRPILT</span>
-<span class="s2">IITLEDSSGNLLGRNSFEVRVCACPGRDRRTEEENLRKKG</span>
-<span class="s2">EPHHELPPGSTKRALPNNT&quot;&quot;&quot;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">chain_a</span><span class="p">)</span>
-<span class="n">lines</span> <span class="o">=</span> <span class="n">chain_a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The sequence is in &quot;</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="s2">&quot; lines&quot;</span><span class="p">)</span>
-
-<span class="n">sequence</span> <span class="o">=</span> <span class="n">chain_a</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The sequence has &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">),</span> <span class="s2">&quot; aminoacids&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The sequence counts &quot;</span><span class="p">,</span> <span class="n">sequence</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">),</span> <span class="s2">&quot; cysteins&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The sequence counts &quot;</span><span class="p">,</span> <span class="n">sequence</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">),</span> <span class="s2">&quot; histidines&quot;</span><span class="p">)</span>
-<span class="n">subseq</span> <span class="o">=</span> <span class="s2">&quot;NLRVEYLDDRN&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Does the sequence contain &quot;</span><span class="p">,</span> <span class="n">subseq</span><span class="p">,</span> <span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="n">subseq</span> <span class="ow">in</span> <span class="n">sequence</span> <span class="p">)</span>
-<span class="n">pos</span> <span class="o">=</span> <span class="n">sequence</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">subseq</span><span class="p">)</span>
-<span class="n">getS</span> <span class="o">=</span> <span class="n">sequence</span><span class="p">[</span><span class="n">pos</span><span class="p">:</span><span class="n">pos</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">subseq</span><span class="p">)]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">subseq</span><span class="p">,</span> <span class="s2">&quot; is present at pos: &quot;</span><span class="p">,</span> <span class="n">pos</span> <span class="p">,</span> <span class="s2">&quot;[check:&quot;</span><span class="p">,</span> <span class="n">getS</span> <span class="p">,</span> <span class="s2">&quot;]&quot;</span><span class="p">)</span>
-
-<span class="n">end_first_line</span> <span class="o">=</span> <span class="n">chain_a</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The first line is: &quot;</span><span class="p">,</span> <span class="n">chain_a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">end_first_line</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-SSSVPSQKTYQGSYGFRLGFLHSGTAKSVTCTYSPALNKM
-FCQLAKTCPVQLWVDSTPPPGTRVRAMAIYKQSQHMTEVV
-RRCPHHERCSDSDGLAPPQHLIRVEGNLRVEYLDDRNTFR
-HSVVVPYEPPEVGSDCTTIHYNYMCNSSCMGGMNRRPILT
-IITLEDSSGNLLGRNSFEVRVCACPGRDRRTEEENLRKKG
-EPHHELPPGSTKRALPNNT
-The sequence is in  6  lines
-The sequence has  219  aminoacids
-The sequence counts  10  cysteins
-The sequence counts  9  histidines
-Does the sequence contain  NLRVEYLDDRN ? True
-NLRVEYLDDRN  is present at pos:  106 [check: NLRVEYLDDRN ]
-The first line is:  SSSVPSQKTYQGSYGFRLGFLHSGTAKSVTCTYSPALNKM
-</pre></div></div>
-</div>
-</div><ol class="arabic simple" start="9">
+</div><div id="ex7" style="display:none;"></div><ol class="arabic simple" start="9">
 <li><p>Calculate the zeros of the equation <span class="math notranslate nohighlight">\(ax^2-b = 0\)</span> where a = 10 and b = 1. Hint: use math.sqrt or ** 0.5. Finally check that substituting the obtained value of x in the equation gives zero.</p></li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex8');"><p>Show/Hide Solution</p>
-</div><div id="ex8" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">math</span>
-
-<span class="n">A</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">B</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="n">X</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">B</span><span class="o">/</span><span class="n">A</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;10X**2 - 1 = 0 for X:&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-10X**2 - 1 = 0 for X: 0.31622776601683794
-True
-</pre></div></div>
-</div>
-</div></div>
+</div><div id="ex8" style="display:none;"></div></div>
 </div>
 
 
