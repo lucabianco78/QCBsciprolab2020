@@ -398,20 +398,20 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Practical-2">
 <h1>Practical 2<a class="headerlink" href="#Practical-2" title="Permalink to this headline">¶</a></h1>
-<p>In this practical we will start interacting more with Python, practicing on how to handle data, functions and methods. We will see several built-in data types and then dive deeper into strings.</p>
+<p>In this practical we will start interacting more with Python, practicing on how to handle data, functions and methods. We will see several built-in data types and then dive deeper into the data type <strong>string</strong>.</p>
 <div class="section" id="Slides">
 <h2>Slides<a class="headerlink" href="#Slides" title="Permalink to this headline">¶</a></h2>
 <p>The slides of the introduction can be found here: <a class="reference external" href="docs/Practical2.pdf">Intro</a></p>
 </div>
 <div class="section" id="Modules">
 <h2>Modules<a class="headerlink" href="#Modules" title="Permalink to this headline">¶</a></h2>
-<p>Python modules are simply text files having the extension <strong>.py</strong> (e.g. <code class="docutils literal notranslate"><span class="pre">exercise.py</span></code>). When you were writing the code in the IDE in the previous practical, you were in fact implementing the corresponding module.</p>
+<p>Python modules are simply text files having the extension <strong>.py</strong> (e.g. <code class="docutils literal notranslate"><span class="pre">exercise.py</span></code>). When you were writing the code in the IDE in the previous practical, you were in fact implementing a <strong>module</strong>.</p>
 <p>As said in the previous practical, once you implemented and saved the code of the module, you can execute it by typing</p>
 <p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">exercise1.py</span></code></p>
 <p>or, in Visual Studio Code, by right clicking on the code panel and selecting <strong>Run Python File in Terminal</strong>.</p>
 <p>A Module A can be loaded from another module B so that B can use the functions defined in A. Remember when we used the <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> function? It is defined in the module math. To import it and use it we indeed wrote something like:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -421,6 +421,14 @@ div.rendered_html tbody tr:hover {
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2.0
+</pre></div></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong></p>
@@ -469,7 +477,7 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 &lt;class &#39;int&#39;&gt;
-10919520
+10914592
 </pre></div></div>
 </div>
 <p>Consider now the following code:</p>
@@ -491,8 +499,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-value: 4  type: &lt;class &#39;int&#39;&gt;  id: 10919520
-value: 5  type: &lt;class &#39;int&#39;&gt;  id: 10919552
+value: 4  type: &lt;class &#39;int&#39;&gt;  id: 10914592
+value: 5  type: &lt;class &#39;int&#39;&gt;  id: 10914624
 </pre></div></div>
 </div>
 <p>The value of the variable sides has been changed from 4 to 5, but as stated in the table above, the type <code class="docutils literal notranslate"><span class="pre">int</span></code> is <strong>immutable</strong>. Luckily, this did not prevent us to change the value of sides from 4 to 5. What happened behind the scenes when we executed the instruction sides = 5 is that a new object has been created of type int (5 is still an integer) and it has been made accessible with the same name <em>sides</em>, but since it is a different object (i.e. the integer 5) you can see that the
@@ -519,8 +527,8 @@ identifier is actually different.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-value: 4  type: &lt;class &#39;int&#39;&gt;  id: 10919520
-value: four  type: &lt;class &#39;str&#39;&gt;  id: 139909167957192
+value: 4  type: &lt;class &#39;int&#39;&gt;  id: 10914592
+value: four  type: &lt;class &#39;str&#39;&gt;  id: 140533679518248
 </pre></div></div>
 </div>
 <div class="admonition warning">
@@ -960,7 +968,7 @@ Proline can be encoded by:  CCU
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-17-9750dcfa1cbd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">&lt;ipython-input-17-9750dcfa1cbd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      5</span> proline <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;CCU&#34;</span>
 <span class="ansi-green-intense-fg ansi-bold">      6</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Proline can be encoded by: &#34;</span><span class="ansi-blue-fg">,</span> proline<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg"> </span>proline<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;A&#34;</span>
@@ -1088,7 +1096,7 @@ No one ever said it would be this hard&quot;&quot;&quot;
 <p>write some python code that a)prints the whole string; b) prints the first and last character; c) prints the first 10 characters; d) prints from the 19th character to the 31st; e) prints the string all in capital letters.</p>
 <div class="tggle" onclick="toggleVisibility('ex0');"><p>Show/Hide Solution</p>
 </div><div id="ex0" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1126,8 +1134,8 @@ No one ever said it would be this hard
 1st 10 chars: Nobody sai
 
 Characters from 19 to 31:
-easy
-No one e
+ easy
+No one
 
 All upper case:
 NOBODY SAID IT WAS EASY
@@ -1139,7 +1147,7 @@ NO ONE EVER SAID IT WOULD BE THIS HARD
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
 </div><div id="ex1" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1175,7 +1183,7 @@ SNP2 ( 12188 ) in [ 12030 , 12174 ]? False
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex2');"><p>Show/Hide Solution</p>
 </div><div id="ex2" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1222,9 +1230,6 @@ CATTATTTTCACTTGGGTCGAGGCCAGATTCCATC[G/A]GGATTGCCCGAAATCAGAGAAAAGTCG
 CATTATTTTCACTTGGGTCGAGGCCAGATTCCATCRGGATTGCCCGAAATCAGAGAAAAGTCG
 SNP from region:  G/A
 SNP from iupac region:  R
-35
-39
-G/A
 </pre></div></div>
 </div>
 </div><ol class="arabic simple" start="4">
@@ -1232,7 +1237,7 @@ G/A
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex3');"><p>Show/Hide Solution</p>
 </div><div id="ex3" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1271,7 +1276,7 @@ GTCTATCCCAGGGAAATAAAAATCTAAGCTAAGGTTTGAG GAATCAGTAGGAATTGGCAAAGGAAGGACATGTTCCAGA
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex4');"><p>Show/Hide Solution</p>
 </div><div id="ex4" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1336,7 +1341,7 @@ Has GC content increased after adapter trimmming?
 </div>
 <div class="tggle" onclick="toggleVisibility('ex5');"><p>Show/Hide Solution</p>
 </div><div id="ex5" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1397,7 +1402,7 @@ random.randint(start,end) function:</p>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex6');"><p>Show/Hide Solution</p>
 </div><div id="ex6" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1431,13 +1436,13 @@ random.randint(start,end) function:</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Random position is:  3729
-Is  3729  in geneA [ 1000 , 3400 ]?  False
-Is  3729  in geneB [ 3700 , 5201 ]?  True
-Is  3729  between the two genes?  False
-Is  3729  in one of the two genes?  True
-Is  3729  outside of both genes?  False
-Is  3729  within 100 bases from the start of geneA?  False
+Random position is:  1074
+Is  1074  in geneA [ 1000 , 3400 ]?  True
+Is  1074  in geneB [ 3700 , 5201 ]?  False
+Is  1074  between the two genes?  False
+Is  1074  in one of the two genes?  True
+Is  1074  outside of both genes?  False
+Is  1074  within 100 bases from the start of geneA?  False
 </pre></div></div>
 </div>
 </div><ol class="arabic simple" start="8">
@@ -1455,7 +1460,7 @@ Is  3729  within 100 bases from the start of geneA?  False
 </div>
 <div class="tggle" onclick="toggleVisibility('ex7');"><p>Show/Hide Solution</p>
 </div><div id="ex7" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1510,7 +1515,7 @@ The first line is:  SSSVPSQKTYQGSYGFRLGFLHSGTAKSVTCTYSPALNKM
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex8');"><p>Show/Hide Solution</p>
 </div><div id="ex8" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
