@@ -1227,7 +1227,11 @@ CAGTATTGTTGGTGT&quot;&quot;&quot;
 </div><div id="ex4" style="display:none;"></div><ol class="arabic simple" start="7">
 <li><p>Consider the following Illumina HiSeq 4000 read:</p></li>
 </ol>
-<p><code class="docutils literal notranslate"><span class="pre">read</span> <span class="pre">=</span> <span class="pre">&quot;&quot;&quot;AATGATACGGCGACCACCGAGATCTACACGCCTCCCTCGCGC</span> <span class="pre">CATCAGAGAGTCTGGGTCTCAGGTACCGCAGTTGTATCTTGCGCGACTATA</span> <span class="pre">ATCCACGGCTCTTATTCTAGCGTGCGCGTACGGCGGTGGGCGTCGTTACGCTATATT&quot;&quot;&quot;</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>read = &quot;&quot;&quot;AATGATACGGCGACCACCGAGATCTACACGCCTCCCTCGCGC
+CATCAGAGAGTCTGGGTCTCAGGTACCGCAGTTGTATCTTGCGCGACTATA
+ATCCACGGCTCTTATTCTAGCGTGCGCGTACGGCGGTGGGCGTCGTTACGCTATATT&quot;&quot;&quot;
+</pre></div>
+</div>
 <p>and try to answer the following questions:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. How long is the read (beware of newlines)?
 2. What is the GC content of the read (remember $gc = \frac{G+C}{A+T+C+G}$)?
@@ -1249,7 +1253,14 @@ random.randint(start,end) function:</p>
 </div><div id="ex6" style="display:none;"></div><ol class="arabic simple" start="9">
 <li><p>The DNA-binding domain of the Tumor Suppressor Protein TP53 can be represented by the string:</p></li>
 </ol>
-<p><code class="docutils literal notranslate"><span class="pre">chain_a</span> <span class="pre">=</span> <span class="pre">&quot;&quot;&quot;SSSVPSQKTYQGSYGFRLGFLHSGTAKSVTCTYSPALNKM</span> <span class="pre">FCQLAKTCPVQLWVDSTPPPGTRVRAMAIYKQSQHMTEVV</span> <span class="pre">RRCPHHERCSDSDGLAPPQHLIRVEGNLRVEYLDDRNTFR</span> <span class="pre">HSVVVPYEPPEVGSDCTTIHYNYMCNSSCMGGMNRRPILT</span> <span class="pre">IITLEDSSGNLLGRNSFEVRVCACPGRDRRTEEENLRKKG</span> <span class="pre">EPHHELPPGSTKRALPNNT&quot;&quot;&quot;</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>chain_a = &quot;&quot;&quot;SSSVPSQKTYQGSYGFRLGFLHSGTAKSVTCTYSPALNKM
+FCQLAKTCPVQLWVDSTPPPGTRVRAMAIYKQSQHMTEVV
+RRCPHHERCSDSDGLAPPQHLIRVEGNLRVEYLDDRNTFR
+HSVVVPYEPPEVGSDCTTIHYNYMCNSSCMGGMNRRPILT
+IITLEDSSGNLLGRNSFEVRVCACPGRDRRTEEENLRKKG
+EPHHELPPGSTKRALPNNT&quot;&quot;&quot;
+</pre></div>
+</div>
 <p>Answer the following questions:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. How many lines is the sequence written on?
 2. How long is the sequence (remove newlines)?
