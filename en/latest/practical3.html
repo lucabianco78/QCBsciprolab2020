@@ -559,9 +559,9 @@ Is A*2 equal to E? True
 A: [1, 2, 3, 4, 5, 6]
 B: [1, 3, 5]
 Is B in A? False
-A&#39;s ID: 140327523795848
+A&#39;s ID: 140238675631176
 [1, 2, 3, 4, 5, [1, 3, 5]]
-A&#39;s ID: 140327523795848
+A&#39;s ID: 140238675631176
 A has length: 6
 Is now B in A? True
 </pre></div></div>
@@ -609,7 +609,7 @@ First element: 1
 </div>
 <p>It is actually fine to exceed boundaries with slicing:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -641,7 +641,7 @@ last element:  6
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{bmatrix}1 &amp; 2 &amp; 3\\ 1 &amp; 2 &amp; 1\\ 1 &amp; 1 &amp; 3\end{bmatrix}*[10,5,10]^T = [50, 30, 45]^T\end{split}\]</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -677,11 +677,11 @@ M*v:  [50, 30, 45]
 <p>The class list has some methods that can be used to operate on it. Recall from the lecture the following methods:</p>
 <p><img alt="i4" src="_images/list_methods.png" /></p>
 <div class="admonition note">
-<p><strong>Note:</strong> Lists are <strong>mutable objects</strong> and therefore virtually all the previous methods (except <em>count</em>) do not have an output value, but they <strong>modify</strong> the list.</p>
+<p><strong>Note:</strong> Lists are <strong>mutable objects</strong> and therefore virtually all the previous methods (except <strong>count</strong>) do not have an output value, but they <strong>modify</strong> the list.</p>
 </div>
 <p>Some usage examples follow:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -727,9 +727,9 @@ M*v:  [50, 30, 45]
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 [1, 2, 3]
-A has id: 140327523342792
+A has id: 140238675294280
 [1, 2, 3, 72]
-A has id: 140327523342792
+A has id: 140238675294280
 [1, 2, 3, 72, 1, 5, 124, 99]
 [99, 124, 5, 1, 72, 3, 2, 1]
 [1, 1, 2, 3, 5, 72, 99, 124]
@@ -749,13 +749,41 @@ Sorted fruits:
 [&#39;almond&#39;, &#39;apple&#39;, &#39;cherry&#39;, &#39;orange&#39;, &#39;pear&#39;, &#39;pineapple&#39;, &#39;wild apple&#39;]
 </pre></div></div>
 </div>
+<p>An important thing to remember that we mentioned already a couple of times is that lists <strong>are mutable objects</strong> and therefore <strong>virtually all the previous methods (except count) do not have an output value</strong>:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+
+<span class="n">A_new</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_new:&quot;</span><span class="p">,</span> <span class="n">A_new</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+A: [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]
+A: [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;]
+A_new: None
+</pre></div></div>
+</div>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Some things to remember</strong></p>
 <ol class="arabic simple">
 <li><p>append and extend work quite differently:</p></li>
 </ol>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -782,7 +810,7 @@ Sorted fruits:
 <li><p>To remove an object it must exist:</p></li>
 </ol>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -813,7 +841,7 @@ Sorted fruits:
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-8-cef337401de9&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-10-cef337401de9&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      5</span> A<span class="ansi-blue-fg">.</span>remove<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">4</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      6</span> print<span class="ansi-blue-fg">(</span>A<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg"> </span>A<span class="ansi-blue-fg">.</span>remove<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">7</span><span class="ansi-blue-fg">)</span>
@@ -825,18 +853,18 @@ Sorted fruits:
 <li><p>To sort a list, its elements must be sortable (i.e. homogeneous)!</p></li>
 </ol>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
 <span class="n">A</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A sorted:&quot;</span><span class="p">,</span>  <span class="n">A</span><span class="p">)</span>
 <span class="n">A</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;banana&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
 <span class="n">A</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -846,9 +874,9 @@ Sorted fruits:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[4, 3, 1, 7, 2]
-[1, 2, 3, 4, 7]
-[1, 2, 3, 4, 7, &#39;banana&#39;]
+A: [4, 3, 1, 7, 2]
+A sorted: [1, 2, 3, 4, 7]
+A: [1, 2, 3, 4, 7, &#39;banana&#39;]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -858,11 +886,11 @@ Sorted fruits:
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-9-91b77adb823f&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-11-b37960bcb6f2&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      5</span> A<span class="ansi-blue-fg">.</span>append<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;banana&#34;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span> print<span class="ansi-blue-fg">(</span>A<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;A:&#34;</span><span class="ansi-blue-fg">,</span> A<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg"> </span>A<span class="ansi-blue-fg">.</span>sort<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      8</span> print<span class="ansi-blue-fg">(</span>A<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      8</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;A:&#34;</span><span class="ansi-blue-fg">,</span> A<span class="ansi-blue-fg">)</span>
 
 <span class="ansi-red-fg">TypeError</span>: &#39;&lt;&#39; not supported between instances of &#39;str&#39; and &#39;int&#39;
 </pre></div></div>
@@ -873,7 +901,7 @@ Sorted fruits:
 <p>Lists are <strong>mutable objects</strong> and this has some consequences! Since lists are mutable objects, they hold references to objects rather than objects.</p>
 <p>Take a look at the following examples:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -925,8 +953,8 @@ l1 now [1, -1, 7]
 </pre></div></div>
 </div>
 <p><strong>Making copies</strong></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -960,33 +988,9 @@ l1 now [1, -1, 7]
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-A: [&#39;hi&#39;, &#39;there&#39;]
-B: [&#39;hi&#39;, &#39;there&#39;]
-A now:  [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;python&#39;]
-B now:  [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;python&#39;]
-
----- copy example -------
-C: [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;python&#39;]
-A now: [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]
-C now: [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;python&#39;]
-
----- be careful though -------
-D: [[&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;], [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]]
-E: [[&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;], [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]]
-
-D now: [[&#39;hello&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;], [&#39;hello&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]]
-E now: [[&#39;hello&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;], [&#39;hello&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]]
-A now: [&#39;hello&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]
-</pre></div></div>
-</div>
 <p><strong>Equality and identity</strong></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1009,24 +1013,6 @@ A now: [&#39;hello&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Is A equal to B? True
-Is A actually B? True
-Is A equal to C? True
-Is A actually C? False
-
-A&#39;s id: 140327523342280
-B&#39;s id: 140327523342280
-C&#39;s id: 140327523342152
-
-A now:  [1, 2, 3, 4, 5]
-B now:  [1, 2, 3, 4, 5]
-</pre></div></div>
-</div>
 </div>
 </div>
 <div class="section" id="From-strings-to-lists,-the-split-method">
@@ -1043,8 +1029,8 @@ EPHHELPPGSTKRALPNNT&quot;&quot;&quot;
 </pre></div>
 </div>
 <p>how can we split it into several lines?</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1070,39 +1056,14 @@ EPHHELPPGSTKRALPNNT&quot;&quot;&quot;
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Original sequence:
-SSSVPSQKTYQGSYGFRLGFLHSGTAKSVTCTYSPALNKM
-FCQLAKTCPVQLWVDSTPPPGTRVRAMAIYKQSQHMTEVV
-RRCPHHERCSDSDGLAPPQHLIRVEGNLRVEYLDDRNTFR
-HSVVVPYEPPEVGSDCTTIHYNYMCNSSCMGGMNRRPILT
-IITLEDSSGNLLGRNSFEVRVCACPGRDRRTEEENLRKKG
-EPHHELPPGSTKRALPNNT
-
-line by line:
-1st line: SSSVPSQKTYQGSYGFRLGFLHSGTAKSVTCTYSPALNKM
-2nd line: FCQLAKTCPVQLWVDSTPPPGTRVRAMAIYKQSQHMTEVV
-3rd line: RRCPHHERCSDSDGLAPPQHLIRVEGNLRVEYLDDRNTFR
-4th line: HSVVVPYEPPEVGSDCTTIHYNYMCNSSCMGGMNRRPILT
-5th line: IITLEDSSGNLLGRNSFEVRVCACPGRDRRTEEENLRKKG
-6th line: EPHHELPPGSTKRALPNNT
-
-Split the 1st line in correspondence to FRL:
- [&#39;SSSVPSQKTYQGSYG&#39;, &#39;GFLHSGTAKSVTCTYSPALNKM&#39;]
-</pre></div></div>
-</div>
 <p><strong>Note that in the last instruction, the substring FRL is disappeared (as happened to the newline)</strong>.</p>
 </div>
 <div class="section" id="And-back-to-strings-with-the-join-method">
 <h3>And back to strings with the <code class="docutils literal notranslate"><span class="pre">join</span></code> method<a class="headerlink" href="#And-back-to-strings-with-the-join-method" title="Permalink to this headline">¶</a></h3>
 <p>Given a list, one can join the elements of the list together into a string by using the <code class="docutils literal notranslate"><span class="pre">join</span></code> method of the class string. The syntax is the following: <em>str.join(list)</em> which joins together all the elements in the list in a string separating them with the string <em>str</em>.</p>
 <p><strong>Example</strong> Given the list [‘Oct’, ‘5’, ‘2018’, ‘15:30’], let’s combine all its elements in a string joining the elements with a dash (“-“) and print them. Let’s finally join them with a tab (“\t”) and print them.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1115,25 +1076,13 @@ Split the 1st line in correspondence to FRL:
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&#39;Oct&#39;, &#39;5th&#39;, &#39;2018&#39;, &#39;15:30&#39;]
-
-Oct-5th-2018-15:30
-
-Oct     5th     2018    15:30
-</pre></div></div>
-</div>
 </div>
 </div>
 <div class="section" id="Tuples">
 <h2>Tuples<a class="headerlink" href="#Tuples" title="Permalink to this headline">¶</a></h2>
 <p>Tuples are the <strong>immutable</strong> version of lists (i.e. it is not possible to change their content without actually changing the object). They are sequential collections of objects, and elements of tuples are assumed to be in a particular order. They can hold heterogeneous information. They are defined with the brackets <strong>()</strong>. Some examples:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1161,27 +1110,10 @@ Oct     5th     2018    15:30
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-(1, 2, 3)
-(1,)  type: &lt;class &#39;tuple&#39;&gt;
-1  type: &lt;class &#39;int&#39;&gt;
-()
-
-(&#39;January&#39;, 1, 2007)
-((&#39;January&#39;, 1, 2007), (&#39;February&#39;, 2, 1998), (&#39;March&#39;, 2, 1978), (&#39;June&#39;, 12, 1978))
-
-Days has id:  140327543345304
-Days now has id:  140327523983744
-</pre></div></div>
-</div>
 <p>The following operators work on tuples and they behave exactly as on lists:</p>
 <p><img alt="i5" src="_images/tuple_operators.png" /></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1209,29 +1141,10 @@ Days now has id:  140327523983744
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-The first three lectures:
- ((&#39;Friday&#39;, &#39;28/09/2018&#39;), (&#39;Tuesday&#39;, &#39;02/10/2018&#39;), (&#39;Friday&#39;, &#39;05/10/2018&#39;))
-
-mergedLectures:
- (&#39;Friday&#39;, &#39;28/09/2018&#39;, &#39;Tuesday&#39;, &#39;02/10/2018&#39;, &#39;Friday&#39;, &#39;05/10/2018&#39;)
-1st lecture was on:  (&#39;Friday&#39;, &#39;28/09/2018&#39;)
-
-1st lecture was on  Friday ,  28/09/2018
-
-3rd lecture was on:  (&#39;Friday&#39;, &#39;05/10/2018&#39;)
-3rd lecture was on  (&#39;Friday&#39;, &#39;05/10/2018&#39;)
-
-</pre></div></div>
-</div>
 <p>The following methods are available for tuples:</p>
 <p><img alt="i6" src="_images/tuple_methods.png" /></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1249,31 +1162,6 @@ mergedLectures:
 
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-2  lectures were on Friday
-1  lecture was on Tuesday
-Index: 0
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-18-fc543d476575&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      9</span>
-<span class="ansi-green-intense-fg ansi-bold">     10</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Index:&#34;</span><span class="ansi-blue-fg">,</span> practical2<span class="ansi-blue-fg">.</span>index<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Tuesday&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">---&gt; 11</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Index:&#34;</span><span class="ansi-blue-fg">,</span> practical2<span class="ansi-blue-fg">.</span>index<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Wednesday&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">ValueError</span>: tuple.index(x): x not in tuple
-</pre></div></div>
 </div>
 </div>
 <div class="section" id="Exercises">
