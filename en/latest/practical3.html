@@ -477,14 +477,14 @@ a list of lists of lists: [[1, 2, 3], [[1, 2], [3, 4, 5, 6]]]
 </div>
 <div class="section" id="Operators-for-lists">
 <h3>Operators for lists<a class="headerlink" href="#Operators-for-lists" title="Permalink to this headline">¶</a></h3>
-<p>Python provides several operators to handle lists. The following behave like on strings (<strong>remember that as in strings, the first position is 0!</strong>):</p>
+<p>Python provides several operators to handle lists. The following operators behave like on strings (<strong>remember that as in strings, the first position is 0!</strong>):</p>
 <p><img alt="i1" src="_images/operators1.png" /></p>
-<p>While this requires that the whole tested obj is present in the list</p>
+<p>While this <strong>in</strong> operator requires that the whole tested obj is present in the list</p>
 <p><img alt="i2" src="_images/operators2.png" /></p>
 <p>and</p>
 <p><img alt="i3" src="_images/operators3.png" /></p>
 <p>can also change the corresponding value of the list (<strong>lists are mutable objects</strong>).</p>
-<p>Some examples follow.</p>
+<p>Let’s see some examples.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -545,7 +545,7 @@ Is A*2 equal to E? True
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A</span><span class="se">\&#39;</span><span class="s2">s ID:&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
 <span class="n">A</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="c1">#we can add elements</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A</span><span class="se">\&#39;</span><span class="s2">s ID:&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A</span><span class="se">\&#39;</span><span class="s2">s ID:&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">A</span><span class="p">))</span> <span class="c1">#same as before! why?</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A has length:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is now B in A?&quot;</span><span class="p">,</span> <span class="n">B</span> <span class="ow">in</span> <span class="n">A</span><span class="p">)</span>
 </pre></div>
@@ -567,7 +567,7 @@ Is now B in A? True
 </pre></div></div>
 </div>
 <div class="admonition warning">
-<p><strong>Note:</strong> When slicing do not exceed the list boundaries (or you will be prompted a <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">index</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">range</span></code> error).</p>
+<p><strong>Note:</strong> When <strong>indexing</strong>, do not exceed the list boundaries (or you will be prompted a <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">index</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">range</span></code> error).</p>
 </div>
 <p>Consider the following example:</p>
 <div class="nbinput docutils container">
@@ -605,6 +605,36 @@ First element: 1
 <span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;7th-element: &#34;</span><span class="ansi-blue-fg">,</span> A<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-red-fg">IndexError</span>: list index out of range
+</pre></div></div>
+</div>
+<p>It is actually fine to exceed boundaries with slicing:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A has length:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First element:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;last element: &quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3rd to 10th: &quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;8th to 11th:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">11</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+A has length: 6
+First element: 1
+last element:  6
+3rd to 10th:  [3, 4, 5, 6]
+8th to 11th: []
 </pre></div></div>
 </div>
 <p><strong>Example</strong>: Consider the matrix <span class="math notranslate nohighlight">\(M = \begin{bmatrix}1 &amp; 2 &amp; 3\\ 1 &amp; 2 &amp; 1\\ 1 &amp; 1 &amp; 3\end{bmatrix}\)</span> and the vector <span class="math notranslate nohighlight">\(v=[10, 5, 10]^T\)</span>. What is the matrix-vector product <span class="math notranslate nohighlight">\(M*v\)</span>?</p>
