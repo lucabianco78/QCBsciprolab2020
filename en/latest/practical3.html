@@ -559,9 +559,9 @@ Is A*2 equal to E? True
 A: [1, 2, 3, 4, 5, 6]
 B: [1, 3, 5]
 Is B in A? False
-A&#39;s ID: 140238675631176
+A&#39;s ID: 140392498723976
 [1, 2, 3, 4, 5, [1, 3, 5]]
-A&#39;s ID: 140238675631176
+A&#39;s ID: 140392498723976
 A has length: 6
 Is now B in A? True
 </pre></div></div>
@@ -727,9 +727,9 @@ M*v:  [50, 30, 45]
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 [1, 2, 3]
-A has id: 140238675294280
+A has id: 140392560267528
 [1, 2, 3, 72]
-A has id: 140238675294280
+A has id: 140392560267528
 [1, 2, 3, 72, 1, 5, 124, 99]
 [99, 124, 5, 1, 72, 3, 2, 1]
 [1, 1, 2, 3, 5, 72, 99, 124]
@@ -953,8 +953,9 @@ l1 now [1, -1, 7]
 </pre></div></div>
 </div>
 <p><strong>Making copies</strong></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<p>There are several ways to copy a list into another. Let’s see the difference between = and [:]. Note what happens when lists get complicated.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -988,9 +989,34 @@ l1 now [1, -1, 7]
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+A: [&#39;hi&#39;, &#39;there&#39;]
+B: [&#39;hi&#39;, &#39;there&#39;]
+A now:  [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;python&#39;]
+B now:  [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;python&#39;]
+
+---- copy example -------
+C: [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;python&#39;]
+A now: [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]
+C now: [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;python&#39;]
+
+---- be careful though -------
+D: [[&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;], [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]]
+E: [[&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;], [&#39;hi&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]]
+
+D now: [[&#39;hello&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;], [&#39;hello&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]]
+E now: [[&#39;hello&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;], [&#39;hello&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]]
+A now: [&#39;hello&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]
+</pre></div></div>
+</div>
 <p><strong>Equality and identity</strong></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<p>Two different operators exist to check the <strong>equality</strong> of two lists (==) and the <strong>identity</strong> of two lists (is).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1013,6 +1039,24 @@ l1 now [1, -1, 7]
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Is A equal to B? True
+Is A actually B? True
+Is A equal to C? True
+Is A actually C? False
+
+A&#39;s id: 140392507561096
+B&#39;s id: 140392507561096
+C&#39;s id: 140392498776520
+
+A now:  [1, 2, 3, 4, 5]
+B now:  [1, 2, 3, 4, 5]
+</pre></div></div>
+</div>
 </div>
 </div>
 <div class="section" id="From-strings-to-lists,-the-split-method">
@@ -1029,8 +1073,8 @@ EPHHELPPGSTKRALPNNT&quot;&quot;&quot;
 </pre></div>
 </div>
 <p>how can we split it into several lines?</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1056,18 +1100,43 @@ EPHHELPPGSTKRALPNNT&quot;&quot;&quot;
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Original sequence:
+SSSVPSQKTYQGSYGFRLGFLHSGTAKSVTCTYSPALNKM
+FCQLAKTCPVQLWVDSTPPPGTRVRAMAIYKQSQHMTEVV
+RRCPHHERCSDSDGLAPPQHLIRVEGNLRVEYLDDRNTFR
+HSVVVPYEPPEVGSDCTTIHYNYMCNSSCMGGMNRRPILT
+IITLEDSSGNLLGRNSFEVRVCACPGRDRRTEEENLRKKG
+EPHHELPPGSTKRALPNNT
+
+line by line:
+1st line: SSSVPSQKTYQGSYGFRLGFLHSGTAKSVTCTYSPALNKM
+2nd line: FCQLAKTCPVQLWVDSTPPPGTRVRAMAIYKQSQHMTEVV
+3rd line: RRCPHHERCSDSDGLAPPQHLIRVEGNLRVEYLDDRNTFR
+4th line: HSVVVPYEPPEVGSDCTTIHYNYMCNSSCMGGMNRRPILT
+5th line: IITLEDSSGNLLGRNSFEVRVCACPGRDRRTEEENLRKKG
+6th line: EPHHELPPGSTKRALPNNT
+
+Split the 1st line in correspondence to FRL:
+ [&#39;SSSVPSQKTYQGSYG&#39;, &#39;GFLHSGTAKSVTCTYSPALNKM&#39;]
+</pre></div></div>
+</div>
 <p><strong>Note that in the last instruction, the substring FRL is disappeared (as happened to the newline)</strong>.</p>
 </div>
 <div class="section" id="And-back-to-strings-with-the-join-method">
 <h3>And back to strings with the <code class="docutils literal notranslate"><span class="pre">join</span></code> method<a class="headerlink" href="#And-back-to-strings-with-the-join-method" title="Permalink to this headline">¶</a></h3>
 <p>Given a list, one can join the elements of the list together into a string by using the <code class="docutils literal notranslate"><span class="pre">join</span></code> method of the class string. The syntax is the following: <em>str.join(list)</em> which joins together all the elements in the list in a string separating them with the string <em>str</em>.</p>
-<p><strong>Example</strong> Given the list [‘Oct’, ‘5’, ‘2018’, ‘15:30’], let’s combine all its elements in a string joining the elements with a dash (“-“) and print them. Let’s finally join them with a tab (“\t”) and print them.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<p><strong>Example</strong> Given the list [‘Sept’, ‘30th’, ‘2020’, ‘11:30’], let’s combine all its elements in a string joining the elements with a dash (“-“) and print them. Let’s finally join them with a tab (“\t”) and print them.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Oct&#39;</span><span class="p">,</span> <span class="s1">&#39;5th&#39;</span><span class="p">,</span> <span class="s1">&#39;2018&#39;</span><span class="p">,</span> <span class="s1">&#39;15:30&#39;</span><span class="p">]</span>
+<span></span><span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Sept&#39;</span><span class="p">,</span> <span class="s1">&#39;30th&#39;</span><span class="p">,</span> <span class="s1">&#39;2020&#39;</span><span class="p">,</span> <span class="s1">&#39;11:30&#39;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
 <span class="n">myStr</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">myStr</span><span class="p">)</span>
@@ -1076,13 +1145,25 @@ EPHHELPPGSTKRALPNNT&quot;&quot;&quot;
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;Sept&#39;, &#39;30th&#39;, &#39;2020&#39;, &#39;11:30&#39;]
+
+Sept-30th-2020-11:30
+
+Sept    30th    2020    11:30
+</pre></div></div>
+</div>
 </div>
 </div>
 <div class="section" id="Tuples">
 <h2>Tuples<a class="headerlink" href="#Tuples" title="Permalink to this headline">¶</a></h2>
 <p>Tuples are the <strong>immutable</strong> version of lists (i.e. it is not possible to change their content without actually changing the object). They are sequential collections of objects, and elements of tuples are assumed to be in a particular order. They can hold heterogeneous information. They are defined with the brackets <strong>()</strong>. Some examples:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1110,16 +1191,33 @@ EPHHELPPGSTKRALPNNT&quot;&quot;&quot;
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(1, 2, 3)
+(1,)  type: &lt;class &#39;tuple&#39;&gt;
+1  type: &lt;class &#39;int&#39;&gt;
+()
+
+(&#39;January&#39;, 1, 2007)
+((&#39;January&#39;, 1, 2007), (&#39;February&#39;, 2, 1998), (&#39;March&#39;, 2, 1978), (&#39;June&#39;, 12, 1978))
+
+Days has id:  140392560279704
+Days now has id:  140392507355520
+</pre></div></div>
+</div>
 <p>The following operators work on tuples and they behave exactly as on lists:</p>
 <p><img alt="i5" src="_images/tuple_operators.png" /></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">practical1</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Friday&quot;</span><span class="p">,</span> <span class="s2">&quot;28/09/2018&quot;</span><span class="p">)</span>
-<span class="n">practical2</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Tuesday&quot;</span><span class="p">,</span> <span class="s2">&quot;02/10/2018&quot;</span><span class="p">)</span>
-<span class="n">practical3</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Friday&quot;</span><span class="p">,</span> <span class="s2">&quot;05/10/2018&quot;</span><span class="p">)</span>
+<span></span><span class="n">practical1</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Wednesday&quot;</span><span class="p">,</span> <span class="s2">&quot;23/09/2020&quot;</span><span class="p">)</span>
+<span class="n">practical2</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Monday&quot;</span><span class="p">,</span> <span class="s2">&quot;28/09/2020&quot;</span><span class="p">)</span>
+<span class="n">practical3</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Wednesday&quot;</span><span class="p">,</span> <span class="s2">&quot;30/09/2020&quot;</span><span class="p">)</span>
 
 <span class="c1">#A tuple containing 3 tuples</span>
 <span class="n">lectures</span> <span class="o">=</span> <span class="p">(</span><span class="n">practical1</span><span class="p">,</span> <span class="n">practical2</span><span class="p">,</span> <span class="n">practical3</span><span class="p">)</span>
@@ -1141,27 +1239,75 @@ EPHHELPPGSTKRALPNNT&quot;&quot;&quot;
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The first three lectures:
+ ((&#39;Wednesday&#39;, &#39;23/09/2020&#39;), (&#39;Monday&#39;, &#39;28/09/2020&#39;), (&#39;Wednesday&#39;, &#39;30/09/2020&#39;))
+
+mergedLectures:
+ (&#39;Wednesday&#39;, &#39;23/09/2020&#39;, &#39;Monday&#39;, &#39;28/09/2020&#39;, &#39;Wednesday&#39;, &#39;30/09/2020&#39;)
+1st lecture was on:  (&#39;Wednesday&#39;, &#39;23/09/2020&#39;)
+
+1st lecture was on  Wednesday ,  23/09/2020
+
+3rd lecture was on:  (&#39;Wednesday&#39;, &#39;30/09/2020&#39;)
+3rd lecture was on  (&#39;Wednesday&#39;, &#39;30/09/2020&#39;)
+
+</pre></div></div>
+</div>
 <p>The following methods are available for tuples:</p>
 <p><img alt="i6" src="_images/tuple_methods.png" /></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">practical1</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Friday&quot;</span><span class="p">,</span> <span class="s2">&quot;28/09/2018&quot;</span><span class="p">)</span>
-<span class="n">practical2</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Tuesday&quot;</span><span class="p">,</span> <span class="s2">&quot;02/10/2018&quot;</span><span class="p">)</span>
-<span class="n">practical3</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Friday&quot;</span><span class="p">,</span> <span class="s2">&quot;05/10/2018&quot;</span><span class="p">)</span>
+<span></span><span class="n">practical1</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Wednesday&quot;</span><span class="p">,</span> <span class="s2">&quot;23/09/2020&quot;</span><span class="p">)</span>
+<span class="n">practical2</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Monday&quot;</span><span class="p">,</span> <span class="s2">&quot;28/09/2020&quot;</span><span class="p">)</span>
+<span class="n">practical3</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Wednesday&quot;</span><span class="p">,</span> <span class="s2">&quot;30/09/2020&quot;</span><span class="p">)</span>
 
 
 <span class="n">mergedLectures</span> <span class="o">=</span> <span class="n">practical1</span> <span class="o">+</span> <span class="n">practical2</span> <span class="o">+</span> <span class="n">practical3</span>  <span class="c1">#One tuple only</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mergedLectures</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;Friday&quot;</span><span class="p">),</span> <span class="s2">&quot; lectures were on Friday&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mergedLectures</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;Tuesday&quot;</span><span class="p">),</span> <span class="s2">&quot; lecture was on Tuesday&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mergedLectures</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;Wednesday&quot;</span><span class="p">),</span> <span class="s2">&quot; lectures were on Wednesday&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mergedLectures</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;Monday&quot;</span><span class="p">),</span> <span class="s2">&quot; lecture was on Monday&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mergedLectures</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;Friday&quot;</span><span class="p">),</span> <span class="s2">&quot; lectures was on Friday&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Index:&quot;</span><span class="p">,</span> <span class="n">practical2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Tuesday&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Index:&quot;</span><span class="p">,</span> <span class="n">practical2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Monday&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Index:&quot;</span><span class="p">,</span> <span class="n">practical2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Wednesday&quot;</span><span class="p">))</span>
+
 
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2  lectures were on Wednesday
+1  lecture was on Monday
+0  lectures was on Friday
+Index: 0
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-19-20063b595bbc&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">     10</span>
+<span class="ansi-green-intense-fg ansi-bold">     11</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Index:&#34;</span><span class="ansi-blue-fg">,</span> practical2<span class="ansi-blue-fg">.</span>index<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Monday&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 12</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Index:&#34;</span><span class="ansi-blue-fg">,</span> practical2<span class="ansi-blue-fg">.</span>index<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Wednesday&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     13</span>
+
+<span class="ansi-red-fg">ValueError</span>: tuple.index(x): x not in tuple
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Exercises">
@@ -1182,7 +1328,11 @@ several lines that does not say anything.&quot;&quot;&quot;
 <li><p>The variant calling format (<a class="reference external" href="http://www.internationalgenome.org/wiki/Analysis/vcf4.0/">VCF</a>) is a format to represent structural variants of genomes (i.e. SNPs, insertions, deletions) . Each line of this format represents a variant, every piece of information within a line is separated by a tab (\t in python). The first 5 fields of this format report the chromosome (chr), the position (pos), the name of the variant (name), the reference allele (REF) and the alternative allele (ALT).
 Assuming to have a variable VCF defined containing the following three lines (representing three SNPs):</p></li>
 </ol>
-<p>VCF = “”“MDC000001.124\t7112\tFB_AFFY_0000024\tG\tA MDC000002.328\t941\tFB_AFFY_0000144\tC\tT MDC000004.272\t2015\tFB_AFFY_0000222\tG\tA”“”</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>VCF = &quot;&quot;&quot;MDC000001.124\\t7112\\tFB_AFFY_0000024\\tG\\tA
+MDC000002.328\\t941\\tFB_AFFY_0000144\\tC\\tT
+MDC000004.272\\t2015\\tFB_AFFY_0000222\\tG\\tA&quot;&quot;&quot;
+</pre></div>
+</div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. Store these three variants as a list of lists, where each one of the fields is kept separate
 (e.g. the list should be similar to:
 [[chr1,pos1,name1,ref1,alt1], [chr2, pos2, name2, ref2, alt2], ...] where all the elements
