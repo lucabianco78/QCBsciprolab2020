@@ -433,7 +433,7 @@ div.rendered_html tbody tr:hover {
 <p>As said in the previous practical, once you implemented and saved the code of the module, you can execute it by typing</p>
 <p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">exercise1.py</span></code></p>
 <p>(which <strong>in Windows</strong> might be <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">exercise1.py</span></code>, just make sure you are using python 3.x) or, in Visual Studio Code, by right clicking on the code panel and selecting <strong>Run Python File in Terminal</strong>.</p>
-<p>A Module A can be loaded from another module B so that B can use the functions defined in A. Remember when we used the <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> function? It is defined in the module math. To import it and use it we indeed wrote something like:</p>
+<p>A Module A can be loaded from another module B so that B can use the functions defined in A. Remember when we used the <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> function? It is defined in the <strong>module math</strong>. To import it and use it we indeed wrote something like:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -556,7 +556,7 @@ value: four  type: &lt;class &#39;str&#39;&gt;  id: 140096271883712
 </pre></div></div>
 </div>
 <div class="admonition warning">
-<p class="admonition-title fa fa-exclamation-circle"><strong>IMPORTANT NOTE:</strong> You can chose the name that you like for your variables (I advise to pick something reminding their meaning), but you need to adhere to some simple rules.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>IMPORTANT NOTE:</strong> You can choose the name that you like for your variables (I advise to pick something reminding their meaning), but you need to adhere to some simple rules.</p>
 <ol class="arabic simple">
 <li><p>Names can only contain upper/lower case digits (<code class="docutils literal notranslate"><span class="pre">A-Z</span></code>, <code class="docutils literal notranslate"><span class="pre">a-z</span></code>), numbers (<code class="docutils literal notranslate"><span class="pre">0-9</span></code>) or underscores <code class="docutils literal notranslate"><span class="pre">_</span></code>;</p></li>
 <li><p>Names cannot start with a number;</p></li>
@@ -572,30 +572,35 @@ value: four  type: &lt;class &#39;str&#39;&gt;  id: 140096271883712
 <h3>Integers<a class="headerlink" href="#Integers" title="Permalink to this headline">¶</a></h3>
 <p>Their range of values is limited only by the memory available. As we have already seen, python provides also a set of standard operators to work with numbers:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">7</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">4</span>
 
-<span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="c1"># 11</span>
-<span class="n">a</span> <span class="o">-</span> <span class="n">b</span> <span class="c1"># 3</span>
-<span class="n">a</span> <span class="o">//</span> <span class="n">b</span> <span class="c1"># integer division: 1</span>
-<span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="c1"># 28</span>
-<span class="n">a</span> <span class="o">**</span> <span class="n">b</span> <span class="c1"># power: 2401</span>
-<span class="n">a</span> <span class="o">/</span> <span class="n">b</span> <span class="c1"># division 0.8333333333333334</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># 11</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># 3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">//</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># integer division: 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># 28</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">**</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># power: 2401</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># division 1.75</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-float
+11
+3
+1
+28
+2401
+1.75
+&lt;class &#39;float&#39;&gt;
 </pre></div></div>
 </div>
 <p>Note that in the latter case the result is no more an integer, but a float (we will get to that later).</p>
