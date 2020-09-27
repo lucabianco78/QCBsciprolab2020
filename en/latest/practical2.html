@@ -552,7 +552,7 @@ value: 5  type: &lt;class &#39;int&#39;&gt;  id: 10914624
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 value: 4  type: &lt;class &#39;int&#39;&gt;  id: 10914592
-value: four  type: &lt;class &#39;str&#39;&gt;  id: 140096271883712
+value: four  type: &lt;class &#39;str&#39;&gt;  id: 140640184741312
 </pre></div></div>
 </div>
 <div class="admonition warning">
@@ -572,7 +572,7 @@ value: four  type: &lt;class &#39;str&#39;&gt;  id: 140096271883712
 <h3>Integers<a class="headerlink" href="#Integers" title="Permalink to this headline">¶</a></h3>
 <p>Their range of values is limited only by the memory available. As we have already seen, python provides also a set of standard operators to work with numbers:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -903,11 +903,42 @@ This is how I &#39;quote&#39; and &#34;double quote&#34; things in strings
 470011
 </pre></div></div>
 </div>
+<p>Be careful though that if the string cannot be converted into an integer, then you get an error</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_wrong_number</span> <span class="o">=</span> <span class="s2">&quot;13a&quot;</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">my_wrong_number</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-16-bcfe98c1ea66&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> my_wrong_number <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;13a&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span>
+<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>N <span class="ansi-blue-fg">=</span> int<span class="ansi-blue-fg">(</span>my_wrong_number<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> print<span class="ansi-blue-fg">(</span>N<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">ValueError</span>: invalid literal for int() with base 10: &#39;13a&#39;
+</pre></div></div>
+</div>
 <p>Python defines some operators to work with strings. Recall the slides shown during the lecture:</p>
 <p><img alt="img4" src="_images/stringoperators.png" /></p>
 <p><strong>Example</strong> A tandem repeat is a short sequence of DNA that is repeated several times in a row. Let’s create a string representing the tandem repeat of the motif “ATTCG” repeated 5 times. What is the length of the whole repetitive region? Is the motif “TCGAT” (m1) present in the region? The motif “TCCT” (m2)? Let’s give an orientation to the tandem repeat by adding the string “5’-” (5’ end) on the left and “-3’” (3’ end) to the right.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -946,7 +977,7 @@ Is  TCCT  in  ATTCGATTCGATTCGATTCGATTCG  ?  False
 <p><img alt="img5" src="_images/slicingstring.png" /></p>
 <p>Let’s see these aspects in action with an example:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -987,10 +1018,10 @@ uhrClee
 <div class="admonition warning">
 <p><strong>IMPORTANT NOTE</strong>: Since Strings are immutable, every operation that changes the string actually produces a new <em>str</em> object having the modified string as value.</p>
 </div>
-<p>Recall that <strong>strings are immutable</strong>. For this reason we cannot directly change them with an assignment operator.</p>
+<p>Moreover, since <strong>strings are immutable</strong> we cannot directly change them with an assignment operator.</p>
 <p><strong>Example:</strong> Since the genetic code is degenerate, there are many codons encoding for the same aminoacid. Consider Proline, it can be encoded by the following codons: CCU, CCA,CCG, CCC. Let’s create a string proline and assign it to its possible codons one after the other.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1022,7 +1053,7 @@ Proline can be encoded by:  CCU
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-18-9750dcfa1cbd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-19-9750dcfa1cbd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      5</span> proline <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;CCU&#34;</span>
 <span class="ansi-green-intense-fg ansi-bold">      6</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Proline can be encoded by: &#34;</span><span class="ansi-blue-fg">,</span> proline<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg"> </span>proline<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;A&#34;</span>
@@ -1033,7 +1064,7 @@ Proline can be encoded by:  CCU
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1063,7 +1094,7 @@ Proline can be encoded by:  CCU
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1094,7 +1125,7 @@ Proline can be encoded by:  CCU
 </div>
 <p><strong>Example</strong>: Given the DNA sequence S = ” aTATGCCCATatcgctAAATTGCTGCCATTACA “. Print its length (removing any blank spaces at either sides), the number of adenines, cytosines, guanines and thymines present. Is the sequence “ATCG” present in S? Print how many times the substring “TGCC” appears in S and all the corresponding indexes.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
