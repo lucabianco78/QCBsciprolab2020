@@ -1202,7 +1202,7 @@ No one ever said it would be this hard&quot;&quot;&quot;
 <p>write some python code that a)prints the whole string; b) prints the first and last character; c) prints the first 10 characters; d) prints from the 19th character to the 31st; e) prints the string all in capital letters.</p>
 <div class="tggle" onclick="toggleVisibility('ex0');"><p>Show/Hide Solution</p>
 </div><div id="ex0" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1210,6 +1210,7 @@ No one ever said it would be this hard&quot;&quot;&quot;
 <span class="s2">No one ever said it would be this hard&quot;&quot;&quot;</span>
 <span class="c1"># a) prints the whole text</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
 
 <span class="c1">#some empty space...</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
@@ -1220,7 +1221,7 @@ No one ever said it would be this hard&quot;&quot;&quot;
 <span class="c1">#c) the 1st 10 characters:</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1st 10 chars:&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
 
-<span class="c1">#d) from the 20th to the 31st char</span>
+<span class="c1">#d) from the 19th to the 31st char</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Characters from 19 to 31:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="mi">18</span><span class="p">:</span><span class="mi">31</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">All upper case:&quot;</span><span class="p">)</span>
@@ -1236,6 +1237,8 @@ No one ever said it would be this hard&quot;&quot;&quot;
 <span class="c1">#as confirmed by python:</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;text and upper_text are equal: &quot;</span><span class="p">,</span> <span class="n">text</span> <span class="o">==</span> <span class="n">upper_text</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Newline? &quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1265,6 +1268,8 @@ NOBODY SAID IT WAS EASY
 NO ONE EVER SAID IT WOULD BE THIS HARD
 
 text and upper_text are equal:  False
+
+Newline?  True
 </pre></div></div>
 </div>
 </div><ol class="arabic simple" start="2">
@@ -1281,8 +1286,8 @@ text and upper_text are equal:  False
 <span class="n">SNP1_pos</span> <span class="o">=</span> <span class="mi">12111</span>
 <span class="n">SNP2_pos</span> <span class="o">=</span> <span class="mi">12188</span>
 
-<span class="n">Test1</span> <span class="o">=</span> <span class="p">(</span><span class="n">SNP1_pos</span> <span class="o">&gt;=</span> <span class="n">E_start</span> <span class="ow">and</span> <span class="n">SNP1_pos</span> <span class="o">&lt;=</span><span class="n">E_end</span><span class="p">)</span>
-<span class="n">Test2</span> <span class="o">=</span> <span class="p">(</span><span class="n">SNP2_pos</span> <span class="o">&gt;=</span> <span class="n">E_start</span> <span class="ow">and</span> <span class="n">SNP2_pos</span> <span class="o">&lt;=</span><span class="n">E_end</span><span class="p">)</span>
+<span class="n">Test1</span> <span class="o">=</span> <span class="p">(</span><span class="n">SNP1_pos</span> <span class="o">&gt;=</span> <span class="n">E_start</span> <span class="ow">and</span> <span class="n">SNP1_pos</span> <span class="o">&lt;=</span> <span class="n">E_end</span><span class="p">)</span>
+<span class="n">Test2</span> <span class="o">=</span> <span class="p">(</span><span class="n">SNP2_pos</span> <span class="o">&gt;=</span> <span class="n">E_start</span> <span class="ow">and</span> <span class="n">SNP2_pos</span> <span class="o">&lt;=</span> <span class="n">E_end</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;SNP1 (&quot;</span><span class="p">,</span> <span class="n">SNP1_pos</span><span class="p">,</span><span class="s2">&quot;) in [&quot;</span><span class="p">,</span> <span class="n">E_start</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">E_end</span><span class="p">,</span> <span class="s2">&quot;]?&quot;</span><span class="p">,</span> <span class="n">Test1</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;SNP2 (&quot;</span><span class="p">,</span> <span class="n">SNP2_pos</span><span class="p">,</span><span class="s2">&quot;) in [&quot;</span><span class="p">,</span> <span class="n">E_start</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">E_end</span><span class="p">,</span> <span class="s2">&quot;]?&quot;</span><span class="p">,</span> <span class="n">Test2</span><span class="p">)</span>
 </pre></div>
@@ -1340,6 +1345,8 @@ SNP2 ( 12188 ) in [ 12030 , 12174 ]? False
 <span class="c1">#print(R_ind)</span>
 
 <span class="c1">#print(region[L_ind + 1 : R_ind])</span>
+
+
 
 </pre></div>
 </div>
