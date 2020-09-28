@@ -476,8 +476,8 @@ else:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dear user give me an integer:&quot;</span><span class="p">)</span>
-<span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span></span><span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dear user give me an integer:&quot;</span><span class="p">))</span>
 <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
     <span class="c1">#The number is even</span>
@@ -496,9 +496,8 @@ else:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Dear user give me an integer:
-121
-Number  121  is  odd
+Dear user give me an integer:31
+Number  31  is  odd
 </pre></div></div>
 </div>
 <p>Note that the execution is sequential until the <em>if</em> keyword, then it branches until the indentation goes back to the same level of the if (i.e. the two branches rejoin at the <em>print</em> statement in the final line). <strong>Remember that the else branch is optional.</strong></p>
@@ -712,7 +711,7 @@ range(S,E,step) # ranges from S to E-1 with +step jumps
 <span class="n">onlyEven</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">myList</span><span class="p">)):</span>  <span class="c1">#this is equivalent to range(len(myList)):</span>
-    <span class="k">if</span><span class="p">(</span> <span class="n">myList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">):</span>
+    <span class="k">if</span> <span class="n">myList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
         <span class="n">onlyEven</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">myList</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original list:&quot;</span><span class="p">,</span> <span class="n">myList</span><span class="p">)</span>
