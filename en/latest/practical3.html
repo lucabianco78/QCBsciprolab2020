@@ -495,7 +495,7 @@ a list of lists of lists: [[1, 2, 3], [[1, 2], [3, 4, 5, 6]]]
 </div>
 <div class="section" id="Operators-for-lists">
 <h3>Operators for lists<a class="headerlink" href="#Operators-for-lists" title="Permalink to this headline">¶</a></h3>
-<p>Python provides several operators to handle lists. The following operators behave like on strings (<strong>remember that as in strings, the first position is 0!</strong>):</p>
+<p>Python provides several operators to handle lists. The following operators behave like on strings (<strong>remember that, as in strings, the first position is 0!</strong>):</p>
 <p><img alt="i1" src="_images/operators1.png" /></p>
 <p>While this <strong>in</strong> operator requires that the whole tested obj is present in the list</p>
 <p><img alt="i2" src="_images/operators2.png" /></p>
@@ -577,9 +577,9 @@ Is A*2 equal to E? True
 A: [1, 2, 3, 4, 5, 6]
 B: [1, 3, 5]
 Is B in A? False
-A&#39;s ID: 140392498723976
+A&#39;s ID: 139887354839496
 [1, 2, 3, 4, 5, [1, 3, 5]]
-A&#39;s ID: 140392498723976
+A&#39;s ID: 139887354839496
 A has length: 6
 Is now B in A? True
 </pre></div></div>
@@ -625,7 +625,7 @@ First element: 1
 <span class="ansi-red-fg">IndexError</span>: list index out of range
 </pre></div></div>
 </div>
-<p>It is actually fine to exceed boundaries with slicing:</p>
+<p>It is actually fine to exceed boundaries with slicing instead:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -745,9 +745,9 @@ M*v:  [50, 30, 45]
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 [1, 2, 3]
-A has id: 140392560267528
+A has id: 139887354505480
 [1, 2, 3, 72]
-A has id: 140392560267528
+A has id: 139887354505480
 [1, 2, 3, 72, 1, 5, 124, 99]
 [99, 124, 5, 1, 72, 3, 2, 1]
 [1, 1, 2, 3, 5, 72, 99, 124]
@@ -1053,7 +1053,8 @@ A now: [&#39;hello&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]
 <span class="n">A</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">B</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">A now: &quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B now: &quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B now: &quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C now:&quot;</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1067,12 +1068,13 @@ Is A actually B? True
 Is A equal to C? True
 Is A actually C? False
 
-A&#39;s id: 140392507561096
-B&#39;s id: 140392507561096
-C&#39;s id: 140392498776520
+A&#39;s id: 139887354503432
+B&#39;s id: 139887354503432
+C&#39;s id: 139887354503560
 
 A now:  [1, 2, 3, 4, 5]
 B now:  [1, 2, 3, 4, 5]
+C now: [1, 2, 3]
 </pre></div></div>
 </div>
 </div>
@@ -1222,8 +1224,8 @@ Sept    30th    2020    11:30
 (&#39;January&#39;, 1, 2007)
 ((&#39;January&#39;, 1, 2007), (&#39;February&#39;, 2, 1998), (&#39;March&#39;, 2, 1978), (&#39;June&#39;, 12, 1978))
 
-Days has id:  140392560279704
-Days now has id:  140392507355520
+Days has id:  139887391215688
+Days now has id:  139887355064704
 </pre></div></div>
 </div>
 <p>The following operators work on tuples and they behave exactly as on lists:</p>
