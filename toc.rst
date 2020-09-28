@@ -7,7 +7,8 @@
 
 
     Home <index.ipynb>
-    Practical 1 <introduction.ipynb>    
+    Practical 1 <introduction.ipynb>
+    Practical 2 <practical2.ipynb>    
 
 
 |space|
