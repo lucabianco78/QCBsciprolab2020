@@ -712,7 +712,7 @@ M*v:  [50, 30, 45]
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A has id:&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
 <span class="n">A</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">124</span><span class="p">,</span> <span class="mi">99</span><span class="p">])</span> <span class="c1">#adds all these objects, one after the other.</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="n">A</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="n">A</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span> <span class="c1">#NOTE: NO RETURN VALUE!!!</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 <span class="n">A</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -727,7 +727,7 @@ M*v:  [50, 30, 45]
 <span class="c1">#Let&#39;s get a reverse lexicographic order:</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
 <span class="n">fruits</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="n">fruits</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span> <span class="c1"># equivalent to: fruits.sort(reverse=True)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
 <span class="n">fruits</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;banana&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
@@ -1109,6 +1109,7 @@ EPHHELPPGSTKRALPNNT&quot;&quot;&quot;
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original sequence:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span> <span class="n">chain_a</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#some spacing to keep things clear</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;line by line:&quot;</span><span class="p">)</span>
+<span class="c1"># write the following and you will appreciate loops! :-)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1st line:&quot;</span> <span class="p">,</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2nd line:&quot;</span> <span class="p">,</span><span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3rd line:&quot;</span> <span class="p">,</span><span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
@@ -1296,6 +1297,7 @@ mergedLectures:
 <span class="nb">print</span><span class="p">(</span><span class="n">mergedLectures</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;Friday&quot;</span><span class="p">),</span> <span class="s2">&quot; lectures was on Friday&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Index:&quot;</span><span class="p">,</span> <span class="n">practical2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Monday&quot;</span><span class="p">))</span>
+<span class="c1">#You cannot look for an element that does not exist</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Index:&quot;</span><span class="p">,</span> <span class="n">practical2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Wednesday&quot;</span><span class="p">))</span>
 
 
