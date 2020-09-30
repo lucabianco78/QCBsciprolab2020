@@ -41,7 +41,8 @@
   <link rel="stylesheet" href="_static/css/jupman.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/jupman-web.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Practical 2" href="practical2.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,7 +90,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Scientific Programming for QCB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#General-Info">General Info</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="index.html#Timetable-and-lecture-rooms">Timetable and lecture rooms</a></li>
@@ -141,6 +142,19 @@
 <li class="toctree-l2"><a class="reference internal" href="practical2.html#Exercises">Exercises</a></li>
 </ul>
 </li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Practical 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Slides">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lists">Lists</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Operators-for-lists">Operators for lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Methods-of-the-class-list">Methods of the class list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#From-strings-to-lists,-the-split-method">From strings to lists, the <code class="docutils literal notranslate"><span class="pre">split</span></code> method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#And-back-to-strings-with-the-join-method">And back to strings with the <code class="docutils literal notranslate"><span class="pre">join</span></code> method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Tuples">Tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Exercises">Exercises</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="toc.html"> </a></li>
 </ul>
 
@@ -176,6 +190,8 @@
     <!-- Commented because doesn't work with sections,
          see https://github.com/DavidLeoni/jupman/issues/39
     <li><a href="toc-page.html">Docs</a> &raquo;</li>
+    
+        <li><a href="toc.html"> </a> &raquo;</li>
     
     <li>Practical 3</li>
     -->
@@ -521,7 +537,8 @@ a list of lists of lists: [[1, 2, 3], [[1, 2], [3, 4, 5, 6]]]
 
 <span class="n">C</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is C equal to B?&quot;</span><span class="p">,</span> <span class="n">B</span> <span class="o">==</span> <span class="n">C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is C equal to B?&quot;</span><span class="p">,</span> <span class="n">B</span> <span class="o">==</span> <span class="n">C</span><span class="p">)</span>   <span class="c1">#same content</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is C the same object as B?&quot;</span><span class="p">,</span> <span class="n">B</span> <span class="ow">is</span> <span class="n">C</span><span class="p">)</span> <span class="c1">#different objects</span>
 <span class="n">D</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="mi">8</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
 
@@ -544,6 +561,7 @@ A[0]:  1  A[1]: 2  A[-1]: 3
 Is A equal to B? False
 [1, 2, 3, 1, 2]
 Is C equal to B? True
+Is C the same object as B? False
 [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3]
 [1, 2, 3, 1, 2, 3]
 Is A*2 equal to E? True
@@ -577,9 +595,9 @@ Is A*2 equal to E? True
 A: [1, 2, 3, 4, 5, 6]
 B: [1, 3, 5]
 Is B in A? False
-A&#39;s ID: 140673468865352
+A&#39;s ID: 139779855942920
 [1, 2, 3, 4, 5, [1, 3, 5]]
-A&#39;s ID: 140673468865352
+A&#39;s ID: 139779855942920
 A has length: 6
 Is now B in A? True
 </pre></div></div>
@@ -745,9 +763,9 @@ M*v:  [50, 30, 45]
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 [1, 2, 3]
-A has id: 140673407158344
+A has id: 139779846805128
 [1, 2, 3, 72]
-A has id: 140673407158344
+A has id: 139779846805128
 [1, 2, 3, 72, 1, 5, 124, 99]
 [99, 124, 5, 1, 72, 3, 2, 1]
 [1, 1, 2, 3, 5, 72, 99, 124]
@@ -782,10 +800,14 @@ Sorted fruits:
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_new:&quot;</span><span class="p">,</span> <span class="n">A_new</span><span class="p">)</span>
+
+<span class="c1">#A_new is None. We cannot apply methods to it...</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A_new</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_new has &quot;</span> <span class="p">,</span> <span class="n">A_new</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">),</span> <span class="s2">&quot; Ds&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -793,6 +815,22 @@ Sorted fruits:
 A: [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]
 A: [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;]
 A_new: None
+True
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-8-114913bce16b&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">     11</span> <span class="ansi-red-fg">#A_new is None. We cannot apply methods to it...</span>
+<span class="ansi-green-intense-fg ansi-bold">     12</span> print<span class="ansi-blue-fg">(</span>A_new <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 13</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;A_new has &#34;</span> <span class="ansi-blue-fg">,</span> A_new<span class="ansi-blue-fg">.</span>count<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;D&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34; Ds&#34;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">AttributeError</span>: &#39;NoneType&#39; object has no attribute &#39;count&#39;
 </pre></div></div>
 </div>
 <div class="admonition warning">
@@ -800,8 +838,8 @@ A_new: None
 <ol class="arabic simple">
 <li><p>append and extend work quite differently:</p></li>
 </ol>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -815,20 +853,11 @@ A_new: None
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[1, 2, 3, 4, 5]
-[1, 2, 3, [4, 5]]
-</pre></div></div>
-</div>
 <ol class="arabic simple" start="2">
 <li><p>To remove an object it must exist:</p></li>
 </ol>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -842,36 +871,11 @@ A_new: None
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[1, 2, 3, [[4], [5, 6]], 8]
-[1, 3, [[4], [5, 6]], 8]
-[1, 3, 8]
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-10-cef337401de9&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> A<span class="ansi-blue-fg">.</span>remove<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">4</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span> print<span class="ansi-blue-fg">(</span>A<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg"> </span>A<span class="ansi-blue-fg">.</span>remove<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">7</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">ValueError</span>: list.remove(x): x not in list
-</pre></div></div>
-</div>
 <ol class="arabic simple" start="3">
 <li><p>To sort a list, its elements must be sortable (i.e. homogeneous)!</p></li>
 </ol>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -904,7 +908,7 @@ A: [1, 2, 3, 4, 7, &#39;banana&#39;]
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-11-b37960bcb6f2&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-9-b37960bcb6f2&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      5</span> A<span class="ansi-blue-fg">.</span>append<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;banana&#34;</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      6</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;A:&#34;</span><span class="ansi-blue-fg">,</span> A<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg"> </span>A<span class="ansi-blue-fg">.</span>sort<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
@@ -919,7 +923,7 @@ A: [1, 2, 3, 4, 7, &#39;banana&#39;]
 <p>Lists are <strong>mutable objects</strong> and this has some consequences! Since lists are mutable objects, they hold references to objects rather than objects.</p>
 <p>Take a look at the following examples:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -973,7 +977,7 @@ l1 now [1, -1, 7]
 <p><strong>Making copies</strong></p>
 <p>There are several ways to copy a list into another. Let’s see the difference between = and [:]. Note what happens when lists get complicated.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -994,7 +998,7 @@ l1 now [1, -1, 7]
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C now:&quot;</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">---- be careful though -------&quot;</span><span class="p">)</span>
-<span class="c1">#Watch out though that...</span>
+<span class="c1">#Watch out though that this is a shallow copy...</span>
 <span class="n">D</span> <span class="o">=</span> <span class="p">[</span><span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">]</span>
 <span class="n">E</span> <span class="o">=</span> <span class="n">D</span><span class="p">[:]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;D:&quot;</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
@@ -1034,7 +1038,7 @@ A now: [&#39;hello&#39;, &#39;there&#39;, &#39;from&#39;, &#39;java&#39;]
 <p><strong>Equality and identity</strong></p>
 <p>Two different operators exist to check the <strong>equality</strong> of two lists (==) and the <strong>identity</strong> of two lists (is).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1068,9 +1072,9 @@ Is A actually B? True
 Is A equal to C? True
 Is A actually C? False
 
-A&#39;s id: 140673407156616
-B&#39;s id: 140673407156616
-C&#39;s id: 140673407156808
+A&#39;s id: 139779847198600
+B&#39;s id: 139779847198600
+C&#39;s id: 139779847159368
 
 A now:  [1, 2, 3, 4, 5]
 B now:  [1, 2, 3, 4, 5]
@@ -1094,7 +1098,7 @@ EPHHELPPGSTKRALPNNT&quot;&quot;&quot;
 </div>
 <p>how can we split it into several lines?</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1153,7 +1157,7 @@ Split the 1st line in correspondence of FRL:
 <p>Given a list, one can join the elements of the list together into a string by using the <code class="docutils literal notranslate"><span class="pre">join</span></code> method of the class string. The syntax is the following: <em>str.join(list)</em> which joins together all the elements in the list in a string separating them with the string <em>str</em>.</p>
 <p><strong>Example</strong> Given the list [‘Sept’, ‘30th’, ‘2020’, ‘11:30’], let’s combine all its elements in a string joining the elements with a dash (“-“) and print them. Let’s finally join them with a tab (“\t”) and print them.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1184,7 +1188,7 @@ Sept    30th    2020    11:30
 <h2>Tuples<a class="headerlink" href="#Tuples" title="Permalink to this headline">¶</a></h2>
 <p>Tuples are the <strong>immutable</strong> version of lists (i.e. it is not possible to change their content without actually changing the object). They are sequential collections of objects, and elements of tuples are assumed to be in a particular order. They can hold heterogeneous information. They are defined with the brackets <strong>()</strong>. Some examples:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1225,14 +1229,14 @@ Sept    30th    2020    11:30
 (&#39;January&#39;, 1, 2007)
 ((&#39;January&#39;, 1, 2007), (&#39;February&#39;, 2, 1998), (&#39;March&#39;, 2, 1978), (&#39;June&#39;, 12, 1978))
 
-Days has id:  140673469034648
-Days now has id:  140673416110464
+Days has id:  139779908702520
+Days now has id:  139779855774080
 </pre></div></div>
 </div>
 <p>The following operators work on tuples and they behave exactly as on lists:</p>
 <p><img alt="i5" src="_images/tuple_operators.png" /></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1282,7 +1286,7 @@ mergedLectures:
 <p>The following methods are available for tuples:</p>
 <p><img alt="i6" src="_images/tuple_methods.png" /></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1322,11 +1326,11 @@ Index: 0
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-19-20063b595bbc&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     10</span>
+<span class="ansi-green-fg">&lt;ipython-input-17-f06c6edd5ecf&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">     11</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Index:&#34;</span><span class="ansi-blue-fg">,</span> practical2<span class="ansi-blue-fg">.</span>index<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Monday&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">---&gt; 12</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Index:&#34;</span><span class="ansi-blue-fg">,</span> practical2<span class="ansi-blue-fg">.</span>index<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Wednesday&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     13</span>
+<span class="ansi-green-intense-fg ansi-bold">     12</span> <span class="ansi-red-fg">#You cannot look for an element that does not exist</span>
+<span class="ansi-green-fg">---&gt; 13</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Index:&#34;</span><span class="ansi-blue-fg">,</span> practical2<span class="ansi-blue-fg">.</span>index<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Wednesday&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     14</span>
 
 <span class="ansi-red-fg">ValueError</span>: tuple.index(x): x not in tuple
 </pre></div></div>
@@ -1463,6 +1467,13 @@ being wrong
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="practical2.html" class="btn btn-neutral float-left" title="Practical 2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
