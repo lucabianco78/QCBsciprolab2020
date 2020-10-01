@@ -648,7 +648,7 @@ Total amount: 110 discount: 0.1
 </div>
 <p><strong>Example:</strong> Pick a random number from 1 and 50 and count how many times it takes to randomly choose number 27. Limit the number of random picks to 40 (i.e. if more than 40 picks have been done and 27 has not been found exit anyway with a message).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -678,8 +678,8 @@ Total amount: 110 discount: 0.1
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-27 found in  9 iterations
-[39, 7, 30, 21, 39, 30, 5, 22, 27]
+27 found in  22 iterations
+[8, 39, 24, 6, 49, 31, 41, 12, 10, 29, 3, 20, 50, 36, 8, 6, 9, 31, 50, 7, 24, 27]
 </pre></div></div>
 </div>
 <p>An alternative way without using the break statement makes use of a <em>flag</em> variable (that when changes value will make the loop end):</p>
@@ -713,8 +713,8 @@ Total amount: 110 discount: 0.1
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-27 found in  4 iterations
-[10, 20, 40, 27]
+Sorry number 27 was never found!
+[44, 8, 20, 35, 34, 7, 50, 36, 9, 12, 16, 39, 48, 1, 10, 16, 44, 40, 21, 15, 36, 13, 33, 3, 19, 1, 29, 1, 34, 30, 32, 2, 33, 25, 3, 19, 37, 10, 11, 1]
 </pre></div></div>
 </div>
 </div>
@@ -995,6 +995,30 @@ Is &#34;seven&#34; in dictionary? False
 <div class="admonition warning">
 <p><strong>ERRATUM:</strong> <code class="docutils literal notranslate"><span class="pre">dict.keys()</span></code> returns a <code class="docutils literal notranslate"><span class="pre">dict_keys</span></code> object not a list. To cast it to list, we need to call <code class="docutils literal notranslate"><span class="pre">list(dict.keys())</span></code>. The same applies to <code class="docutils literal notranslate"><span class="pre">dict.values()</span></code> that returns a <code class="docutils literal notranslate"><span class="pre">dict_values</span></code> object that needs conversion to a list with <code class="docutils literal notranslate"><span class="pre">list(dict.values())</span></code>.</p>
 </div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">D</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;k1&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;k2&quot;</span> <span class="p">:</span> <span class="mi">2</span> <span class="p">,</span> <span class="s2">&quot;k3&quot;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;keys:&quot;</span> <span class="p">,</span> <span class="n">D</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="s2">&quot;values:&quot;</span><span class="p">,</span> <span class="n">D</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;keys:&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="s2">&quot;values:&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+keys: dict_keys([&#39;k1&#39;, &#39;k2&#39;, &#39;k3&#39;]) values: dict_values([1, 2, 3])
+
+keys: [&#39;k1&#39;, &#39;k2&#39;, &#39;k3&#39;] values: [1, 2, 3]
+</pre></div></div>
+</div>
 <p><strong>Example</strong> Given the protein sequence below, store in a dictionary all the aminoacids present and count how many times they appear. Finally print out the stats (e.g. how many amino-acids are present, the most frequent, the least frequent and the frequency of all of them <strong>in alphabetical order</strong>).</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;sp|P00517|KAPCA_BOVIN cAMP-dependent protein kinase catalytic subunit alpha
 MGNAAAAKKGSEQESVKEFLAKAKEDFLKKWENPAQNTAHLDQFERIKTLGTGSFGRVML
@@ -1006,7 +1030,7 @@ TDWIAIYQRKVEAPFIPKFKGPGDTSNFDDYEEEEIRVSINEKCGKEFSEF
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1091,7 +1115,7 @@ Amino K has the highest freq. ( 34 )
 </div>
 <p><strong>Important NOTE</strong>. Accessing a value through the key of a dictionary requires that the pair key-value one searches for is present in the dictionary. If the searched key is not present the interpreter crashes out throwing a KeyError as follows:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1118,7 +1142,7 @@ Amino K has the highest freq. ( 34 )
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-18-a05b31e54a02&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-19-a05b31e54a02&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      2</span>
 <span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>myDict<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;one&#34;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>myDict<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;seven&#34;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
@@ -1128,7 +1152,7 @@ Amino K has the highest freq. ( 34 )
 </div>
 <p>This could be avoided by checking that the key is present in the dictionary beforehand:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1155,7 +1179,7 @@ key seven not found in dictionary
 </div>
 <p>or by using the dictionary method <strong>get</strong> that has two inputs: the key and a default value to return in case key is not present in the dictionary:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
