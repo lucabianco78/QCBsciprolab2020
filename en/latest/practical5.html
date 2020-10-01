@@ -586,8 +586,8 @@ Total amount: 110 discount: 0.1
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#Wrong code:</span>
 <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">21</span><span class="p">):</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">21</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">continue</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
     <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># NEVER EXECUTED IF i % 2 == 0!!!!</span>
@@ -601,9 +601,9 @@ Total amount: 110 discount: 0.1
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="k">while</span><span class="p">(</span> <span class="n">i</span><span class="o">&lt;</span> <span class="mi">20</span><span class="p">):</span>       <span class="c1">#i is incremented in the loop, so 20!!!</span>
+<span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>       <span class="c1">#i is incremented in the loop, so 20!!!</span>
     <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>        <span class="c1">#the variable is updated no matter what</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">continue</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
 </pre></div>
@@ -630,7 +630,7 @@ Total amount: 110 discount: 0.1
 <span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
 <span class="n">found</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="ow">in</span> <span class="n">found</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">found</span><span class="p">:</span>
         <span class="k">break</span>
 
     <span class="n">found</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -656,15 +656,15 @@ Total amount: 110 discount: 0.1
 
 <span class="n">iterations</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">picks</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">while</span><span class="p">(</span><span class="n">iterations</span> <span class="o">&lt;=</span> <span class="mi">40</span><span class="p">):</span>
+<span class="k">while</span> <span class="n">iterations</span> <span class="o">&lt;=</span> <span class="mi">40</span><span class="p">:</span>
     <span class="n">pick</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
     <span class="n">picks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pick</span><span class="p">)</span>
 
-    <span class="k">if</span><span class="p">(</span><span class="n">pick</span> <span class="o">==</span> <span class="mi">27</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">pick</span> <span class="o">==</span> <span class="mi">27</span><span class="p">:</span>
         <span class="k">break</span>
     <span class="n">iterations</span> <span class="o">+=</span> <span class="mi">1</span>
 
-<span class="k">if</span><span class="p">(</span><span class="n">iterations</span> <span class="o">==</span> <span class="mi">41</span><span class="p">):</span>
+<span class="k">if</span> <span class="n">iterations</span> <span class="o">==</span> <span class="mi">41</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sorry number 27 was never found!&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;27 found in &quot;</span><span class="p">,</span> <span class="n">iterations</span><span class="p">,</span> <span class="s2">&quot;iterations&quot;</span><span class="p">)</span>
