@@ -461,14 +461,14 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="More-on-loops">
 <h2>More on loops<a class="headerlink" href="#More-on-loops" title="Permalink to this headline">¶</a></h2>
 <p>As seen in the previous practical and in the lecture, there are three different ways of execution flow:</p>
-<p><img alt="image0" src="_images/PKLR.png" /></p>
+<p><img alt="i1" src="_images/structured_programming.png" /></p>
 <p>We have already seen the <em>if</em>, <em>for</em> and <em>while</em> loops and their variants. The code block of each of these statements is defined by the <em>indentation</em> (i.e. spacing).</p>
 <div class="section" id="Ternary-operator">
 <h3>Ternary operator<a class="headerlink" href="#Ternary-operator" title="Permalink to this headline">¶</a></h3>
 <p>In some cases it is handy to be able to initialize a variable depending on the value of another one.</p>
 <p><strong>Example</strong>: The discount rate applied to a purchase depends on the amount of the sale. Create a variable <em>discount</em> setting its value to 0 if the variable <em>amount</em> is lower than 100 euros, to 10% if it is higher.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -495,7 +495,7 @@ Total amount: 110 discount: 0.1
 </div>
 <p>The previous code can be written more coincisely as:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -520,7 +520,7 @@ Total amount: 110 discount: 0.1
 <p>meaning that the <em>variable</em> is initialized to <em>value</em> if the <em>condition</em> holds, otherwise to <em>other_value</em>.</p>
 <p>Python also allows in line operations separated by a “;”</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -549,7 +549,7 @@ Total amount: 110 discount: 0.1
 <p>Within a <strong>for</strong> or <strong>while</strong> loop, <strong>continue</strong> makes the interpreter skip that iteration and move to the next.</p>
 <p><strong>Example:</strong> Print all the odd numbers from 1 to 20.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -596,7 +596,7 @@ Total amount: 110 discount: 0.1
 </div>
 <p>a possible correct solution using while:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -623,7 +623,7 @@ Total amount: 110 discount: 0.1
 <p>Within a <strong>for</strong> or <strong>while</strong> loop, <strong>break</strong> makes the interpreter exit the loop and continue with the sequential execution. Sometimes it is useful to get out of the loop if to complete our task we do not need to get to the end of the loop.</p>
 <p><strong>Example:</strong> Given the following list of integers [1,5,6,4,7,1,2,3,7] print them until a number already printed is found.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -648,7 +648,7 @@ Total amount: 110 discount: 0.1
 </div>
 <p><strong>Example:</strong> Pick a random number from 1 and 50 and count how many times it takes to randomly choose number 27. Limit the number of random picks to 40 (i.e. if more than 40 picks have been done and 27 has not been found exit anyway with a message).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -678,13 +678,13 @@ Total amount: 110 discount: 0.1
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-27 found in  7 iterations
-[30, 29, 16, 3, 42, 1, 27]
+Sorry number 27 was never found!
+[32, 3, 25, 7, 28, 37, 35, 50, 30, 9, 1, 7, 39, 47, 11, 36, 31, 19, 23, 32, 42, 47, 30, 25, 34, 2, 23, 29, 20, 17, 42, 43, 43, 10, 6, 11, 7, 8, 33, 31]
 </pre></div></div>
 </div>
 <p>An alternative way without using the break statement makes use of a <em>flag</em> variable (that when changes value will make the loop end):</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -713,8 +713,8 @@ Total amount: 110 discount: 0.1
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-27 found in  20 iterations
-[29, 13, 17, 14, 45, 21, 39, 26, 34, 17, 23, 10, 49, 13, 39, 6, 4, 2, 22, 27]
+27 found in  4 iterations
+[10, 20, 40, 27]
 </pre></div></div>
 </div>
 </div>
@@ -743,7 +743,7 @@ Total amount: 110 discount: 0.1
 <p>Let’s see some examples:</p>
 <p><strong>Example:</strong> Given a list of strings [“hi”, “there”, “from”, “python”] create a list with the length of the corresponding element (i.e. the one with the same index).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -769,7 +769,7 @@ python  has length  6
 </div>
 <p><strong>Example:</strong> Given a list of strings [“dog”, “cat”, “rabbit”, “guinea pig”, “hamster”, “canary”, “goldfish”] create a list with the elements starting with a “c” or “g”.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -797,7 +797,7 @@ Filtered:
 </div>
 <p><strong>Example:</strong> Create a list with all the numbers divisible by 17 from 1 to 200.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -816,7 +816,7 @@ Filtered:
 </div>
 <p><strong>Example:</strong> Transpose the matrix <span class="math notranslate nohighlight">\(\begin{bmatrix}1 &amp; 10\\2 &amp; 20\\3 &amp; 30\\4 &amp; 40\end{bmatrix}\)</span> stored as a list of lists (i.e. matrix = [[1, 10], [2,20], [3,30], [4,40]]). The output matrix should be: <span class="math notranslate nohighlight">\(\begin{bmatrix}1 &amp; 2 &amp; 3 &amp; 4\\10 &amp; 20 &amp; 30 &amp; 40\end{bmatrix}\)</span>, represented as [[1, 2, 3, 4], [10, 20, 30, 40]]</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -838,7 +838,7 @@ Filtered:
 </div>
 <p><strong>Example:</strong> Given the list: [“Hotel”, “Icon”,” Bus”,”Train”, “Hotel”, “Eye”, “Rain”, “Elephant”] create a list with all the first letters.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -868,7 +868,7 @@ HI THERE
 <p>A <strong>dictionary</strong> is a map between one object, the <strong>key</strong>, and another object, the <strong>value</strong>. Dictionaries are <strong>mutable objects</strong> and contain sequences of mappings <em>key</em> –&gt; <em>object</em> but there is not specific ordering among them. Dictionaries are defined using the curly braces <strong>{key1 : value1, key2 : value2}</strong> and <strong>:</strong> to separate keys from values.</p>
 <p>Some examples on how to define dictionaries follow:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -902,7 +902,7 @@ True
 <p>Note that there is no ordering of the keys, and that the order in which they have been inserted is not preserved. Moreover, keys and values can be dishomogeneous (e.g. keys strings and values integers). An interesting case is <em>third_dict</em> where the function <em>zip</em> followed by <em>dict</em> is used to map the keys of the first list into the values present in the second.</p>
 <p>Note that keys can be <strong>dishomogeneous</strong>, even though this is a bad idea normally. The only requirement for the <strong>keys</strong> is that they <strong>must be immutable objects</strong>. Trying to use a mutable object as a key will make the interpreter crash with the error: <strong>unhashable type</strong>. Finally, keys must be unique. We cannot associate more than one value to the same key.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -935,7 +935,7 @@ True
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-21-0fe98c7f5acd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-15-0fe98c7f5acd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      8</span> d <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">]</span>
 <span class="ansi-green-intense-fg ansi-bold">      9</span>
 <span class="ansi-green-fg">---&gt; 10</span><span class="ansi-red-fg"> </span>dict2 <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">{</span>c <span class="ansi-blue-fg">:</span> <span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">,</span> d <span class="ansi-blue-fg">:</span> <span class="ansi-cyan-fg">9</span><span class="ansi-blue-fg">}</span>
@@ -947,10 +947,10 @@ True
 <div class="section" id="Functions-working-on-dictionaries">
 <h3>Functions working on dictionaries<a class="headerlink" href="#Functions-working-on-dictionaries" title="Permalink to this headline">¶</a></h3>
 <p>As for the other data types, python provides several operators that can be applied to dictionaries. The following operators are available and they basically work as in lists. The only exception being that the operator <strong>in</strong> checks whether the specified object is present among the <strong>keys</strong>.</p>
-<p><img alt="image0" src="_images/PKLR.png" /></p>
+<p><img alt="i2" src="_images/operators.png" /></p>
 <p>Some usage examples follow:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -990,7 +990,7 @@ Is &#34;seven&#34; in dictionary? False
 <div class="section" id="Dictionary-methods">
 <h3>Dictionary methods<a class="headerlink" href="#Dictionary-methods" title="Permalink to this headline">¶</a></h3>
 <p>Recall what seen in the lecture, the following methods are available for dictionaries:</p>
-<p><img alt="image0" src="_images/PKLR.png" /></p>
+<p><img alt="i3" src="_images/methods.png" /></p>
 <p>These methods are new to dictionaries and can be used to loop through the elements in them.</p>
 <div class="admonition warning">
 <p><strong>ERRATUM:</strong> <code class="docutils literal notranslate"><span class="pre">dict.keys()</span></code> returns a <code class="docutils literal notranslate"><span class="pre">dict_keys</span></code> object not a list. To cast it to list, we need to call <code class="docutils literal notranslate"><span class="pre">list(dict.keys())</span></code>. The same applies to <code class="docutils literal notranslate"><span class="pre">dict.values()</span></code> that returns a <code class="docutils literal notranslate"><span class="pre">dict_values</span></code> object that needs conversion to a list with <code class="docutils literal notranslate"><span class="pre">list(dict.values())</span></code>.</p>
@@ -1006,7 +1006,7 @@ TDWIAIYQRKVEAPFIPKFKGPGDTSNFDDYEEEEIRVSINEKCGKEFSEF
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1091,7 +1091,7 @@ Amino K has the highest freq. ( 34 )
 </div>
 <p><strong>Important NOTE</strong>. Accessing a value through the key of a dictionary requires that the pair key-value one searches for is present in the dictionary. If the searched key is not present the interpreter crashes out throwing a KeyError as follows:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1118,7 +1118,7 @@ Amino K has the highest freq. ( 34 )
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-24-a05b31e54a02&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-18-a05b31e54a02&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      2</span>
 <span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>myDict<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;one&#34;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>myDict<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;seven&#34;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
@@ -1128,7 +1128,7 @@ Amino K has the highest freq. ( 34 )
 </div>
 <p>This could be avoided by checking that the key is present in the dictionary beforehand:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1155,7 +1155,7 @@ key seven not found in dictionary
 </div>
 <p>or by using the dictionary method <strong>get</strong> that has two inputs: the key and a default value to return in case key is not present in the dictionary:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1191,35 +1191,7 @@ key: seven value: not found
 </li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
-</div><div id="ex1" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
-<span class="n">L2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">44</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">71</span><span class="p">]</span>
-
-<span class="n">L1</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="n">L2</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="n">intersection</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L1</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L2</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L1:    &quot;</span><span class="p">,</span> <span class="n">L1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L2:    &quot;</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;inters:&quot;</span><span class="p">,</span> <span class="n">intersection</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-L1:     [1, 7, 12, 13, 15, 21, 22, 43, 77, 81, 84, 100]
-L2:     [1, 7, 13, 21, 32, 44, 71, 81, 100]
-inters: [1, 7, 13, 21, 81, 100]
-</pre></div></div>
-</div>
-</div><ol class="arabic simple" start="2">
+</div><div id="ex1" style="display:none;"></div><ol class="arabic simple" start="2">
 <li><p>Given the string “nOBody Said iT was eAsy, No oNe Ever saId it WoulD be tHis hArd…”</p>
 <ol class="arabic simple">
 <li><p>Create a list with all the letters that are capitalized (use str.isupper)</p></li>
@@ -1234,29 +1206,7 @@ O*B*S*T*A*N*N*E*I*W*D*H*A
 </pre></div>
 </div>
 <div class="tggle" onclick="toggleVisibility('ex2');"><p>Show/Hide Solution</p>
-</div><div id="ex2" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;nOBody Said iT was eAsy, No oNe Ever saId it WoulD be tHis hArd…&quot;</span>
-<span class="n">initials</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">isupper</span><span class="p">()]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">initials</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">initials</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&#39;O&#39;, &#39;B&#39;, &#39;S&#39;, &#39;T&#39;, &#39;A&#39;, &#39;N&#39;, &#39;N&#39;, &#39;E&#39;, &#39;I&#39;, &#39;W&#39;, &#39;D&#39;, &#39;H&#39;, &#39;A&#39;]
-O*B*S*T*A*N*N*E*I*W*D*H*A
-</pre></div></div>
-</div>
-</div><ol class="arabic simple" start="3">
+</div><div id="ex2" style="display:none;"></div><ol class="arabic simple" start="3">
 <li><p>Given the following sequence:</p></li>
 </ol>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>AUGCUGUCUCCCUCACUGUAUGUAAAUUGCAUCUAGAAUAGCA
@@ -1281,7 +1231,7 @@ CAGUAUUGUUGGUG
 </div>
 <div class="tggle" onclick="toggleVisibility('ex3a');"><p>Show/Hide Solution</p>
 </div><div id="ex3a" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1358,7 +1308,7 @@ AUA is present 3 times
 </div>
 <div class="tggle" onclick="toggleVisibility('ex3');"><p>Show/Hide Solution</p>
 </div><div id="ex3" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1413,7 +1363,7 @@ Dimer AT is found at: [1, 6, 8, 10, 20, 22, 24, 41]
 </div>
 <div class="tggle" onclick="toggleVisibility('ex4');"><p>Show/Hide Solution</p>
 </div><div id="ex4" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1460,7 +1410,7 @@ Dimer AT is found at: [1, 6, 8, 10, 20, 22, 24, 41]
 </div><ol class="arabic simple" start="6">
 <li><p>Given the following table, reporting molecular weights for each amino acid, store them in a dictionary where the key is the one letter code and the value is the molecular weight (e.g. {“A” : 89, “R”:174”}).</p></li>
 </ol>
-<p><img alt="image0" src="_images/PKLR.png" /></p>
+<p><img alt="i4" src="_images/molecular_weights.png" /></p>
 <p>Write a python script to answer the following questions:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. What is the average molecular weight of an amino acid?
 2. What is the total molecular weight and number of aminoacids
@@ -1471,7 +1421,7 @@ of the peptide YTSLIHSLIEESQNQQEKNEQELLELDKWASLWNWF?
 </div>
 <div class="tggle" onclick="toggleVisibility('ex5');"><p>Show/Hide Solution</p>
 </div><div id="ex5" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1564,7 +1514,7 @@ ab1_676b     scaffold4896    99.552      0.0
 </div>
 <div class="tggle" onclick="toggleVisibility('ex6');"><p>Show/Hide Solution</p>
 </div><div id="ex6" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1676,7 +1626,7 @@ ME3,TPI1,ENSP00000352657,ENSP00000229270
 </pre></div>
 </div>
 <p>Here is a graphic representation of the protein-protein interactions:</p>
-<p><img alt="image0" src="_images/PKLR.png" /></p>
+<p><img alt="i5" src="_images/PKLR.png" /></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Note: we can assume that relations between nodes are transitive. node1 --&gt; node2
 implies node2 --&gt; node1.
 
@@ -1693,7 +1643,7 @@ directly connected to &quot;ME3&quot;, but not directly to &quot;ME3&quot;).
 </div>
 <div class="tggle" onclick="toggleVisibility('ex7');"><p>Show/Hide Solution</p>
 </div><div id="ex7" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
