@@ -648,7 +648,7 @@ Total amount: 110 discount: 0.1
 </div>
 <p><strong>Example:</strong> Pick a random number from 1 and 50 and count how many times it takes to randomly choose number 27. Limit the number of random picks to 40 (i.e. if more than 40 picks have been done and 27 has not been found exit anyway with a message).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -662,7 +662,7 @@ Total amount: 110 discount: 0.1
 
     <span class="k">if</span> <span class="n">pick</span> <span class="o">==</span> <span class="mi">27</span><span class="p">:</span>
         <span class="k">break</span>
-    <span class="n">iterations</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">iterations</span> <span class="o">+=</span> <span class="mi">1</span>   <span class="c1">#equal to: iterations = iterations + 1</span>
 
 <span class="k">if</span> <span class="n">iterations</span> <span class="o">==</span> <span class="mi">41</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sorry number 27 was never found!&quot;</span><span class="p">)</span>
@@ -678,8 +678,8 @@ Total amount: 110 discount: 0.1
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Sorry number 27 was never found!
-[32, 3, 25, 7, 28, 37, 35, 50, 30, 9, 1, 7, 39, 47, 11, 36, 31, 19, 23, 32, 42, 47, 30, 25, 34, 2, 23, 29, 20, 17, 42, 43, 43, 10, 6, 11, 7, 8, 33, 31]
+27 found in  32 iterations
+[41, 3, 30, 24, 34, 50, 41, 31, 25, 19, 41, 33, 26, 24, 43, 16, 46, 22, 44, 9, 49, 36, 34, 25, 45, 7, 2, 41, 33, 46, 29, 27]
 </pre></div></div>
 </div>
 <p>An alternative way without using the break statement makes use of a <em>flag</em> variable (that when changes value will make the loop end):</p>
