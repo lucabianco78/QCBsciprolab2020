@@ -464,7 +464,7 @@ div.rendered_html tbody tr:hover {
 <p><strong>Why should we use functions?</strong> For a lot of reasons including:</p>
 <ol class="arabic simple">
 <li><p><em>Reduce code duplication</em>: put in functions parts of code that are needed several times in the whole program so that you don’t need to repeat the same code over and over again;</p></li>
-<li><p><em>Decompose a complex task</em>: make the code easier to write and understand by splitting the whole program in several easier functions;</p></li>
+<li><p><em>Decompose a complex task</em>: make the code easier to write and understand by splitting the whole program into several easier functions;</p></li>
 </ol>
 <p>both things improve code readability and make your code easier to understand.</p>
 <p>The basic definition of a function is:</p>
@@ -562,7 +562,8 @@ even L2:
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">get_info</span><span class="p">(</span><span class="n">myList</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;returns len of myList, min and max value (assumes elements are integers) but it would work with str&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;returns len of myList, min and max value</span>
+<span class="sd">    (assumes elements are integers) but it would work with str&quot;&quot;&quot;</span>
     <span class="n">tmp</span> <span class="o">=</span> <span class="n">myList</span><span class="p">[:]</span> <span class="c1">#copy the input list</span>
     <span class="n">tmp</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
     <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp</span><span class="p">),</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tmp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#return type is a tuple</span>
