@@ -576,9 +576,11 @@ even L2:
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A now:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
 
-<span class="c1">#B = [&quot;tar&quot;, &quot;gar&quot;, &quot;mar&quot;, &quot;ator&quot;, &quot;vor&quot;]</span>
+<span class="c1">#This is in fact polymorphic too...</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;tar&quot;</span><span class="p">,</span> <span class="s2">&quot;gar&quot;</span><span class="p">,</span> <span class="s2">&quot;mar&quot;</span><span class="p">,</span> <span class="s2">&quot;ator&quot;</span><span class="p">,</span> <span class="s2">&quot;vor&quot;</span><span class="p">]</span>
 
-<span class="c1">#print(get_info(B))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">B:&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_info</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -592,6 +594,9 @@ Original A: [7, 1, 125, 4, -1, 0]
 Len: 6 Min: -1 Max: 125
 
 A now: [7, 1, 125, 4, -1, 0]
+
+B: [&#39;tar&#39;, &#39;gar&#39;, &#39;mar&#39;, &#39;ator&#39;, &#39;vor&#39;]
+(5, &#39;ator&#39;, &#39;vor&#39;)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -628,9 +633,9 @@ List B: [7, 9, 4]
 Sum: 20
 </pre></div></div>
 </div>
-<p>Please note that the return value above is actually a tuple. Importantly enough, a function needs to be defined (i.e. its code has to be written) before it can actually be used.</p>
+<p>Please note that the return value above is actually a tuple. Importantly enough, a function needs to be defined (i.e. its code has to be written) before it can actually be used otherwise the Python interpreter does not know what to do when the function is actually called with some parameters.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -652,7 +657,7 @@ Sum: 20
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-8-50f5bebe9695&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-5-50f5bebe9695&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> A <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">]</span>
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>my_sum_new<span class="ansi-blue-fg">(</span>A<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      3</span>
@@ -725,8 +730,8 @@ Global: 7
 </div>
 <p>Variables defined within a function can only be seen within the function. That is why variable b is defined only within the function. Variables defined outside all functions are <strong>global</strong> to the whole program. The namespace of the local variable is within the function my_function, while outside it the variable will have its global value.</p>
 <p>And the following:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -750,6 +755,18 @@ Global: 7
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Inner: 2
+Inner: This is B
+Outer: 1
+Global: 3
+Global: This is B
+</pre></div></div>
+</div>
 <p>Note in particular that the variable B is global, therefore it is accessible everywhere and also inside the inner_function. On the contrary, the value of var defined within the inner_function is accessible only in the namespace defined by it, outside it will assume different values as shown in the example.</p>
 <p>In a nutshell, remember the three simple rules seen in the lecture. Within a <strong>def</strong>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. Name assignments create local names by default;
@@ -769,8 +786,8 @@ enclosing module and function scopes.
 <li><p>Changing a <strong>mutable</strong> object variable name within a function <strong>affects the caller</strong></p></li>
 </ol>
 <p>Consider the following examples:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -789,8 +806,18 @@ enclosing module and function scopes.
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Local:  local value
+Global: global value
+Local:  local value
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -808,13 +835,23 @@ enclosing module and function scopes.
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Global: [&#39;old value&#39;, &#39;old value&#39;, &#39;old value&#39;, &#39;old value&#39;]
+Local:  [&#39;old value&#39;, &#39;new value1&#39;, &#39;old value&#39;, &#39;new value2&#39;]
+Global now:  [&#39;old value&#39;, &#39;new value1&#39;, &#39;old value&#39;, &#39;new value2&#39;]
+</pre></div></div>
+</div>
 <p>Recall what seen in the lecture:</p>
 <p><img alt="i1" src="_images/argument_passing.png" /></p>
 <p>The behaviour above is because <strong>immutable objects</strong> are passed <strong>by value</strong> (therefore it is like making a copy), while <strong>mutable objects</strong> are passed <strong>by reference</strong> (therefore changing them effectively changes the original object).</p>
 <p>To avoid making changes to a <strong>mutable object</strong> passed as parameter one needs to <strong>explicitely make a copy</strong> of it.</p>
 <p>Consider the example seen before. <strong>Example:</strong> Let’s write a function that, given a list of integers, returns the number of elements, the maximum and minimum.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -850,12 +887,28 @@ enclosing module and function scopes.
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+A: [7, 1, 125, 4, -1, 0]
+Len: 6 Min: -1 Max: 125
+A now: [-1, 0, 1, 4, 7, 125]
+
+###### With copy now ########
+
+B: [70, 10, 1250, 40, -10, 0, 10]
+Len: 7 Min: -10 Max: 1250
+B now: [70, 10, 1250, 40, -10, 0, 10]
+</pre></div></div>
+</div>
 <div class="section" id="Positional-arguments">
 <h3>Positional arguments<a class="headerlink" href="#Positional-arguments" title="Permalink to this headline">¶</a></h3>
 <p>Arguments can be passed to functions following the order in which they appear in the function definition.</p>
 <p>Consider the following example:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -870,13 +923,24 @@ enclosing module and function scopes.
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1st param: A
+2nd param: B
+3rd param: C
+4th param: D
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="Passing-arguments-by-keyword">
 <h3>Passing arguments by keyword<a class="headerlink" href="#Passing-arguments-by-keyword" title="Permalink to this headline">¶</a></h3>
 <p>Given the name of an argument as specified in the definition of the function, parameters can be passed using the <strong>name = value</strong> syntax.</p>
 <p>For example:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -895,9 +959,30 @@ enclosing module and function scopes.
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1st param: 1
+2nd param: 2
+3rd param: 3
+4th param: 4
+
+###############
+
+1st param: first
+2nd param: second
+3rd param: third
+4th param: fourth
+
+###############
+
+</pre></div></div>
+</div>
 <p>Arguments passed positionally and by name can be used at the same time, but parameters passed by name must always be to the left of those passed by name. The following code in fact is not accepted by the Python interpreter:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -911,6 +996,18 @@ enclosing module and function scopes.
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-13-4991b2c31842&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">7</span>
+<span class="ansi-red-fg">    print_parameters(d=&#34;fourth&#34;,c=&#34;third&#34;, &#34;first&#34;,&#34;second&#34;)</span>
+                                          ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> positional argument follows keyword argument
+
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="Specifying-default-values">
 <h3>Specifying default values<a class="headerlink" href="#Specifying-default-values" title="Permalink to this headline">¶</a></h3>
@@ -919,8 +1016,8 @@ enclosing module and function scopes.
 </pre></div>
 </div>
 <p>Consider the following example:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -939,6 +1036,34 @@ enclosing module and function scopes.
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+a: param_A
+b: defaultB
+c: defaultC
+
+#################
+
+a: defaultA
+b: PARAMETER_B
+c: defaultC
+
+#################
+
+a: defaultA
+b: defaultB
+c: defaultC
+
+#################
+
+a: defaultA
+b: PAR_B
+c: PARAMETER_C
+</pre></div></div>
+</div>
 </div>
 </div>
 <div class="section" id="File-input-and-output">
@@ -948,8 +1073,8 @@ enclosing module and function scopes.
 <p><img alt="i2" src="_images/io_met_fun.png" /></p>
 <p>To read or write to a file one first needs to open it with the python’s built-in function <strong>open</strong> that returns a handler to the file. The handler can then be used to read or write the content of the file.</p>
 <p><strong>Example:</strong> Download the file <a class="reference external" href="file_samples/textFile.txt">textFile.txt</a> to your favourite location and read it from python, printing out all its content. <strong>NOTE:</strong> the path of your file might be different from mine.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -965,6 +1090,23 @@ enclosing module and function scopes.
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- File closed ---&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-15-eb864a069349&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>fh <span class="ansi-blue-fg">=</span> open<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;file_samples/textFile.txt&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;r&#34;</span><span class="ansi-blue-fg">)</span> <span class="ansi-red-fg">#read-only mode</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;--- File content ---&#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-green-fg">for</span> line <span class="ansi-green-fg">in</span> fh<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;file_samples/textFile.txt&#39;
+</pre></div></div>
 </div>
 <p>The usual interaction with files is done in three steps: <strong>open the file</strong>, <strong>read or write its content</strong>, <strong>close the file</strong>.</p>
 <div class="section" id="Opening-a-file">
