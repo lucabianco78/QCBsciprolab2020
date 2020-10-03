@@ -844,7 +844,7 @@ CGCCACTTAAGCGCCCTGTATTAAAGTCGC
 <p>Given the matrix <span class="math notranslate nohighlight">\(\begin{bmatrix}1 &amp; 2 &amp; 3\\4 &amp; 5 &amp; 6\\7 &amp; 8 &amp; 9\end{bmatrix}\)</span> stored as a list of lists (i.e. matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]].</p>
 <p>Print it out as: <span class="math notranslate nohighlight">\(\begin{matrix}1 &amp; 2 &amp; 3\\4 &amp; 5 &amp; 6\\7 &amp; 8 &amp; 9\end{matrix}\)</span></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -855,6 +855,19 @@ CGCCACTTAAGCGCCCTGTATTAAAGTCGC
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
         <span class="n">line</span> <span class="o">=</span> <span class="n">line</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="c1">#note int --&gt; str conversion!</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+
+<span class="c1"># Without nested for (but this is not exactly the same).</span>
+<span class="c1"># NOTE: cannot do print(&quot; &quot;.join(row)) because we have integers</span>
+
+<span class="c1">#for row in matrix:</span>
+<span class="c1">#    print(&quot; &quot;.join(str(row)))</span>
+<span class="c1">#</span>
+<span class="c1">#Outputs:</span>
+<span class="c1">#[ 1 ,   2 ,   3 ]</span>
+<span class="c1">#[ 4 ,   5 ,   6 ]</span>
+<span class="c1">#[ 7 ,   8 ,   9 ]</span>
+
 </pre></div>
 </div>
 </div>
@@ -957,25 +970,6 @@ i now is: 4
 <p>write a Python script that reverse-complements it. To reverse-complement a string of DNA, one needs to replace and A with T, T with A, C with G and G with C, while any other character is complemented in N. Finally, the sequence has to be reversed (e.g. the first base becomes the last). For example, ATCG becomes CGAT.</p>
 <div class="tggle" onclick="toggleVisibility('ex3');"><p>Show/Hide Solution</p>
 </div><div id="ex3" style="display:none;"></div><ol class="arabic simple" start="3">
-<li><p>Write a python script that creates the following pattern:</p></li>
-</ol>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+
-++
-+++
-++++
-+++++
-++++++
-+++++++ &lt;-- 7
-++++++
-+++++
-++++
-+++
-++
-+
-</pre></div>
-</div>
-<div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
-</div><div id="ex1" style="display:none;"></div><ol class="arabic simple" start="4">
 <li><p>Count how many of the first 100 integers are divisible by 2, 3, 5, 7 but not by 10 and print these counts. Be aware that a number can be divisible by more than one of these numbers (e.g. 6) and therefore it must be counted as divisible by all of them (e.g. 6 must be counted as divisible by 2 and 3).</p></li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex2');"><p>Show/Hide Solution</p>
@@ -1009,7 +1003,26 @@ i now is: 4
 13  numbers are divisible by  7 (but not 10) in the first 100
 </pre></div></div>
 </div>
-</div>5. Given the following fastq entry:<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>@HWI-ST1296:75:C3F7CACXX:1:1101:19142:14904
+</div><ol class="arabic simple" start="4">
+<li><p>Write a python script that creates the following pattern:</p></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+
+++
++++
+++++
++++++
+++++++
++++++++ &lt;-- 7
+++++++
++++++
+++++
++++
+++
++
+</pre></div>
+</div>
+<div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
+</div><div id="ex1" style="display:none;"></div>5. Given the following fastq entry:<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>@HWI-ST1296:75:C3F7CACXX:1:1101:19142:14904
 CCAACAACTTTGACGCTAAGGATAGCTCCATGGCAGCATATCTGGCACAA
 +
 FHIIJIJJGIJJJJJ1HHHFFFFFEE:;CIDDDDDDDDDDDDEDDD-./0

@@ -476,7 +476,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <p>Functions are defined with the <strong>def</strong> keyword that proceeds the <em>function_name</em> and then a list of parameters is passed in the brackets. A colon <strong>:</strong> is used to end the line holding the definition of the function. The code implementing the function is specified by using indentation. A function <strong>might</strong> or <strong>might not</strong> return a value. In the first case a <strong>return</strong> statement is used.</p>
-<p><strong>Example:</strong> Define a function that implements the sum of two integer lists (note that there is no check that the two lists actually contain integers and that they have the same size).</p>
+<p><strong>Example:</strong> Define a function that implements the sum of two lists of integers (note that there is no check that the two lists actually contain integers and that they have the same size).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -562,7 +562,7 @@ even L2:
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">get_info</span><span class="p">(</span><span class="n">myList</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;returns len of myList, min and max value (assumes elements are integers)&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;returns len of myList, min and max value (assumes elements are integers) but it would work with str&quot;&quot;&quot;</span>
     <span class="n">tmp</span> <span class="o">=</span> <span class="n">myList</span><span class="p">[:]</span> <span class="c1">#copy the input list</span>
     <span class="n">tmp</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
     <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp</span><span class="p">),</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tmp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#return type is a tuple</span>
@@ -574,6 +574,10 @@ even L2:
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Len:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;Min:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;Max:&quot;</span><span class="p">,</span><span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A now:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+
+<span class="c1">#B = [&quot;tar&quot;, &quot;gar&quot;, &quot;mar&quot;, &quot;ator&quot;, &quot;vor&quot;]</span>
+
+<span class="c1">#print(get_info(B))</span>
 </pre></div>
 </div>
 </div>
@@ -590,7 +594,7 @@ A now: [7, 1, 125, 4, -1, 0]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -624,21 +628,38 @@ Sum: 20
 </pre></div></div>
 </div>
 <p>Please note that the return value above is actually a tuple. Importantly enough, a function needs to be defined (i.e. its code has to be written) before it can actually be used.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">my_sum</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">my_sum_new</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">my_sum</span><span class="p">(</span><span class="n">myList</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">my_sum_new</span><span class="p">(</span><span class="n">myList</span><span class="p">):</span>
     <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">myList</span><span class="p">:</span>
         <span class="n">ret</span> <span class="o">+=</span> <span class="n">el</span>
     <span class="k">return</span> <span class="n">ret</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-8-50f5bebe9695&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> A <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>my_sum_new<span class="ansi-blue-fg">(</span>A<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-green-fg">def</span> my_sum_new<span class="ansi-blue-fg">(</span>myList<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>     ret <span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">0</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;my_sum_new&#39; is not defined
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Namespace-and-variable-scope">
@@ -692,7 +713,7 @@ Global: 7
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-6-da11a41b34ff&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">&lt;ipython-input-6-da11a41b34ff&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      8</span> my_function<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      9</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Global:&#34;</span><span class="ansi-blue-fg">,</span> var<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">---&gt; 10</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>b<span class="ansi-blue-fg">)</span>
@@ -703,8 +724,8 @@ Global: 7
 </div>
 <p>Variables defined within a function can only be seen within the function. That is why variable b is defined only within the function. Variables defined outside all functions are <strong>global</strong> to the whole program. The namespace of the local variable is within the function my_function, while outside it the variable will have its global value.</p>
 <p>And the following:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -728,18 +749,6 @@ Global: 7
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Inner: 2
-Inner: This is B
-Outer: 1
-Global: 3
-Global: This is B
-</pre></div></div>
-</div>
 <p>Note in particular that the variable B is global, therefore it is accessible everywhere and also inside the inner_function. On the contrary, the value of var defined within the inner_function is accessible only in the namespace defined by it, outside it will assume different values as shown in the example.</p>
 <p>In a nutshell, remember the three simple rules seen in the lecture. Within a <strong>def</strong>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. Name assignments create local names by default;
@@ -759,8 +768,8 @@ enclosing module and function scopes.
 <li><p>Changing a <strong>mutable</strong> object variable name within a function <strong>affects the caller</strong></p></li>
 </ol>
 <p>Consider the following examples:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -779,18 +788,8 @@ enclosing module and function scopes.
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Local:  local value
-Global: global value
-Local:  local value
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -808,23 +807,13 @@ Local:  local value
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Global: [&#39;old value&#39;, &#39;old value&#39;, &#39;old value&#39;, &#39;old value&#39;]
-Local:  [&#39;old value&#39;, &#39;new value1&#39;, &#39;old value&#39;, &#39;new value2&#39;]
-Global now:  [&#39;old value&#39;, &#39;new value1&#39;, &#39;old value&#39;, &#39;new value2&#39;]
-</pre></div></div>
-</div>
 <p>Recall what seen in the lecture:</p>
-<p><img alt="image0" src="_images/io_met_fun.png" /></p>
+<p><img alt="i1" src="_images/argument_passing.png" /></p>
 <p>The behaviour above is because <strong>immutable objects</strong> are passed <strong>by value</strong> (therefore it is like making a copy), while <strong>mutable objects</strong> are passed <strong>by reference</strong> (therefore changing them effectively changes the original object).</p>
 <p>To avoid making changes to a <strong>mutable object</strong> passed as parameter one needs to <strong>explicitely make a copy</strong> of it.</p>
 <p>Consider the example seen before. <strong>Example:</strong> Let’s write a function that, given a list of integers, returns the number of elements, the maximum and minimum.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -860,28 +849,12 @@ Global now:  [&#39;old value&#39;, &#39;new value1&#39;, &#39;old value&#39;, &#
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-A: [7, 1, 125, 4, -1, 0]
-Len: 6 Min: -1 Max: 125
-A now: [-1, 0, 1, 4, 7, 125]
-
-###### With copy now ########
-
-B: [70, 10, 1250, 40, -10, 0, 10]
-Len: 7 Min: -10 Max: 1250
-B now: [70, 10, 1250, 40, -10, 0, 10]
-</pre></div></div>
-</div>
 <div class="section" id="Positional-arguments">
 <h3>Positional arguments<a class="headerlink" href="#Positional-arguments" title="Permalink to this headline">¶</a></h3>
 <p>Arguments can be passed to functions following the order in which they appear in the function definition.</p>
 <p>Consider the following example:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -896,24 +869,13 @@ B now: [70, 10, 1250, 40, -10, 0, 10]
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-1st param: A
-2nd param: B
-3rd param: C
-4th param: D
-</pre></div></div>
-</div>
 </div>
 <div class="section" id="Passing-arguments-by-keyword">
 <h3>Passing arguments by keyword<a class="headerlink" href="#Passing-arguments-by-keyword" title="Permalink to this headline">¶</a></h3>
 <p>Given the name of an argument as specified in the definition of the function, parameters can be passed using the <strong>name = value</strong> syntax.</p>
 <p>For example:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -932,30 +894,9 @@ B now: [70, 10, 1250, 40, -10, 0, 10]
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-1st param: 1
-2nd param: 2
-3rd param: 3
-4th param: 4
-
-###############
-
-1st param: first
-2nd param: second
-3rd param: third
-4th param: fourth
-
-###############
-
-</pre></div></div>
-</div>
 <p>Arguments passed positionally and by name can be used at the same time, but parameters passed by name must always be to the left of those passed by name. The following code in fact is not accepted by the Python interpreter:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -969,18 +910,6 @@ B now: [70, 10, 1250, 40, -10, 0, 10]
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-13-4991b2c31842&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">7</span>
-<span class="ansi-red-fg">    print_parameters(d=&#34;fourth&#34;,c=&#34;third&#34;, &#34;first&#34;,&#34;second&#34;)</span>
-                                          ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> positional argument follows keyword argument
-
-</pre></div></div>
-</div>
 </div>
 <div class="section" id="Specifying-default-values">
 <h3>Specifying default values<a class="headerlink" href="#Specifying-default-values" title="Permalink to this headline">¶</a></h3>
@@ -989,8 +918,8 @@ B now: [70, 10, 1250, 40, -10, 0, 10]
 </pre></div>
 </div>
 <p>Consider the following example:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1009,45 +938,17 @@ B now: [70, 10, 1250, 40, -10, 0, 10]
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-a: param_A
-b: defaultB
-c: defaultC
-
-#################
-
-a: defaultA
-b: PARAMETER_B
-c: defaultC
-
-#################
-
-a: defaultA
-b: defaultB
-c: defaultC
-
-#################
-
-a: defaultA
-b: PAR_B
-c: PARAMETER_C
-</pre></div></div>
-</div>
 </div>
 </div>
 <div class="section" id="File-input-and-output">
 <h2>File input and output<a class="headerlink" href="#File-input-and-output" title="Permalink to this headline">¶</a></h2>
 <p>Files are non volatile data stored at specific locations in memory. To read or write from/to a file, one first needs to create a reference to the file. This is called the <strong>handle</strong> to the file.</p>
 <p>Recall from the lecture that Python provides programmers with the following functions and methods:</p>
-<p><img alt="image0" src="_images/io_met_fun.png" /></p>
+<p><img alt="i2" src="_images/io_met_fun.png" /></p>
 <p>To read or write to a file one first needs to open it with the python’s built-in function <strong>open</strong> that returns a handler to the file. The handler can then be used to read or write the content of the file.</p>
 <p><strong>Example:</strong> Download the file <a class="reference external" href="file_samples/textFile.txt">textFile.txt</a> to your favourite location and read it from python, printing out all its content. <strong>NOTE:</strong> the path of your file might be different from mine.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1063,19 +964,6 @@ c: PARAMETER_C
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- File closed ---&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
---- File content ---
-Hi everybody,
-This is my first file
-and it contains a total of
-four lines!
---- File closed ---
-</pre></div></div>
 </div>
 <p>The usual interaction with files is done in three steps: <strong>open the file</strong>, <strong>read or write its content</strong>, <strong>close the file</strong>.</p>
 <div class="section" id="Opening-a-file">
@@ -1105,8 +993,8 @@ four lines!
 </div>
 <p>this will free up resources and will not allow any more operations on the same file.</p>
 <p>The following code will in fact crash, because the file has been closed and therefore no more operations can be performed on it.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1125,34 +1013,6 @@ four lines!
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
---- File content ---
-Hi everybody,
-This is my first file
-and it contains a total of
-four lines!
---- File closed ---
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-16-0367c74d60af&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     10</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;\n--- File closed ---&#34;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     11</span>
-<span class="ansi-green-fg">---&gt; 12</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>fh<span class="ansi-blue-fg">.</span>readline<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">ValueError</span>: I/O operation on closed file.
-</pre></div></div>
-</div>
 <p>An alternative way to open and implicitly close the file is by using the <strong>with</strong> keyword. The basic syntax is:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>with open(&quot;file&quot;) as f:
     #do some stuff
@@ -1160,8 +1020,8 @@ four lines!
 </pre></div>
 </div>
 <p>The previous example would become:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1174,19 +1034,6 @@ four lines!
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- File closed ---&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
---- File content ---
-Hi everybody,
-This is my first file
-and it contains a total of
-four lines!
---- File closed ---
-</pre></div></div>
 </div>
 </div>
 <div class="section" id="Reading-from-a-file">
@@ -1205,8 +1052,8 @@ four lines!
 </li>
 </ol>
 <p>Let’s see some examples. Note that to restart reading a file from the beginning we need to close it and open it gain.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1235,31 +1082,6 @@ four lines!
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
---- Mode1 (the whole file in a string) ---
-Hi everybody,
-This is my first file
-and it contains a total of
-four lines!
-
---- Mode2 (line by line) ---
-Line1:  Hi everybody,
-Line2:  This is my first file
-
---- Mode3 (all lines as a list) ---
-[&#39;Hi everybody,\n&#39;, &#39;This is my first file\n&#39;, &#39;and it contains a total of\n&#39;, &#39;four lines!&#39;]
-
---- Mode4 (as a stream) ---
-Hi everybody,
-This is my first file
-and it contains a total of
-four lines!
-</pre></div></div>
-</div>
 </div>
 <div class="section" id="Writing-to-a-file">
 <h3>Writing to a file<a class="headerlink" href="#Writing-to-a-file" title="Permalink to this headline">¶</a></h3>
@@ -1270,7 +1092,7 @@ four lines!
 <p>To make sure all data is written to the file, we must remember to close the file after writing on it.</p>
 <p><strong>Example:</strong> Given the matrix represented as list of lists, M = [[1,2,3], [4,5,6], [7,8,9]] let’s write it on a file <em>my_matrix.txt</em> as <span class="math notranslate nohighlight">\(\begin{matrix}1 &amp; 2 &amp; 3\\4 &amp; 5 &amp; 6\\7 &amp; 8 &amp; 9\end{matrix}\)</span></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1292,8 +1114,8 @@ four lines!
 <p>Strings can be formatted with the method <strong>format</strong>. A lot of information on the use of format can be found <a class="reference external" href="https://docs.python.org/3/library/string.html#format-string-syntax">here</a>.</p>
 <p>Format can be used to add values to a string in specific placeholders (normally defined with the syntax <strong>{}</strong>) or to format values according to the user specifications (e.g. number of decimal places for floating point numbers).</p>
 <p>In the following we will see some simple examples.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1321,46 +1143,6 @@ four lines!
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-I like python more than java.
-
-I like python more than java or C++.
-
-I like C++ more than java or python.
-
-I like java more than C++ or python.
-
-The square root of 2 is 1.414214.
-
-The square root of 2 is 1.41.
-
-N |sqrt |square
- 0|0.000|     0
- 1|1.000|     1
- 2|1.414|     4
- 3|1.732|     9
- 4|2.000|    16
- 5|2.236|    25
- 6|2.449|    36
- 7|2.646|    49
- 8|2.828|    64
- 9|3.000|    81
-10|3.162|   100
-11|3.317|   121
-12|3.464|   144
-13|3.606|   169
-14|3.742|   196
-15|3.873|   225
-16|4.000|   256
-17|4.123|   289
-18|4.243|   324
-19|4.359|   361
-</pre></div></div>
-</div>
 </div>
 </div>
 <div class="section" id="Exercises">
@@ -1377,8 +1159,8 @@ N |sqrt |square
 </li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
-</div><div id="ex1" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</div><div id="ex1" style="display:none;"><div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1446,25 +1228,6 @@ N |sqrt |square
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-S1 ATTACATATCATACTATCGCNTTCTAAATA
-rc S1 TATTTAGAANGCGATAGTATGATATGTAAT
-
-S2    acaTTACAtagataATACTaccataGCNTTCTAAATA
-rc S2 TATTTAGAANGCtatggtAGTATtatctaTGTAAtgt
-
-S3    TTTTACCKKKAKTUUUITTTARRRRRAIUTYYA
-rc S3 TNNANNTNNNNNTAAANNNNANTNNNGGTAAAA
-
-rev_comp(rev_comp(S1)): ATTACATATCATACTATCGCNTTCTAAATA
-
-rev_comp(rev_comp(S1) == S1?) True
-</pre></div></div>
-</div>
 </div><ol class="arabic simple" start="2">
 <li><p>Write the following python functions and test them with some parameters of your choice:</p>
 <ol class="arabic simple">
@@ -1479,8 +1242,8 @@ rev_comp(rev_comp(S1) == S1?) True
 <p>Get and print the first 4 perfect numbers and finally test if 33550336 is a perfect number.</p>
 <p><strong>WARNING:</strong> do not try to find more than 4 perfect numbers as it might take a while!!!</p>
 <div class="tggle" onclick="toggleVisibility('ex6');"><p>Show/Hide Solution</p>
-</div><div id="ex6" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</div><div id="ex6" style="display:none;"><div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1532,18 +1295,6 @@ rev_comp(rev_comp(S1) == S1?) True
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-6  =  1+2+3
-28  =  1+2+4+7+14
-496  =  1+2+4+8+16+31+62+124+248
-8128  =  1+2+4+8+16+32+64+127+254+508+1016+2032+4064
-Is 33550336 a perfect number? True
-</pre></div></div>
-</div>
 </div><ol class="arabic" start="3">
 <li><p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/2231712">Blast</a> is a well known tool to perform sequence alignment between a pool of query sequences and a pool of subject sequences. Among the other formats, it can produce an text output that is tab separated (<code class="docutils literal notranslate"><span class="pre">\t</span></code>) capturing user specified output. Comments in the file are written in lines starting with an hash key (“#”). A sample blast output file is <a class="reference external" href="file_samples/blast_sample.tsv">blast_sample.tsv</a>, please download it and spend some time to
 look at it. The meaning of all columns is specified in the file header:</p>
@@ -1573,8 +1324,8 @@ identical, gap opens, q. start, q. end, s. start, s. end, evalue
 </pre></div>
 </div>
 <div class="tggle" onclick="toggleVisibility('ex2');"><p>Show/Hide Solution</p>
-</div><div id="ex2" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</div><div id="ex2" style="display:none;"><div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1613,17 +1364,6 @@ identical, gap opens, q. start, q. end, s. start, s. end, evalue
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-8390 out of 90790 aligns passed filter (id_thr:97,eval_thr:1,al_thr:0)
-90780 out of 90790 aligns passed filter (id_thr:0,eval_thr:1,al_thr:0)
-27711 out of 90790 aligns passed filter (id_thr:0,eval_thr:1,al_thr:0.9)
-804 out of 90790 aligns passed filter (id_thr:97,eval_thr:1,al_thr:0.9)
-</pre></div></div>
-</div>
 </div><ol class="arabic simple" start="4">
 <li><p>Fasta is a <a class="reference external" href="https://en.wikipedia.org/wiki/FASTA_format">format</a> representing nucleotide or peptide sequences. Each entry of a fasta file starts with a “&gt;” followed by the identifier of the entry (the header of the sequence). All the lines following a header represent the sequence belonging to that identifier. Here you can find an example of fasta file: <a class="reference external" href="file_samples/contigs82.fasta">contigs82.fasta</a>. Please download it and have a look at its content.</p></li>
 </ol>
@@ -1645,8 +1385,8 @@ MDC001115.177 :
 </pre></div>
 </div>
 <div class="tggle" onclick="toggleVisibility('ex3');"><p>Show/Hide Solution</p>
-</div><div id="ex3" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</div><div id="ex3" style="display:none;"><div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1699,614 +1439,12 @@ MDC001115.177 :
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-MDC020656.85 :
-         C has freq 0.163
-         T has freq 0.273
-         A has freq 0.308
-         N has freq 0.052
-         G has freq 0.203
-MDC001115.177 :
-         C has freq 0.207
-         T has freq 0.316
-         A has freq 0.302
-         N has freq 0.018
-         G has freq 0.157
-MDC013284.379 :
-         C has freq 0.171
-         T has freq 0.321
-         A has freq 0.309
-         N has freq 0.005
-         G has freq 0.194
-MDC018185.243 :
-         S has freq 0.000
-         W has freq 0.000
-         K has freq 0.000
-         G has freq 0.181
-         N has freq 0.001
-         M has freq 0.000
-         R has freq 0.001
-         C has freq 0.204
-         T has freq 0.304
-         A has freq 0.307
-         Y has freq 0.001
-MDC018185.241 :
-         S has freq 0.000
-         W has freq 0.000
-         K has freq 0.001
-         G has freq 0.183
-         N has freq 0.006
-         M has freq 0.001
-         R has freq 0.001
-         C has freq 0.168
-         T has freq 0.304
-         A has freq 0.335
-         Y has freq 0.002
-MDC004527.213 :
-         C has freq 0.273
-         T has freq 0.332
-         A has freq 0.227
-         N has freq 0.013
-         G has freq 0.155
-MDC003661.174 :
-         C has freq 0.213
-         T has freq 0.301
-         A has freq 0.246
-         N has freq 0.007
-         G has freq 0.232
-MDC012176.157 :
-         C has freq 0.240
-         T has freq 0.253
-         A has freq 0.343
-         N has freq 0.001
-         G has freq 0.163
-MDC001204.812 :
-         C has freq 0.221
-         T has freq 0.298
-         A has freq 0.293
-         N has freq 0.000
-         G has freq 0.187
-MDC001204.810 :
-         C has freq 0.182
-         T has freq 0.340
-         A has freq 0.297
-         N has freq 0.017
-         G has freq 0.164
-MDC004389.256 :
-         C has freq 0.277
-         T has freq 0.203
-         A has freq 0.285
-         N has freq 0.028
-         G has freq 0.207
-MDC024257.15 :
-         C has freq 0.144
-         T has freq 0.331
-         A has freq 0.319
-         N has freq 0.022
-         G has freq 0.184
-MDC018297.229 :
-         C has freq 0.181
-         T has freq 0.305
-         A has freq 0.275
-         N has freq 0.031
-         G has freq 0.209
-MDC001802.364 :
-         C has freq 0.203
-         T has freq 0.328
-         A has freq 0.252
-         N has freq 0.037
-         G has freq 0.180
-MDC016621.241 :
-         C has freq 0.206
-         T has freq 0.262
-         A has freq 0.302
-         N has freq 0.063
-         G has freq 0.168
-MDC014057.243 :
-         C has freq 0.263
-         T has freq 0.212
-         A has freq 0.291
-         N has freq 0.016
-         G has freq 0.217
-MDC021015.302 :
-         C has freq 0.143
-         T has freq 0.223
-         A has freq 0.302
-         N has freq 0.081
-         G has freq 0.251
-MDC018185.242 :
-         S has freq 0.000
-         W has freq 0.000
-         K has freq 0.000
-         G has freq 0.189
-         N has freq 0.000
-         M has freq 0.001
-         R has freq 0.002
-         C has freq 0.200
-         T has freq 0.289
-         A has freq 0.316
-         Y has freq 0.001
-MDC051782.000 :
-         N has freq 0.044
-         W has freq 0.001
-         K has freq 0.001
-         S has freq 0.001
-         G has freq 0.177
-         M has freq 0.000
-         R has freq 0.002
-         C has freq 0.180
-         T has freq 0.306
-         A has freq 0.285
-         Y has freq 0.002
-MDC017187.314 :
-         C has freq 0.206
-         T has freq 0.276
-         A has freq 0.289
-         N has freq 0.003
-         G has freq 0.225
-MDC017187.311 :
-         S has freq 0.000
-         W has freq 0.001
-         K has freq 0.000
-         G has freq 0.185
-         N has freq 0.068
-         M has freq 0.000
-         R has freq 0.002
-         C has freq 0.179
-         T has freq 0.315
-         A has freq 0.248
-         Y has freq 0.001
-MDC012865.410 :
-         C has freq 0.162
-         T has freq 0.328
-         A has freq 0.289
-         N has freq 0.003
-         G has freq 0.218
-MDC000427.83 :
-         C has freq 0.165
-         T has freq 0.274
-         A has freq 0.392
-         N has freq 0.010
-         G has freq 0.159
-MDC017187.319 :
-         C has freq 0.181
-         T has freq 0.331
-         A has freq 0.282
-         N has freq 0.006
-         G has freq 0.200
-MDC017187.318 :
-         K has freq 0.000
-         N has freq 0.001
-         G has freq 0.232
-         C has freq 0.187
-         T has freq 0.305
-         A has freq 0.275
-MDC004081.319 :
-         C has freq 0.106
-         T has freq 0.197
-         A has freq 0.172
-         G has freq 0.098
-         N has freq 0.428
-MDC021913.275 :
-         C has freq 0.155
-         T has freq 0.169
-         A has freq 0.199
-         N has freq 0.334
-         G has freq 0.143
-MDC015147.205 :
-         C has freq 0.154
-         T has freq 0.350
-         A has freq 0.298
-         N has freq 0.002
-         G has freq 0.196
-MDC000038.355 :
-         S has freq 0.000
-         W has freq 0.000
-         K has freq 0.000
-         G has freq 0.158
-         N has freq 0.025
-         M has freq 0.000
-         R has freq 0.000
-         C has freq 0.170
-         T has freq 0.315
-         A has freq 0.331
-         Y has freq 0.000
-MDC016032.95 :
-         S has freq 0.001
-         W has freq 0.001
-         K has freq 0.002
-         G has freq 0.222
-         N has freq 0.003
-         R has freq 0.002
-         C has freq 0.142
-         T has freq 0.286
-         A has freq 0.342
-         Y has freq 0.001
-MDC052568.000 :
-         N has freq 0.008
-         W has freq 0.001
-         K has freq 0.000
-         S has freq 0.001
-         G has freq 0.178
-         M has freq 0.001
-         R has freq 0.002
-         C has freq 0.207
-         T has freq 0.302
-         A has freq 0.300
-         Y has freq 0.001
-MDC008119.414 :
-         C has freq 0.245
-         T has freq 0.316
-         A has freq 0.209
-         N has freq 0.001
-         G has freq 0.229
-MDC026201.7 :
-         C has freq 0.247
-         T has freq 0.250
-         A has freq 0.313
-         G has freq 0.191
-MDC003995.601 :
-         S has freq 0.000
-         W has freq 0.001
-         K has freq 0.000
-         G has freq 0.167
-         N has freq 0.006
-         M has freq 0.001
-         R has freq 0.001
-         C has freq 0.166
-         T has freq 0.334
-         A has freq 0.323
-         Y has freq 0.001
-MDC009211.561 :
-         C has freq 0.237
-         T has freq 0.286
-         A has freq 0.306
-         N has freq 0.001
-         G has freq 0.171
-MDC009211.567 :
-         C has freq 0.167
-         T has freq 0.327
-         A has freq 0.318
-         N has freq 0.006
-         G has freq 0.181
-MDC054294.001 :
-         W has freq 0.001
-         K has freq 0.001
-         S has freq 0.000
-         G has freq 0.186
-         M has freq 0.001
-         R has freq 0.002
-         C has freq 0.186
-         T has freq 0.318
-         A has freq 0.303
-         Y has freq 0.002
-MDC004364.265 :
-         S has freq 0.000
-         W has freq 0.000
-         K has freq 0.000
-         G has freq 0.198
-         N has freq 0.007
-         R has freq 0.001
-         C has freq 0.170
-         T has freq 0.302
-         A has freq 0.323
-         Y has freq 0.001
-MDC002360.219 :
-         C has freq 0.204
-         T has freq 0.303
-         A has freq 0.316
-         N has freq 0.003
-         G has freq 0.173
-MDC003408.117 :
-         C has freq 0.215
-         T has freq 0.247
-         A has freq 0.329
-         N has freq 0.017
-         G has freq 0.191
-MDC015155.172 :
-         C has freq 0.202
-         T has freq 0.277
-         A has freq 0.272
-         N has freq 0.003
-         G has freq 0.247
-MDC053310.000 :
-         W has freq 0.001
-         K has freq 0.001
-         S has freq 0.000
-         G has freq 0.185
-         M has freq 0.001
-         R has freq 0.003
-         C has freq 0.167
-         T has freq 0.310
-         A has freq 0.330
-         Y has freq 0.002
-MDC019140.398 :
-         C has freq 0.163
-         T has freq 0.302
-         A has freq 0.352
-         N has freq 0.005
-         G has freq 0.178
-MDC019140.399 :
-         C has freq 0.165
-         T has freq 0.346
-         A has freq 0.301
-         N has freq 0.001
-         G has freq 0.187
-MDC011390.337 :
-         G has freq 0.177
-         N has freq 0.046
-         R has freq 0.000
-         C has freq 0.228
-         T has freq 0.298
-         A has freq 0.251
-         Y has freq 0.000
-MDC007154.375 :
-         C has freq 0.197
-         T has freq 0.292
-         A has freq 0.307
-         N has freq 0.003
-         G has freq 0.201
-MDC006346.716 :
-         C has freq 0.199
-         T has freq 0.290
-         A has freq 0.296
-         N has freq 0.024
-         G has freq 0.191
-MDC010588.505 :
-         C has freq 0.257
-         T has freq 0.237
-         A has freq 0.305
-         N has freq 0.006
-         G has freq 0.195
-MDC002519.240 :
-         N has freq 0.001
-         G has freq 0.188
-         M has freq 0.000
-         R has freq 0.000
-         C has freq 0.178
-         T has freq 0.321
-         A has freq 0.312
-         Y has freq 0.000
-MDC031322.5 :
-         S has freq 0.000
-         W has freq 0.000
-         K has freq 0.000
-         G has freq 0.202
-         N has freq 0.002
-         M has freq 0.001
-         R has freq 0.002
-         C has freq 0.149
-         T has freq 0.299
-         A has freq 0.342
-         Y has freq 0.002
-MDC010588.502 :
-         C has freq 0.184
-         T has freq 0.311
-         A has freq 0.282
-         N has freq 0.009
-         G has freq 0.215
-MDC006346.711 :
-         G has freq 0.187
-         N has freq 0.006
-         M has freq 0.000
-         C has freq 0.191
-         T has freq 0.295
-         A has freq 0.321
-MDC011551.182 :
-         R has freq 0.001
-         W has freq 0.000
-         K has freq 0.000
-         N has freq 0.007
-         G has freq 0.190
-         M has freq 0.000
-         Y has freq 0.001
-         C has freq 0.189
-         T has freq 0.297
-         A has freq 0.313
-         S has freq 0.000
-MDC002717.156 :
-         C has freq 0.219
-         T has freq 0.284
-         A has freq 0.298
-         N has freq 0.003
-         G has freq 0.196
-MDC006346.719 :
-         C has freq 0.183
-         T has freq 0.306
-         A has freq 0.286
-         N has freq 0.006
-         G has freq 0.219
-MDC007838.447 :
-         C has freq 0.200
-         T has freq 0.299
-         A has freq 0.326
-         N has freq 0.009
-         G has freq 0.166
-MDC007018.186 :
-         C has freq 0.160
-         T has freq 0.262
-         A has freq 0.226
-         N has freq 0.151
-         G has freq 0.202
-MDC017873.233 :
-         C has freq 0.133
-         T has freq 0.231
-         A has freq 0.262
-         N has freq 0.235
-         G has freq 0.139
-MDC016296.138 :
-         C has freq 0.172
-         T has freq 0.346
-         A has freq 0.277
-         N has freq 0.016
-         G has freq 0.188
-MDC019067.226 :
-         C has freq 0.144
-         T has freq 0.376
-         A has freq 0.293
-         N has freq 0.007
-         G has freq 0.181
-MDC036568.1 :
-         C has freq 0.154
-         T has freq 0.348
-         A has freq 0.331
-         N has freq 0.006
-         G has freq 0.161
-MDC014019.318 :
-         C has freq 0.249
-         T has freq 0.319
-         A has freq 0.221
-         N has freq 0.002
-         G has freq 0.209
-MDC007995.528 :
-         C has freq 0.166
-         T has freq 0.340
-         A has freq 0.305
-         N has freq 0.009
-         G has freq 0.181
-MDC026961.60 :
-         C has freq 0.201
-         T has freq 0.288
-         A has freq 0.300
-         N has freq 0.005
-         G has freq 0.206
-MDC013443.168 :
-         C has freq 0.203
-         T has freq 0.330
-         A has freq 0.289
-         N has freq 0.005
-         G has freq 0.173
-MDC022800.298 :
-         C has freq 0.131
-         T has freq 0.334
-         A has freq 0.323
-         N has freq 0.008
-         G has freq 0.203
-MDC021558.159 :
-         C has freq 0.176
-         T has freq 0.334
-         A has freq 0.298
-         N has freq 0.002
-         G has freq 0.190
-MDC002479.192 :
-         C has freq 0.151
-         T has freq 0.304
-         A has freq 0.305
-         N has freq 0.009
-         G has freq 0.232
-MDC010751.301 :
-         C has freq 0.172
-         T has freq 0.291
-         A has freq 0.318
-         N has freq 0.006
-         G has freq 0.214
-MDC000219.190 :
-         S has freq 0.000
-         G has freq 0.168
-         N has freq 0.003
-         M has freq 0.000
-         R has freq 0.000
-         C has freq 0.160
-         T has freq 0.335
-         A has freq 0.332
-         Y has freq 0.001
-MDC020963.161 :
-         C has freq 0.248
-         T has freq 0.315
-         A has freq 0.287
-         N has freq 0.002
-         G has freq 0.148
-MDC020963.162 :
-         W has freq 0.000
-         G has freq 0.207
-         N has freq 0.005
-         R has freq 0.000
-         C has freq 0.214
-         T has freq 0.265
-         A has freq 0.309
-         S has freq 0.000
-MDC051637.000 :
-         N has freq 0.010
-         K has freq 0.001
-         Y has freq 0.005
-         G has freq 0.169
-         M has freq 0.001
-         R has freq 0.003
-         C has freq 0.175
-         T has freq 0.328
-         A has freq 0.307
-         W has freq 0.001
-         S has freq 0.000
-MDC005174.220 :
-         C has freq 0.198
-         T has freq 0.283
-         A has freq 0.311
-         N has freq 0.022
-         G has freq 0.186
-MDC040033.7 :
-         C has freq 0.195
-         T has freq 0.301
-         A has freq 0.297
-         N has freq 0.003
-         G has freq 0.204
-MDC019674.147 :
-         S has freq 0.000
-         W has freq 0.000
-         G has freq 0.167
-         N has freq 0.004
-         R has freq 0.000
-         C has freq 0.137
-         T has freq 0.366
-         A has freq 0.324
-         Y has freq 0.001
-MDC010450.877 :
-         C has freq 0.190
-         T has freq 0.285
-         A has freq 0.293
-         N has freq 0.058
-         G has freq 0.174
-MDC007097.457 :
-         C has freq 0.126
-         T has freq 0.299
-         A has freq 0.289
-         N has freq 0.070
-         G has freq 0.217
-MDC016278.70 :
-         C has freq 0.183
-         T has freq 0.303
-         A has freq 0.277
-         N has freq 0.084
-         G has freq 0.153
-MDC013723.254 :
-         C has freq 0.212
-         T has freq 0.329
-         A has freq 0.279
-         N has freq 0.001
-         G has freq 0.179
-MDC002838.179 :
-         C has freq 0.163
-         T has freq 0.297
-         A has freq 0.359
-         N has freq 0.013
-         G has freq 0.167
-MDC009771.217 :
-         C has freq 0.185
-         T has freq 0.335
-         A has freq 0.315
-         N has freq 0.001
-         G has freq 0.163
-</pre></div></div>
-</div>
 </div><ol class="arabic simple" start="5">
 <li><p>Write a python program that reads two files. The first is a one column text file (<a class="reference external" href="file_samples/contig_ids.txt">contig_ids.txt</a>) with the identifiers of some contigs that are present in the second file, which is a fasta formatted file (<a class="reference external" href="file_samples/contigs82.fasta">contigs82.fasta</a>). The program will write on a third, fasta formatted file (e.g. filtered_contigs.fasta) only those entries in <em>contigs82.fasta</em> having identifier in <em>contig_ids.txt</em>.</p></li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex4');"><p>Show/Hide Solution</p>
-</div><div id="ex4" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</div><div id="ex4" style="display:none;"><div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2352,57 +1490,6 @@ MDC009771.217 :
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Writing contig  MDC001115.177
-Writing contig  MDC013284.379
-Writing contig  MDC018185.243
-Writing contig  MDC018185.241
-Writing contig  MDC004527.213
-Writing contig  MDC012176.157
-Writing contig  MDC001204.810
-Writing contig  MDC004389.256
-Writing contig  MDC018297.229
-Writing contig  MDC001802.364
-Writing contig  MDC014057.243
-Writing contig  MDC021015.302
-Writing contig  MDC017187.314
-Writing contig  MDC012865.410
-Writing contig  MDC000427.83
-Writing contig  MDC017187.319
-Writing contig  MDC004364.265
-Writing contig  MDC002360.219
-Writing contig  MDC015155.172
-Writing contig  MDC019140.398
-Writing contig  MDC019140.399
-Writing contig  MDC011390.337
-Writing contig  MDC007154.375
-Writing contig  MDC010588.505
-Writing contig  MDC002519.240
-Writing contig  MDC006346.711
-Writing contig  MDC011551.182
-Writing contig  MDC002717.156
-Writing contig  MDC006346.719
-Writing contig  MDC007838.447
-Writing contig  MDC007018.186
-Writing contig  MDC017873.233
-Writing contig  MDC016296.138
-Writing contig  MDC019067.226
-Writing contig  MDC014019.318
-Writing contig  MDC007995.528
-Writing contig  MDC026961.60
-Writing contig  MDC020963.161
-Writing contig  MDC005174.220
-Writing contig  MDC040033.7
-Writing contig  MDC019674.147
-Writing contig  MDC010450.877
-Writing contig  MDC007097.457
-Writing contig  MDC016278.70
-</pre></div></div>
-</div>
 </div><ol class="arabic simple" start="6">
 <li><p>Write a python program that:</p>
 <ol class="arabic simple">
@@ -2414,8 +1501,8 @@ Writing contig  MDC016278.70
 </li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex5');"><p>Show/Hide Solution</p>
-</div><div id="ex5" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</div><div id="ex5" style="display:none;"><div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2476,21 +1563,6 @@ Writing contig  MDC016278.70
 
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-The file file_samples/sample_text.txt has 28 lines
-The total number of distinct words is  308
-Word &#34;challenge&#34; is present 6 times
-Word &#34;future&#34; is present 22 times
-Word &#34;reply&#34; is present 7 times
-Word &#34;shop&#34; is present 6 times
-Word &#34;thunder&#34; is present 11 times
-Word &#34;umbrella&#34; is present 10 times
-</pre></div></div>
 </div>
 </div></div>
 </div>
