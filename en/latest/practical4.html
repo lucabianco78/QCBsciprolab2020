@@ -809,7 +809,7 @@ range(0, 10)
 
 <span class="n">outSTR</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)):</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">s2</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+    <span class="k">if</span> <span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">s2</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
         <span class="n">outSTR</span> <span class="o">=</span> <span class="n">outSTR</span> <span class="o">+</span> <span class="s2">&quot;|&quot;</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">outSTR</span> <span class="o">=</span> <span class="n">outSTR</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span>
@@ -844,7 +844,7 @@ CGCCACTTAAGCGCCCTGTATTAAAGTCGC
 <p>Given the matrix <span class="math notranslate nohighlight">\(\begin{bmatrix}1 &amp; 2 &amp; 3\\4 &amp; 5 &amp; 6\\7 &amp; 8 &amp; 9\end{bmatrix}\)</span> stored as a list of lists (i.e. matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]].</p>
 <p>Print it out as: <span class="math notranslate nohighlight">\(\begin{matrix}1 &amp; 2 &amp; 3\\4 &amp; 5 &amp; 6\\7 &amp; 8 &amp; 9\end{matrix}\)</span></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -927,13 +927,13 @@ i now is: 4
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>                       <span class="c1"># or without string output</span>
-    <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>                                   <span class="c1"># for i in range(1,10):</span>
-    <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>                             <span class="c1">#     j = 1</span>
-    <span class="k">while</span> <span class="n">j</span><span class="o">&lt;=</span> <span class="n">i</span><span class="p">:</span>                            <span class="c1">#     while j&lt;=i:</span>
-        <span class="n">output</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">output</span>      <span class="c1">#         print(j, end = &quot; &quot;)</span>
-        <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>                           <span class="c1">#         j = j + 1</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>                           <span class="c1">#     print(&quot;&quot;)</span>
+<span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">while</span> <span class="n">j</span><span class="o">&lt;=</span> <span class="n">i</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">output</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -951,6 +951,37 @@ i now is: 4
 7 6 5 4 3 2 1
 8 7 6 5 4 3 2 1
 9 8 7 6 5 4 3 2 1
+</pre></div></div>
+</div>
+<p>Note the way the numbers are concatenated together to form the output string. Check the difference of the previous code to the following:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">j</span><span class="o">&lt;=</span><span class="n">i</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+1 2 3 4 5 6
+1 2 3 4 5 6 7
+1 2 3 4 5 6 7 8
+1 2 3 4 5 6 7 8 9
 </pre></div></div>
 </div>
 </div>
