@@ -502,7 +502,7 @@ div.rendered_html tbody tr:hover {
 <span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="sd">&quot;&quot;&quot;Test input from command line in systest.py&quot;&quot;&quot;</span>
 
-<span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">):</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dear user, I was expecting 3 params. You gave me &quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
@@ -532,7 +532,7 @@ Param 3: 3 (&lt;class &#39;str&#39;&gt;)
 <span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="sd">&quot;&quot;&quot;Maths example with input from command line&quot;&quot;&quot;</span>
 
-<span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">):</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dear user, I was expecting 2 params. You gave me &quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
@@ -664,7 +664,7 @@ here <a class="reference external" href="file_samples/textFile.gz">text.gz</a>:<
 <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 <span class="n">inputFile</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">filename</span>
 <span class="n">fh</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-<span class="k">if</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gzipped</span><span class="p">):</span>
+<span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">gzipped</span><span class="p">:</span>
     <span class="n">fh</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">inputFile</span><span class="p">,</span> <span class="s2">&quot;rt&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">fh</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">inputFile</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
@@ -737,7 +737,12 @@ here <a class="reference external" href="file_samples/textFile.gz">text.gz</a>:<
 </ol>
 <p>Write a python program that reads two files. The first is a one column text file (<a class="reference external" href="file_samples/contig_ids.txt">contig_ids.txt</a>) with the identifiers of some contigs that are present in the second file, which is a fasta formatted file (<a class="reference external" href="file_samples/contigs82.fasta">contigs82.fasta</a>). The program will write on a third, fasta formatted file (e.g. filtered_contigs.fasta) only those entries in <em>contigs82.fasta</em> having identifier in <em>contig_ids.txt</em>.</p>
 <div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
-</div><div id="ex1" style="display:none;"></div><ol class="arabic" start="2">
+</div><div id="ex1" style="display:none;"></div><ol class="arabic simple" start="2">
+<li><p>Write a python script that takes in input a single-entry .fasta file (specified from the command line) of the amino-acidic sequence of a protein and prints off 1) the total number of aminoacids, 2) for each aminoacid, its count and percentage of the whole. Optionally, it the user specifies the flag “-S” (–search) followed by a string representing an aminoacid sequence, the program should count and print how many times that input sequence appears. Download the <a class="reference external" href="file_samples/P0DTC2.fasta.txt">Sars-Cov-2 Spike
+Protein</a> and test your script on it. <em>Please use functions</em>.</p></li>
+</ol>
+<div class="tggle" onclick="toggleVisibility('ex1-cov');"><p>Show/Hide Solution</p>
+</div><div id="ex1-cov" style="display:none;"></div><ol class="arabic" start="2">
 <li><p><a class="reference external" href="https://www.cytoscape.org">Cytoscape</a> is a well known tool to perform network analysis. It is well integrated with several online databases housing for example protein-protein interactions like EBI’s <a class="reference external" href="https://www.ebi.ac.uk/intact/">IntAct</a>. It is also able to read and write a very simple text file called <code class="docutils literal notranslate"><span class="pre">.sif</span></code> to represent interactions between the nodes of a network. Sif formatted files are tab separated (<code class="docutils literal notranslate"><span class="pre">\t</span></code>) and each line represents a connection between the nodes of the
 network. For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>node1 interaction1 node2
