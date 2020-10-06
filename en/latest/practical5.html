@@ -564,7 +564,7 @@ Total amount: 110 discount: 0.1
 <p>Sometimes it is useful to skip an entire iteration of a loop or end the loop before its supposed end. This can be achieved with two different statements: <strong>continue</strong> and <strong>break</strong>.</p>
 <div class="section" id="Continue-statement">
 <h4>Continue statement<a class="headerlink" href="#Continue-statement" title="Permalink to this headline">¶</a></h4>
-<p>Within a <strong>for</strong> or <strong>while</strong> loop, <strong>continue</strong> makes the interpreter skip that iteration and move to the next.</p>
+<p>Within a <strong>for</strong> or <strong>while</strong> loop, <strong>continue</strong> makes the interpreter skip that iteration and move on to the next.</p>
 <p><strong>Example:</strong> Print all the odd numbers from 1 to 20.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -638,7 +638,7 @@ Total amount: 110 discount: 0.1
 </div>
 <div class="section" id="Break-statement">
 <h4>Break statement<a class="headerlink" href="#Break-statement" title="Permalink to this headline">¶</a></h4>
-<p>Within a <strong>for</strong> or <strong>while</strong> loop, <strong>break</strong> makes the interpreter exit the loop and continue with the sequential execution. Sometimes it is useful to get out of the loop if to complete our task we do not need to get to the end of the loop.</p>
+<p>Within a <strong>for</strong> or <strong>while</strong> loop, <strong>break</strong> makes the interpreter exit the loop and continue with the sequential execution. Sometimes it is useful to get out of the loop if to complete our task we do not need to get to the end of it.</p>
 <p><strong>Example:</strong> Given the following list of integers [1,5,6,4,7,1,2,3,7] print them until a number already printed is found.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -917,7 +917,7 @@ Empty: {}
 True
 </pre></div></div>
 </div>
-<p>Note that there is no ordering of the keys, and that the order in which they have been inserted is not preserved. Moreover, keys and values can be dishomogeneous (e.g. keys strings and values integers). An interesting case is <em>third_dict</em> where the function <em>zip</em> followed by <em>dict</em> is used to map the keys of the first list into the values present in the second.</p>
+<p>Note that there is no ordering of the keys, and that the order in which they have been inserted is not preserved. Moreover, keys and values can be dishomogeneous (e.g. keys can be strings and values integers). An interesting case is <em>third_dict</em> where the function <em>zip</em> followed by <em>dict</em> is used to map the keys of the first list into the values present in the second.</p>
 <p>Note that keys can be <strong>dishomogeneous</strong>, even though this is a bad idea normally. The only requirement for the <strong>keys</strong> is that they <strong>must be immutable objects</strong>. Trying to use a mutable object as a key will make the interpreter crash with the error: <strong>unhashable type</strong>. Finally, keys must be unique. We cannot associate more than one value to the same key.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
