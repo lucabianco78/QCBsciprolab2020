@@ -902,6 +902,34 @@ Filtered:
 HI THERE
 </pre></div></div>
 </div>
+<p>With list comprehension we can copy a list into another one, but this is a shallow copy:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="p">[[</span><span class="n">a</span><span class="p">]]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B:&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">b</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C:&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B now:&quot;</span> <span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C now:&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+B: [[1, 2, 3], [[[1, 2, 3]]]]
+C: [[1, 2, 3], [[[1, 2, 3]]]]
+B now: [[1, 2, 3, 4], [[[1, 2, 3, 4]]]]
+C now: [[1, 2, 3, 4], [[[1, 2, 3, 4]]]]
+</pre></div></div>
+</div>
 </div>
 </div>
 <div class="section" id="Dictionaries">
@@ -1257,7 +1285,37 @@ key: seven value: not found
 </li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
-</div><div id="ex1" style="display:none;"></div><ol class="arabic simple" start="2">
+</div><div id="ex1" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">44</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">71</span><span class="p">]</span>
+
+<span class="n">L1</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">L2</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">intersection</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L1</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L2</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L1:    &quot;</span><span class="p">,</span> <span class="n">L1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L2:    &quot;</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;inters:&quot;</span><span class="p">,</span> <span class="n">intersection</span><span class="p">)</span>
+
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+L1:     [1, 7, 12, 13, 15, 21, 22, 43, 77, 81, 84, 100]
+L2:     [1, 7, 13, 21, 32, 44, 71, 81, 100]
+inters: [1, 7, 13, 21, 81, 100]
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="2">
 <li><p>The sequence below is the Sars-Cov2 ORF1a polyprotein. 1. Count and print how many aminoacids it is composed of and 2. put in a dictionary all the indexes of the occurrences of the following four aminoacids: <code class="docutils literal notranslate"><span class="pre">TTTL,</span> <span class="pre">GFAV,</span> <span class="pre">KMLL</span></code> (i.e. the key of the dictionary is the sequence and the value is the list of all positions at which the four-mers appear).</p></li>
 </ol>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ORF1a = &quot;&quot;&quot;MESLVPGFNEKTHVQLSLPVLQVRDVLVRGFGDSVEEVLSEARQHLKDGTCGLVEVEKGVLPQLEQPYVF
@@ -1326,7 +1384,103 @@ GFCDLKGKYVQIPTTCANDPVGFTLKNTVCTVCGMWKGYGCSCDQLREPMLQSADAQSFLNGFAV&quot;&quot;&qu
 </pre></div>
 </div>
 <div class="tggle" onclick="toggleVisibility('ex2-sc2');"><p>Show/Hide Solution</p>
-</div><div id="ex2-sc2" style="display:none;"></div><ol class="arabic simple" start="3">
+</div><div id="ex2-sc2" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ORF1a</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;MESLVPGFNEKTHVQLSLPVLQVRDVLVRGFGDSVEEVLSEARQHLKDGTCGLVEVEKGVLPQLEQPYVF</span>
+<span class="s2">IKRSDARTAPHGHVMVELVAELEGIQYGRSGETLGVLVPHVGEIPVAYRKVLLRKNGNKGAGGHSYGADL</span>
+<span class="s2">KSFDLGDELGTDPYEDFQENWNTKHSSGVTRELMRELNGGAYTRYVDNNFCGPDGYPLECIKDLLARAGK</span>
+<span class="s2">ASCTLSEQLDFIDTKRGVYCCREHEHEIAWYTERSEKSYELQTPFEIKLAKKFDTFNGECPNFVFPLNSI</span>
+<span class="s2">IKTIQPRVEKKKLDGFMGRIRSVYPVASPNECNQMCLSTLMKCDHCGETSWQTGDFVKATCEFCGTENLT</span>
+<span class="s2">KEGATTCGYLPQNAVVKIYCPACHNSEVGPEHSLAEYHNESGLKTILRKGGRTIAFGGCVFSYVGCHNKC</span>
+<span class="s2">AYWVPRASANIGCNHTGVVGEGSEGLNDNLLEILQKEKVNINIVGDFKLNEEIAIILASFSASTSAFVET</span>
+<span class="s2">VKGLDYKAFKQIVESCGNFKVTKGKAKKGAWNIGEQKSILSPLYAFASEAARVVRSIFSRTLETAQNSVR</span>
+<span class="s2">VLQKAAITILDGISQYSLRLIDAMMFTSDLATNNLVVMAYITGGVVQLTSQWLTNIFGTVYEKLKPVLDW</span>
+<span class="s2">LEEKFKEGVEFLRDGWEIVKFISTCACEIVGGQIVTCAKEIKESVQTFFKLVNKFLALCADSIIIGGAKL</span>
+<span class="s2">KALNLGETFVTHSKGLYRKCVKSREETGLLMPLKAPKEIIFLEGETLPTEVLTEEVVLKTGDLQPLEQPT</span>
+<span class="s2">SEAVEAPLVGTPVCINGLMLLEIKDTEKYCALAPNMMVTNNTFTLKGGAPTKVTFGDDTVIEVQGYKSVN</span>
+<span class="s2">ITFELDERIDKVLNEKCSAYTVELGTEVNEFACVVADAVIKTLQPVSELLTPLGIDLDEWSMATYYLFDE</span>
+<span class="s2">SGEFKLASHMYCSFYPPDEDEEEGDCEEEEFEPSTQYEYGTEDDYQGKPLEFGATSAALQPEEEQEEDWL</span>
+<span class="s2">DDDSQQTVGQQDGSEDNQTTTIQTIVEVQPQLEMELTPVVQTIEVNSFSGYLKLTDNVYIKNADIVEEAK</span>
+<span class="s2">KVKPTVVVNAANVYLKHGGGVAGALNKATNNAMQVESDDYIATNGPLKVGGSCVLSGHNLAKHCLHVVGP</span>
+<span class="s2">NVNKGEDIQLLKSAYENFNQHEVLLAPLLSAGIFGADPIHSLRVCVDTVRTNVYLAVFDKNLYDKLVSSF</span>
+<span class="s2">LEMKSEKQVEQKIAEIPKEEVKPFITESKPSVEQRKQDDKKIKACVEEVTTTLEETKFLTENLLLYIDIN</span>
+<span class="s2">GNLHPDSATLVSDIDITFLKKDAPYIVGDVVQEGVLTAVVIPTKKAGGTTEMLAKALRKVPTDNYITTYP</span>
+<span class="s2">GQGLNGYTVEEAKTVLKKCKSAFYILPSIISNEKQEILGTVSWNLREMLAHAEETRKLMPVCVETKAIVS</span>
+<span class="s2">TIQRKYKGIKIQEGVVDYGARFYFYTSKTTVASLINTLNDLNETLVTMPLGYVTHGLNLEEAARYMRSLK</span>
+<span class="s2">VPATVSVSSPDAVTAYNGYLTSSSKTPEEHFIETISLAGSYKDWSYSGQSTQLGIEFLKRGDKSVYYTSN</span>
+<span class="s2">PTTFHLDGEVITFDNLKTLLSLREVRTIKVFTTVDNINLHTQVVDMSMTYGQQFGPTYLDGADVTKIKPH</span>
+<span class="s2">NSHEGKTFYVLPNDDTLRVEAFEYYHTTDPSFLGRYMSALNHTKKWKYPQVNGLTSIKWADNNCYLATAL</span>
+<span class="s2">LTLQQIELKFNPPALQDAYYRARAGEAANFCALILAYCNKTVGELGDVRETMSYLFQHANLDSCKRVLNV</span>
+<span class="s2">VCKTCGQQQTTLKGVEAVMYMGTLSYEQFKKGVQIPCTCGKQATKYLVQQESPFVMMSAPPAQYELKHGT</span>
+<span class="s2">FTCASEYTGNYQCGHYKHITSKETLYCIDGALLTKSSEYKGPITDVFYKENSYTTTIKPVTYKLDGVVCT</span>
+<span class="s2">EIDPKLDNYYKKDNSYFTEQPIDLVPNQPYPNASFDNFKFVCDNIKFADDLNQLTGYKKPASRELKVTFF</span>
+<span class="s2">PDLNGDVVAIDYKHYTPSFKKGAKLLHKPIVWHVNNATNKATYKPNTWCIRCLWSTKPVETSNSFDVLKS</span>
+<span class="s2">EDAQGMDNLACEDLKPVSEEVVENPTIQKDVLECNVKTTEVVGDIILKPANNSLKIIEEVGHTDLMAAYV</span>
+<span class="s2">DNSSLTIKKPNELSRVLGLKTLATHGLAAVNSVPWDTIANYAKPFLNKVVSTTTNIVTRCLNRVCTNYMP</span>
+<span class="s2">YFFTLLLQLCTFTRSTNSRIKASMPTTIAKNTVKSVGKFCLEASFNYLKSPNFSKLINIIIWFLLLSVCL</span>
+<span class="s2">GSLIYSTAALGVLMSNLGMPSYCTGYREGYLNSTNVTIATYCTGSIPCSVCLSGLDSLDTYPSLETIQIT</span>
+<span class="s2">ISSFKWDLTAFGLVAEWFLAYILFTRFFYVLGLAAIMQLFFSYFAVHFISNSWLMWLIINLVQMAPISAM</span>
+<span class="s2">VRMYIFFASFYYVWKSYVHVVDGCNSSTCMMCYKRNRATRVECTTIVNGVRRSFYVYANGGKGFCKLHNW</span>
+<span class="s2">NCVNCDTFCAGSTFISDEVARDLSLQFKRPINPTDQSSYIVDSVTVKNGSIHLYFDKAGQKTYERHSLSH</span>
+<span class="s2">FVNLDNLRANNTKGSLPINVIVFDGKSKCEESSAKSASVYYSQLMCQPILLLDQALVSDVGDSAEVAVKM</span>
+<span class="s2">FDAYVNTFSSTFNVPMEKLKTLVATAEAELAKNVSLDNVLSTFISAARQGFVDSDVETKDVVECLKLSHQ</span>
+<span class="s2">SDIEVTGDSCNNYMLTYNKVENMTPRDLGACIDCSARHINAQVAKSHNIALIWNVKDFMSLSEQLRKQIR</span>
+<span class="s2">SAAKKNNLPFKLTCATTRQVVNVVTTKIALKGGKIVNNWLKQLIKVTLVFLFVAAIFYLITPVHVMSKHT</span>
+<span class="s2">DFSSEIIGYKAIDGGVTRDIASTDTCFANKHADFDTWFSQRGGSYTNDKACPLIAAVITREVGFVVPGLP</span>
+<span class="s2">GTILRTTNGDFLHFLPRVFSAVGNICYTPSKLIEYTDFATSACVLAAECTIFKDASGKPVPYCYDTNVLE</span>
+<span class="s2">GSVAYESLRPDTRYVLMDGSIIQFPNTYLEGSVRVVTTFDSEYCRHGTCERSEAGVCVSTSGRWVLNNDY</span>
+<span class="s2">YRSLPGVFCGVDAVNLLTNMFTPLIQPIGALDISASIVAGGIVAIVVTCLAYYFMRFRRAFGEYSHVVAF</span>
+<span class="s2">NTLLFLMSFTVLCLTPVYSFLPGVYSVIYLYLTFYLTNDVSFLAHIQWMVMFTPLVPFWITIAYIICIST</span>
+<span class="s2">KHFYWFFSNYLKRRVVFNGVSFSTFEEAALCTFLLNKEMYLKLRSDVLLPLTQYNRYLALYNKYKYFSGA</span>
+<span class="s2">MDTTSYREAACCHLAKALNDFSNSGSDVLYQPPQTSITSAVLQSGFRKMAFPSGKVEGCMVQVTCGTTTL</span>
+<span class="s2">NGLWLDDVVYCPRHVICTSEDMLNPNYEDLLIRKSNHNFLVQAGNVQLRVIGHSMQNCVLKLKVDTANPK</span>
+<span class="s2">TPKYKFVRIQPGQTFSVLACYNGSPSGVYQCAMRPNFTIKGSFLNGSCGSVGFNIDYDCVSFCYMHHMEL</span>
+<span class="s2">PTGVHAGTDLEGNFYGPFVDRQTAQAAGTDTTITVNVLAWLYAAVINGDRWFLNRFTTTLNDFNLVAMKY</span>
+<span class="s2">NYEPLTQDHVDILGPLSAQTGIAVLDMCASLKELLQNGMNGRTILGSALLEDEFTPFDVVRQCSGVTFQS</span>
+<span class="s2">AVKRTIKGTHHWLLLTILTSLLVLVQSTQWSLFFFLYENAFLPFAMGIIAMSAFAMMFVKHKHAFLCLFL</span>
+<span class="s2">LPSLATVAYFNMVYMPASWVMRIMTWLDMVDTSLSGFKLKDCVMYASAVVLLILMTARTVYDDGARRVWT</span>
+<span class="s2">LMNVLTLVYKVYYGNALDQAISMWALIISVTSNYSGVVTTVMFLARGIVFMCVEYCPIFFITGNTLQCIM</span>
+<span class="s2">LVYCFLGYFCTCYFGLFCLLNRYFRLTLGVYDYLVSTQEFRYMNSQGLLPPKNSIDAFKLNIKLLGVGGK</span>
+<span class="s2">PCIKVATVQSKMSDVKCTSVVLLSVLQQLRVESSSKLWAQCVQLHNDILLAKDTTEAFEKMVSLLSVLLS</span>
+<span class="s2">MQGAVDINKLCEEMLDNRATLQAIASEFSSLPSYAAFATAQEAYEQAVANGDSEVVLKKLKKSLNVAKSE</span>
+<span class="s2">FDRDAAMQRKLEKMADQAMTQMYKQARSEDKRAKVTSAMQTMLFTMLRKLDNDALNNIINNARDGCVPLN</span>
+<span class="s2">IIPLTTAAKLMVVIPDYNTYKNTCDGTTFTYASALWEIQQVVDADSKIVQLSEISMDNSPNLAWPLIVTA</span>
+<span class="s2">LRANSAVKLQNNELSPVALRQMSCAAGTTQTACTDDNALAYYNTTKGGRFVLALLSDLQDLKWARFPKSD</span>
+<span class="s2">GTGTIYTELEPPCRFVTDTPKGPKVKYLYFIKGLNNLNRGMVLGSLAATVRLQAGNATEVPANSTVLSFC</span>
+<span class="s2">AFAVDAAKAYKDYLASGGQPITNCVKMLCTHTGTGQAITVTPEANMDQESFGGASCCLYCRCHIDHPNPK</span>
+<span class="s2">GFCDLKGKYVQIPTTCANDPVGFTLKNTVCTVCGMWKGYGCSCDQLREPMLQSADAQSFLNGFAV&quot;&quot;&quot;</span>
+
+
+<span class="n">ORF1a</span> <span class="o">=</span> <span class="n">ORF1a</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ORF1a protein has &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ORF1a</span><span class="p">),</span> <span class="s2">&quot; aminoacids&quot;</span><span class="p">)</span>
+
+<span class="n">seqs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;TTTL&quot;</span> <span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;GFAV&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;KMLL&quot;</span><span class="p">:</span> <span class="p">[]}</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ORF1a</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">fourmer</span> <span class="o">=</span> <span class="n">ORF1a</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">fourmer</span> <span class="ow">in</span> <span class="n">seqs</span><span class="p">:</span>  <span class="c1">#remember it tests the presence in the keys</span>
+        <span class="n">seqs</span><span class="p">[</span><span class="n">fourmer</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">seqs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s2">&quot; is present at positions: &quot;</span><span class="p">,</span> <span class="n">seqs</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ORF1a protein has  4405  aminoacids
+TTTL  is present at positions:  [1239, 3286, 3486]
+GFAV  is present at positions:  [4401]
+KMLL  is present at positions:  []
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="3">
 <li><p>Given the string “nOBody Said iT was eAsy, No oNe Ever saId it WoulD be tHis hArd…”</p>
 <ol class="arabic simple">
 <li><p>Create a list with all the letters that are capitalized (use str.isupper)</p></li>
@@ -1341,7 +1495,29 @@ O*B*S*T*A*N*N*E*I*W*D*H*A
 </pre></div>
 </div>
 <div class="tggle" onclick="toggleVisibility('ex2');"><p>Show/Hide Solution</p>
-</div><div id="ex2" style="display:none;"></div><ol class="arabic simple" start="4">
+</div><div id="ex2" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;nOBody Said iT was eAsy, No oNe Ever saId it WoulD be tHis hArd…&quot;</span>
+<span class="n">initials</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">isupper</span><span class="p">()]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">initials</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">initials</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;O&#39;, &#39;B&#39;, &#39;S&#39;, &#39;T&#39;, &#39;A&#39;, &#39;N&#39;, &#39;N&#39;, &#39;E&#39;, &#39;I&#39;, &#39;W&#39;, &#39;D&#39;, &#39;H&#39;, &#39;A&#39;]
+O*B*S*T*A*N*N*E*I*W*D*H*A
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="4">
 <li><p>Given the following sequence:</p></li>
 </ol>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>AUGCUGUCUCCCUCACUGUAUGUAAAUUGCAUCUAGAAUAGCA
@@ -1365,7 +1541,70 @@ CAGUAUUGUUGGUG
 <div class="line">2. create then a dictionary in which codons are keys and values are how many times that codon is present in the first forward open reading frame and print it; 3. retrieve from the dictionary and print the number of times codons: “AUG”, “AGA”, “GGG”, “AUA” are present. If a codon is not present the script should print “NOT present” rather than crash.</div>
 </div>
 <div class="tggle" onclick="toggleVisibility('ex3a');"><p>Show/Hide Solution</p>
-</div><div id="ex3a" style="display:none;"></div><ol class="arabic" start="5">
+</div><div id="ex3a" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">seq</span><span class="o">=</span> <span class="s2">&quot;&quot;&quot;AUGCUGUCUCCCUCACUGUAUGUAAAUUGCAUCUAGAAUAGCA</span>
+<span class="s2">UCUGGAGCACUAAUUGACACAUAGUGGGUAUCAAUUAUUA</span>
+<span class="s2">UUCCAGGUACUAGAGAUACCUGGACCAUUAACGGAUAAAU</span>
+<span class="s2">AGAAGAUUCAUUUGUUGAGUGACUGAGGAUGGCAGUUCCU</span>
+<span class="s2">GCUACCUUCAAGGAUCUGGAUGAUGGGGAGAAACAGAGAA</span>
+<span class="s2">CAUAGUGUGAGAAUACUGUGGUAAGGAAAGUACAGAGGAC</span>
+<span class="s2">UGGUAGAGUGUCUAACCUAGAUUUGGAGAAGGACCUAGAA</span>
+<span class="s2">GUCUAUCCCAGGGAAAUAAAAAUCUAAGCUAAGGUUUGAG</span>
+<span class="s2">GAAUCAGUAGGAAUUGGCAAAGGAAGGACAUGUUCCAGAU</span>
+<span class="s2">GAUAGGAACAGGUUAUGCAAAGAUCCUGAAAUGGUCAGAG</span>
+<span class="s2">CUUGGUGCUUUUUGAGAACCAAAAGUAGAUUGUUAUGGAC</span>
+<span class="s2">CAGUGCUACUCCCUGCCUCUUGCCAAGGGACCCCGCCAAG</span>
+<span class="s2">CACUGCAUCCCUUCCCUCUGACUCCACCUUUCCACUUGCC</span>
+<span class="s2">CAGUAUUGUUGGUG&quot;&quot;&quot;</span>
+
+
+<span class="n">seq</span> <span class="o">=</span> <span class="n">seq</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+<span class="n">codons</span> <span class="o">=</span> <span class="p">[</span><span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">),</span><span class="mi">3</span><span class="p">)]</span>
+
+<span class="n">count_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">codons</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">el</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">count_dict</span><span class="p">:</span>
+        <span class="n">count_dict</span><span class="p">[</span><span class="n">el</span><span class="p">]</span> <span class="o">=</span> <span class="n">codons</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1st fwd ORF codons:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">codons</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Codon counts:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">count_dict</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">to_check</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;AUG&quot;</span><span class="p">,</span> <span class="s2">&quot;AGA&quot;</span><span class="p">,</span> <span class="s2">&quot;GGG&quot;</span><span class="p">,</span> <span class="s2">&quot;AUA&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">to_check</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">count_dict</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">c</span> <span class="p">,</span> <span class="s2">&quot;is present&quot;</span><span class="p">,</span> <span class="n">count_dict</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="s2">&quot;times&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="s2">&quot;is NOT present&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1st fwd ORF codons:
+[&#39;AUG&#39;, &#39;CUG&#39;, &#39;UCU&#39;, &#39;CCC&#39;, &#39;UCA&#39;, &#39;CUG&#39;, &#39;UAU&#39;, &#39;GUA&#39;, &#39;AAU&#39;, &#39;UGC&#39;, &#39;AUC&#39;, &#39;UAG&#39;, &#39;AAU&#39;, &#39;AGC&#39;, &#39;AUC&#39;, &#39;UGG&#39;, &#39;AGC&#39;, &#39;ACU&#39;, &#39;AAU&#39;, &#39;UGA&#39;, &#39;CAC&#39;, &#39;AUA&#39;, &#39;GUG&#39;, &#39;GGU&#39;, &#39;AUC&#39;, &#39;AAU&#39;, &#39;UAU&#39;, &#39;UAU&#39;, &#39;UCC&#39;, &#39;AGG&#39;, &#39;UAC&#39;, &#39;UAG&#39;, &#39;AGA&#39;, &#39;UAC&#39;, &#39;CUG&#39;, &#39;GAC&#39;, &#39;CAU&#39;, &#39;UAA&#39;, &#39;CGG&#39;, &#39;AUA&#39;, &#39;AAU&#39;, &#39;AGA&#39;, &#39;AGA&#39;, &#39;UUC&#39;, &#39;AUU&#39;, &#39;UGU&#39;, &#39;UGA&#39;, &#39;GUG&#39;, &#39;ACU&#39;, &#39;GAG&#39;, &#39;GAU&#39;, &#39;GGC&#39;, &#39;AGU&#39;, &#39;UCC&#39;, &#39;UGC&#39;, &#39;UAC&#39;, &#39;CUU&#39;, &#39;CAA&#39;, &#39;GGA&#39;, &#39;UCU&#39;, &#39;GGA&#39;, &#39;UGA&#39;, &#39;UGG&#39;, &#39;GGA&#39;, &#39;GAA&#39;, &#39;ACA&#39;, &#39;GAG&#39;, &#39;AAC&#39;, &#39;AUA&#39;, &#39;GUG&#39;, &#39;UGA&#39;, &#39;GAA&#39;, &#39;UAC&#39;, &#39;UGU&#39;, &#39;GGU&#39;, &#39;AAG&#39;, &#39;GAA&#39;, &#39;AGU&#39;, &#39;ACA&#39;, &#39;GAG&#39;, &#39;GAC&#39;, &#39;UGG&#39;, &#39;UAG&#39;, &#39;AGU&#39;, &#39;GUC&#39;, &#39;UAA&#39;, &#39;CCU&#39;, &#39;AGA&#39;, &#39;UUU&#39;, &#39;GGA&#39;, &#39;GAA&#39;, &#39;GGA&#39;, &#39;CCU&#39;, &#39;AGA&#39;, &#39;AGU&#39;, &#39;CUA&#39;, &#39;UCC&#39;, &#39;CAG&#39;, &#39;GGA&#39;, &#39;AAU&#39;, &#39;AAA&#39;, &#39;AAU&#39;, &#39;CUA&#39;, &#39;AGC&#39;, &#39;UAA&#39;, &#39;GGU&#39;, &#39;UUG&#39;, &#39;AGG&#39;, &#39;AAU&#39;, &#39;CAG&#39;, &#39;UAG&#39;, &#39;GAA&#39;, &#39;UUG&#39;, &#39;GCA&#39;, &#39;AAG&#39;, &#39;GAA&#39;, &#39;GGA&#39;, &#39;CAU&#39;, &#39;GUU&#39;, &#39;CCA&#39;, &#39;GAU&#39;, &#39;GAU&#39;, &#39;AGG&#39;, &#39;AAC&#39;, &#39;AGG&#39;, &#39;UUA&#39;, &#39;UGC&#39;, &#39;AAA&#39;, &#39;GAU&#39;, &#39;CCU&#39;, &#39;GAA&#39;, &#39;AUG&#39;, &#39;GUC&#39;, &#39;AGA&#39;, &#39;GCU&#39;, &#39;UGG&#39;, &#39;UGC&#39;, &#39;UUU&#39;, &#39;UUG&#39;, &#39;AGA&#39;, &#39;ACC&#39;, &#39;AAA&#39;, &#39;AGU&#39;, &#39;AGA&#39;, &#39;UUG&#39;, &#39;UUA&#39;, &#39;UGG&#39;, &#39;ACC&#39;, &#39;AGU&#39;, &#39;GCU&#39;, &#39;ACU&#39;, &#39;CCC&#39;, &#39;UGC&#39;, &#39;CUC&#39;, &#39;UUG&#39;, &#39;CCA&#39;, &#39;AGG&#39;, &#39;GAC&#39;, &#39;CCC&#39;, &#39;GCC&#39;, &#39;AAG&#39;, &#39;CAC&#39;, &#39;UGC&#39;, &#39;AUC&#39;, &#39;CCU&#39;, &#39;UCC&#39;, &#39;CUC&#39;, &#39;UGA&#39;, &#39;CUC&#39;, &#39;CAC&#39;, &#39;CUU&#39;, &#39;UCC&#39;, &#39;ACU&#39;, &#39;UGC&#39;, &#39;CCA&#39;, &#39;GUA&#39;, &#39;UUG&#39;, &#39;UUG&#39;, &#39;GUG&#39;]
+Codon counts:
+{&#39;AUG&#39;: 2, &#39;CUG&#39;: 3, &#39;UCU&#39;: 2, &#39;CCC&#39;: 3, &#39;UCA&#39;: 1, &#39;UAU&#39;: 3, &#39;GUA&#39;: 2, &#39;AAU&#39;: 8, &#39;UGC&#39;: 7, &#39;AUC&#39;: 4, &#39;UAG&#39;: 4, &#39;AGC&#39;: 3, &#39;UGG&#39;: 5, &#39;ACU&#39;: 4, &#39;UGA&#39;: 5, &#39;CAC&#39;: 3, &#39;AUA&#39;: 3, &#39;GUG&#39;: 4, &#39;GGU&#39;: 3, &#39;UCC&#39;: 5, &#39;AGG&#39;: 5, &#39;UAC&#39;: 4, &#39;AGA&#39;: 8, &#39;GAC&#39;: 3, &#39;CAU&#39;: 2, &#39;UAA&#39;: 3, &#39;CGG&#39;: 1, &#39;UUC&#39;: 1, &#39;AUU&#39;: 1, &#39;UGU&#39;: 2, &#39;GAG&#39;: 3, &#39;GAU&#39;: 4, &#39;GGC&#39;: 1, &#39;AGU&#39;: 6, &#39;CUU&#39;: 2, &#39;CAA&#39;: 1, &#39;GGA&#39;: 7, &#39;GAA&#39;: 7, &#39;ACA&#39;: 2, &#39;AAC&#39;: 2, &#39;AAG&#39;: 3, &#39;GUC&#39;: 2, &#39;CCU&#39;: 4, &#39;UUU&#39;: 2, &#39;CUA&#39;: 2, &#39;CAG&#39;: 2, &#39;AAA&#39;: 3, &#39;UUG&#39;: 7, &#39;GCA&#39;: 1, &#39;GUU&#39;: 1, &#39;CCA&#39;: 3, &#39;UUA&#39;: 2, &#39;GCU&#39;: 2, &#39;ACC&#39;: 2, &#39;CUC&#39;: 3, &#39;GCC&#39;: 1}
+
+
+AUG is present 2 times
+AGA is present 8 times
+GGG is NOT present
+AUA is present 3 times
+</pre></div></div>
+</div>
+</div><ol class="arabic" start="5">
 <li><p>Given the following list of gene correlations:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>geneCorr = [[&quot;G1C2W9&quot;, &quot;G1C2Q7&quot;, 0.2], [&quot;G1C2W9&quot;, &quot;G1C2Q4&quot;, 0.9],
 [&quot;Q6NMS1&quot;, &quot;G1C2W9&quot;, 0.8],[&quot;G1C2W9&quot;, &quot;Q6NMS1&quot;,0.4], [&quot;G1C2Q7&quot;, &quot;G1C2Q4&quot;,0.76]]
@@ -1379,7 +1618,32 @@ CAGUAUUGUUGGUG
 </pre></div>
 </div>
 <div class="tggle" onclick="toggleVisibility('ex3');"><p>Show/Hide Solution</p>
-</div><div id="ex3" style="display:none;"></div><ol class="arabic simple" start="6">
+</div><div id="ex3" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">geneCorr</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;G1C2W9&quot;</span><span class="p">,</span> <span class="s2">&quot;G1C2Q7&quot;</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;G1C2W9&quot;</span><span class="p">,</span> <span class="s2">&quot;G1C2Q4&quot;</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Q6NMS1&quot;</span><span class="p">,</span> <span class="s2">&quot;G1C2W9&quot;</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">],</span>
+            <span class="p">[</span><span class="s2">&quot;G1C2W9&quot;</span><span class="p">,</span> <span class="s2">&quot;Q6NMS1&quot;</span><span class="p">,</span><span class="mf">0.4</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;G1C2Q7&quot;</span><span class="p">,</span> <span class="s2">&quot;G1C2Q4&quot;</span><span class="p">,</span><span class="mf">0.76</span><span class="p">]]</span>
+
+<span class="n">highlyCorr</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">geneCorr</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.75</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">geneCorr</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">highlyCorr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;G1C2W9&#39;, &#39;G1C2Q7&#39;, 0.2], [&#39;G1C2W9&#39;, &#39;G1C2Q4&#39;, 0.9], [&#39;Q6NMS1&#39;, &#39;G1C2W9&#39;, 0.8], [&#39;G1C2W9&#39;, &#39;Q6NMS1&#39;, 0.4], [&#39;G1C2Q7&#39;, &#39;G1C2Q4&#39;, 0.76]]
+
+[[&#39;G1C2W9&#39;, &#39;G1C2Q4&#39;, 0.9], [&#39;Q6NMS1&#39;, &#39;G1C2W9&#39;, 0.8], [&#39;G1C2Q7&#39;, &#39;G1C2Q4&#39;, 0.76]]
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="6">
 <li><p>Given the following sequence of DNA:</p></li>
 </ol>
 <p>DNA = “GATTACATATATCAGTACAGATATATACGCGCGGGCTTACTATTAAAAACCCC”</p>
@@ -1409,7 +1673,52 @@ Dimer AT is found at: [1, 6, 8, 10, 20, 22, 24, 41]
 </pre></div>
 </div>
 <div class="tggle" onclick="toggleVisibility('ex4');"><p>Show/Hide Solution</p>
-</div><div id="ex4" style="display:none;"></div><ol class="arabic simple" start="7">
+</div><div id="ex4" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">DNA</span> <span class="o">=</span> <span class="s2">&quot;GATTACATATATCAGTACAGATATATACGCGCGGGCTTACTATTAAAAACCCC&quot;</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">DNA</span><span class="p">)</span>
+
+<span class="n">baseFreq</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span> <span class="p">:</span> <span class="n">DNA</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span> <span class="p">:</span> <span class="n">DNA</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">,</span>
+            <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="n">DNA</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span> <span class="p">:</span> <span class="n">DNA</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">)</span><span class="o">/</span><span class="n">n</span> <span class="p">}</span>
+
+<span class="n">dimersDict</span> <span class="o">=</span><span class="p">{}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sequence:&quot;</span><span class="p">,</span> <span class="n">DNA</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">baseFreq</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="s2">&quot;has frequency:&quot;</span><span class="p">,</span> <span class="n">baseFreq</span><span class="p">[</span><span class="n">base</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">DNA</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span> <span class="p">):</span> <span class="c1">#need -1 because at each iteration I get the dimer [ind:ind+1]</span>
+    <span class="n">dimer</span> <span class="o">=</span> <span class="n">DNA</span><span class="p">[</span><span class="n">ind</span><span class="p">:</span><span class="n">ind</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">dimer</span> <span class="ow">in</span> <span class="n">dimersDict</span><span class="p">:</span>
+        <span class="n">dimersDict</span><span class="p">[</span><span class="n">dimer</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dimersDict</span><span class="p">[</span><span class="n">dimer</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">ind</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dimersDict</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dimer AT is found at:&quot;</span><span class="p">,</span> <span class="n">dimersDict</span><span class="p">[</span><span class="s2">&quot;AT&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+sequence: GATTACATATATCAGTACAGATATATACGCGCGGGCTTACTATTAAAAACCCC
+A has frequency: 0.3584905660377358
+T has frequency: 0.2641509433962264
+C has frequency: 0.22641509433962265
+G has frequency: 0.1509433962264151
+{&#39;GA&#39;: [0, 19], &#39;AT&#39;: [1, 6, 8, 10, 20, 22, 24, 41], &#39;TT&#39;: [2, 36, 42], &#39;TA&#39;: [3, 7, 9, 15, 21, 23, 25, 37, 40, 43], &#39;AC&#39;: [4, 16, 26, 38, 48], &#39;CA&#39;: [5, 12, 17], &#39;TC&#39;: [11], &#39;AG&#39;: [13, 18], &#39;GT&#39;: [14], &#39;CG&#39;: [27, 29, 31], &#39;GC&#39;: [28, 30, 34], &#39;GG&#39;: [32, 33], &#39;CT&#39;: [35, 39], &#39;AA&#39;: [44, 45, 46, 47], &#39;CC&#39;: [49, 50, 51]}
+
+Dimer AT is found at: [1, 6, 8, 10, 20, 22, 24, 41]
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="7">
 <li><p>Given the following table, reporting molecular weights for each amino acid, store them in a dictionary where the key is the one letter code and the value is the molecular weight (e.g. {“A” : 89, “R”:174”}).</p></li>
 </ol>
 <p><img alt="i4" src="_images/molecular_weights.png" /></p>
@@ -1422,7 +1731,50 @@ of the peptide YTSLIHSLIEESQNQQEKNEQELLELDKWASLWNWF?
 </pre></div>
 </div>
 <div class="tggle" onclick="toggleVisibility('ex5');"><p>Show/Hide Solution</p>
-</div><div id="ex5" style="display:none;"></div><ol class="arabic simple" start="8">
+</div><div id="ex5" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">mws</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span> <span class="p">:</span> <span class="mi">89</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span> <span class="p">:</span> <span class="mi">174</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span> <span class="p">:</span> <span class="mi">132</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span> <span class="p">:</span> <span class="mi">133</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="mi">133</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="mi">121</span><span class="p">,</span> <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="mi">146</span><span class="p">,</span>
+       <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="mi">147</span><span class="p">,</span> <span class="s2">&quot;Z&quot;</span><span class="p">:</span> <span class="mi">147</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="mi">75</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">:</span> <span class="mi">155</span><span class="p">,</span> <span class="s2">&quot;I&quot;</span><span class="p">:</span> <span class="mi">131</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span> <span class="p">:</span> <span class="mi">131</span><span class="p">,</span>
+      <span class="s2">&quot;K&quot;</span> <span class="p">:</span> <span class="mi">146</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span> <span class="p">:</span> <span class="mi">149</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span> <span class="p">:</span> <span class="mi">165</span><span class="p">,</span> <span class="s2">&quot;P&quot;</span> <span class="p">:</span> <span class="mi">115</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span> <span class="p">:</span> <span class="mi">105</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span> <span class="p">:</span> <span class="mi">119</span><span class="p">,</span>
+       <span class="s2">&quot;W&quot;</span> <span class="p">:</span> <span class="mi">204</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="mi">181</span><span class="p">,</span> <span class="s2">&quot;V&quot;</span> <span class="p">:</span> <span class="mi">117</span>
+      <span class="p">}</span>
+<span class="n">avgW</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">amino</span> <span class="ow">in</span> <span class="n">mws</span><span class="p">:</span>
+    <span class="n">avgW</span> <span class="o">=</span> <span class="n">avgW</span> <span class="o">+</span> <span class="n">mws</span><span class="p">[</span><span class="n">amino</span><span class="p">]</span>
+
+<span class="n">avgW</span> <span class="o">=</span> <span class="n">avgW</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">mws</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The average molecular weight of amino acids is:&quot;</span><span class="p">,</span> <span class="n">avgW</span><span class="p">)</span>
+
+<span class="n">P53amino</span> <span class="o">=</span> <span class="s2">&quot;GSRAHSSHLKSKKGQSTSRHK&quot;</span>
+
+<span class="n">totW</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">amino</span> <span class="ow">in</span> <span class="n">P53amino</span><span class="p">:</span>
+    <span class="n">totW</span> <span class="o">+=</span> <span class="n">mws</span><span class="p">[</span><span class="n">amino</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Peptide &quot;</span><span class="p">,</span> <span class="n">P53amino</span><span class="p">,</span> <span class="s2">&quot;has&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">P53amino</span><span class="p">),</span> <span class="s2">&quot;amino acids and a total mw of&quot;</span><span class="p">,</span><span class="n">totW</span><span class="p">,</span> <span class="s2">&quot;Da&quot;</span><span class="p">)</span>
+
+<span class="n">totW</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#reusing same variable name</span>
+<span class="n">peptide</span> <span class="o">=</span> <span class="s2">&quot;YTSLIHSLIEESQNQQEKNEQELLELDKWASLWNWF&quot;</span>
+<span class="k">for</span> <span class="n">amino</span> <span class="ow">in</span> <span class="n">peptide</span><span class="p">:</span>
+    <span class="n">totW</span> <span class="o">+=</span> <span class="n">mws</span><span class="p">[</span><span class="n">amino</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Peptide &quot;</span><span class="p">,</span> <span class="n">peptide</span><span class="p">,</span> <span class="s2">&quot;has&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">peptide</span><span class="p">),</span> <span class="s2">&quot;amino acids and a total mw of&quot;</span><span class="p">,</span><span class="n">totW</span><span class="p">,</span> <span class="s2">&quot;Da&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The average molecular weight of amino acids is: 137.04545454545453
+Peptide  GSRAHSSHLKSKKGQSTSRHK has 21 amino acids and a total mw of 2662 Da
+Peptide  YTSLIHSLIEESQNQQEKNEQELLELDKWASLWNWF has 36 amino acids and a total mw of 5076 Da
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="8">
 <li><p>The following string is an extract of a <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/2231712">blast</a> alignment with compacted textual output. This is a comma (“,”) separated text file where the columns report the following info: the first column is the query_id, the second the subject_id (i.e. the reference on which we aligned the query), the third is the percentage of identity and then we have the alignment length, number of mismatches, gap opens, start point of the alignment on the query, end
 point of the alignment on the query, start point of the alignment on the subject, end point of the alignment on the subject and evalue of the alignment.</p></li>
 </ol>
@@ -1472,7 +1824,64 @@ ab1_676b     scaffold4896    99.552      0.0
 </pre></div>
 </div>
 <div class="tggle" onclick="toggleVisibility('ex6');"><p>Show/Hide Solution</p>
-</div><div id="ex6" style="display:none;"></div><ol class="arabic simple" start="9">
+</div><div id="ex6" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">blast_out</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;#Fields:q.id,s.id,</span><span class="si">% i</span><span class="s2">dent,align len,mismatches,gap opens,q.start,q.end,s.start,s.end,evalue</span>
+<span class="s2">ab1_400a,scaffold16155,98.698,384,4,1,12,394,6700,7083,0.0</span>
+<span class="s2">ab1_400b,scaffold14620,98.698,384,4,1,12,394,1240,857,0.0</span>
+<span class="s2">92A2_SP6_344a,scaffold14394,95.575,113,5,0,97,209,250760,250648,2.92e-44</span>
+<span class="s2">92A2_SP6_344b,scaffold10682,97.849,93,2,0,18,110,898,990,3.81e-38</span>
+<span class="s2">92A2_T7_558a,scaffold277,88.746,311,31,3,21,330,26630,26937,5.81e-103</span>
+<span class="s2">92A2_T7_558b,scaffold277,89.545,220,21,2,27,246,27167,26950,6.06e-73</span>
+<span class="s2">92A2_T7_558c,scaffold1125,88.125,320,31,5,30,346,231532,231847,7.51e-102</span>
+<span class="s2">ab1_675a,scaffold4896,100.000,661,0,0,15,675,79051,78391,0.0</span>
+<span class="s2">ab1_676b,scaffold4896,99.552,670,0,3,7,673,78421,79090,0.0&quot;&quot;&quot;</span>
+
+
+
+<span class="n">alignments</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">align</span> <span class="ow">in</span> <span class="n">blast_out</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">align</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="n">align_info</span> <span class="o">=</span> <span class="n">align</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+        <span class="n">alignments</span><span class="p">[</span><span class="n">align_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;subjectid&quot;</span> <span class="p">:</span> <span class="n">align_info</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                     <span class="s2">&quot;perc_id&quot;</span> <span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">align_info</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
+                                    <span class="s2">&quot;evalue&quot;</span> <span class="p">:</span> <span class="n">align_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                                    <span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">alignments</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Alignments with identity &gt; 90%:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Query id</span><span class="se">\t</span><span class="s2">Subject id</span><span class="se">\t</span><span class="si">% i</span><span class="s2">dent</span><span class="se">\t</span><span class="s2">evalue&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">alignments</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">alignments</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="s2">&quot;perc_id&quot;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">90</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">alignments</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="s2">&quot;subjectid&quot;</span><span class="p">],</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">alignments</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="s2">&quot;perc_id&quot;</span><span class="p">],</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">alignments</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="s2">&quot;evalue&quot;</span><span class="p">])</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;ab1_400a&#39;: {&#39;subjectid&#39;: &#39;scaffold16155&#39;, &#39;perc_id&#39;: 98.698, &#39;evalue&#39;: &#39;0.0&#39;}, &#39;ab1_400b&#39;: {&#39;subjectid&#39;: &#39;scaffold14620&#39;, &#39;perc_id&#39;: 98.698, &#39;evalue&#39;: &#39;0.0&#39;}, &#39;92A2_SP6_344a&#39;: {&#39;subjectid&#39;: &#39;scaffold14394&#39;, &#39;perc_id&#39;: 95.575, &#39;evalue&#39;: &#39;2.92e-44&#39;}, &#39;92A2_SP6_344b&#39;: {&#39;subjectid&#39;: &#39;scaffold10682&#39;, &#39;perc_id&#39;: 97.849, &#39;evalue&#39;: &#39;3.81e-38&#39;}, &#39;92A2_T7_558a&#39;: {&#39;subjectid&#39;: &#39;scaffold277&#39;, &#39;perc_id&#39;: 88.746, &#39;evalue&#39;: &#39;5.81e-103&#39;}, &#39;92A2_T7_558b&#39;: {&#39;subjectid&#39;: &#39;scaffold277&#39;, &#39;perc_id&#39;: 89.545, &#39;evalue&#39;: &#39;6.06e-73&#39;}, &#39;92A2_T7_558c&#39;: {&#39;subjectid&#39;: &#39;scaffold1125&#39;, &#39;perc_id&#39;: 88.125, &#39;evalue&#39;: &#39;7.51e-102&#39;}, &#39;ab1_675a&#39;: {&#39;subjectid&#39;: &#39;scaffold4896&#39;, &#39;perc_id&#39;: 100.0, &#39;evalue&#39;: &#39;0.0&#39;}, &#39;ab1_676b&#39;: {&#39;subjectid&#39;: &#39;scaffold4896&#39;, &#39;perc_id&#39;: 99.552, &#39;evalue&#39;: &#39;0.0&#39;}}
+
+
+Alignments with identity &gt; 90%:
+
+Query id        Subject id      % ident evalue
+ab1_400a         scaffold16155   98.698          0.0
+ab1_400b         scaffold14620   98.698          0.0
+92A2_SP6_344a    scaffold14394   95.575          2.92e-44
+92A2_SP6_344b    scaffold10682   97.849          3.81e-38
+ab1_675a         scaffold4896    100.0   0.0
+ab1_676b         scaffold4896    99.552          0.0
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="9">
 <li><p>The following text (separated with a comma “,”) is an extract of protein-protein interactions network stored in the database <a class="reference external" href="https://string-db.org/">STRING</a> involving <a class="reference external" href="https://www.ncbi.nlm.nih.gov/gene/5313">PKLR</a> (Pyruvate kinase, liver and RBC) that plays a key role in glycolysis:</p></li>
 </ol>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#node1,node2,node1_ext_id,node2_ext_id,
@@ -1544,7 +1953,114 @@ directly connected to &quot;ME3&quot;, but not directly to &quot;ME3&quot;).
 </pre></div>
 </div>
 <div class="tggle" onclick="toggleVisibility('ex7');"><p>Show/Hide Solution</p>
-</div><div id="ex7" style="display:none;"></div></div>
+</div><div id="ex7" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">networkStr</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;#node1,node2,node1_ext_id,node2_ext_id,</span>
+<span class="s2">ENO1,TPI1,ENSP00000234590,ENSP00000229270</span>
+<span class="s2">PKLR,ENO1,ENSP00000339933,ENSP00000234590</span>
+<span class="s2">PKLR,ENO3,ENSP00000339933,ENSP00000324105</span>
+<span class="s2">PGK1,ENO1,ENSP00000362413,ENSP00000234590</span>
+<span class="s2">PGK1,TPI1,ENSP00000362413,ENSP00000229270</span>
+<span class="s2">GPI,TPI1,ENSP00000405573,ENSP00000229270</span>
+<span class="s2">PKLR,ENO2,ENSP00000339933,ENSP00000229277</span>
+<span class="s2">PGK1,ENO3,ENSP00000362413,ENSP00000324105</span>
+<span class="s2">PGK1,ENO2,ENSP00000362413,ENSP00000229277</span>
+<span class="s2">GPI,PKLR,ENSP00000405573,ENSP00000339933</span>
+<span class="s2">ENO2,TPI1,ENSP00000229277,ENSP00000229270</span>
+<span class="s2">PGK2,ENO1,ENSP00000305995,ENSP00000234590</span>
+<span class="s2">ENO3,PGK2,ENSP00000324105,ENSP00000305995</span>
+<span class="s2">PGK2,TPI1,ENSP00000305995,ENSP00000229270</span>
+<span class="s2">ENO3,TPI1,ENSP00000324105,ENSP00000229270</span>
+<span class="s2">PGK2,ENO2,ENSP00000305995,ENSP00000229277</span>
+<span class="s2">GPI,ENO3,ENSP00000405573,ENSP00000324105</span>
+<span class="s2">PKLR,LDHB,ENSP00000339933,ENSP00000229319</span>
+<span class="s2">PKLR,LDHC,ENSP00000339933,ENSP00000280704</span>
+<span class="s2">PKLR,TPI1,ENSP00000339933,ENSP00000229270</span>
+<span class="s2">PGK1,PKLR,ENSP00000362413,ENSP00000339933</span>
+<span class="s2">GPI,ENO2,ENSP00000405573,ENSP00000229277</span>
+<span class="s2">PKLR,PGK2,ENSP00000339933,ENSP00000305995</span>
+<span class="s2">GPI,PGK1,ENSP00000405573,ENSP00000362413</span>
+<span class="s2">ME3,PKLR,ENSP00000352657,ENSP00000339933</span>
+<span class="s2">ME3,LDHB,ENSP00000352657,ENSP00000229319</span>
+<span class="s2">ME3,LDHC,ENSP00000352657,ENSP00000280704</span>
+<span class="s2">GPI,PGK2,ENSP00000405573,ENSP00000305995</span>
+<span class="s2">GPI,ENO1,ENSP00000405573,ENSP00000234590</span>
+<span class="s2">GPI,LDHB,ENSP00000405573,ENSP00000229319</span>
+<span class="s2">ENO3,ENO2,ENSP00000324105,ENSP00000229277</span>
+<span class="s2">GPI,LDHC,ENSP00000405573,ENSP00000280704</span>
+<span class="s2">ENO3,LDHB,ENSP00000324105,ENSP00000229319</span>
+<span class="s2">ENO3,LDHC,ENSP00000324105,ENSP00000280704</span>
+<span class="s2">ENO1,LDHB,ENSP00000234590,ENSP00000229319</span>
+<span class="s2">LDHB,TPI1,ENSP00000229319,ENSP00000229270</span>
+<span class="s2">LDHC,TPI1,ENSP00000280704,ENSP00000229270</span>
+<span class="s2">PGK2,LDHC,ENSP00000305995,ENSP00000280704</span>
+<span class="s2">PGK1,LDHB,ENSP00000362413,ENSP00000229319</span>
+<span class="s2">PGK1,PGK2,ENSP00000362413,ENSP00000305995</span>
+<span class="s2">ENO1,ENO2,ENSP00000234590,ENSP00000229277</span>
+<span class="s2">LDHC,ENO1,ENSP00000280704,ENSP00000234590</span>
+<span class="s2">LDHB,ENO2,ENSP00000229319,ENSP00000229277</span>
+<span class="s2">LDHC,ENO2,ENSP00000280704,ENSP00000229277</span>
+<span class="s2">ENO3,ENO1,ENSP00000324105,ENSP00000234590</span>
+<span class="s2">PGK1,LDHC,ENSP00000362413,ENSP00000280704</span>
+<span class="s2">GPI,ME3,ENSP00000405573,ENSP00000352657</span>
+<span class="s2">PGK2,LDHB,ENSP00000305995,ENSP00000229319</span>
+<span class="s2">ME3,TPI1,ENSP00000352657,ENSP00000229270&quot;&quot;&quot;</span>
+
+<span class="n">netData</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">networkStr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">):</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+        <span class="c1">#insert node1</span>
+        <span class="k">if</span> <span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">netData</span><span class="p">:</span>
+            <span class="n">netData</span><span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">netData</span><span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="c1">#insert node2</span>
+        <span class="k">if</span> <span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">netData</span><span class="p">:</span>
+            <span class="n">netData</span><span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">netData</span><span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">netData</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">PKLR is directly connected to:&quot;</span><span class="p">,</span> <span class="n">netData</span><span class="p">[</span><span class="s2">&quot;PKLR&quot;</span><span class="p">]</span> <span class="p">)</span>
+
+<span class="n">firstNeigh</span> <span class="o">=</span> <span class="n">netData</span><span class="p">[</span><span class="s2">&quot;ME3&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">ME3 is directly connected to:&quot;</span><span class="p">,</span> <span class="n">firstNeigh</span>  <span class="p">)</span>
+
+<span class="n">secondNeigh</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">firstNeigh</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">netData</span><span class="p">:</span> <span class="c1">#important, the node might not have connections</span>
+        <span class="n">neighbours</span> <span class="o">=</span> <span class="n">netData</span><span class="p">[</span><span class="n">node</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">neighbours</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">secondNeigh</span> <span class="ow">and</span>  <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">firstNeigh</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">!=</span> <span class="s2">&quot;ME3&quot;</span><span class="p">:</span>
+                <span class="n">secondNeigh</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">ME3&#39;s second neighbours:&quot;</span><span class="p">,</span> <span class="n">secondNeigh</span>  <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;ENO1&#39;: [&#39;TPI1&#39;, &#39;PKLR&#39;, &#39;PGK1&#39;, &#39;PGK2&#39;, &#39;GPI&#39;, &#39;LDHB&#39;, &#39;ENO2&#39;, &#39;LDHC&#39;, &#39;ENO3&#39;], &#39;TPI1&#39;: [&#39;ENO1&#39;, &#39;PGK1&#39;, &#39;GPI&#39;, &#39;ENO2&#39;, &#39;PGK2&#39;, &#39;ENO3&#39;, &#39;PKLR&#39;, &#39;LDHB&#39;, &#39;LDHC&#39;, &#39;ME3&#39;], &#39;PKLR&#39;: [&#39;ENO1&#39;, &#39;ENO3&#39;, &#39;ENO2&#39;, &#39;GPI&#39;, &#39;LDHB&#39;, &#39;LDHC&#39;, &#39;TPI1&#39;, &#39;PGK1&#39;, &#39;PGK2&#39;, &#39;ME3&#39;], &#39;ENO3&#39;: [&#39;PKLR&#39;, &#39;PGK1&#39;, &#39;PGK2&#39;, &#39;TPI1&#39;, &#39;GPI&#39;, &#39;ENO2&#39;, &#39;LDHB&#39;, &#39;LDHC&#39;, &#39;ENO1&#39;], &#39;PGK1&#39;: [&#39;ENO1&#39;, &#39;TPI1&#39;, &#39;ENO3&#39;, &#39;ENO2&#39;, &#39;PKLR&#39;, &#39;GPI&#39;, &#39;LDHB&#39;, &#39;PGK2&#39;, &#39;LDHC&#39;], &#39;GPI&#39;: [&#39;TPI1&#39;, &#39;PKLR&#39;, &#39;ENO3&#39;, &#39;ENO2&#39;, &#39;PGK1&#39;, &#39;PGK2&#39;, &#39;ENO1&#39;, &#39;LDHB&#39;, &#39;LDHC&#39;, &#39;ME3&#39;], &#39;ENO2&#39;: [&#39;PKLR&#39;, &#39;PGK1&#39;, &#39;TPI1&#39;, &#39;PGK2&#39;, &#39;GPI&#39;, &#39;ENO3&#39;, &#39;ENO1&#39;, &#39;LDHB&#39;, &#39;LDHC&#39;], &#39;PGK2&#39;: [&#39;ENO1&#39;, &#39;ENO3&#39;, &#39;TPI1&#39;, &#39;ENO2&#39;, &#39;PKLR&#39;, &#39;GPI&#39;, &#39;LDHC&#39;, &#39;PGK1&#39;, &#39;LDHB&#39;], &#39;LDHB&#39;: [&#39;PKLR&#39;, &#39;ME3&#39;, &#39;GPI&#39;, &#39;ENO3&#39;, &#39;ENO1&#39;, &#39;TPI1&#39;, &#39;PGK1&#39;, &#39;ENO2&#39;, &#39;PGK2&#39;], &#39;LDHC&#39;: [&#39;PKLR&#39;, &#39;ME3&#39;, &#39;GPI&#39;, &#39;ENO3&#39;, &#39;TPI1&#39;, &#39;PGK2&#39;, &#39;ENO1&#39;, &#39;ENO2&#39;, &#39;PGK1&#39;], &#39;ME3&#39;: [&#39;PKLR&#39;, &#39;LDHB&#39;, &#39;LDHC&#39;, &#39;GPI&#39;, &#39;TPI1&#39;]}
+
+PKLR is directly connected to: [&#39;ENO1&#39;, &#39;ENO3&#39;, &#39;ENO2&#39;, &#39;GPI&#39;, &#39;LDHB&#39;, &#39;LDHC&#39;, &#39;TPI1&#39;, &#39;PGK1&#39;, &#39;PGK2&#39;, &#39;ME3&#39;]
+
+ME3 is directly connected to: [&#39;PKLR&#39;, &#39;LDHB&#39;, &#39;LDHC&#39;, &#39;GPI&#39;, &#39;TPI1&#39;]
+
+ME3&#39;s second neighbours: [&#39;ENO1&#39;, &#39;ENO3&#39;, &#39;ENO2&#39;, &#39;PGK1&#39;, &#39;PGK2&#39;]
+</pre></div></div>
+</div>
+</div></div>
 </div>
 
 
