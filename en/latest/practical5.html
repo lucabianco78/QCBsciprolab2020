@@ -1286,11 +1286,13 @@ key: seven value: not found
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
 </div><div id="ex1" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
+<span></span><span class="sd">&quot;&quot;&quot;First solution, prints multiple times repeated elements in L1&quot;&quot;&quot;</span>
+
+<span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
 <span class="n">L2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">44</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">71</span><span class="p">]</span>
 
 <span class="n">L1</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
@@ -1300,6 +1302,25 @@ key: seven value: not found
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L1:    &quot;</span><span class="p">,</span> <span class="n">L1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L2:    &quot;</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;inters:&quot;</span><span class="p">,</span> <span class="n">intersection</span><span class="p">)</span>
+
+<span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">44</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">71</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--------------------------&quot;</span><span class="p">)</span>
+<span class="n">L1</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">L2</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">intersection</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L1</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L1:    &quot;</span><span class="p">,</span> <span class="n">L1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L2:    &quot;</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;inters:&quot;</span><span class="p">,</span> <span class="n">intersection</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2"> ------ Second solution --------&quot;</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;Second solution, does not print multiple times repeated elements in L1&quot;&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L1:    &quot;</span><span class="p">,</span> <span class="n">L1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L2:    &quot;</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span>
+
+<span class="n">intersection2</span> <span class="o">=</span> <span class="p">[</span><span class="n">L1</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L1</span><span class="p">))</span> <span class="k">if</span> <span class="n">L1</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="ow">in</span> <span class="n">L2</span> <span class="ow">and</span> <span class="n">L1</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span>  <span class="n">L1</span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">:]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;inters:&quot;</span><span class="p">,</span> <span class="n">intersection2</span><span class="p">)</span>
 
 
 </pre></div>
@@ -1313,6 +1334,17 @@ key: seven value: not found
 L1:     [1, 7, 12, 13, 15, 21, 22, 43, 77, 81, 84, 100]
 L2:     [1, 7, 13, 21, 32, 44, 71, 81, 100]
 inters: [1, 7, 13, 21, 81, 100]
+
+--------------------------
+L1:     [1, 1, 7, 9, 9, 9, 9, 12, 15, 21, 44, 77, 81, 84, 100]
+L2:     [1, 7, 9, 13, 21, 21, 32, 44, 71, 81, 100]
+inters: [1, 1, 7, 9, 9, 9, 9, 21, 44, 81, 100]
+
+
+ ------ Second solution --------
+L1:     [1, 1, 7, 9, 9, 9, 9, 12, 15, 21, 44, 77, 81, 84, 100]
+L2:     [1, 7, 9, 13, 21, 21, 32, 44, 71, 81, 100]
+inters: [1, 7, 9, 21, 44, 81, 100]
 </pre></div></div>
 </div>
 </div><ol class="arabic simple" start="2">
