@@ -752,7 +752,7 @@ A now: [-1, 0, 1, 4, 7, 125]
 </div>
 <p>We need to make a copy if we do not want to affect the caller (see why below):</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -770,13 +770,6 @@ A now: [-1, 0, 1, 4, 7, 125]
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Len:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;Min:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;Max:&quot;</span><span class="p">,</span><span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A now:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
-
-<span class="c1">#This is in fact polymorphic too...</span>
-<span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;tar&quot;</span><span class="p">,</span> <span class="s2">&quot;gar&quot;</span><span class="p">,</span> <span class="s2">&quot;mar&quot;</span><span class="p">,</span> <span class="s2">&quot;ator&quot;</span><span class="p">,</span> <span class="s2">&quot;vor&quot;</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">POLYMORPHIC!&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">B:&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">get_info</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -790,11 +783,6 @@ Original A: [7, 1, 125, 4, -1, 0]
 Len: 6 Min: -1 Max: 125
 
 A now: [7, 1, 125, 4, -1, 0]
-
-POLYMORPHIC!
-
-B: [&#39;tar&#39;, &#39;gar&#39;, &#39;mar&#39;, &#39;ator&#39;, &#39;vor&#39;]
-(5, &#39;ator&#39;, &#39;vor&#39;)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
