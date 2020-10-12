@@ -542,7 +542,7 @@ import numpy as np
 <h3>How to define and access a Series<a class="headerlink" href="#How-to-define-and-access-a-Series" title="Permalink to this headline">¶</a></h3>
 <p>There are several ways to define a Series. We can specify both the values and the index esplicitly, or through a dictionary, or let python add the default index for us. We can access the index with the <strong>Series.index</strong> method and the values with the <strong>Series.values</strong>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -591,19 +591,19 @@ import numpy as np
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Values and index explicitly defined
-A     9
-B     6
-C    20
-D    10
-E     0
-F    13
-G    10
-H     4
-I    14
-L    15
+A    11
+B     5
+C     0
+D     0
+E     3
+F     5
+G    18
+H    20
+I    16
+L     2
 dtype: int64
 The index: Index([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;F&#39;, &#39;G&#39;, &#39;H&#39;, &#39;I&#39;, &#39;L&#39;], dtype=&#39;object&#39;)
-The values: [ 9  6 20 10  0 13 10  4 14 15]
+The values: [11  5  0  0  3  5 18 20 16  2]
 ------------------------
 
 From dictionary
@@ -619,19 +619,19 @@ Index([&#39;one&#39;, &#39;two&#39;, &#39;ten&#39;, &#39;three&#39;, &#39;four&#
 ------------------------
 
 Default index
-0     8
-1     2
-2     8
-3    10
-4     1
-5     5
-6     3
-7     8
-8     9
-9     5
+0     9
+1     3
+2     4
+3     7
+4     5
+5     4
+6     2
+7     4
+8    10
+9     8
 dtype: int64
 RangeIndex(start=0, stop=10, step=1)
-[ 8  2  8 10  1  5  3  8  9  5]
+[ 9  3  4  7  5  4  2  4 10  8]
 ------------------------
 
 Same value repeated
@@ -698,58 +698,58 @@ RangeIndex(start=0, stop=10, step=1)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-A    15
-B    11
-C     4
-D     7
-E     1
+A     7
+B     5
+C     9
+D     0
+E    15
 F     4
-G    15
-H    14
-I    14
-L    17
+G     7
+H    10
+I     9
+L     4
 dtype: int64
 
-Value at label &#34;A&#34;: 15
-Value at index 1: 11
+Value at label &#34;A&#34;: 7
+Value at index 1: 5
 
 Slicing from 1 to 3:
-B    11
-C     4
+B    5
+C    9
 dtype: int64
 
 Slicing from C to H:
-C     4
-D     7
-E     1
+C     9
+D     0
+E    15
 F     4
-G    15
-H    14
+G     7
+H    10
 dtype: int64
 
 Retrieving from list:
-B    11
-D     7
+B     5
+D     0
 F     4
-H    14
-L    17
+H    10
+L     4
 dtype: int64
-A    15
-C     4
-E     1
-G    15
+A     7
+C     9
+E    15
+G     7
 dtype: int64
 
 Top 3
-A    15
-B    11
-C     4
+A    7
+B    5
+C    9
 dtype: int64
 
 Bottom 3
-H    14
-I    14
-L    17
+H    10
+I     9
+L     4
 dtype: int64
 </pre></div></div>
 </div>
@@ -781,8 +781,8 @@ dtype: int64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[6, 4, 5, 19, 14, 16, 9, 3, 13, 11]
-[3.0, 2.0, 2.5, 9.5, 7.0, 8.0, 4.5, 1.5, 6.5, 5.5]
+[13, 0, 15, 5, 11, 4, 17, 2, 12, 18]
+[6.5, 0.0, 7.5, 2.5, 5.5, 2.0, 8.5, 1.0, 6.0, 9.0]
 </pre></div></div>
 </div>
 <p>With pandas instead:</p>
@@ -809,28 +809,28 @@ dtype: int64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-A     4
+A    12
 B    13
-C    14
-D     6
-E    13
-F     2
+C    18
+D     8
+E    18
+F    17
 G    13
-H    19
-I    20
-L     7
+H    17
+I    11
+L    12
 dtype: int64
 
-A     2.0
-B     6.5
-C     7.0
-D     3.0
-E     6.5
-F     1.0
-G     6.5
-H     9.5
-I    10.0
-L     3.5
+A    6.0
+B    6.5
+C    9.0
+D    4.0
+E    9.0
+F    8.5
+G    6.5
+H    8.5
+I    5.5
+L    6.0
 dtype: float64
 </pre></div></div>
 </div>
@@ -865,36 +865,37 @@ dtype: float64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-A    14
-B    18
-C    10
-D     6
-E    17
-F    14
-G     2
-H    17
-I     4
-L    15
+A    15
+B    15
+C    14
+D    13
+E     7
+F    11
+G     9
+H    15
+I    20
+L     3
 dtype: int64
 
 A     True
 B     True
-C    False
-D    False
-E     True
+C     True
+D     True
+E    False
 F     True
 G    False
 H     True
-I    False
-L     True
+I     True
+L    False
 dtype: bool
 
-A    14
-B    18
-E    17
-F    14
-H    17
-L    15
+A    15
+B    15
+C    14
+D    13
+F    11
+H    15
+I    20
 dtype: int64
 </pre></div></div>
 </div>
@@ -945,45 +946,45 @@ dtype: int64
 The dimensions of these Series: (10,)
 
 D     4
-E     2
-F     7
-G     2
-H     0
-A     6
-Z     1
-Y    10
+E    10
+F     4
+G     8
+H     6
+A     0
+Z     9
+Y     1
 dtype: int64
 ---- S + S1 ----
-A    10.0
+A     9.0
 B     NaN
 C     NaN
-D    14.0
-E     4.0
-F    14.0
-G     8.0
-H     1.0
+D     5.0
+E    12.0
+F     4.0
+G    17.0
+H    16.0
 I     NaN
 L     NaN
 Y     NaN
 Z     NaN
 dtype: float64
 ---- Dropping NaNs ----
-A    10.0
-D    14.0
-E     4.0
-F    14.0
-G     8.0
-H     1.0
+A     9.0
+D     5.0
+E    12.0
+F     4.0
+G    17.0
+H    16.0
 dtype: float64
 ---- Filling NaNs ----
-A          10
+A           9
 B    my_value
 C    my_value
-D          14
-E           4
-F          14
-G           8
-H           1
+D           5
+E          12
+F           4
+G          17
+H          16
 I    my_value
 L    my_value
 Y    my_value
@@ -1015,32 +1016,32 @@ dtype: object
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-A    10.0
+A     9.0
 B     NaN
 C     NaN
-D    14.0
-E     4.0
-F    14.0
-G     8.0
-H     1.0
+D     5.0
+E    12.0
+F     4.0
+G    17.0
+H    16.0
 I     NaN
 L     NaN
 Y     NaN
 Z     NaN
 dtype: float64
 ---- Filling with avg value ----
-A    10.0
-B     8.5
-C     8.5
-D    14.0
-E     4.0
-F    14.0
-G     8.0
-H     1.0
-I     8.5
-L     8.5
-Y     8.5
-Z     8.5
+A     9.0
+B    10.5
+C    10.5
+D     5.0
+E    12.0
+F     4.0
+G    17.0
+H    16.0
+I    10.5
+L    10.5
+Y    10.5
+Z    10.5
 dtype: float64
 </pre></div></div>
 </div>
@@ -1083,61 +1084,61 @@ dtype: float64
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 The data:
-A     3
-B    10
-C     3
+A     0
+B     8
+C     1
 D     4
-E     9
-F     9
-G     5
+E    10
+F     0
+G     4
 H     0
-I    10
-L     5
+I     9
+L     0
 dtype: int64
 
 Its description
 count    10.000000
-mean      5.800000
-std       3.489667
+mean      3.600000
+std       4.060651
 min       0.000000
-25%       3.250000
-50%       5.000000
-75%       9.000000
+25%       0.000000
+50%       2.500000
+75%       7.000000
 max      10.000000
 dtype: float64
 
 Specifying different quantiles:
-0.1     2.7
-0.2     3.0
-0.8     9.2
-0.9    10.0
+0.1    0.0
+0.2    0.0
+0.8    8.2
+0.9    9.1
 dtype: float64
 
 Histogram:
-10    2
-9     2
-5     2
-3     2
-4     1
-0     1
+0     4
+4     2
+10    1
+9     1
+8     1
+1     1
 dtype: int64
 
 The type is a Series:
 &lt;class &#39;pandas.core.series.Series&#39;&gt;
 Summing the values:
-58
+36
 
 The cumulative sum:
-A     3
-B    13
-C    16
-D    20
-E    29
-F    38
-G    43
-H    43
-I    53
-L    58
+A     0
+B     8
+C     9
+D    13
+E    23
+F    23
+G    27
+H    27
+I    36
+L    36
 dtype: int64
 </pre></div></div>
 </div>
@@ -1295,15 +1296,15 @@ dtype: int64
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 The data:
-A     2
-B     6
+A     1
+B     5
 C     4
-D    10
+D     1
 E     0
 F     7
-G     3
-H     8
-I     5
+G     9
+H    10
+I     1
 L     2
 dtype: int64
 </pre></div></div>
@@ -1312,26 +1313,29 @@ dtype: int64
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/practical8_20_1.png" src="_images/practical8_20_1.png" />
-</div>
+<div class="highlight"><pre>
+&lt;matplotlib.figure.Figure at 0x7efc424612e8&gt;
+</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/practical8_20_2.png" src="_images/practical8_20_2.png" />
-</div>
+<div class="highlight"><pre>
+&lt;matplotlib.figure.Figure at 0x7efbee74cd68&gt;
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/practical8_20_3.png" src="_images/practical8_20_3.png" />
-</div>
+<div class="highlight"><pre>
+&lt;matplotlib.figure.Figure at 0x7efbee72e6d8&gt;
+</pre></div></div>
 </div>
 <p><strong>Example:</strong> Let’s create a series representing the sin, cos and sqrt functions and plot them.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1440,20 +1444,20 @@ dtype: int64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-     dayLength  temperature
-Jan        9.7            1
-Feb       10.9            3
-Mar       12.5            8
-Apr       14.1           13
-May       15.6           17
-Jun       16.3           20
-Jul       15.9           22
-Aug       14.6           22
-Sep       13.0           18
-Oct       11.4           13
-Nov       10.0            6
-Dec        9.3            2
-Index([&#39;dayLength&#39;, &#39;temperature&#39;], dtype=&#39;object&#39;)
+     temperature  dayLength
+Jan            1        9.7
+Feb            3       10.9
+Mar            8       12.5
+Apr           13       14.1
+May           17       15.6
+Jun           20       16.3
+Jul           22       15.9
+Aug           22       14.6
+Sep           18       13.0
+Oct           13       11.4
+Nov            6       10.0
+Dec            2        9.3
+Index([&#39;temperature&#39;, &#39;dayLength&#39;], dtype=&#39;object&#39;)
 Index([&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;, &#39;Apr&#39;, &#39;May&#39;, &#39;Jun&#39;, &#39;Jul&#39;, &#39;Aug&#39;, &#39;Sep&#39;, &#39;Oct&#39;,
        &#39;Nov&#39;, &#39;Dec&#39;],
       dtype=&#39;object&#39;)
@@ -1493,19 +1497,19 @@ Index([&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;, &#39;Apr&#39;, &#39;May&#39;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-    dayLength  temperature
-0         9.7            1
-1        10.9            3
-2        12.5            8
-3        14.1           13
-4        15.6           17
-5        16.3           20
-6        15.9           22
-7        14.6           22
-8        13.0           18
-9        11.4           13
-10       10.0            6
-11        9.3            2
+    temperature  dayLength
+0             1        9.7
+1             3       10.9
+2             8       12.5
+3            13       14.1
+4            17       15.6
+5            20       16.3
+6            22       15.9
+7            22       14.6
+8            18       13.0
+9            13       11.4
+10            6       10.0
+11            2        9.3
 RangeIndex(start=0, stop=12, step=1)
 </pre></div></div>
 </div>
@@ -1556,15 +1560,15 @@ RangeIndex(start=0, stop=12, step=1)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-   A  B    C     D    E    F     G    H
-0  1  2  3.2  10.0  NaN  NaN   NaN  NaN
-1  1  2  NaN   NaN  NaN  3.2  10.0  1.0
-2  1  2  3.2   1.0  4.1  3.2  10.0  1.0
+   A  B    C     D    F     G    H    E
+0  1  2  3.2  10.0  NaN   NaN  NaN  NaN
+1  1  2  NaN   NaN  3.2  10.0  1.0  NaN
+2  1  2  3.2   1.0  3.2  10.0  1.0  4.1
 
       val1  val2  val3  val4  val5  val6  val7  val8
 Day1     1     2   3.2  10.0   NaN   NaN   NaN   NaN
-Day2     1     2   NaN   NaN   NaN   3.2  10.0   1.0
-Day3     1     2   3.2   1.0   4.1   3.2  10.0   1.0
+Day2     1     2   NaN   NaN   3.2  10.0   1.0   NaN
+Day3     1     2   3.2   1.0   3.2  10.0   1.0   4.1
 </pre></div></div>
 </div>
 </div>
@@ -2262,12 +2266,12 @@ Cumulative sum (by row) - top 10 rows
 3         CH01f09  SSR
 4        Hi05f12x  SSR
 5  SNP_FB_0942712  SNP
-  chr              id
-0   1  SNP_FB_0411211
-1  15  SNP_FB_0412425
-2   7  SNP_FB_0942385
-3   9         CH01f09
-4   1  SNP_FB_0428218
+               id chr
+0  SNP_FB_0411211   1
+1  SNP_FB_0412425  15
+2  SNP_FB_0942385   7
+3         CH01f09   9
+4  SNP_FB_0428218   1
 
 Inner merge (only common in both)
                id type chr
@@ -2306,7 +2310,7 @@ Outer merge (IDS from both)
 </div>
 <p>Note that the columns we merge on do not necessarily need to be the same, we can specify a correspondence between the row of the first dataframe (the one on the left) and the second dataframe (the one on the right) specifying which columns must have the same values to perform the merge. This can be done by using the parameters <code class="docutils literal notranslate"><span class="pre">right_on</span> <span class="pre">=</span> <span class="pre">column_name</span></code> and <code class="docutils literal notranslate"><span class="pre">left_on</span> <span class="pre">=</span> <span class="pre">column_name</span></code>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2383,7 +2387,7 @@ outer merge on AF:
 <p>Let’s see these things in action.</p>
 <p><strong>Example</strong> Given a list of labels and integers group them by label and compute the mean of all values in each group.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2444,7 +2448,7 @@ c  7.5
 </div>
 <p><strong>Example</strong> Given the orders data seen above, let’s get the columns “Sales”, “Profit” and “Product Category” and compute the total sum and the mean of the sales and profits for each product category.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2544,7 +2548,7 @@ The most profitable is Technology
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex0');"><p>Show/Hide Solution</p>
 </div><div id="ex0" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2622,7 +2626,7 @@ paired aligned to it (hint:use group by).
 </div>
 <div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
 </div><div id="ex1" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2789,7 +2793,7 @@ any doubts check <a class="reference external" href="http://pandas.pydata.org/pa
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex2');"><p>Show/Hide Solution</p>
 </div><div id="ex2" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2891,8 +2895,8 @@ The average income is 5403.459283387622
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/usr/local/lib/python3.5/dist-packages/numpy/core/fromnumeric.py:57: FutureWarning: reshape is deprecated and will raise in a subsequent release. Please use .values.reshape(...) instead
-  return getattr(obj, method)(*args, **kwds)
+/usr/local/lib/python3.6/dist-packages/numpy/core/_asarray.py:83: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray
+  return array(a, dtype, copy=False, order=order)
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -2976,7 +2980,7 @@ biotypes. How many genes do we have for each genotype? Plot the number of genes 
 transcripts associated to genes belonging to the biotype. Finally, plots them in a vertical bar plot</p>
 <div class="tggle" onclick="toggleVisibility('ex3');"><p>Show/Hide Solution</p>
 </div><div id="ex3" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3131,13 +3135,13 @@ scaRNA                                   16
 IG_C_gene                                14
 IG_C_pseudogene                           9
 TEC                                       6
-TR_C_gene                                 5
 ribozyme                                  5
+TR_C_gene                                 5
 TR_J_pseudogene                           4
-TR_D_gene                                 3
 IG_J_pseudogene                           3
-bidirectional_promoter_lncRNA             2
+TR_D_gene                                 3
 Mt_rRNA                                   2
+bidirectional_promoter_lncRNA             2
 pseudogene                                2
 scRNA                                     1
 vaultRNA                                  1
@@ -3171,7 +3175,7 @@ The total number of chromosomes is  25
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;class &#39;pandas.core.groupby.generic.DataFrameGroupBy&#39;&gt;
+pandas.core.groupby.generic.DataFrameGroupBy
 (&#39;chr1&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 2388
 (&#39;chr1&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 2322
 (&#39;chr10&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 999
@@ -3222,56 +3226,6 @@ The total number of chromosomes is  25
 (&#39;chrX&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1031
 (&#39;chrY&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 240
 (&#39;chrY&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 230
-{}
-{&#39;chr1&#39;: 2388}
-{&#39;chr1&#39;: 4710}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 999}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 1470}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 1262}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 537}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 1029}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 901}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 1077}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 1227}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 508}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 1361}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 1803}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 577}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 297}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 585}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 1345}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 1152}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 2297}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 2297, &#39;chr5&#39;: 1303}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 2297, &#39;chr5&#39;: 2598}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 2297, &#39;chr5&#39;: 2598, &#39;chr6&#39;: 1222}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 2297, &#39;chr5&#39;: 2598, &#39;chr6&#39;: 2459}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 2297, &#39;chr5&#39;: 2598, &#39;chr6&#39;: 2459, &#39;chr7&#39;: 1320}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 2297, &#39;chr5&#39;: 2598, &#39;chr6&#39;: 2459, &#39;chr7&#39;: 2507}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 2297, &#39;chr5&#39;: 2598, &#39;chr6&#39;: 2459, &#39;chr7&#39;: 2507, &#39;chr8&#39;: 1039}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 2297, &#39;chr5&#39;: 2598, &#39;chr6&#39;: 2459, &#39;chr7&#39;: 2507, &#39;chr8&#39;: 2152}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 2297, &#39;chr5&#39;: 2598, &#39;chr6&#39;: 2459, &#39;chr7&#39;: 2507, &#39;chr8&#39;: 2152, &#39;chr9&#39;: 989}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 2297, &#39;chr5&#39;: 2598, &#39;chr6&#39;: 2459, &#39;chr7&#39;: 2507, &#39;chr8&#39;: 2152, &#39;chr9&#39;: 1941}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 2297, &#39;chr5&#39;: 2598, &#39;chr6&#39;: 2459, &#39;chr7&#39;: 2507, &#39;chr8&#39;: 2152, &#39;chr9&#39;: 1941, &#39;chrMT&#39;: 28}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 2297, &#39;chr5&#39;: 2598, &#39;chr6&#39;: 2459, &#39;chr7&#39;: 2507, &#39;chr8&#39;: 2152, &#39;chr9&#39;: 1941, &#39;chrMT&#39;: 37}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 2297, &#39;chr5&#39;: 2598, &#39;chr6&#39;: 2459, &#39;chr7&#39;: 2507, &#39;chr8&#39;: 2152, &#39;chr9&#39;: 1941, &#39;chrMT&#39;: 37, &#39;chrX&#39;: 1078}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 2297, &#39;chr5&#39;: 2598, &#39;chr6&#39;: 2459, &#39;chr7&#39;: 2507, &#39;chr8&#39;: 2152, &#39;chr9&#39;: 1941, &#39;chrMT&#39;: 37, &#39;chrX&#39;: 2109}
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 2297, &#39;chr5&#39;: 2598, &#39;chr6&#39;: 2459, &#39;chr7&#39;: 2507, &#39;chr8&#39;: 2152, &#39;chr9&#39;: 1941, &#39;chrMT&#39;: 37, &#39;chrX&#39;: 2109, &#39;chrY&#39;: 240}
 {&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 2297, &#39;chr5&#39;: 2598, &#39;chr6&#39;: 2459, &#39;chr7&#39;: 2507, &#39;chr8&#39;: 2152, &#39;chr9&#39;: 1941, &#39;chrMT&#39;: 37, &#39;chrX&#39;: 2109, &#39;chrY&#39;: 470}
 % genes of chr1 on strand +: 50.70
 % genes of chr10 on strand +: 51.42
@@ -3363,7 +3317,7 @@ vaultRNA                                    1.000000
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex4');"><p>Show/Hide Solution</p>
 </div><div id="ex4" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3435,19 +3389,19 @@ vaultRNA                                    1.000000
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-   A   B  C  D  E
-0  0   1  6  6  4
-1  6   4  0  7  0
-2  3  10  9  8  2
-3  0   7  6  6  7
-4  9   4  7  7  7
+    A  B   C  D   E
+0  10  1   2  5   3
+1   7  8   2  4  10
+2   1  0   2  3   7
+3   8  8   3  3  10
+4   2  7  10  2   5
 
-    W  X   Y   Z
-0   2  7   9   3
-1   5  1   3  10
-2  10  5  10   7
-3   8  7   3   7
-4   3  3   7   2
+    W   X   Y   Z
+0   0   2   7  10
+1  10   9  10   4
+2   8  10   6   9
+3  10   8   3   3
+4   6   5   9   7
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -3469,127 +3423,125 @@ vaultRNA                                    1.000000
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-0    6
-1    0
-2    9
+0    2
+1    2
+2    2
 3    0
 4    0
-5    2
-6    2
+5    0
+6    7
 7    0
 8    0
-9    1
+9    8
 dtype: int64
-    W  X   Y   Z  C
-0   2  7   9   3  6
-1   5  1   3  10  0
-2  10  5  10   7  9
-3   8  7   3   7  0
-4   3  3   7   2  0
-5   2  0   7   8  2
-6  10  3   2   4  2
-7   4  2   0   8  0
-8  10  4   0   1  0
-9   2  2   3   5  1
-    A   B  C   D  E
-0   0   1  6   6  4
-1   6   4  0   7  0
-2   3  10  9   8  2
-3   0   7  6   6  7
-4   9   4  7   7  7
-5  10   5  2   6  7
-6   3  10  2   7  6
-7   6   1  0  10  0
-8   1   1  5   0  4
-9   6   5  1   9  8
+    W   X   Y   Z  C
+0   0   2   7  10  2
+1  10   9  10   4  2
+2   8  10   6   9  2
+3  10   8   3   3  0
+4   6   5   9   7  0
+5   5   2   8   4  0
+6   9   5  10   8  7
+7   7   1   1   9  0
+8   7   3   6  10  0
+9   6   2   2   9  8
+    A   B   C  D   E
+0  10   1   2  5   3
+1   7   8   2  4  10
+2   1   0   2  3   7
+3   8   8   3  3  10
+4   2   7  10  2   5
+5   7  10   0  7   0
+6   1   0   7  7   0
+7   1  10   7  2   0
+8   1   3   3  6   0
+9   7  10   8  6   0
 
 Inner Join DF - DF1
-     A   B  C   D  E   W  X   Y   Z
-0    0   1  6   6  4   2  7   9   3
-1    0   7  6   6  7   2  7   9   3
-2    6   4  0   7  0   5  1   3  10
-3    6   4  0   7  0   8  7   3   7
-4    6   4  0   7  0   3  3   7   2
-5    6   4  0   7  0   4  2   0   8
-6    6   4  0   7  0  10  4   0   1
-7    6   1  0  10  0   5  1   3  10
-8    6   1  0  10  0   8  7   3   7
-9    6   1  0  10  0   3  3   7   2
-10   6   1  0  10  0   4  2   0   8
-11   6   1  0  10  0  10  4   0   1
-12   3  10  9   8  2  10  5  10   7
-13  10   5  2   6  7   2  0   7   8
-14  10   5  2   6  7  10  3   2   4
-15   3  10  2   7  6   2  0   7   8
-16   3  10  2   7  6  10  3   2   4
-17   6   5  1   9  8   2  2   3   5
+     A   B  C  D   E   W   X   Y   Z
+0   10   1  2  5   3   0   2   7  10
+1   10   1  2  5   3  10   9  10   4
+2   10   1  2  5   3   8  10   6   9
+3    7   8  2  4  10   0   2   7  10
+4    7   8  2  4  10  10   9  10   4
+5    7   8  2  4  10   8  10   6   9
+6    1   0  2  3   7   0   2   7  10
+7    1   0  2  3   7  10   9  10   4
+8    1   0  2  3   7   8  10   6   9
+9    7  10  0  7   0  10   8   3   3
+10   7  10  0  7   0   6   5   9   7
+11   7  10  0  7   0   5   2   8   4
+12   7  10  0  7   0   7   1   1   9
+13   7  10  0  7   0   7   3   6  10
+14   1   0  7  7   0   9   5  10   8
+15   1  10  7  2   0   9   5  10   8
+16   7  10  8  6   0   6   2   2   9
 
 Outer Join DF - DF1
-     A   B  C   D  E     W    X     Y     Z
-0    0   1  6   6  4   2.0  7.0   9.0   3.0
-1    0   7  6   6  7   2.0  7.0   9.0   3.0
-2    6   4  0   7  0   5.0  1.0   3.0  10.0
-3    6   4  0   7  0   8.0  7.0   3.0   7.0
-4    6   4  0   7  0   3.0  3.0   7.0   2.0
-5    6   4  0   7  0   4.0  2.0   0.0   8.0
-6    6   4  0   7  0  10.0  4.0   0.0   1.0
-7    6   1  0  10  0   5.0  1.0   3.0  10.0
-8    6   1  0  10  0   8.0  7.0   3.0   7.0
-9    6   1  0  10  0   3.0  3.0   7.0   2.0
-10   6   1  0  10  0   4.0  2.0   0.0   8.0
-11   6   1  0  10  0  10.0  4.0   0.0   1.0
-12   3  10  9   8  2  10.0  5.0  10.0   7.0
-13   9   4  7   7  7   NaN  NaN   NaN   NaN
-14  10   5  2   6  7   2.0  0.0   7.0   8.0
-15  10   5  2   6  7  10.0  3.0   2.0   4.0
-16   3  10  2   7  6   2.0  0.0   7.0   8.0
-17   3  10  2   7  6  10.0  3.0   2.0   4.0
-18   1   1  5   0  4   NaN  NaN   NaN   NaN
-19   6   5  1   9  8   2.0  2.0   3.0   5.0
+     A   B   C  D   E     W     X     Y     Z
+0   10   1   2  5   3   0.0   2.0   7.0  10.0
+1   10   1   2  5   3  10.0   9.0  10.0   4.0
+2   10   1   2  5   3   8.0  10.0   6.0   9.0
+3    7   8   2  4  10   0.0   2.0   7.0  10.0
+4    7   8   2  4  10  10.0   9.0  10.0   4.0
+5    7   8   2  4  10   8.0  10.0   6.0   9.0
+6    1   0   2  3   7   0.0   2.0   7.0  10.0
+7    1   0   2  3   7  10.0   9.0  10.0   4.0
+8    1   0   2  3   7   8.0  10.0   6.0   9.0
+9    8   8   3  3  10   NaN   NaN   NaN   NaN
+10   1   3   3  6   0   NaN   NaN   NaN   NaN
+11   2   7  10  2   5   NaN   NaN   NaN   NaN
+12   7  10   0  7   0  10.0   8.0   3.0   3.0
+13   7  10   0  7   0   6.0   5.0   9.0   7.0
+14   7  10   0  7   0   5.0   2.0   8.0   4.0
+15   7  10   0  7   0   7.0   1.0   1.0   9.0
+16   7  10   0  7   0   7.0   3.0   6.0  10.0
+17   1   0   7  7   0   9.0   5.0  10.0   8.0
+18   1  10   7  2   0   9.0   5.0  10.0   8.0
+19   7  10   8  6   0   6.0   2.0   2.0   9.0
 
 Left Join DF - DF1
-     A   B  C   D  E     W    X     Y     Z
-0    0   1  6   6  4   2.0  7.0   9.0   3.0
-1    6   4  0   7  0   5.0  1.0   3.0  10.0
-2    6   4  0   7  0   8.0  7.0   3.0   7.0
-3    6   4  0   7  0   3.0  3.0   7.0   2.0
-4    6   4  0   7  0   4.0  2.0   0.0   8.0
-5    6   4  0   7  0  10.0  4.0   0.0   1.0
-6    3  10  9   8  2  10.0  5.0  10.0   7.0
-7    0   7  6   6  7   2.0  7.0   9.0   3.0
-8    9   4  7   7  7   NaN  NaN   NaN   NaN
-9   10   5  2   6  7   2.0  0.0   7.0   8.0
-10  10   5  2   6  7  10.0  3.0   2.0   4.0
-11   3  10  2   7  6   2.0  0.0   7.0   8.0
-12   3  10  2   7  6  10.0  3.0   2.0   4.0
-13   6   1  0  10  0   5.0  1.0   3.0  10.0
-14   6   1  0  10  0   8.0  7.0   3.0   7.0
-15   6   1  0  10  0   3.0  3.0   7.0   2.0
-16   6   1  0  10  0   4.0  2.0   0.0   8.0
-17   6   1  0  10  0  10.0  4.0   0.0   1.0
-18   1   1  5   0  4   NaN  NaN   NaN   NaN
-19   6   5  1   9  8   2.0  2.0   3.0   5.0
+     A   B   C  D   E     W     X     Y     Z
+0   10   1   2  5   3   0.0   2.0   7.0  10.0
+1   10   1   2  5   3  10.0   9.0  10.0   4.0
+2   10   1   2  5   3   8.0  10.0   6.0   9.0
+3    7   8   2  4  10   0.0   2.0   7.0  10.0
+4    7   8   2  4  10  10.0   9.0  10.0   4.0
+5    7   8   2  4  10   8.0  10.0   6.0   9.0
+6    1   0   2  3   7   0.0   2.0   7.0  10.0
+7    1   0   2  3   7  10.0   9.0  10.0   4.0
+8    1   0   2  3   7   8.0  10.0   6.0   9.0
+9    8   8   3  3  10   NaN   NaN   NaN   NaN
+10   2   7  10  2   5   NaN   NaN   NaN   NaN
+11   7  10   0  7   0  10.0   8.0   3.0   3.0
+12   7  10   0  7   0   6.0   5.0   9.0   7.0
+13   7  10   0  7   0   5.0   2.0   8.0   4.0
+14   7  10   0  7   0   7.0   1.0   1.0   9.0
+15   7  10   0  7   0   7.0   3.0   6.0  10.0
+16   1   0   7  7   0   9.0   5.0  10.0   8.0
+17   1  10   7  2   0   9.0   5.0  10.0   8.0
+18   1   3   3  6   0   NaN   NaN   NaN   NaN
+19   7  10   8  6   0   6.0   2.0   2.0   9.0
 
 Right Join DF - DF1
-     A   B  C   D  E   W  X   Y   Z
-0    0   1  6   6  4   2  7   9   3
-1    0   7  6   6  7   2  7   9   3
-2    6   4  0   7  0   5  1   3  10
-3    6   1  0  10  0   5  1   3  10
-4    6   4  0   7  0   8  7   3   7
-5    6   1  0  10  0   8  7   3   7
-6    6   4  0   7  0   3  3   7   2
-7    6   1  0  10  0   3  3   7   2
-8    6   4  0   7  0   4  2   0   8
-9    6   1  0  10  0   4  2   0   8
-10   6   4  0   7  0  10  4   0   1
-11   6   1  0  10  0  10  4   0   1
-12   3  10  9   8  2  10  5  10   7
-13  10   5  2   6  7   2  0   7   8
-14   3  10  2   7  6   2  0   7   8
-15  10   5  2   6  7  10  3   2   4
-16   3  10  2   7  6  10  3   2   4
-17   6   5  1   9  8   2  2   3   5
+     A   B  C  D   E   W   X   Y   Z
+0   10   1  2  5   3   0   2   7  10
+1    7   8  2  4  10   0   2   7  10
+2    1   0  2  3   7   0   2   7  10
+3   10   1  2  5   3  10   9  10   4
+4    7   8  2  4  10  10   9  10   4
+5    1   0  2  3   7  10   9  10   4
+6   10   1  2  5   3   8  10   6   9
+7    7   8  2  4  10   8  10   6   9
+8    1   0  2  3   7   8  10   6   9
+9    7  10  0  7   0  10   8   3   3
+10   7  10  0  7   0   6   5   9   7
+11   7  10  0  7   0   5   2   8   4
+12   7  10  0  7   0   7   1   1   9
+13   7  10  0  7   0   7   3   6  10
+14   1   0  7  7   0   9   5  10   8
+15   1  10  7  2   0   9   5  10   8
+16   7  10  8  6   0   6   2   2   9
 </pre></div></div>
 </div>
 </div></div>
