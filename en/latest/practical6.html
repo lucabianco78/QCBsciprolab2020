@@ -1848,7 +1848,7 @@ rev_comp(rev_comp(S1) == S1?) True
     <span class="n">ret</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">intVal</span><span class="o">//</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">intVal</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
     <span class="c1">#OR:</span>
     <span class="c1">#for i in range(1,intVal//2+1):</span>
-    <span class="c1">#    if(intVal % i == 0):</span>
+    <span class="c1">#    if intVal % i == 0:</span>
     <span class="c1">#        ret.append(i)</span>
     <span class="k">return</span> <span class="n">ret</span>
 
