@@ -1839,7 +1839,7 @@ rev_comp(rev_comp(S1) == S1?) True
 <p><strong>WARNING:</strong> do not try to find more than 4 perfect numbers as it might take a while!!!</p>
 <div class="tggle" onclick="toggleVisibility('ex6');"><p>Show/Hide Solution</p>
 </div><div id="ex6" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1869,14 +1869,11 @@ rev_comp(rev_comp(S1) == S1?) True
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">val</span> <span class="o">=</span> <span class="mi">2</span>
     <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">while</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">):</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">checkPerfect</span><span class="p">(</span><span class="n">val</span><span class="p">)):</span>
+    <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">checkPerfect</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
             <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
             <span class="n">ret</span><span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="o">=</span> <span class="n">getDivisors</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
-            <span class="n">val</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">val</span> <span class="o">+=</span> <span class="mi">1</span>
-
+        <span class="n">val</span> <span class="o">+=</span> <span class="mi">1</span>
 
     <span class="k">return</span> <span class="n">ret</span>
 
