@@ -860,10 +860,10 @@ Range 0-6
 <div class="highlight"><pre>
 Uniform distr. in (0,1). 4x3 matrix:
 
-[[0.26655821 0.48050151 0.23448092]
- [0.88289571 0.238081   0.1733964 ]
- [0.90549954 0.4252137  0.61862483]
- [0.28497795 0.78493985 0.08662059]]
+[[0.25603984 0.44020151 0.06906468]
+ [0.85539568 0.4582083  0.49685445]
+ [0.22191231 0.4715389  0.5883954 ]
+ [0.27943572 0.05475796 0.88788881]]
 </pre></div></div>
 </div>
 <p>To always get the same values we need to initialize the random seed (a parameter of the pseudo-random sequence generator) always to the same value.</p>
@@ -898,17 +898,17 @@ Uniform distr. in (0,1). 4x3 matrix:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
- u: [[0.6933627  0.77516221]
- [0.02076202 0.71249419]
- [0.61732562 0.42713438]]
+ u: [[0.67848617 0.08102993]
+ [0.04673647 0.08677215]
+ [0.96551652 0.88678802]]
 
- u1:[[0.72227502 0.80646065]
- [0.34509701 0.83730802]
- [0.59989601 0.17551825]]
+ u1:[[0.50382631 0.70457772]
+ [0.81352086 0.90271492]
+ [0.78058646 0.55840167]]
 
- u2:[[0.00954582 0.22850653]
- [0.58502491 0.11474092]
- [0.14299649 0.33996404]]
+ u2:[[0.33583097 0.87723566]
+ [0.25718573 0.04820315]
+ [0.49043969 0.33033437]]
 
 With random seed reinit.
  u: [0.5488135  0.71518937 0.60276338]
@@ -921,7 +921,7 @@ With random seed reinit.
 <h2>Numpy to and from pandas<a class="headerlink" href="#Numpy-to-and-from-pandas" title="Permalink to this headline">¶</a></h2>
 <p>Pandas Series and DataFrames are actually built on top of numpy ndarrays. Moreover, given a numpy matrix (or array) it is quite easy to convert it into a DataFrame (or Series).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1350,7 +1350,7 @@ Sub array B - 20
 <p>A lot of mathematical and statistical functions can be applied. Examples include trigonometric functions like <strong>sin, cos, tan,…</strong>, statistical functions like <strong>mean, std, max, min, cumsum,…</strong> see the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.math.html">documentation</a> for a complete list.</p>
 <p><strong>Example:</strong> Let’s create and plot a sin, cos and <span class="math notranslate nohighlight">\(\log_2 (2 + sin+cos)\)</span> from -2Pi to 2Pi</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1385,7 +1385,7 @@ Sub array B - 20
 <p>It is possible to filter <code class="docutils literal notranslate"><span class="pre">np.ndarrays</span></code> to retrieve the indexes (or the values) meeting specific conditions. The method <code class="docutils literal notranslate"><span class="pre">where</span></code> provides the index of those values. Note that if the <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> is actually a matrix, <code class="docutils literal notranslate"><span class="pre">where</span></code> returns a tuple of indexes that are respectively the i and j coordinates of the elements fulfilling the condition.</p>
 <p><strong>Example</strong>: write a method that creates the np.ndarray with all the integers multiple of a certain number N that do not exceed M. The method should return also the indexes of those values in the original np.ndarray.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1422,7 +1422,7 @@ Values:[ 13  26  39  52  65  78  91 104 117 130 143 156 169 182 195 208 221 234
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1606,7 +1606,7 @@ A transposed:
 <p>The complete list of all available methods can be found in the <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/routines.linalg.html">documentation</a>.</p>
 <p><strong>Example:</strong> Let’s create a random 4x4 matrix and invert it. Let’s finally check that the product of the matrix by its inversion yields the 4x4 identity matrix.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1631,26 +1631,26 @@ A transposed:
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Matrix A:
-[[7 6 7 5]
- [9 8 8 1]
- [4 6 4 2]
- [7 8 5 7]]
+[[3 7 5 5]
+ [0 1 5 9]
+ [3 0 5 0]
+ [1 2 4 2]]
 
 inv(A)
-[[-0.275       0.35       -0.625       0.325     ]
- [-0.175      -0.05        0.375       0.025     ]
- [ 0.46666667 -0.2         0.33333333 -0.4       ]
- [ 0.14166667 -0.15       -0.04166667  0.075     ]]
+[[ 0.23121387  0.05780347  0.38150289 -0.83815029]
+ [ 0.09537572 -0.10115607 -0.16763006  0.21676301]
+ [-0.13872832 -0.03468208 -0.02890173  0.50289017]
+ [ 0.06647399  0.1416185   0.03468208 -0.30346821]]
 
-[[ 1.00000000e+00  0.00000000e+00 -2.42861287e-16  3.46944695e-16]
- [-2.77555756e-17  1.00000000e+00  1.73472348e-16 -5.41233725e-16]
- [-5.55111512e-17 -1.11022302e-16  1.00000000e+00 -1.94289029e-16]
- [-4.16333634e-16  0.00000000e+00 -3.40005801e-16  1.00000000e+00]]
+[[ 1.00000000e+00  2.77555756e-17  2.08166817e-17 -1.66533454e-16]
+ [-4.16333634e-17  1.00000000e+00 -6.93889390e-18  5.55111512e-17]
+ [ 2.77555756e-17  6.93889390e-18  1.00000000e+00  0.00000000e+00]
+ [-2.77555756e-17  0.00000000e+00  6.93889390e-17  1.00000000e+00]]
 </pre></div></div>
 </div>
 <p><strong>Example:</strong> Let’s solve the following system of linear equations:<span class="math notranslate nohighlight">\(\begin{cases} 2x + y - 2z = 3\\ x - y - z = 0\\ x + y + 3z = 12\end{cases}\)</span></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1708,7 +1708,7 @@ Ax:
 <p>Figures can also be saved to files with <code class="docutils literal notranslate"><span class="pre">plt.savefig('filename')</span></code>.</p>
 <p><strong>Example:</strong> [adapted from documentation] Let’s plot the function <span class="math notranslate nohighlight">\(cos(2 * \Pi * x)*sin(2 * \Pi * x)\)</span> for x ranging from 0 to 10, annotating the point (5,0).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1787,7 +1787,21 @@ Ax:
 </div>
 <div class="section" id="Exercises">
 <h2>Exercises<a class="headerlink" href="#Exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Write a function that converts a numpy ndarray of temperatures expressed in Degrees Celsius into Degrees Farenheit. The formula to convert a temperature C in Celsius into F in Farenheit is the following:</p>
+<div class="math notranslate nohighlight">
+\[F = C * 9/5 + 32\]</div>
+<p>Write then a function that converts a numpy ndarray of temperatures in Farenheit into Celsius.</p>
+<p>Finally:</p>
 <ol class="arabic simple">
+<li><p>apply the Celsius to Farenheit conversion on an ndarray containing the following October’s minimum and maximum temperatures in Trento: tmin = [12, 11, 11, 8, 9, 10, 3, 8, 4, 5, 10, 9, 8, 9, 8, 7, 6, 4, 5, 6, 9, 9, 3, 3, 5] and tmax =[15, 22, 18, 20, 22, 22, 20, 21, 21, 21, 21, 23, 24, 24, 24, 25, 22, 22, 20, 20, 19, 15, 20, 23, 19];</p></li>
+<li><p>check that both functions work correctly by converting the values from Celsius to Farenheit and back to Celsius;</p></li>
+<li><p>plot the minimum and maximum temperatures in celsius on the same graph. Since the temperatures refer to the first 25 days of the month of October 2017, the x coordinate can be a range(1,26);</p></li>
+</ol>
+</li>
+</ol>
+<div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
+</div><div id="ex1" style="display:none;"></div><ol class="arabic simple" start="2">
 <li><p>Create the following functions:</p>
 <ul class="simple">
 <li><ol class="loweralpha simple">
@@ -1840,20 +1854,6 @@ Index: 99987 L: 0 L1: 0
 Identities are OK!
 </pre></div>
 </div>
-<div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
-</div><div id="ex1" style="display:none;"></div><ol class="arabic" start="2">
-<li><p>Write a function that converts a numpy ndarray of temperatures expressed in Degrees Celsius into Degrees Farenheit. The formula to convert a temperature C in Celsius into F in Farenheit is the following:</p>
-<div class="math notranslate nohighlight">
-\[F = C * 9/5 + 32\]</div>
-<p>Write then a function that converts a numpy ndarray of temperatures in Farenheit into Celsius.</p>
-<p>Finally:</p>
-<ol class="arabic simple">
-<li><p>apply the Celsius to Farenheit conversion on an ndarray containing the following October’s minimum and maximum temperatures in Trento: tmin = [12, 11, 11, 8, 9, 10, 3, 8, 4, 5, 10, 9, 8, 9, 8, 7, 6, 4, 5, 6, 9, 9, 3, 3, 5] and tmax =[15, 22, 18, 20, 22, 22, 20, 21, 21, 21, 21, 23, 24, 24, 24, 25, 22, 22, 20, 20, 19, 15, 20, 23, 19];</p></li>
-<li><p>check that both functions work correctly by converting the values from Celsius to Farenheit and back to Celsius;</p></li>
-<li><p>plot the minimum and maximum temperatures in celsius on the same graph. Since the temperatures refer to the first 25 days of the month of October 2017, the x coordinate can be a range(1,26);</p></li>
-</ol>
-</li>
-</ol>
 <div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
 </div><div id="ex1" style="display:none;"></div><ol class="arabic" start="3">
 <li><p>Write some python code to solve the following system of linear equations:</p>
