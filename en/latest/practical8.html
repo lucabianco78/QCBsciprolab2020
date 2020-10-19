@@ -41,7 +41,8 @@
   <link rel="stylesheet" href="_static/css/jupman.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/jupman-web.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Practical 7" href="practical7.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,7 +90,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Scientific Programming for QCB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#General-Info">General Info</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="index.html#Timetable-and-lecture-rooms">Timetable and lecture rooms</a></li>
@@ -213,6 +214,39 @@
 <li class="toctree-l2"><a class="reference internal" href="practical6.html#Exercises">Exercises</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="practical7.html">Practical 7</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="practical7.html#Slides">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practical7.html#Functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practical7.html#Getting-input-from-the-command-line">Getting input from the command line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practical7.html#Argparse">Argparse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practical7.html#Exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Practical 8</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Slides">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Libraries-installation">Libraries installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Pandas">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Series">Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#How-to-define-and-access-a-Series">How to define and access a Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Operator-broadcasting">Operator broadcasting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Filtering">Filtering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Missing-data">Missing data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Computing-stats">Computing stats</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Plotting-data">Plotting data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Pandas-DataFrames">Pandas DataFrames</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Define-a-DataFrame">Define a DataFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Loading-data-from-external-files">Loading data from external files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Extract-values-by-row-and-column">Extract values by row and column</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Broadcasting,-filtering-and-computing-stats">Broadcasting, filtering and computing stats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Merging-DataFrames">Merging DataFrames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Grouping">Grouping</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Exercises">Exercises</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="toc.html"> </a></li>
 </ul>
 
@@ -248,6 +282,8 @@
     <!-- Commented because doesn't work with sections,
          see https://github.com/DavidLeoni/jupman/issues/39
     <li><a href="toc-page.html">Docs</a> &raquo;</li>
+    
+        <li><a href="toc.html"> </a> &raquo;</li>
     
     <li>Practical 8</li>
     -->
@@ -527,8 +563,8 @@ import numpy as np
 </div>
 <p>if, upon execution, you do not get any error messages, you are sorted. Otherwise, you need to install them.</p>
 <p>In <strong>Linux</strong> you can install the libraries by typing in a terminal <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">numpy</span></code> (or <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">python3.X</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">python3.X</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">python3.X</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">numpy</span></code>), where X is your python version.</p>
-<p>In <strong>Windows</strong> you can install the libraries by typing in the command prompt (to open it type <code class="docutils literal notranslate"><span class="pre">cmd</span></code> in the search) <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">numpy</span></code>. If you are using anaconda you need to run these commands from the <em>anaconda prompt</em>.</p>
-<p><strong>Please install them in this order.</strong> You might not need to install numpy as matplotlib requires it. Once done that, try to perform the above imports again and they should work this time around.</p>
+<p>In <strong>Windows</strong> you can install the libraries by typing in the command prompt (to open it type <code class="docutils literal notranslate"><span class="pre">cmd</span></code> in the search box) <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">numpy</span></code>. If you are using anaconda you need to run these commands from the <em>anaconda prompt</em>.</p>
+<p><strong>Please install them in this order</strong> (i.e. <strong>matplotlib</strong> first, then <strong>pandas</strong> and finally <strong>numpy</strong>). You might not need to install numpy as matplotlib requires it. Once done that, try to perform the above imports again and they should work this time around.</p>
 </div>
 <div class="section" id="Pandas">
 <h2>Pandas<a class="headerlink" href="#Pandas" title="Permalink to this headline">¶</a></h2>
@@ -540,9 +576,9 @@ import numpy as np
 <p>Series are 1-dimensional structures (like lists) containing data. Series are characterized by two types of information: the <strong>values</strong> and the <strong>index</strong> (a list of labels associated to the data), therefore they are a bit like a list and a bit like a dictionary. The index is optional and can be added by the library if not specified.</p>
 <div class="section" id="How-to-define-and-access-a-Series">
 <h3>How to define and access a Series<a class="headerlink" href="#How-to-define-and-access-a-Series" title="Permalink to this headline">¶</a></h3>
-<p>There are several ways to define a Series. We can specify both the values and the index esplicitly, or through a dictionary, or let python add the default index for us. We can access the index with the <strong>Series.index</strong> method and the values with the <strong>Series.values</strong>.</p>
+<p>There are several ways to define a Series. We can specify both the values and the index explicitly, or through a dictionary, or let python add the default index for us. We can access the index with the <strong>Series.index</strong> method and the values with the <strong>Series.values</strong>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -592,18 +628,18 @@ import numpy as np
 <div class="highlight"><pre>
 Values and index explicitly defined
 A    11
-B     5
-C     0
-D     0
-E     3
-F     5
-G    18
-H    20
-I    16
-L     2
+B    17
+C    10
+D     1
+E    11
+F     8
+G    10
+H    18
+I    10
+L     7
 dtype: int64
 The index: Index([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;F&#39;, &#39;G&#39;, &#39;H&#39;, &#39;I&#39;, &#39;L&#39;], dtype=&#39;object&#39;)
-The values: [11  5  0  0  3  5 18 20 16  2]
+The values: [11 17 10  1 11  8 10 18 10  7]
 ------------------------
 
 From dictionary
@@ -619,19 +655,19 @@ Index([&#39;one&#39;, &#39;two&#39;, &#39;ten&#39;, &#39;three&#39;, &#39;four&#
 ------------------------
 
 Default index
-0     9
-1     3
-2     4
-3     7
-4     5
-5     4
+0     5
+1     4
+2     9
+3    10
+4     7
+5     7
 6     2
-7     4
-8    10
-9     8
+7     5
+8     2
+9     7
 dtype: int64
 RangeIndex(start=0, stop=10, step=1)
-[ 9  3  4  7  5  4  2  4 10  8]
+[ 5  4  9 10  7  7  2  5  2  7]
 ------------------------
 
 Same value repeated
@@ -656,7 +692,7 @@ RangeIndex(start=0, stop=10, step=1)
 <p><strong>Note:</strong> When the method returns more than one element, the return type is a Series.</p>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -698,58 +734,58 @@ RangeIndex(start=0, stop=10, step=1)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-A     7
-B     5
+A     2
+B    12
 C     9
-D     0
-E    15
-F     4
-G     7
+D    11
+E     0
+F    11
+G    15
 H    10
-I     9
-L     4
+I     5
+L    16
 dtype: int64
 
-Value at label &#34;A&#34;: 7
-Value at index 1: 5
+Value at label &#34;A&#34;: 2
+Value at index 1: 12
 
 Slicing from 1 to 3:
-B    5
-C    9
+B    12
+C     9
 dtype: int64
 
 Slicing from C to H:
 C     9
-D     0
-E    15
-F     4
-G     7
+D    11
+E     0
+F    11
+G    15
 H    10
 dtype: int64
 
 Retrieving from list:
-B     5
-D     0
-F     4
+B    12
+D    11
+F    11
 H    10
-L     4
+L    16
 dtype: int64
-A     7
+A     2
 C     9
-E    15
-G     7
+E     0
+G    15
 dtype: int64
 
 Top 3
-A    7
-B    5
-C    9
+A     2
+B    12
+C     9
 dtype: int64
 
 Bottom 3
 H    10
-I     9
-L     4
+I     5
+L    16
 dtype: int64
 </pre></div></div>
 </div>
@@ -759,7 +795,7 @@ dtype: int64
 <p>Operations can automatically be broadcast to the entire Series. This is a quite cool feature and saves us from looping through the elements of the Series.</p>
 <p><strong>Example:</strong> Given a list of 10 integers and we want to divide them by 2. Without using pandas we would:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -781,13 +817,13 @@ dtype: int64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[13, 0, 15, 5, 11, 4, 17, 2, 12, 18]
-[6.5, 0.0, 7.5, 2.5, 5.5, 2.0, 8.5, 1.0, 6.0, 9.0]
+[9, 9, 17, 2, 19, 5, 7, 8, 3, 19]
+[4.5, 4.5, 8.5, 1.0, 9.5, 2.5, 3.5, 4.0, 1.5, 9.5]
 </pre></div></div>
 </div>
 <p>With pandas instead:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -809,28 +845,28 @@ dtype: int64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-A    12
+A     7
 B    13
-C    18
-D     8
-E    18
-F    17
-G    13
-H    17
-I    11
-L    12
+C     0
+D     2
+E     3
+F     0
+G     1
+H     5
+I    17
+L    16
 dtype: int64
 
-A    6.0
+A    3.5
 B    6.5
-C    9.0
-D    4.0
-E    9.0
-F    8.5
-G    6.5
-H    8.5
-I    5.5
-L    6.0
+C    0.0
+D    1.0
+E    1.5
+F    0.0
+G    0.5
+H    2.5
+I    8.5
+L    8.0
 dtype: float64
 </pre></div></div>
 </div>
@@ -838,9 +874,9 @@ dtype: float64
 <div class="section" id="Filtering">
 <h3>Filtering<a class="headerlink" href="#Filtering" title="Permalink to this headline">¶</a></h3>
 <p>We can also apply boolean operators to obtain only the <strong>sub-Series</strong> with all the values satisfying a specific condition. This allows us to <strong>filter</strong> the Series.</p>
-<p>Calling the boolean operator on the series alone (e.g. S &gt; 10) will return a Series with True at the indexes where the condition is met, False at the others. Passing such a Series to a Series of the same lenght will return only the elements where the condition is True. Check the code below to see this in action.</p>
+<p>Calling the boolean operator on the series alone (e.g. S &gt; 10) will return a Series with True at the indexes where the condition is met, False at the others. Passing such a Series to a Series of the same length will return only the elements where the condition is True. Check the code below to see this in action.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -865,44 +901,42 @@ dtype: float64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-A    15
-B    15
-C    14
-D    13
-E     7
-F    11
-G     9
-H    15
-I    20
-L     3
+A     1
+B    13
+C     9
+D    18
+E    16
+F    16
+G    10
+H    11
+I    10
+L     0
 dtype: int64
 
-A     True
+A    False
 B     True
-C     True
+C    False
 D     True
-E    False
+E     True
 F     True
 G    False
 H     True
-I     True
+I    False
 L    False
 dtype: bool
 
-A    15
-B    15
-C    14
-D    13
-F    11
-H    15
-I    20
+B    13
+D    18
+E    16
+F    16
+H    11
 dtype: int64
 </pre></div></div>
 </div>
 </div>
 <div class="section" id="Missing-data">
 <h3>Missing data<a class="headerlink" href="#Missing-data" title="Permalink to this headline">¶</a></h3>
-<p>Operations involving Series might have to deal with missing data or non-valid values (both cases are represented as <strong>NaN</strong>, that is <strong>not a number</strong>). Operations are carried out by aligning the Series based on their <strong>indexes</strong>. Indexes not in common end up in NaN values. Although most the operations that can be performed on series quite happily deal with NaNs, it is possible to <strong>drop</strong> NaN values or to <strong>fill</strong> them (i.e. replace their value with some other value). The sytax is:</p>
+<p>Operations involving Series might have to deal with missing data or non-valid values (both cases are represented as <strong>NaN</strong>, that is <strong>not a number</strong>). Operations are carried out by aligning the Series based on their <strong>indexes</strong>. Indexes not in common end up in NaN values. Although most of the operations that can be performed on series quite happily deal with NaNs, it is possible to <strong>drop</strong> NaN values or to <strong>fill</strong> them (i.e. replace their value with some other value). The sytax is:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Series.dropna()
 </pre></div>
 </div>
@@ -912,7 +946,7 @@ dtype: int64
 </div>
 <p><strong>Note that these operations do not modify the Series but rather return a new Series</strong>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -945,46 +979,46 @@ dtype: int64
 <div class="highlight"><pre>
 The dimensions of these Series: (10,)
 
-D     4
-E    10
-F     4
-G     8
-H     6
-A     0
-Z     9
-Y     1
+D    9
+E    1
+F    7
+G    3
+H    4
+A    0
+Z    6
+Y    1
 dtype: int64
 ---- S + S1 ----
-A     9.0
+A    10.0
 B     NaN
 C     NaN
-D     5.0
-E    12.0
-F     4.0
-G    17.0
-H    16.0
+D    18.0
+E     2.0
+F    12.0
+G     7.0
+H     4.0
 I     NaN
 L     NaN
 Y     NaN
 Z     NaN
 dtype: float64
 ---- Dropping NaNs ----
-A     9.0
-D     5.0
-E    12.0
-F     4.0
-G    17.0
-H    16.0
+A    10.0
+D    18.0
+E     2.0
+F    12.0
+G     7.0
+H     4.0
 dtype: float64
 ---- Filling NaNs ----
-A           9
+A          10
 B    my_value
 C    my_value
-D           5
-E          12
-F           4
-G          17
-H          16
+D          18
+E           2
+F          12
+G           7
+H           4
 I    my_value
 L    my_value
 Y    my_value
@@ -995,12 +1029,12 @@ dtype: object
 </div>
 <div class="section" id="Computing-stats">
 <h3>Computing stats<a class="headerlink" href="#Computing-stats" title="Permalink to this headline">¶</a></h3>
-<p>Pandas offer several operators to compute stats on the data stored in a Series. These include basic stats like <strong>min</strong>, <strong>max</strong> (and relative indexes with <strong>argmin</strong> and <strong>argmax</strong>) <strong>mean</strong>, <strong>std</strong>, <strong>quantile</strong> (to get the quantiles. A description of the data can be obtained by using the method <strong>describe</strong> and the counts for each value can be obtained by <strong>value_counts</strong>. Other methods available are <strong>sum</strong> and <strong>cumsum</strong> (for the sum and cumulative sum of the elements), <strong>autocorr</strong> and
+<p>Pandas offers several operators to compute stats on the data stored in a Series. These include basic stats like <strong>min</strong>, <strong>max</strong> (and relative indexes with <strong>argmin</strong> and <strong>argmax</strong>) <strong>mean</strong>, <strong>std</strong>, <strong>quantile</strong> (to get the quantiles). A description of the data can be obtained by using the method <strong>describe</strong> and the counts for each value can be obtained by <strong>value_counts</strong>. Other methods available are <strong>sum</strong> and <strong>cumsum</strong> (for the sum and cumulative sum of the elements), <strong>autocorr</strong> and
 <strong>corr</strong> (for autocorrelation and correlation) and many others. For a complete list check the <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html?highlight=series">Pandas reference</a>.</p>
 <p><strong>Note: as said before, when these methods do not return a single value, they return a Series.</strong></p>
 <p><strong>Example:</strong> Fill the previous Series with the mean values of the series rather than NaNs.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1008,6 +1042,11 @@ dtype: object
 <span class="nb">print</span><span class="p">(</span><span class="n">Ssum</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---- Filling with avg value ----&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Ssum</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">Ssum</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Min:</span><span class="si">{}</span><span class="s2"> (index: </span><span class="si">{}</span><span class="s2">) Max: </span><span class="si">{}</span><span class="s2"> (index: </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ssum</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+                                                      <span class="n">Ssum</span><span class="o">.</span><span class="n">argmin</span><span class="p">(),</span>
+                                                      <span class="n">Ssum</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+                                                      <span class="n">Ssum</span><span class="o">.</span><span class="n">argmax</span><span class="p">()))</span>
+
 </pre></div>
 </div>
 </div>
@@ -1016,38 +1055,39 @@ dtype: object
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-A     9.0
+A    10.0
 B     NaN
 C     NaN
-D     5.0
-E    12.0
-F     4.0
-G    17.0
-H    16.0
+D    18.0
+E     2.0
+F    12.0
+G     7.0
+H     4.0
 I     NaN
 L     NaN
 Y     NaN
 Z     NaN
 dtype: float64
 ---- Filling with avg value ----
-A     9.0
-B    10.5
-C    10.5
-D     5.0
-E    12.0
-F     4.0
-G    17.0
-H    16.0
-I    10.5
-L    10.5
-Y    10.5
-Z    10.5
+A    10.000000
+B     8.833333
+C     8.833333
+D    18.000000
+E     2.000000
+F    12.000000
+G     7.000000
+H     4.000000
+I     8.833333
+L     8.833333
+Y     8.833333
+Z     8.833333
 dtype: float64
+Min:2.0 (index: 4) Max: 18.0 (index: 3)
 </pre></div></div>
 </div>
 <p>Let’s see some operators introduced above in action.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1084,69 +1124,70 @@ dtype: float64
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 The data:
-A     0
-B     8
-C     1
-D     4
-E    10
-F     0
+A     5
+B     4
+C    10
+D     3
+E     4
+F     1
 G     4
-H     0
-I     9
-L     0
+H     8
+I     7
+L     5
 dtype: int64
 
 Its description
 count    10.000000
-mean      3.600000
-std       4.060651
-min       0.000000
-25%       0.000000
-50%       2.500000
-75%       7.000000
+mean      5.100000
+std       2.601282
+min       1.000000
+25%       4.000000
+50%       4.500000
+75%       6.500000
 max      10.000000
 dtype: float64
 
 Specifying different quantiles:
-0.1    0.0
-0.2    0.0
-0.8    8.2
-0.9    9.1
+0.1    2.8
+0.2    3.8
+0.8    7.2
+0.9    8.2
 dtype: float64
 
 Histogram:
-0     4
-4     2
+4     3
+5     2
 10    1
-9     1
 8     1
+7     1
+3     1
 1     1
 dtype: int64
 
 The type is a Series:
 &lt;class &#39;pandas.core.series.Series&#39;&gt;
 Summing the values:
-36
+51
 
 The cumulative sum:
-A     0
-B     8
-C     9
-D    13
-E    23
-F    23
-G    27
-H    27
-I    36
-L    36
+A     5
+B     9
+C    19
+D    22
+E    26
+F    27
+G    31
+H    39
+I    46
+L    51
 dtype: int64
 </pre></div></div>
 </div>
 <p><strong>Example</strong>:</p>
 <p>Create two Series from the lists [2, 4, 6, 8, 10, 12, 13, 14, 15, 16], [1, 3, 5, 7, 9, 11, 13, 14, 15, 16] using the same index for both: [‘9B47’, ‘468B’, ‘B228’, ‘3C52’, ‘AE2E’, ‘DFF6’, ‘C38B’, ‘2CE5’, ‘0325’, ‘398F’].</p>
-<p>Let’s compare the distribution stats of the two Series (mean value, max, min, quantiles) and get the index and value of the positions where the two series are the same. Finally, let’s get the sub-series where the first has an higher value than the first quartile of the second and compute its stats.</p>
+<p>Let’s compare the distribution stats of the two Series (mean value, max, min, quantiles) and get the index and value of the positions where the two series are the same. Finally, let’s get the sub-series where the first has a value higher than the first quartile of the second and compute its stats.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1264,8 +1305,14 @@ dtype: int64
 <div class="section" id="Plotting-data">
 <h2>Plotting data<a class="headerlink" href="#Plotting-data" title="Permalink to this headline">¶</a></h2>
 <p>Using python’s matplotlib it is possible to plot data. The basic syntax is <code class="docutils literal notranslate"><span class="pre">Series.plot(kind</span> <span class="pre">=</span> <span class="pre">&quot;type&quot;)</span></code> the parameter <code class="docutils literal notranslate"><span class="pre">kind</span></code> can be used to produce several types of plots (examples include <strong>line</strong>, <strong>hist</strong>, <strong>pie</strong>, <strong>bar</strong>, see <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.plot.html">here</a> for all possible choices). Note that <strong>matplotlib</strong> needs to be imported and the pyplot needs to be shown with <strong>pyplot.show()</strong> to display the plot.</p>
+<p>Typically, the following syntax is used to import pyplot (remember also to import pandas):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+import matplotlib.pyplot as plt
+</pre></div>
+</div>
+<p>note the use of the alias <code class="docutils literal notranslate"><span class="pre">plt</span></code> for simplicity.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1296,16 +1343,16 @@ dtype: int64
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 The data:
-A     1
-B     5
-C     4
-D     1
-E     0
-F     7
-G     9
-H    10
+A     8
+B     7
+C     9
+D     8
+E     6
+F     6
+G     6
+H     0
 I     1
-L     2
+L    10
 dtype: int64
 </pre></div></div>
 </div>
@@ -1314,7 +1361,7 @@ dtype: int64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.figure.Figure at 0x7efc424612e8&gt;
+&lt;matplotlib.figure.Figure at 0x7f75584da240&gt;
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -1322,7 +1369,7 @@ dtype: int64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.figure.Figure at 0x7efbee74cd68&gt;
+&lt;matplotlib.figure.Figure at 0x7f75047b1160&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1330,12 +1377,12 @@ dtype: int64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.figure.Figure at 0x7efbee72e6d8&gt;
+&lt;matplotlib.figure.Figure at 0x7f75047c2748&gt;
 </pre></div></div>
 </div>
 <p><strong>Example:</strong> Let’s create a series representing the sin, cos and sqrt functions and plot them.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1363,6 +1410,13 @@ dtype: int64
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Cos function&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sin and Cos functions&quot;</span><span class="p">)</span>
+<span class="n">ySeries</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">ySeries1</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Sin&quot;</span><span class="p">,</span> <span class="s2">&quot;Cos&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
 <span class="n">ySeries2</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sqrt function&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1396,11 +1450,18 @@ dtype: int64
 <img alt="_images/practical8_22_2.png" src="_images/practical8_22_2.png" />
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <img alt="_images/practical8_22_3.png" src="_images/practical8_22_3.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/practical8_22_4.png" src="_images/practical8_22_4.png" />
 </div>
 </div>
 </div>
@@ -1412,7 +1473,7 @@ dtype: int64
 <h3>Define a DataFrame<a class="headerlink" href="#Define-a-DataFrame" title="Permalink to this headline">¶</a></h3>
 <p>There are several different ways to define a DataFrame. It is possible to create a DataFrame starting from a dictionary having Series as values. In this case, they <strong>keys</strong> of the dictionary are the <strong>columns</strong> of the DataFrame.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1465,7 +1526,7 @@ Index([&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;, &#39;Apr&#39;, &#39;May&#39;
 </div>
 <p>If the index is not specified, it is given by default:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1529,7 +1590,7 @@ RangeIndex(start=0, stop=12, step=1)
 </div>
 <p>It is also possible to define a DataFrame from a list of dictionaries holding a set of values rather than Series. Note that when columns do not have the corresponding information a NaN is added. Indexes and columns can be changed after they have been defined.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1574,12 +1635,12 @@ Day3     1     2   3.2   1.0   3.2  10.0   1.0   4.1
 </div>
 <div class="section" id="Loading-data-from-external-files">
 <h3>Loading data from external files<a class="headerlink" href="#Loading-data-from-external-files" title="Permalink to this headline">¶</a></h3>
-<p>Pandas also provide methods to load data from external files. In particular, to load data from a .cvs file, we can use the method <code class="docutils literal notranslate"><span class="pre">pandas.read_csv(filename)</span></code>. This method has a lot of parameters, you can see all the details on its usage on the <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html#pandas.read_csv">official documentation</a>. Some useful optional parameters are the <strong>separator</strong> (to specify the column separator like <code class="docutils literal notranslate"><span class="pre">sep=&quot;\t&quot;</span></code> for tab separated files),
+<p>Pandas also provides methods to load data from external files. In particular, to load data from a .cvs file, we can use the method <code class="docutils literal notranslate"><span class="pre">pandas.read_csv(filename)</span></code>. This method has a lot of parameters, you can see all the details on its usage on the <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html#pandas.read_csv">official documentation</a>. Some useful optional parameters are the <strong>separator</strong> (to specify the column separator like <code class="docutils literal notranslate"><span class="pre">sep=&quot;\t&quot;</span></code> for tab separated files),
 the character to identify comments (<code class="docutils literal notranslate"><span class="pre">comment=&quot;#&quot;</span></code>) or that to skip some lines (like the header for example or any initial comments to the file) <code class="docutils literal notranslate"><span class="pre">skiprows=N</span></code>. The rows to use as column header can be specified with the parameter <code class="docutils literal notranslate"><span class="pre">header</span></code> that accepts a number or a list of numbers. Similarly, the columns to use as index can be specified with the parameter <code class="docutils literal notranslate"><span class="pre">index_col</span></code>.</p>
-<p>Other methods to read data in are <code class="docutils literal notranslate"><span class="pre">pandas.read_excel(filename)</span></code> that works in a similar way but can load excel files (see <a class="reference external" href="http://pandas.pydata.org/pandas-docs/version/0.20/generated/pandas.read_excel.html">here</a>).</p>
+<p>Another method to read data in is <code class="docutils literal notranslate"><span class="pre">pandas.read_excel(filename)</span></code> that works in a similar way but can load excel files (see <a class="reference external" href="http://pandas.pydata.org/pandas-docs/version/0.20/generated/pandas.read_excel.html">here</a>).</p>
 <p><strong>Example:</strong> Let’s load the data stored in a csv datafile <a class="reference external" href="file_samples/sampledata_orders.csv">sampledata_orders.csv</a> in a pandas DataFrame.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1707,7 +1768,7 @@ max    6783.020000     164.730000             0.850000
 </ol>
 <p><strong>Note that if names are well formed (i.e. no spaces, no strange characters…</strong>) we can use DataFrame.col instead of DataFrame[col]. Here are some ways to extract data from the orders dataframe:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1829,9 +1890,9 @@ Row ID
 <div class="section" id="Broadcasting,-filtering-and-computing-stats">
 <h3>Broadcasting, filtering and computing stats<a class="headerlink" href="#Broadcasting,-filtering-and-computing-stats" title="Permalink to this headline">¶</a></h3>
 <p>These work pretty much like on Series and pandas takes care of adding NaNs when it cannot perform some operations due to missing values and so on.</p>
-<p>Obviously some operators, when applied to entire tables might not always make sense (like mean or sum of strings).</p>
+<p>Obviously some operators, when applied to entire tables, might not always make sense (like mean or sum of strings).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1948,7 +2009,7 @@ Row ID
 <p>Statistics can be computed by <strong>column</strong> (normally the default) or by <strong>row</strong> (specifying <code class="docutils literal notranslate"><span class="pre">axis=1</span></code>) or on the <strong>entire table</strong>.</p>
 <p><a class="reference external" href="http://pandas.pydata.org/pandas-docs/version/0.20/api.html#api-dataframe-stats">Here</a> you can find the complete list of methods that can be applied.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2207,7 +2268,7 @@ Cumulative sum (by row) - top 10 rows
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.merge(DataFrame1, DataFrame2, on=&quot;col_name&quot;, how=&quot;inner/outer/left/right&quot;)
 </pre></div>
 </div>
-<p>The column on which perform the merge is specified with the parameter <code class="docutils literal notranslate"><span class="pre">on</span></code> followed by the column name, while the behaviour of the merging depends on the parameter <code class="docutils literal notranslate"><span class="pre">how</span></code> that tells pandas how to behave when dealing with non-matching data. In particular:</p>
+<p>The column on which the merge has to be performed is specified with the parameter <code class="docutils literal notranslate"><span class="pre">on</span></code> followed by the column name, while the behaviour of the merging depends on the parameter <code class="docutils literal notranslate"><span class="pre">how</span></code> that tells pandas how to behave when dealing with non-matching data. In particular:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. how = inner : non-matching entries are discarded;
 2. how = left : ids are taken from the first DataFrame;
 3. how = right : ids are taken from the second DataFrame;
@@ -2215,7 +2276,7 @@ Cumulative sum (by row) - top 10 rows
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2310,11 +2371,12 @@ Outer merge (IDS from both)
 </div>
 <p>Note that the columns we merge on do not necessarily need to be the same, we can specify a correspondence between the row of the first dataframe (the one on the left) and the second dataframe (the one on the right) specifying which columns must have the same values to perform the merge. This can be done by using the parameters <code class="docutils literal notranslate"><span class="pre">right_on</span> <span class="pre">=</span> <span class="pre">column_name</span></code> and <code class="docutils literal notranslate"><span class="pre">left_on</span> <span class="pre">=</span> <span class="pre">column_name</span></code>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">%</span><span class="k">reset</span> -s -f
+<span></span><span class="c1">#%reset -s -f</span>
+<span class="o">%</span><span class="k">clear</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
@@ -2377,7 +2439,7 @@ outer merge on AF:
 <div class="section" id="Grouping">
 <h3>Grouping<a class="headerlink" href="#Grouping" title="Permalink to this headline">¶</a></h3>
 <p>Given a DataFrame, it is possible to apply the so called <strong>split-apply-aggregate</strong> processing method. Basically, this helps to group the data according to the value of some columns, apply a function on the different groups and aggregate the results in a new DataFrame.</p>
-<p>Grouping of a DataFrame can be done by using the <strong>DataFrame.groupby(columnName)</strong> method which returns a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrameGroupBy</span></code> object, which basically is composed of two information the <strong>name</strong> shared by each group and a <strong>DataFrame</strong> containing all the elements belonging to that group.</p>
+<p>Grouping of a DataFrame can be done by using the <strong>DataFrame.groupby(columnName)</strong> method which returns a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrameGroupBy</span></code> object, which basically is composed of two information: the <strong>name</strong> shared by each group and a <strong>DataFrame</strong> containing all the elements belonging to that group.</p>
 <p>Given a grouped DataFrame, each group can be obtained with the <strong>get_group(groupName)</strong> it is also possible to loop over the groups:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for groupName, groupDataFrame in grouped:
     #do something
@@ -2387,7 +2449,7 @@ outer merge on AF:
 <p>Let’s see these things in action.</p>
 <p><strong>Example</strong> Given a list of labels and integers group them by label and compute the mean of all values in each group.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2408,6 +2470,13 @@ outer merge on AF:
 
 <span class="n">aggDF</span> <span class="o">=</span> <span class="n">gDF</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">aggDF</span><span class="p">)</span>
+
+<span class="c1">#without looping through the groups...</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The &#39;a&#39; group:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gDF</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The &#39;c&#39; group:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gDF</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">))</span>
+
 </pre></div>
 </div>
 </div>
@@ -2444,11 +2513,21 @@ x
 a  3.0
 b  2.5
 c  7.5
+
+The &#39;a&#39; group:
+   x  y
+0  a  2
+1  a  4
+
+The &#39;c&#39; group:
+   x   y
+4  c   5
+5  c  10
 </pre></div></div>
 </div>
 <p><strong>Example</strong> Given the orders data seen above, let’s get the columns “Sales”, “Profit” and “Product Category” and compute the total sum and the mean of the sales and profits for each product category.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2547,55 +2626,10 @@ The most profitable is Technology
 <li><p>The file <a class="reference external" href="file_samples/top_3000_words.txt">top_3000_words.txt</a> is a one-column file representing the top 3000 English words. Read the file and for each letter, count how many words start with that letter. Store this information in a dictionary. Create a pandas series from the dictionary and plot an histogram of all initials counting more than 100 words starting with them.</p></li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex0');"><p>Show/Hide Solution</p>
-</div><div id="ex0" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-
-<span class="k">def</span> <span class="nf">readFile</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
-    <span class="n">fh</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-    <span class="n">initials</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fh</span><span class="p">:</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-        <span class="n">init</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">init</span> <span class="ow">in</span> <span class="n">initials</span><span class="p">:</span>
-            <span class="n">initials</span><span class="p">[</span><span class="n">init</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">initials</span><span class="p">[</span><span class="n">init</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">fh</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-    <span class="k">return</span> <span class="n">initials</span>
-
-<span class="k">def</span> <span class="nf">filter_and_plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">minCount</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
-    <span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">myDict</span><span class="p">)</span>
-
-    <span class="n">filt_series</span> <span class="o">=</span> <span class="n">series</span><span class="p">[</span><span class="n">series</span> <span class="o">&gt;</span> <span class="n">minCount</span><span class="p">]</span>
-    <span class="n">filt_series</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="n">inFile</span> <span class="o">=</span> <span class="s2">&quot;file_samples/top_3000_words.txt&quot;</span>
-
-<span class="n">myDict</span> <span class="o">=</span> <span class="n">readFile</span><span class="p">(</span><span class="n">inFile</span><span class="p">)</span>
-<span class="n">filter_and_plot</span><span class="p">(</span><span class="n">myDict</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/practical8_47_0.png" src="_images/practical8_47_0.png" />
-</div>
-</div>
-</div><ol class="arabic simple" start="2">
+</div><div id="ex0" style="display:none;"></div><ol class="arabic simple" start="2">
 <li><p>The file <a class="reference external" href="file_samples/filt_aligns.tsv">filt_aligns.tsv</a> is a tab separated value file representing alignments of paired-end reads on some apple chromosomes. Paired end reads have the property of being X bases apart from each other as they have been sequenced from the two ends of some size-selected DNA molecules.</p></li>
 </ol>
-<p><img alt="image0" src="_images/genestructure.jpg" /></p>
+<p><img alt="iex2" src="_images/pe.png" /></p>
 <p>Each line of the file has the following information <code class="docutils literal notranslate"><span class="pre">readID\tChrPE1\tAlignmentPosition1\tChrPE2\tAlignmentPosition2</span></code>. The two ends of the same pair have the same readID. Load the read pairs aligning on the same chromosome into two dictionaries. The first (<code class="docutils literal notranslate"><span class="pre">inserts</span></code>) having readID as keys and the insert size (i.e. the absolute value of AlignmentPosition1 - AlignmentPosition2) as value. The second dictionary (<code class="docutils literal notranslate"><span class="pre">chrs</span></code>)will have readID as key and chromosome ID as value. Example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>readID Chr11 31120 Chr11 31472
 readID1 Chr7 12000 Chr11 11680
@@ -2625,159 +2659,7 @@ paired aligned to it (hint:use group by).
 </pre></div>
 </div>
 <div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
-</div><div id="ex1" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="c1">#Open the file and store the entries in the two dicts</span>
-<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file_samples/filt_aligns.tsv&quot;</span><span class="p">)</span>
-<span class="n">inserts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-<span class="n">chrs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-    <span class="n">infos</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">infos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">infos</span><span class="p">[</span><span class="mi">3</span><span class="p">]):</span>
-        <span class="n">inserts</span><span class="p">[</span><span class="n">infos</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">infos</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">infos</span><span class="p">[</span><span class="mi">4</span><span class="p">]))</span>
-        <span class="n">chrs</span><span class="p">[</span><span class="n">infos</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">infos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># or infos[3], they are the same!</span>
-<span class="c1">#Inserts series</span>
-<span class="n">inSeries</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">inserts</span><span class="p">)</span>
-<span class="n">descr</span> <span class="o">=</span> <span class="n">inSeries</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">descr</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean insert size:&quot;</span><span class="p">,</span> <span class="n">descr</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">])</span>
-<span class="c1">#Question 2</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First five elements:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">inSeries</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<span class="c1">#Question 3</span>
-<span class="n">inSeries</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;box&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="c1">#Question 4</span>
-<span class="n">inSeries</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;hist&quot;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="c1">#Question 5</span>
-<span class="c1">#Chromosomes series</span>
-<span class="n">chrSeries</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">chrs</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">chrSeries</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-<span class="c1">#Question 6</span>
-<span class="n">DF</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;inserts&quot;</span><span class="p">:</span> <span class="n">inSeries</span><span class="p">,</span><span class="s2">&quot;chrs&quot;</span> <span class="p">:</span> <span class="n">chrSeries</span><span class="p">})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">DF</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-<span class="c1">#Question 7</span>
-<span class="n">grouped</span> <span class="o">=</span> <span class="n">DF</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;chrs&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Average insert size by Chr:&quot;</span><span class="p">)</span>
-<span class="n">ins_by_chr</span> <span class="o">=</span> <span class="n">grouped</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">grouped</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">())</span>
-<span class="c1">#Question 8</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">ins_by_chr</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;box&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-count    246499.000000
-mean        194.126950
-std          70.277551
-min           0.000000
-25%         150.000000
-50%         189.000000
-75%         232.000000
-max         605.000000
-dtype: float64
-
-Mean insert size: 194.1269498050702
-
-First five elements:
-HWI-ST1296:74:C3FU9ACXX:7:2314:5661:3000    132
-HWI-ST1296:74:C3FU9ACXX:6:2108:3151:3000    284
-HWI-ST1296:75:C3F7CACXX:2:2302:4462:4000    294
-HWI-ST1296:75:C3F7CACXX:1:1107:4328:4000      4
-HWI-ST1296:75:C3F7CACXX:6:1205:3248:5000     69
-dtype: int64
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/practical8_50_1.png" src="_images/practical8_50_1.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/practical8_50_2.png" src="_images/practical8_50_2.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-HWI-ST1296:74:C3FU9ACXX:7:2314:5661:3000     Chr5
-HWI-ST1296:74:C3FU9ACXX:6:2108:3151:3000     Chr3
-HWI-ST1296:75:C3F7CACXX:2:2302:4462:4000    Chr11
-HWI-ST1296:75:C3F7CACXX:1:1107:4328:4000    Chr13
-HWI-ST1296:75:C3F7CACXX:6:1205:3248:5000    Chr11
-HWI-ST1296:67:C2F0FACXX:6:2305:7251:7000     Chr6
-HWI-ST1296:75:C3F7CACXX:6:1203:5851:3100    Chr13
-HWI-ST1296:75:C3F7CACXX:4:2309:3769:8000    Chr14
-HWI-ST1296:75:C3F7CACXX:4:1212:5969:8000     Chr6
-HWI-ST1296:74:C3FU9ACXX:2:2215:1855:8000     Chr4
-dtype: object
-                                          inserts   chrs
-HWI-ST1296:74:C3FU9ACXX:7:2314:5661:3000      132   Chr5
-HWI-ST1296:74:C3FU9ACXX:6:2108:3151:3000      284   Chr3
-HWI-ST1296:75:C3F7CACXX:2:2302:4462:4000      294  Chr11
-HWI-ST1296:75:C3F7CACXX:1:1107:4328:4000        4  Chr13
-HWI-ST1296:75:C3F7CACXX:6:1205:3248:5000       69  Chr11
-HWI-ST1296:67:C2F0FACXX:6:2305:7251:7000      142   Chr6
-HWI-ST1296:75:C3F7CACXX:6:1203:5851:3100      197  Chr13
-HWI-ST1296:75:C3F7CACXX:4:2309:3769:8000      298  Chr14
-HWI-ST1296:75:C3F7CACXX:4:1212:5969:8000      369   Chr6
-HWI-ST1296:74:C3FU9ACXX:2:2215:1855:8000      519   Chr4
-Average insert size by Chr:
-          inserts
-chrs
-Chr1   195.351513
-Chr10  193.678891
-Chr11  194.374923
-Chr12  193.983594
-Chr13  192.804249
-Chr14  194.400139
-Chr15  194.937928
-Chr16  193.533066
-Chr17  194.559222
-Chr2   193.905932
-Chr3   193.937721
-Chr4   193.858397
-Chr5   195.052776
-Chr6   194.336027
-Chr7   193.766347
-Chr8   194.482513
-Chr9   193.195012
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/practical8_50_4.png" src="_images/practical8_50_4.png" />
-</div>
-</div>
-</div><ol class="arabic simple" start="3">
+</div><div id="ex1" style="display:none;"></div><ol class="arabic simple" start="3">
 <li><p>Download the <a class="reference external" href="file_samples/train.csv">train.csv</a> dataset. As the name says it is a .csv file. The file contains information regarding loans given or refused to applicants. Information on the gender, marital status, education, work and income of the applicant is reported alongside the amount and length of the loan and credit history (i.e. 0 if no previous loan was given, 1 otherwise). Open it in a text editor or excel and inspect it first. Then, answer the following questions (if you have
 any doubts check <a class="reference external" href="http://pandas.pydata.org/pandas-docs/version/0.20/api.html">here</a>):</p>
 <ol class="arabic simple" start="0">
@@ -2792,172 +2674,10 @@ any doubts check <a class="reference external" href="http://pandas.pydata.org/pa
 </li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex2');"><p>Show/Hide Solution</p>
-</div><div id="ex2" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;file_samples/train.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="s2">&quot;Loan_ID&quot;</span><span class="p">)</span>
-<span class="c1">#Question 1:</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-<span class="c1">#Question 2:</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="n">entries</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The toal number of entries is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">entries</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Males and Females&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s2">&quot;Gender&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
-
-<span class="c1">#Question 3:</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="n">avgIncome</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s2">&quot;ApplicantIncome&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The average income is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">avgIncome</span><span class="p">))</span>
-<span class="n">train</span><span class="p">[[</span><span class="s2">&quot;Gender&quot;</span><span class="p">,</span> <span class="s2">&quot;ApplicantIncome&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Gender&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">train</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span> <span class="o">=</span> <span class="s2">&quot;ApplicantIncome&quot;</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s2">&quot;Gender&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">females</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">[</span><span class="s2">&quot;Gender&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Female&quot;</span><span class="p">]</span>
-<span class="n">fhi</span> <span class="o">=</span> <span class="n">females</span><span class="p">[</span><span class="n">females</span><span class="p">[</span><span class="s2">&quot;ApplicantIncome&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">avgIncome</span><span class="p">][[</span><span class="s2">&quot;Gender&quot;</span><span class="p">,</span><span class="s2">&quot;ApplicantIncome&quot;</span><span class="p">]]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Female applicants with income higher than avg (</span><span class="si">{}</span><span class="s2">): </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">avgIncome</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">fhi</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">fhi</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="c1">#Question 4:</span>
-<span class="n">loanSt</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s2">&quot;Loan_Status&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number of given loans is: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">loanSt</span><span class="p">[</span><span class="s2">&quot;Y&quot;</span><span class="p">]))</span>
-<span class="c1">#loanSt is a Series, I can apply operator broadcasting on it</span>
-<span class="c1">#to get the percentage</span>
-<span class="n">loanSt</span> <span class="o">=</span> <span class="n">loanSt</span> <span class="o">/</span> <span class="n">entries</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The percentage of loans is the following&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">loanSt</span><span class="p">)</span>
-
-<span class="c1">#Question 5:</span>
-<span class="n">loanSt</span> <span class="o">=</span>  <span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">[</span><span class="s2">&quot;Married&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Yes&quot;</span><span class="p">][</span><span class="s2">&quot;Loan_Status&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="n">married</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s2">&quot;Married&quot;</span><span class="p">][</span><span class="n">train</span><span class="p">[</span><span class="s2">&quot;Married&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Yes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">married</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The percentage of loans to married people (</span><span class="si">{}</span><span class="s2"> applicants)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">married</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">loanSt</span><span class="o">/</span><span class="n">married</span><span class="p">)</span>
-
-<span class="c1">#Question 6:</span>
-<span class="n">loanSt</span> <span class="o">=</span>  <span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">[</span><span class="s2">&quot;Credit_History&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">][</span><span class="s2">&quot;Loan_Status&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="n">chist</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s2">&quot;Credit_History&quot;</span><span class="p">][</span><span class="n">train</span><span class="p">[</span><span class="s2">&quot;Credit_History&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">chist</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The percentage of loans to applicants with credit history (</span><span class="si">{}</span><span class="s2"> applicants)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">chist</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">loanSt</span><span class="o">/</span><span class="n">chist</span><span class="p">)</span>
-
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-         Gender Married Dependents     Education Self_Employed  \
-Loan_ID
-LP001002   Male      No          0      Graduate            No
-LP001003   Male     Yes          1      Graduate            No
-LP001005   Male     Yes          0      Graduate           Yes
-LP001006   Male     Yes          0  Not Graduate            No
-LP001008   Male      No          0      Graduate            No
-
-          ApplicantIncome  CoapplicantIncome  LoanAmount  Loan_Amount_Term  \
-Loan_ID
-LP001002             5849                0.0         NaN             360.0
-LP001003             4583             1508.0       128.0             360.0
-LP001005             3000                0.0        66.0             360.0
-LP001006             2583             2358.0       120.0             360.0
-LP001008             6000                0.0       141.0             360.0
-
-          Credit_History Property_Area Loan_Status
-Loan_ID
-LP001002             1.0         Urban           Y
-LP001003             1.0         Rural           N
-LP001005             1.0         Urban           Y
-LP001006             1.0         Urban           Y
-LP001008             1.0         Urban           Y
-
-The toal number of entries is 614
-
-Males and Females
-Male      489
-Female    112
-Name: Gender, dtype: int64
-
-The average income is 5403.459283387622
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/usr/local/lib/python3.6/dist-packages/numpy/core/_asarray.py:83: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray
-  return array(a, dtype, copy=False, order=order)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/practical8_53_2.png" src="_images/practical8_53_2.png" />
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Female applicants with income higher than avg (5403.459283387622): 21
-          Gender  ApplicantIncome
-Loan_ID
-LP001186  Female            11500
-LP001392  Female             7451
-LP001422  Female            10408
-LP001516  Female            14866
-LP001519  Female            10000
-LP001708  Female            10000
-LP001776  Female             8333
-LP001871  Female             7200
-LP001945  Female             5417
-LP002142  Female             5500
-LP002194  Female            15759
-LP002231  Female             6000
-LP002301  Female             7441
-LP002377  Female             8624
-LP002393  Female            10047
-LP002407  Female             7142
-LP002582  Female            17263
-LP002634  Female            13262
-LP002731  Female            18165
-LP002813  Female            19484
-LP002959  Female            12000
-
-The number of given loans is: 422
-
-The percentage of loans is the following
-Y    0.687296
-N    0.312704
-Name: Loan_Status, dtype: float64
-398
-The percentage of loans to married people (398 applicants)
-Y    0.71608
-N    0.28392
-Name: Loan_Status, dtype: float64
-475
-The percentage of loans to applicants with credit history (475 applicants)
-Y    0.795789
-N    0.204211
-Name: Loan_Status, dtype: float64
-</pre></div></div>
-</div>
-</div><ol class="arabic simple" start="4">
+</div><div id="ex2" style="display:none;"></div><ol class="arabic simple" start="4">
 <li><p>[Thanks to Stefano Teso] DNA transcription and translation into proteins follows this schema:</p></li>
 </ol>
-<p><img alt="image0" src="_images/genestructure.jpg" /></p>
+<p><img alt="iex4" src="_images/genestructure.jpg" /></p>
 <p>The file <a class="reference external" href="file_samples/gene_table.csv">gene_table.csv</a> is a comma separated value file representing a summary of the annotation of several human genes based on the <a class="reference external" href="http://www.ensembl.org/index.html">Ensembl</a> annotation. For each gene it contains the following information:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gene_name,gene_biotype,chromosome,strand,transcript_count
 </pre></div>
@@ -2979,332 +2699,7 @@ GCLC,protein_coding,chr6,-,13
 biotypes. How many genes do we have for each genotype? Plot the number of genes per biotype in a horizontal bar plot (hint: use also figsize = (10,10) to make it visible; 5. Computes the number of different chromosomes 6. Computes, for each chromosome, the number of genes it contains, and prints a horizontal barplot with the number of genes per chromosome. 7. Computes, for each chromosome, the percentage of genes located on the + strand 8. Computes, for each biotype, the average number of
 transcripts associated to genes belonging to the biotype. Finally, plots them in a vertical bar plot</p>
 <div class="tggle" onclick="toggleVisibility('ex3');"><p>Show/Hide Solution</p>
-</div><div id="ex3" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">genes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;file_samples/gene_table.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">genes</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="c1">#Question 1</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total number of genes: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">genes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-<span class="c1">#Question 2</span>
-<span class="n">maxI</span> <span class="o">=</span> <span class="n">genes</span><span class="p">[</span><span class="s2">&quot;transcript_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-<span class="n">minI</span> <span class="o">=</span> <span class="n">genes</span><span class="p">[</span><span class="s2">&quot;transcript_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-<span class="n">avgI</span> <span class="o">=</span> <span class="n">genes</span><span class="p">[</span><span class="s2">&quot;transcript_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">medI</span> <span class="o">=</span> <span class="n">genes</span><span class="p">[</span><span class="s2">&quot;transcript_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Isoform per gene stats:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - max: </span><span class="si">{}</span><span class="s2"> min </span><span class="si">{}</span><span class="s2"> avg </span><span class="si">{}</span><span class="s2"> median </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">maxI</span><span class="p">,</span> <span class="n">minI</span><span class="p">,</span><span class="n">avgI</span><span class="p">,</span><span class="n">medI</span><span class="p">))</span>
-
-<span class="c1">#Question 3</span>
-<span class="n">genes</span><span class="p">[</span><span class="s2">&quot;transcript_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;hist&quot;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">genes</span><span class="p">[</span><span class="s2">&quot;transcript_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;box&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="c1">#Question 4</span>
-<span class="n">biot</span> <span class="o">=</span> <span class="n">genes</span><span class="p">[</span><span class="s2">&quot;gene_biotype&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number of different biotypes is&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">biot</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">biot</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">biot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;barh&quot;</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="c1">#Question 5</span>
-<span class="n">chrs</span> <span class="o">=</span> <span class="n">genes</span><span class="p">[</span><span class="s2">&quot;chromosome&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The total number of chromosomes is &quot;</span><span class="p">,</span> <span class="n">chrs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-<span class="c1">#Question 6</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">chrs</span> <span class="o">=</span> <span class="n">genes</span><span class="p">[</span><span class="s2">&quot;chromosome&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="n">chrs</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;barh&quot;</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="c1">#Question 7</span>
-<span class="c1">#Let&#39;s group the data by chromosome and strand</span>
-<span class="c1">#then loop through all the elements to count the</span>
-<span class="c1">#total elements per chromosome</span>
-<span class="c1">#to compute the percentage of the ones that are on + strand</span>
-<span class="c1">#The totals go on a dictionary with key chr</span>
-
-<span class="n">grp_chrs</span> <span class="o">=</span> <span class="n">genes</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;chromosome&quot;</span><span class="p">,</span> <span class="s2">&quot;strand&quot;</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">grp_chrs</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">grp_chrs</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">(</span><span class="si">{}</span><span class="s2">) : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">ind</span><span class="p">),</span> <span class="n">grp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-
-<span class="n">tot_byChr</span> <span class="o">=</span> <span class="p">{}</span>
-
-<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">grp_chrs</span><span class="p">:</span>
-    <span class="n">v</span> <span class="o">=</span> <span class="n">tot_byChr</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">tot_byChr</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">grp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">tot_byChr</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">grp_chrs</span><span class="p">:</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">ind</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;+&quot;</span><span class="p">):</span>
-
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">% g</span><span class="s2">enes of </span><span class="si">{}</span><span class="s2"> on strand +: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">100</span><span class="o">*</span><span class="n">grp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">tot_byChr</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]]))</span>
-
-
-
-<span class="c1">#Question 8</span>
-<span class="n">biot</span><span class="o">=</span> <span class="n">grp_chrs</span> <span class="o">=</span> <span class="n">genes</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;gene_biotype&quot;</span><span class="p">])</span>
-<span class="n">biot_transc</span> <span class="o">=</span> <span class="n">biot</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">mean</span><span class="p">)[[</span><span class="s2">&quot;transcript_count&quot;</span><span class="p">]]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">biot_transc</span><span class="p">)</span>
-
-<span class="n">biot_transc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-  gene_name    gene_biotype chromosome strand  transcript_count
-0    TSPAN6  protein_coding       chrX      -                 5
-1      TNMD  protein_coding       chrX      +                 2
-2      DPM1  protein_coding      chr20      -                 6
-3     SCYL3  protein_coding       chr1      -                 5
-4  C1orf112  protein_coding       chr1      +                 9
-
-Total number of genes: 51116
-
-Isoform per gene stats:
- - max: 170 min 1 avg 3.7033218561702794 median 1.0
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/practical8_57_1.png" src="_images/practical8_57_1.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/practical8_57_2.png" src="_images/practical8_57_2.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-The number of different biotypes is 41
-
-protein_coding                        19297
-processed_pseudogene                   9826
-lincRNA                                6645
-antisense                              5086
-unprocessed_pseudogene                 2143
-snRNA                                  1802
-miRNA                                  1173
-misc_RNA                                955
-sense_intronic                          686
-transcribed_unprocessed_pseudogene      660
-rRNA                                    512
-processed_transcript                    438
-transcribed_processed_pseudogene        425
-snoRNA                                  403
-sense_overlapping                       174
-IG_V_pseudogene                         173
-unitary_pseudogene                      141
-IG_V_gene                               130
-TR_V_gene                                93
-TR_J_gene                                71
-transcribed_unitary_pseudogene           53
-IG_D_gene                                33
-TR_V_pseudogene                          30
-polymorphic_pseudogene                   28
-3prime_overlapping_ncRNA                 26
-Mt_tRNA                                  22
-IG_J_gene                                18
-scaRNA                                   16
-IG_C_gene                                14
-IG_C_pseudogene                           9
-TEC                                       6
-ribozyme                                  5
-TR_C_gene                                 5
-TR_J_pseudogene                           4
-IG_J_pseudogene                           3
-TR_D_gene                                 3
-Mt_rRNA                                   2
-bidirectional_promoter_lncRNA             2
-pseudogene                                2
-scRNA                                     1
-vaultRNA                                  1
-Name: gene_biotype, dtype: int64
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/practical8_57_4.png" src="_images/practical8_57_4.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-The total number of chromosomes is  25
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/practical8_57_6.png" src="_images/practical8_57_6.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-pandas.core.groupby.generic.DataFrameGroupBy
-(&#39;chr1&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 2388
-(&#39;chr1&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 2322
-(&#39;chr10&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 999
-(&#39;chr10&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 944
-(&#39;chr11&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1470
-(&#39;chr11&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1472
-(&#39;chr12&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1262
-(&#39;chr12&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1269
-(&#39;chr13&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 537
-(&#39;chr13&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 558
-(&#39;chr14&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1029
-(&#39;chr14&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 976
-(&#39;chr15&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 901
-(&#39;chr15&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 883
-(&#39;chr16&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1077
-(&#39;chr16&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1036
-(&#39;chr17&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1227
-(&#39;chr17&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1306
-(&#39;chr18&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 508
-(&#39;chr18&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 491
-(&#39;chr19&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1361
-(&#39;chr19&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1303
-(&#39;chr2&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1803
-(&#39;chr2&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1786
-(&#39;chr20&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 577
-(&#39;chr20&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 592
-(&#39;chr21&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 297
-(&#39;chr21&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 342
-(&#39;chr22&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 585
-(&#39;chr22&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 505
-(&#39;chr3&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1345
-(&#39;chr3&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1395
-(&#39;chr4&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1152
-(&#39;chr4&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1145
-(&#39;chr5&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1303
-(&#39;chr5&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1295
-(&#39;chr6&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1222
-(&#39;chr6&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1237
-(&#39;chr7&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1320
-(&#39;chr7&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1187
-(&#39;chr8&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1039
-(&#39;chr8&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1113
-(&#39;chr9&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 989
-(&#39;chr9&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 952
-(&#39;chrMT&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 28
-(&#39;chrMT&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 9
-(&#39;chrX&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1078
-(&#39;chrX&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1031
-(&#39;chrY&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 240
-(&#39;chrY&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 230
-{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 2297, &#39;chr5&#39;: 2598, &#39;chr6&#39;: 2459, &#39;chr7&#39;: 2507, &#39;chr8&#39;: 2152, &#39;chr9&#39;: 1941, &#39;chrMT&#39;: 37, &#39;chrX&#39;: 2109, &#39;chrY&#39;: 470}
-% genes of chr1 on strand +: 50.70
-% genes of chr10 on strand +: 51.42
-% genes of chr11 on strand +: 49.97
-% genes of chr12 on strand +: 49.86
-% genes of chr13 on strand +: 49.04
-% genes of chr14 on strand +: 51.32
-% genes of chr15 on strand +: 50.50
-% genes of chr16 on strand +: 50.97
-% genes of chr17 on strand +: 48.44
-% genes of chr18 on strand +: 50.85
-% genes of chr19 on strand +: 51.09
-% genes of chr2 on strand +: 50.24
-% genes of chr20 on strand +: 49.36
-% genes of chr21 on strand +: 46.48
-% genes of chr22 on strand +: 53.67
-% genes of chr3 on strand +: 49.09
-% genes of chr4 on strand +: 50.15
-% genes of chr5 on strand +: 50.15
-% genes of chr6 on strand +: 49.69
-% genes of chr7 on strand +: 52.65
-% genes of chr8 on strand +: 48.28
-% genes of chr9 on strand +: 50.95
-% genes of chrMT on strand +: 75.68
-% genes of chrX on strand +: 51.11
-% genes of chrY on strand +: 51.06
-                                    transcript_count
-gene_biotype
-3prime_overlapping_ncRNA                    1.153846
-IG_C_gene                                   1.285714
-IG_C_pseudogene                             1.000000
-IG_D_gene                                   1.000000
-IG_J_gene                                   1.000000
-IG_J_pseudogene                             1.000000
-IG_V_gene                                   1.053846
-IG_V_pseudogene                             1.000000
-Mt_rRNA                                     1.000000
-Mt_tRNA                                     1.000000
-TEC                                         1.166667
-TR_C_gene                                   1.800000
-TR_D_gene                                   1.000000
-TR_J_gene                                   1.000000
-TR_J_pseudogene                             1.000000
-TR_V_gene                                   1.010753
-TR_V_pseudogene                             1.000000
-antisense                                   1.870232
-bidirectional_promoter_lncRNA               2.000000
-lincRNA                                     1.690143
-miRNA                                       1.000000
-misc_RNA                                    1.000000
-polymorphic_pseudogene                      3.285714
-processed_pseudogene                        1.000204
-processed_transcript                        5.844749
-protein_coding                              7.447893
-pseudogene                                  1.000000
-rRNA                                        1.000000
-ribozyme                                    1.000000
-scRNA                                       1.000000
-scaRNA                                      1.000000
-sense_intronic                              1.087464
-sense_overlapping                           1.609195
-snRNA                                       1.000000
-snoRNA                                      1.027295
-transcribed_processed_pseudogene            2.101176
-transcribed_unitary_pseudogene              5.056604
-transcribed_unprocessed_pseudogene          3.339394
-unitary_pseudogene                          1.921986
-unprocessed_pseudogene                      1.000467
-vaultRNA                                    1.000000
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/practical8_57_8.png" src="_images/practical8_57_8.png" />
-</div>
-</div>
-</div><ol class="arabic simple" start="5">
+</div><div id="ex3" style="display:none;"></div><ol class="arabic simple" start="5">
 <li><p>Write a function that creates and returns a data frame having columns with the labels specified through a list taken in input and ten rows of random data between 1 and 100.</p>
 <ol class="arabic simple">
 <li><p>Create two random DataFrames one with labels l = [“A”, “B”, “C” ,”D”,”E”] and l1 = [“W”, “X”,”Y”,”Z”]</p></li>
@@ -3316,235 +2711,7 @@ vaultRNA                                    1.000000
 </li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex4');"><p>Show/Hide Solution</p>
-</div><div id="ex4" style="display:none;"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">random</span>
-
-<span class="k">def</span> <span class="nf">createRandomDF</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; returns a random dataframe with columns having names equal to the</span>
-<span class="sd">    input labels&quot;&quot;&quot;</span>
-    <span class="n">tmp_dict</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">:</span>
-        <span class="n">tmp_dict</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
-            <span class="n">tmp_dict</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-
-    <span class="n">DF</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tmp_dict</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">DF</span>
-
-<span class="c1">#Question 1</span>
-<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span> <span class="p">,</span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="s2">&quot;E&quot;</span><span class="p">]</span>
-<span class="n">l1</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;W&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span><span class="s2">&quot;Y&quot;</span><span class="p">,</span><span class="s2">&quot;Z&quot;</span><span class="p">]</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">createRandomDF</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-<span class="n">df1</span> <span class="o">=</span> <span class="n">createRandomDF</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
-
-<span class="c1">#Question 2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;line&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">df1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;line&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="c1">#Question 3</span>
-<span class="n">S1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">Sc</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">]</span>
-<span class="n">c1</span> <span class="o">=</span> <span class="n">Sc</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">S1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
-
-<span class="c1">#Question 4</span>
-<span class="n">df1</span><span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">c1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="c1">#Question 5</span>
-<span class="n">inJ</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">df1</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inner Join DF - DF1&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">inJ</span><span class="p">)</span>
-<span class="n">outJ</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">df1</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span><span class="s2">&quot;outer&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Outer Join DF - DF1&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">outJ</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Left Join DF - DF1&quot;</span><span class="p">)</span>
-<span class="n">lJ</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">df1</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">lJ</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Right Join DF - DF1&quot;</span><span class="p">)</span>
-<span class="n">rJ</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">df1</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">rJ</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-    A  B   C  D   E
-0  10  1   2  5   3
-1   7  8   2  4  10
-2   1  0   2  3   7
-3   8  8   3  3  10
-4   2  7  10  2   5
-
-    W   X   Y   Z
-0   0   2   7  10
-1  10   9  10   4
-2   8  10   6   9
-3  10   8   3   3
-4   6   5   9   7
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/practical8_60_1.png" src="_images/practical8_60_1.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/practical8_60_2.png" src="_images/practical8_60_2.png" />
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-0    2
-1    2
-2    2
-3    0
-4    0
-5    0
-6    7
-7    0
-8    0
-9    8
-dtype: int64
-    W   X   Y   Z  C
-0   0   2   7  10  2
-1  10   9  10   4  2
-2   8  10   6   9  2
-3  10   8   3   3  0
-4   6   5   9   7  0
-5   5   2   8   4  0
-6   9   5  10   8  7
-7   7   1   1   9  0
-8   7   3   6  10  0
-9   6   2   2   9  8
-    A   B   C  D   E
-0  10   1   2  5   3
-1   7   8   2  4  10
-2   1   0   2  3   7
-3   8   8   3  3  10
-4   2   7  10  2   5
-5   7  10   0  7   0
-6   1   0   7  7   0
-7   1  10   7  2   0
-8   1   3   3  6   0
-9   7  10   8  6   0
-
-Inner Join DF - DF1
-     A   B  C  D   E   W   X   Y   Z
-0   10   1  2  5   3   0   2   7  10
-1   10   1  2  5   3  10   9  10   4
-2   10   1  2  5   3   8  10   6   9
-3    7   8  2  4  10   0   2   7  10
-4    7   8  2  4  10  10   9  10   4
-5    7   8  2  4  10   8  10   6   9
-6    1   0  2  3   7   0   2   7  10
-7    1   0  2  3   7  10   9  10   4
-8    1   0  2  3   7   8  10   6   9
-9    7  10  0  7   0  10   8   3   3
-10   7  10  0  7   0   6   5   9   7
-11   7  10  0  7   0   5   2   8   4
-12   7  10  0  7   0   7   1   1   9
-13   7  10  0  7   0   7   3   6  10
-14   1   0  7  7   0   9   5  10   8
-15   1  10  7  2   0   9   5  10   8
-16   7  10  8  6   0   6   2   2   9
-
-Outer Join DF - DF1
-     A   B   C  D   E     W     X     Y     Z
-0   10   1   2  5   3   0.0   2.0   7.0  10.0
-1   10   1   2  5   3  10.0   9.0  10.0   4.0
-2   10   1   2  5   3   8.0  10.0   6.0   9.0
-3    7   8   2  4  10   0.0   2.0   7.0  10.0
-4    7   8   2  4  10  10.0   9.0  10.0   4.0
-5    7   8   2  4  10   8.0  10.0   6.0   9.0
-6    1   0   2  3   7   0.0   2.0   7.0  10.0
-7    1   0   2  3   7  10.0   9.0  10.0   4.0
-8    1   0   2  3   7   8.0  10.0   6.0   9.0
-9    8   8   3  3  10   NaN   NaN   NaN   NaN
-10   1   3   3  6   0   NaN   NaN   NaN   NaN
-11   2   7  10  2   5   NaN   NaN   NaN   NaN
-12   7  10   0  7   0  10.0   8.0   3.0   3.0
-13   7  10   0  7   0   6.0   5.0   9.0   7.0
-14   7  10   0  7   0   5.0   2.0   8.0   4.0
-15   7  10   0  7   0   7.0   1.0   1.0   9.0
-16   7  10   0  7   0   7.0   3.0   6.0  10.0
-17   1   0   7  7   0   9.0   5.0  10.0   8.0
-18   1  10   7  2   0   9.0   5.0  10.0   8.0
-19   7  10   8  6   0   6.0   2.0   2.0   9.0
-
-Left Join DF - DF1
-     A   B   C  D   E     W     X     Y     Z
-0   10   1   2  5   3   0.0   2.0   7.0  10.0
-1   10   1   2  5   3  10.0   9.0  10.0   4.0
-2   10   1   2  5   3   8.0  10.0   6.0   9.0
-3    7   8   2  4  10   0.0   2.0   7.0  10.0
-4    7   8   2  4  10  10.0   9.0  10.0   4.0
-5    7   8   2  4  10   8.0  10.0   6.0   9.0
-6    1   0   2  3   7   0.0   2.0   7.0  10.0
-7    1   0   2  3   7  10.0   9.0  10.0   4.0
-8    1   0   2  3   7   8.0  10.0   6.0   9.0
-9    8   8   3  3  10   NaN   NaN   NaN   NaN
-10   2   7  10  2   5   NaN   NaN   NaN   NaN
-11   7  10   0  7   0  10.0   8.0   3.0   3.0
-12   7  10   0  7   0   6.0   5.0   9.0   7.0
-13   7  10   0  7   0   5.0   2.0   8.0   4.0
-14   7  10   0  7   0   7.0   1.0   1.0   9.0
-15   7  10   0  7   0   7.0   3.0   6.0  10.0
-16   1   0   7  7   0   9.0   5.0  10.0   8.0
-17   1  10   7  2   0   9.0   5.0  10.0   8.0
-18   1   3   3  6   0   NaN   NaN   NaN   NaN
-19   7  10   8  6   0   6.0   2.0   2.0   9.0
-
-Right Join DF - DF1
-     A   B  C  D   E   W   X   Y   Z
-0   10   1  2  5   3   0   2   7  10
-1    7   8  2  4  10   0   2   7  10
-2    1   0  2  3   7   0   2   7  10
-3   10   1  2  5   3  10   9  10   4
-4    7   8  2  4  10  10   9  10   4
-5    1   0  2  3   7  10   9  10   4
-6   10   1  2  5   3   8  10   6   9
-7    7   8  2  4  10   8  10   6   9
-8    1   0  2  3   7   8  10   6   9
-9    7  10  0  7   0  10   8   3   3
-10   7  10  0  7   0   6   5   9   7
-11   7  10  0  7   0   5   2   8   4
-12   7  10  0  7   0   7   1   1   9
-13   7  10  0  7   0   7   3   6  10
-14   1   0  7  7   0   9   5  10   8
-15   1  10  7  2   0   9   5  10   8
-16   7  10  8  6   0   6   2   2   9
-</pre></div></div>
-</div>
-</div></div>
+</div><div id="ex4" style="display:none;"></div></div>
 </div>
 
 
@@ -3552,6 +2719,13 @@ Right Join DF - DF1
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="practical7.html" class="btn btn-neutral float-left" title="Practical 7" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
