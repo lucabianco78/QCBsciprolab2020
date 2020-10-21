@@ -2640,7 +2640,107 @@ The most profitable is Technology
 <li><p>The file <a class="reference external" href="file_samples/top_3000_words.txt">top_3000_words.txt</a> is a one-column file representing the top 3000 English words. Read the file and for each letter, count how many words start with that letter. Store this information in a dictionary. Create a pandas series from the dictionary and plot an histogram of all initials counting more than 100 words starting with them.</p></li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex0');"><p>Show/Hide Solution</p>
-</div><div id="ex0" style="display:none;"></div><ol class="arabic simple" start="2">
+</div><div id="ex0" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="k">def</span> <span class="nf">readFile</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="n">fh</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">initials</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fh</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">init</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">init</span> <span class="ow">in</span> <span class="n">initials</span><span class="p">:</span>
+            <span class="n">initials</span><span class="p">[</span><span class="n">init</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">initials</span><span class="p">[</span><span class="n">init</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">fh</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">initials</span>
+
+
+
+<span class="k">def</span> <span class="nf">filter_and_plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">minCount</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="c1">#if you want to see the content of the series uncomment:</span>
+    <span class="c1">#print(series)</span>
+    <span class="n">filt_series</span> <span class="o">=</span> <span class="n">series</span><span class="p">[</span><span class="n">series</span> <span class="o">&gt;</span> <span class="n">minCount</span><span class="p">]</span>
+    <span class="n">filt_series</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="n">inFile</span> <span class="o">=</span> <span class="s2">&quot;file_samples/top_3000_words.txt&quot;</span>
+
+<span class="n">myDict</span> <span class="o">=</span> <span class="n">readFile</span><span class="p">(</span><span class="n">inFile</span><span class="p">)</span>
+<span class="n">filter_and_plot</span><span class="p">(</span><span class="n">myDict</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+
+
+<span class="sd">&quot;&quot;&quot;Solution 2 with DataFrame&quot;&quot;&quot;</span>
+
+<span class="k">def</span> <span class="nf">readFile2</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="c1">#print(data)</span>
+    <span class="k">return</span> <span class="n">data</span>
+
+<span class="k">def</span> <span class="nf">filter_and_plot2</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">minCount</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;words&#39;</span><span class="p">]</span> <span class="c1">#rename the column</span>
+    <span class="c1">#Had to use lambda functions...</span>
+    <span class="c1">#ex. lambda x : x + 1</span>
+    <span class="c1">#check:</span>
+    <span class="c1">#https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html</span>
+    <span class="c1">#axis = 1 means we apply the function on all raws.</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;initial&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span> <span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;words&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c1">#uncomment to see the data</span>
+    <span class="c1">#print(data)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;initial&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> <span class="c1">#An histogram!</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+    <span class="c1">#uncomment to see the final data</span>
+    <span class="c1">#print(d)</span>
+    <span class="n">filt_data</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">minCount</span><span class="p">]</span>
+    <span class="n">filt_data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------------------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----- Second solution -----&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------------------------&quot;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">readFile2</span><span class="p">(</span><span class="n">inFile</span><span class="p">)</span>
+<span class="n">filter_and_plot2</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/practical8_47_0.png" src="_images/practical8_47_0.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+---------------------------
+----- Second solution -----
+---------------------------
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/practical8_47_2.png" src="_images/practical8_47_2.png" />
+</div>
+</div>
+</div><ol class="arabic simple" start="2">
 <li><p>The file <a class="reference external" href="file_samples/filt_aligns.tsv">filt_aligns.tsv</a> is a tab separated value file representing alignments of paired-end reads on some apple chromosomes. Paired end reads have the property of being X bases apart from each other as they have been sequenced from the two ends of some size-selected DNA molecules.</p></li>
 </ol>
 <p><img alt="iex2" src="_images/pe.png" /></p>
@@ -2673,7 +2773,159 @@ paired aligned to it (hint:use group by).
 </pre></div>
 </div>
 <div class="tggle" onclick="toggleVisibility('ex1');"><p>Show/Hide Solution</p>
-</div><div id="ex1" style="display:none;"></div><ol class="arabic simple" start="3">
+</div><div id="ex1" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1">#Open the file and store the entries in the two dicts</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file_samples/filt_aligns.tsv&quot;</span><span class="p">)</span>
+<span class="n">inserts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">chrs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">infos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">infos</span><span class="p">[</span><span class="mi">3</span><span class="p">]):</span>
+        <span class="n">inserts</span><span class="p">[</span><span class="n">infos</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">infos</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">infos</span><span class="p">[</span><span class="mi">4</span><span class="p">]))</span>
+        <span class="n">chrs</span><span class="p">[</span><span class="n">infos</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">infos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># or infos[3], they are the same!</span>
+<span class="c1">#Inserts series</span>
+<span class="n">inSeries</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">inserts</span><span class="p">)</span>
+<span class="n">descr</span> <span class="o">=</span> <span class="n">inSeries</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">descr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean insert size:&quot;</span><span class="p">,</span> <span class="n">descr</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">])</span>
+<span class="c1">#Question 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First five elements:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inSeries</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="c1">#Question 3</span>
+<span class="n">inSeries</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;box&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1">#Question 4</span>
+<span class="n">inSeries</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;hist&quot;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1">#Question 5</span>
+<span class="c1">#Chromosomes series</span>
+<span class="n">chrSeries</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">chrs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chrSeries</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="c1">#Question 6</span>
+<span class="n">DF</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;inserts&quot;</span><span class="p">:</span> <span class="n">inSeries</span><span class="p">,</span><span class="s2">&quot;chrs&quot;</span> <span class="p">:</span> <span class="n">chrSeries</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">DF</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="c1">#Question 7</span>
+<span class="n">grouped</span> <span class="o">=</span> <span class="n">DF</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;chrs&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Average insert size by Chr:&quot;</span><span class="p">)</span>
+<span class="n">ins_by_chr</span> <span class="o">=</span> <span class="n">grouped</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grouped</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">())</span>
+<span class="c1">#Question 8</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">ins_by_chr</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;box&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+count    246499.000000
+mean        194.126950
+std          70.277551
+min           0.000000
+25%         150.000000
+50%         189.000000
+75%         232.000000
+max         605.000000
+dtype: float64
+
+Mean insert size: 194.1269498050702
+
+First five elements:
+HWI-ST1296:74:C3FU9ACXX:7:2314:5661:3000    132
+HWI-ST1296:74:C3FU9ACXX:6:2108:3151:3000    284
+HWI-ST1296:75:C3F7CACXX:2:2302:4462:4000    294
+HWI-ST1296:75:C3F7CACXX:1:1107:4328:4000      4
+HWI-ST1296:75:C3F7CACXX:6:1205:3248:5000     69
+dtype: int64
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/practical8_50_1.png" src="_images/practical8_50_1.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/practical8_50_2.png" src="_images/practical8_50_2.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+HWI-ST1296:74:C3FU9ACXX:7:2314:5661:3000     Chr5
+HWI-ST1296:74:C3FU9ACXX:6:2108:3151:3000     Chr3
+HWI-ST1296:75:C3F7CACXX:2:2302:4462:4000    Chr11
+HWI-ST1296:75:C3F7CACXX:1:1107:4328:4000    Chr13
+HWI-ST1296:75:C3F7CACXX:6:1205:3248:5000    Chr11
+HWI-ST1296:67:C2F0FACXX:6:2305:7251:7000     Chr6
+HWI-ST1296:75:C3F7CACXX:6:1203:5851:3100    Chr13
+HWI-ST1296:75:C3F7CACXX:4:2309:3769:8000    Chr14
+HWI-ST1296:75:C3F7CACXX:4:1212:5969:8000     Chr6
+HWI-ST1296:74:C3FU9ACXX:2:2215:1855:8000     Chr4
+dtype: object
+                                          inserts   chrs
+HWI-ST1296:74:C3FU9ACXX:7:2314:5661:3000      132   Chr5
+HWI-ST1296:74:C3FU9ACXX:6:2108:3151:3000      284   Chr3
+HWI-ST1296:75:C3F7CACXX:2:2302:4462:4000      294  Chr11
+HWI-ST1296:75:C3F7CACXX:1:1107:4328:4000        4  Chr13
+HWI-ST1296:75:C3F7CACXX:6:1205:3248:5000       69  Chr11
+HWI-ST1296:67:C2F0FACXX:6:2305:7251:7000      142   Chr6
+HWI-ST1296:75:C3F7CACXX:6:1203:5851:3100      197  Chr13
+HWI-ST1296:75:C3F7CACXX:4:2309:3769:8000      298  Chr14
+HWI-ST1296:75:C3F7CACXX:4:1212:5969:8000      369   Chr6
+HWI-ST1296:74:C3FU9ACXX:2:2215:1855:8000      519   Chr4
+Average insert size by Chr:
+          inserts
+chrs
+Chr1   195.351513
+Chr10  193.678891
+Chr11  194.374923
+Chr12  193.983594
+Chr13  192.804249
+Chr14  194.400139
+Chr15  194.937928
+Chr16  193.533066
+Chr17  194.559222
+Chr2   193.905932
+Chr3   193.937721
+Chr4   193.858397
+Chr5   195.052776
+Chr6   194.336027
+Chr7   193.766347
+Chr8   194.482513
+Chr9   193.195012
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/practical8_50_4.png" src="_images/practical8_50_4.png" />
+</div>
+</div>
+</div><ol class="arabic simple" start="3">
 <li><p>Download the <a class="reference external" href="file_samples/train.csv">train.csv</a> dataset. As the name says it is a .csv file. The file contains information regarding loans given or refused to applicants. Information on the gender, marital status, education, work and income of the applicant is reported alongside the amount and length of the loan and credit history (i.e. 0 if no previous loan was given, 1 otherwise). Open it in a text editor or excel and inspect it first. Then, answer the following questions (if you have
 any doubts check <a class="reference external" href="http://pandas.pydata.org/pandas-docs/version/0.20/api.html">here</a>):</p>
 <ol class="arabic simple" start="0">
@@ -2688,7 +2940,169 @@ any doubts check <a class="reference external" href="http://pandas.pydata.org/pa
 </li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex2');"><p>Show/Hide Solution</p>
-</div><div id="ex2" style="display:none;"></div><ol class="arabic simple" start="4">
+</div><div id="ex2" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;file_samples/train.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="s2">&quot;Loan_ID&quot;</span><span class="p">)</span>
+<span class="c1">#Question 1:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="c1">#Question 2:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">entries</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The toal number of entries is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">entries</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Males and Females&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s2">&quot;Gender&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+
+<span class="c1">#Question 3:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">avgIncome</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s2">&quot;ApplicantIncome&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The average income is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">avgIncome</span><span class="p">))</span>
+<span class="n">train</span><span class="p">[[</span><span class="s2">&quot;Gender&quot;</span><span class="p">,</span> <span class="s2">&quot;ApplicantIncome&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Gender&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">train</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span> <span class="o">=</span> <span class="s2">&quot;ApplicantIncome&quot;</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s2">&quot;Gender&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">females</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">[</span><span class="s2">&quot;Gender&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Female&quot;</span><span class="p">]</span>
+<span class="n">fhi</span> <span class="o">=</span> <span class="n">females</span><span class="p">[</span><span class="n">females</span><span class="p">[</span><span class="s2">&quot;ApplicantIncome&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">avgIncome</span><span class="p">][[</span><span class="s2">&quot;Gender&quot;</span><span class="p">,</span><span class="s2">&quot;ApplicantIncome&quot;</span><span class="p">]]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Female applicants with income higher than avg (</span><span class="si">{}</span><span class="s2">): </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">avgIncome</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">fhi</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fhi</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="c1">#Question 4:</span>
+<span class="n">loanSt</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s2">&quot;Loan_Status&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number of given loans is: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">loanSt</span><span class="p">[</span><span class="s2">&quot;Y&quot;</span><span class="p">]))</span>
+<span class="c1">#loanSt is a Series, I can apply operator broadcasting on it</span>
+<span class="c1">#to get the percentage</span>
+<span class="n">loanSt</span> <span class="o">=</span> <span class="n">loanSt</span> <span class="o">/</span> <span class="n">entries</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The percentage of loans is the following&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">loanSt</span><span class="p">)</span>
+
+<span class="c1">#Question 5:</span>
+<span class="n">loanSt</span> <span class="o">=</span>  <span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">[</span><span class="s2">&quot;Married&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Yes&quot;</span><span class="p">][</span><span class="s2">&quot;Loan_Status&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">married</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s2">&quot;Married&quot;</span><span class="p">][</span><span class="n">train</span><span class="p">[</span><span class="s2">&quot;Married&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Yes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">married</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The percentage of loans to married people (</span><span class="si">{}</span><span class="s2"> applicants)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">married</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">loanSt</span><span class="o">/</span><span class="n">married</span><span class="p">)</span>
+
+<span class="c1">#Question 6:</span>
+<span class="n">loanSt</span> <span class="o">=</span>  <span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="p">[</span><span class="s2">&quot;Credit_History&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">][</span><span class="s2">&quot;Loan_Status&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">chist</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s2">&quot;Credit_History&quot;</span><span class="p">][</span><span class="n">train</span><span class="p">[</span><span class="s2">&quot;Credit_History&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chist</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The percentage of loans to applicants with credit history (</span><span class="si">{}</span><span class="s2"> applicants)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">chist</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">loanSt</span><span class="o">/</span><span class="n">chist</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+         Gender Married Dependents     Education Self_Employed  \
+Loan_ID
+LP001002   Male      No          0      Graduate            No
+LP001003   Male     Yes          1      Graduate            No
+LP001005   Male     Yes          0      Graduate           Yes
+LP001006   Male     Yes          0  Not Graduate            No
+LP001008   Male      No          0      Graduate            No
+
+          ApplicantIncome  CoapplicantIncome  LoanAmount  Loan_Amount_Term  \
+Loan_ID
+LP001002             5849                0.0         NaN             360.0
+LP001003             4583             1508.0       128.0             360.0
+LP001005             3000                0.0        66.0             360.0
+LP001006             2583             2358.0       120.0             360.0
+LP001008             6000                0.0       141.0             360.0
+
+          Credit_History Property_Area Loan_Status
+Loan_ID
+LP001002             1.0         Urban           Y
+LP001003             1.0         Rural           N
+LP001005             1.0         Urban           Y
+LP001006             1.0         Urban           Y
+LP001008             1.0         Urban           Y
+
+The toal number of entries is 614
+
+Males and Females
+Male      489
+Female    112
+Name: Gender, dtype: int64
+
+The average income is 5403.459283387622
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/usr/local/lib/python3.6/dist-packages/numpy/core/_asarray.py:83: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray
+  return array(a, dtype, copy=False, order=order)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/practical8_53_2.png" src="_images/practical8_53_2.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Female applicants with income higher than avg (5403.459283387622): 21
+          Gender  ApplicantIncome
+Loan_ID
+LP001186  Female            11500
+LP001392  Female             7451
+LP001422  Female            10408
+LP001516  Female            14866
+LP001519  Female            10000
+LP001708  Female            10000
+LP001776  Female             8333
+LP001871  Female             7200
+LP001945  Female             5417
+LP002142  Female             5500
+LP002194  Female            15759
+LP002231  Female             6000
+LP002301  Female             7441
+LP002377  Female             8624
+LP002393  Female            10047
+LP002407  Female             7142
+LP002582  Female            17263
+LP002634  Female            13262
+LP002731  Female            18165
+LP002813  Female            19484
+LP002959  Female            12000
+
+The number of given loans is: 422
+
+The percentage of loans is the following
+Y    0.687296
+N    0.312704
+Name: Loan_Status, dtype: float64
+398
+The percentage of loans to married people (398 applicants)
+Y    0.71608
+N    0.28392
+Name: Loan_Status, dtype: float64
+475
+The percentage of loans to applicants with credit history (475 applicants)
+Y    0.795789
+N    0.204211
+Name: Loan_Status, dtype: float64
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="4">
 <li><p>[Thanks to Stefano Teso] DNA transcription and translation into proteins follows this schema:</p></li>
 </ol>
 <p><img alt="iex4" src="_images/genestructure.jpg" /></p>
@@ -2713,7 +3127,332 @@ GCLC,protein_coding,chr6,-,13
 biotypes. How many genes do we have for each genotype? Plot the number of genes per biotype in a horizontal bar plot (hint: use also figsize = (10,10) to make it visible; 5. Computes the number of different chromosomes 6. Computes, for each chromosome, the number of genes it contains, and prints a horizontal barplot with the number of genes per chromosome. 7. Computes, for each chromosome, the percentage of genes located on the + strand 8. Computes, for each biotype, the average number of
 transcripts associated to genes belonging to the biotype. Finally, plots them in a vertical bar plot</p>
 <div class="tggle" onclick="toggleVisibility('ex3');"><p>Show/Hide Solution</p>
-</div><div id="ex3" style="display:none;"></div><ol class="arabic simple" start="5">
+</div><div id="ex3" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">genes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;file_samples/gene_table.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">genes</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="c1">#Question 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total number of genes: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">genes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="c1">#Question 2</span>
+<span class="n">maxI</span> <span class="o">=</span> <span class="n">genes</span><span class="p">[</span><span class="s2">&quot;transcript_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">minI</span> <span class="o">=</span> <span class="n">genes</span><span class="p">[</span><span class="s2">&quot;transcript_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">avgI</span> <span class="o">=</span> <span class="n">genes</span><span class="p">[</span><span class="s2">&quot;transcript_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">medI</span> <span class="o">=</span> <span class="n">genes</span><span class="p">[</span><span class="s2">&quot;transcript_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Isoform per gene stats:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - max: </span><span class="si">{}</span><span class="s2"> min </span><span class="si">{}</span><span class="s2"> avg </span><span class="si">{}</span><span class="s2"> median </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">maxI</span><span class="p">,</span> <span class="n">minI</span><span class="p">,</span><span class="n">avgI</span><span class="p">,</span><span class="n">medI</span><span class="p">))</span>
+
+<span class="c1">#Question 3</span>
+<span class="n">genes</span><span class="p">[</span><span class="s2">&quot;transcript_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;hist&quot;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">genes</span><span class="p">[</span><span class="s2">&quot;transcript_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;box&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="c1">#Question 4</span>
+<span class="n">biot</span> <span class="o">=</span> <span class="n">genes</span><span class="p">[</span><span class="s2">&quot;gene_biotype&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number of different biotypes is&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">biot</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">biot</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">biot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;barh&quot;</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1">#Question 5</span>
+<span class="n">chrs</span> <span class="o">=</span> <span class="n">genes</span><span class="p">[</span><span class="s2">&quot;chromosome&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The total number of chromosomes is &quot;</span><span class="p">,</span> <span class="n">chrs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1">#Question 6</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">chrs</span> <span class="o">=</span> <span class="n">genes</span><span class="p">[</span><span class="s2">&quot;chromosome&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">chrs</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;barh&quot;</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">#Question 7</span>
+<span class="c1">#Let&#39;s group the data by chromosome and strand</span>
+<span class="c1">#then loop through all the elements to count the</span>
+<span class="c1">#total elements per chromosome</span>
+<span class="c1">#to compute the percentage of the ones that are on + strand</span>
+<span class="c1">#The totals go on a dictionary with key chr</span>
+
+<span class="n">grp_chrs</span> <span class="o">=</span> <span class="n">genes</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;chromosome&quot;</span><span class="p">,</span> <span class="s2">&quot;strand&quot;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">grp_chrs</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">grp_chrs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">(</span><span class="si">{}</span><span class="s2">) : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">ind</span><span class="p">),</span> <span class="n">grp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+<span class="n">tot_byChr</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">grp_chrs</span><span class="p">:</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">tot_byChr</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">tot_byChr</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">grp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tot_byChr</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">grp_chrs</span><span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ind</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;+&quot;</span><span class="p">):</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">% g</span><span class="s2">enes of </span><span class="si">{}</span><span class="s2"> on strand +: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">100</span><span class="o">*</span><span class="n">grp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">tot_byChr</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]]))</span>
+
+
+
+<span class="c1">#Question 8</span>
+<span class="n">biot</span><span class="o">=</span> <span class="n">grp_chrs</span> <span class="o">=</span> <span class="n">genes</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;gene_biotype&quot;</span><span class="p">])</span>
+<span class="n">biot_transc</span> <span class="o">=</span> <span class="n">biot</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">mean</span><span class="p">)[[</span><span class="s2">&quot;transcript_count&quot;</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">biot_transc</span><span class="p">)</span>
+
+<span class="n">biot_transc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  gene_name    gene_biotype chromosome strand  transcript_count
+0    TSPAN6  protein_coding       chrX      -                 5
+1      TNMD  protein_coding       chrX      +                 2
+2      DPM1  protein_coding      chr20      -                 6
+3     SCYL3  protein_coding       chr1      -                 5
+4  C1orf112  protein_coding       chr1      +                 9
+
+Total number of genes: 51116
+
+Isoform per gene stats:
+ - max: 170 min 1 avg 3.7033218561702794 median 1.0
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/practical8_57_1.png" src="_images/practical8_57_1.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/practical8_57_2.png" src="_images/practical8_57_2.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+The number of different biotypes is 41
+
+protein_coding                        19297
+processed_pseudogene                   9826
+lincRNA                                6645
+antisense                              5086
+unprocessed_pseudogene                 2143
+snRNA                                  1802
+miRNA                                  1173
+misc_RNA                                955
+sense_intronic                          686
+transcribed_unprocessed_pseudogene      660
+rRNA                                    512
+processed_transcript                    438
+transcribed_processed_pseudogene        425
+snoRNA                                  403
+sense_overlapping                       174
+IG_V_pseudogene                         173
+unitary_pseudogene                      141
+IG_V_gene                               130
+TR_V_gene                                93
+TR_J_gene                                71
+transcribed_unitary_pseudogene           53
+IG_D_gene                                33
+TR_V_pseudogene                          30
+polymorphic_pseudogene                   28
+3prime_overlapping_ncRNA                 26
+Mt_tRNA                                  22
+IG_J_gene                                18
+scaRNA                                   16
+IG_C_gene                                14
+IG_C_pseudogene                           9
+TEC                                       6
+TR_C_gene                                 5
+ribozyme                                  5
+TR_J_pseudogene                           4
+TR_D_gene                                 3
+IG_J_pseudogene                           3
+pseudogene                                2
+Mt_rRNA                                   2
+bidirectional_promoter_lncRNA             2
+vaultRNA                                  1
+scRNA                                     1
+Name: gene_biotype, dtype: int64
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/practical8_57_4.png" src="_images/practical8_57_4.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The total number of chromosomes is  25
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/practical8_57_6.png" src="_images/practical8_57_6.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+pandas.core.groupby.generic.DataFrameGroupBy
+(&#39;chr1&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 2388
+(&#39;chr1&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 2322
+(&#39;chr10&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 999
+(&#39;chr10&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 944
+(&#39;chr11&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1470
+(&#39;chr11&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1472
+(&#39;chr12&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1262
+(&#39;chr12&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1269
+(&#39;chr13&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 537
+(&#39;chr13&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 558
+(&#39;chr14&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1029
+(&#39;chr14&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 976
+(&#39;chr15&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 901
+(&#39;chr15&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 883
+(&#39;chr16&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1077
+(&#39;chr16&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1036
+(&#39;chr17&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1227
+(&#39;chr17&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1306
+(&#39;chr18&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 508
+(&#39;chr18&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 491
+(&#39;chr19&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1361
+(&#39;chr19&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1303
+(&#39;chr2&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1803
+(&#39;chr2&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1786
+(&#39;chr20&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 577
+(&#39;chr20&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 592
+(&#39;chr21&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 297
+(&#39;chr21&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 342
+(&#39;chr22&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 585
+(&#39;chr22&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 505
+(&#39;chr3&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1345
+(&#39;chr3&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1395
+(&#39;chr4&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1152
+(&#39;chr4&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1145
+(&#39;chr5&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1303
+(&#39;chr5&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1295
+(&#39;chr6&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1222
+(&#39;chr6&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1237
+(&#39;chr7&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1320
+(&#39;chr7&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1187
+(&#39;chr8&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1039
+(&#39;chr8&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1113
+(&#39;chr9&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 989
+(&#39;chr9&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 952
+(&#39;chrMT&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 28
+(&#39;chrMT&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 9
+(&#39;chrX&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1078
+(&#39;chrX&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 1031
+(&#39;chrY&#39;, &#39;+&#39;)(&lt;class &#39;tuple&#39;&gt;) : 240
+(&#39;chrY&#39;, &#39;-&#39;)(&lt;class &#39;tuple&#39;&gt;) : 230
+{&#39;chr1&#39;: 4710, &#39;chr10&#39;: 1943, &#39;chr11&#39;: 2942, &#39;chr12&#39;: 2531, &#39;chr13&#39;: 1095, &#39;chr14&#39;: 2005, &#39;chr15&#39;: 1784, &#39;chr16&#39;: 2113, &#39;chr17&#39;: 2533, &#39;chr18&#39;: 999, &#39;chr19&#39;: 2664, &#39;chr2&#39;: 3589, &#39;chr20&#39;: 1169, &#39;chr21&#39;: 639, &#39;chr22&#39;: 1090, &#39;chr3&#39;: 2740, &#39;chr4&#39;: 2297, &#39;chr5&#39;: 2598, &#39;chr6&#39;: 2459, &#39;chr7&#39;: 2507, &#39;chr8&#39;: 2152, &#39;chr9&#39;: 1941, &#39;chrMT&#39;: 37, &#39;chrX&#39;: 2109, &#39;chrY&#39;: 470}
+% genes of chr1 on strand +: 50.70
+% genes of chr10 on strand +: 51.42
+% genes of chr11 on strand +: 49.97
+% genes of chr12 on strand +: 49.86
+% genes of chr13 on strand +: 49.04
+% genes of chr14 on strand +: 51.32
+% genes of chr15 on strand +: 50.50
+% genes of chr16 on strand +: 50.97
+% genes of chr17 on strand +: 48.44
+% genes of chr18 on strand +: 50.85
+% genes of chr19 on strand +: 51.09
+% genes of chr2 on strand +: 50.24
+% genes of chr20 on strand +: 49.36
+% genes of chr21 on strand +: 46.48
+% genes of chr22 on strand +: 53.67
+% genes of chr3 on strand +: 49.09
+% genes of chr4 on strand +: 50.15
+% genes of chr5 on strand +: 50.15
+% genes of chr6 on strand +: 49.69
+% genes of chr7 on strand +: 52.65
+% genes of chr8 on strand +: 48.28
+% genes of chr9 on strand +: 50.95
+% genes of chrMT on strand +: 75.68
+% genes of chrX on strand +: 51.11
+% genes of chrY on strand +: 51.06
+                                    transcript_count
+gene_biotype
+3prime_overlapping_ncRNA                    1.153846
+IG_C_gene                                   1.285714
+IG_C_pseudogene                             1.000000
+IG_D_gene                                   1.000000
+IG_J_gene                                   1.000000
+IG_J_pseudogene                             1.000000
+IG_V_gene                                   1.053846
+IG_V_pseudogene                             1.000000
+Mt_rRNA                                     1.000000
+Mt_tRNA                                     1.000000
+TEC                                         1.166667
+TR_C_gene                                   1.800000
+TR_D_gene                                   1.000000
+TR_J_gene                                   1.000000
+TR_J_pseudogene                             1.000000
+TR_V_gene                                   1.010753
+TR_V_pseudogene                             1.000000
+antisense                                   1.870232
+bidirectional_promoter_lncRNA               2.000000
+lincRNA                                     1.690143
+miRNA                                       1.000000
+misc_RNA                                    1.000000
+polymorphic_pseudogene                      3.285714
+processed_pseudogene                        1.000204
+processed_transcript                        5.844749
+protein_coding                              7.447893
+pseudogene                                  1.000000
+rRNA                                        1.000000
+ribozyme                                    1.000000
+scRNA                                       1.000000
+scaRNA                                      1.000000
+sense_intronic                              1.087464
+sense_overlapping                           1.609195
+snRNA                                       1.000000
+snoRNA                                      1.027295
+transcribed_processed_pseudogene            2.101176
+transcribed_unitary_pseudogene              5.056604
+transcribed_unprocessed_pseudogene          3.339394
+unitary_pseudogene                          1.921986
+unprocessed_pseudogene                      1.000467
+vaultRNA                                    1.000000
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/practical8_57_8.png" src="_images/practical8_57_8.png" />
+</div>
+</div>
+</div><ol class="arabic simple" start="5">
 <li><p>Write a function that creates and returns a data frame having columns with the labels specified through a list taken in input and ten rows of random data between 1 and 100.</p>
 <ol class="arabic simple">
 <li><p>Create two random DataFrames one with labels l = [“A”, “B”, “C” ,”D”,”E”] and l1 = [“W”, “X”,”Y”,”Z”]</p></li>
@@ -2725,7 +3464,223 @@ transcripts associated to genes belonging to the biotype. Finally, plots them in
 </li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex4');"><p>Show/Hide Solution</p>
-</div><div id="ex4" style="display:none;"></div></div>
+</div><div id="ex4" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">createRandomDF</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; returns a random dataframe with columns having names equal to the</span>
+<span class="sd">    input labels&quot;&quot;&quot;</span>
+    <span class="n">tmp_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">:</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+            <span class="n">tmp_dict</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+    <span class="n">DF</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tmp_dict</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">DF</span>
+
+<span class="c1">#Question 1</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span> <span class="p">,</span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="s2">&quot;E&quot;</span><span class="p">]</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;W&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span><span class="s2">&quot;Y&quot;</span><span class="p">,</span><span class="s2">&quot;Z&quot;</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">createRandomDF</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">createRandomDF</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+
+<span class="c1">#Question 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;line&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;line&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">#Question 3</span>
+<span class="n">S1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">Sc</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">]</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">Sc</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">S1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+
+<span class="c1">#Question 4</span>
+<span class="n">df1</span><span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">c1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="c1">#Question 5</span>
+<span class="n">inJ</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">df1</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inner Join DF - DF1&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inJ</span><span class="p">)</span>
+<span class="n">outJ</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">df1</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span><span class="s2">&quot;outer&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Outer Join DF - DF1&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">outJ</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Left Join DF - DF1&quot;</span><span class="p">)</span>
+<span class="n">lJ</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">df1</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lJ</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Right Join DF - DF1&quot;</span><span class="p">)</span>
+<span class="n">rJ</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">df1</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rJ</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   A  B  C  D  E
+0  1  5  7  8  5
+1  7  5  1  2  4
+2  2  2  7  7  0
+3  2  4  3  4  6
+4  4  2  5  9  9
+
+   W   X   Y  Z
+0  7  10   6  0
+1  3   4   5  1
+2  9   1   8  1
+3  9  10   1  1
+4  8   2  10  0
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/practical8_60_1.png" src="_images/practical8_60_1.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/practical8_60_2.png" src="_images/practical8_60_2.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0    7
+1    1
+2    7
+3    0
+4    0
+5    4
+6    8
+7    0
+8    0
+9    1
+dtype: int64
+   W   X   Y  Z  C
+0  7  10   6  0  7
+1  3   4   5  1  1
+2  9   1   8  1  7
+3  9  10   1  1  0
+4  8   2  10  0  0
+5  9   3   3  3  4
+6  0   6   7  3  8
+7  2   4   0  7  0
+8  7   1   8  6  0
+9  1   8   0  8  1
+   A  B  C  D   E
+0  1  5  7  8   5
+1  7  5  1  2   4
+2  2  2  7  7   0
+3  2  4  3  4   6
+4  4  2  5  9   9
+5  0  1  4  4   4
+6  6  2  8  7   8
+7  3  8  0  0  10
+8  0  3  2  1   0
+9  1  5  1  7   3
+
+Inner Join DF - DF1
+    A  B  C  D   E  W   X   Y  Z
+0   1  5  7  8   5  7  10   6  0
+1   1  5  7  8   5  9   1   8  1
+2   2  2  7  7   0  7  10   6  0
+3   2  2  7  7   0  9   1   8  1
+4   7  5  1  2   4  3   4   5  1
+5   7  5  1  2   4  1   8   0  8
+6   1  5  1  7   3  3   4   5  1
+7   1  5  1  7   3  1   8   0  8
+8   0  1  4  4   4  9   3   3  3
+9   6  2  8  7   8  0   6   7  3
+10  3  8  0  0  10  9  10   1  1
+11  3  8  0  0  10  8   2  10  0
+12  3  8  0  0  10  2   4   0  7
+13  3  8  0  0  10  7   1   8  6
+
+Outer Join DF - DF1
+    A  B  C  D   E    W     X     Y    Z
+0   1  5  7  8   5  7.0  10.0   6.0  0.0
+1   1  5  7  8   5  9.0   1.0   8.0  1.0
+2   2  2  7  7   0  7.0  10.0   6.0  0.0
+3   2  2  7  7   0  9.0   1.0   8.0  1.0
+4   7  5  1  2   4  3.0   4.0   5.0  1.0
+5   7  5  1  2   4  1.0   8.0   0.0  8.0
+6   1  5  1  7   3  3.0   4.0   5.0  1.0
+7   1  5  1  7   3  1.0   8.0   0.0  8.0
+8   2  4  3  4   6  NaN   NaN   NaN  NaN
+9   4  2  5  9   9  NaN   NaN   NaN  NaN
+10  0  1  4  4   4  9.0   3.0   3.0  3.0
+11  6  2  8  7   8  0.0   6.0   7.0  3.0
+12  3  8  0  0  10  9.0  10.0   1.0  1.0
+13  3  8  0  0  10  8.0   2.0  10.0  0.0
+14  3  8  0  0  10  2.0   4.0   0.0  7.0
+15  3  8  0  0  10  7.0   1.0   8.0  6.0
+16  0  3  2  1   0  NaN   NaN   NaN  NaN
+
+Left Join DF - DF1
+    A  B  C  D   E    W     X     Y    Z
+0   1  5  7  8   5  7.0  10.0   6.0  0.0
+1   1  5  7  8   5  9.0   1.0   8.0  1.0
+2   7  5  1  2   4  3.0   4.0   5.0  1.0
+3   7  5  1  2   4  1.0   8.0   0.0  8.0
+4   2  2  7  7   0  7.0  10.0   6.0  0.0
+5   2  2  7  7   0  9.0   1.0   8.0  1.0
+6   2  4  3  4   6  NaN   NaN   NaN  NaN
+7   4  2  5  9   9  NaN   NaN   NaN  NaN
+8   0  1  4  4   4  9.0   3.0   3.0  3.0
+9   6  2  8  7   8  0.0   6.0   7.0  3.0
+10  3  8  0  0  10  9.0  10.0   1.0  1.0
+11  3  8  0  0  10  8.0   2.0  10.0  0.0
+12  3  8  0  0  10  2.0   4.0   0.0  7.0
+13  3  8  0  0  10  7.0   1.0   8.0  6.0
+14  0  3  2  1   0  NaN   NaN   NaN  NaN
+15  1  5  1  7   3  3.0   4.0   5.0  1.0
+16  1  5  1  7   3  1.0   8.0   0.0  8.0
+
+Right Join DF - DF1
+    A  B  C  D   E  W   X   Y  Z
+0   1  5  7  8   5  7  10   6  0
+1   2  2  7  7   0  7  10   6  0
+2   1  5  7  8   5  9   1   8  1
+3   2  2  7  7   0  9   1   8  1
+4   7  5  1  2   4  3   4   5  1
+5   1  5  1  7   3  3   4   5  1
+6   7  5  1  2   4  1   8   0  8
+7   1  5  1  7   3  1   8   0  8
+8   3  8  0  0  10  9  10   1  1
+9   3  8  0  0  10  8   2  10  0
+10  3  8  0  0  10  2   4   0  7
+11  3  8  0  0  10  7   1   8  6
+12  0  1  4  4   4  9   3   3  3
+13  6  2  8  7   8  0   6   7  3
+</pre></div></div>
+</div>
+</div></div>
 </div>
 
 
