@@ -580,7 +580,7 @@ documentation.</p>
 </pre></div>
 </div>
 <p>if the execution gives:</p>
-<p><img alt="image0" src="_images/msa.gif" /></p>
+<p><img alt="imp1" src="_images/import.png" /></p>
 <p>Biopython needs to be installed.</p>
 <p><strong>In windows</strong> installing Biopython should be as easy as opening the command prompt as admininstrator (typing <code class="docutils literal notranslate"><span class="pre">cmd</span></code> and then right clicking on the link choosing run as admininstrator) and then <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">biopython</span></code>. If that does not work, you should be able to install biopython with the following: <code class="docutils literal notranslate"><span class="pre">python3.xx</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">biopython</span></code> (where you should change python3.xx with the path to your python3.xx executable).</p>
 <p><strong>In linux</strong> <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">biopython</span></code> will install biopython for python3 up to python3.5. On python 3.6 and later the command is: <code class="docutils literal notranslate"><span class="pre">python3.6</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">biopython</span></code> or, more in general, <code class="docutils literal notranslate"><span class="pre">pythonX.X</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">biopython</span></code>.</p>
@@ -652,7 +652,7 @@ my_prot&#39;s alphabet: IUPACProtein()
 <div class="section" id="Looping,-slicing-and-concatenation">
 <h2>Looping, slicing and concatenation<a class="headerlink" href="#Looping,-slicing-and-concatenation" title="Permalink to this headline">¶</a></h2>
 <p>Note also that <strong>Seq objects behave like strings</strong>, but the consistency of the alphabet is checked too. For example we cannot concatenate a <strong>unambiguous_dna</strong> with a <strong>IUPAC.protein</strong> sequence. This is the error message we would get:</p>
-<p><img alt="image0" src="_images/msa.gif" /></p>
+<p><img alt="mess" src="_images/mess.png" /></p>
 <p>To do it one should change the alphabet to <code class="docutils literal notranslate"><span class="pre">generic_alphabet</span></code>:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -812,7 +812,7 @@ GCGATTTTCGATCCTATATAGGCCCATCGATC
 <div class="section" id="Transcription-and-translation">
 <h3>Transcription and translation<a class="headerlink" href="#Transcription-and-translation" title="Permalink to this headline">¶</a></h3>
 <p>Remember that:</p>
-<p><img alt="image0" src="_images/msa.gif" /></p>
+<p><img alt="tt" src="_images/trans_transl.png" /></p>
 <p>[taken from the Biopython tutorial].</p>
 <p>Biopython has a method to transcribe a DNA sequence into a mRNA sequence (and one to go back):</p>
 <ol class="arabic simple">
@@ -823,7 +823,7 @@ GCGATTTTCGATCCTATATAGGCCCATCGATC
 <p>Alike, a DNA or mRNA sequence can be translated into a protein with:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Seq.translate(table=N,</span> <span class="pre">to_stop=True/False,</span> <span class="pre">stop_symbol</span> <span class="pre">=symbol)</span></code> that converts a DNA sequence or mRNA into the corresponding protein.</p>
 <p>Optionally, the translate method accepts a parameter <code class="docutils literal notranslate"><span class="pre">table</span></code> to specify the NCBI translation table used (see below for codes). <code class="docutils literal notranslate"><span class="pre">to_stop</span></code> makes the translation stop at the first stop codon if True (<strong>in this case the stop codon is not translated!</strong>), <code class="docutils literal notranslate"><span class="pre">stop_symbol</span></code> to replace the asterisk with any other stop character (Es. “&#64;”).</p>
-<p><img alt="image1" src="_images/ncbi_table.png" /> Stop codons will be represented by an asterisk.</p>
+<p><img alt="ncbitab" src="_images/ncbi_table.png" /> Stop codons will be represented by an asterisk.</p>
 <p><strong>Example:</strong> Let’s translate into mRNA the coding sequence: ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -1501,7 +1501,7 @@ MVTVEEFRRAQCAEGPATVMAIGTATPSNCVDQSTYPDYYFRITNSEHKVELKEKFKRMCEKSMIKKRYMHLTEEILKEN
 <div class="section" id="Multiple-sequence-alignment">
 <h2>Multiple sequence alignment<a class="headerlink" href="#Multiple-sequence-alignment" title="Permalink to this headline">¶</a></h2>
 <p><strong>Multiple Sequence Alignments</strong>, as the name says, are a collection of multiple sequences which have been aligned together – usually with the insertion of gap characters, and addition of leading or trailing gaps – such that all the sequence strings are the same length.</p>
-<p><img alt="image0" src="_images/msa.gif" /></p>
+<p><img alt="msa" src="_images/msa.gif" /></p>
 <p>Such an alignment can be regarded as a matrix of letters, in biopython each row is a <code class="docutils literal notranslate"><span class="pre">SeqRecord</span></code> object. These alignments are stored in an object <code class="docutils literal notranslate"><span class="pre">MultipleSeqAlignment</span></code></p>
 <div class="section" id="Parsing-multiple-sequence-alignments">
 <h3>Parsing multiple sequence alignments<a class="headerlink" href="#Parsing-multiple-sequence-alignments" title="Permalink to this headline">¶</a></h3>
@@ -2040,7 +2040,7 @@ Score: 13.5, Start: 0, End: 19
 </pre></div></div>
 </div>
 <p>It is also possible to specify a substitution matrix like the <a class="reference external" href="https://en.wikipedia.org/wiki/BLOSUM">BLOSUM</a> to improve the alignment of protein sequences. Substitution matrices like the <strong>blosum62</strong> are present in Biopython and before using it we need to import it with <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">Bio.SubsMat.MatrixInfo</span> <span class="pre">import</span> <span class="pre">blosum62</span></code>.</p>
-<p>You can find all the substitution matrices available <a class="reference external" href="http://biopython.org/DIST/docs/api/">here</a>.</p>
+<p>You can find all the substitution matrices available <a class="reference external" href="https://biopython.org/docs/1.75/api/Bio.SubsMat.MatrixInfo.html">here</a>.</p>
 <p><strong>Example:</strong> Align the alpha and beta subunits of the human hemoglobin protein stored in <a class="reference external" href="file_samples/hem_alpha.fasta">hem_alpha.fasta</a> and <a class="reference external" href="file_samples/hem_beta.fasta">hem_beta.fasta</a> with globalxx and with a blosum62 substitution matrix and gap open -10 and gap extension -0.5.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
