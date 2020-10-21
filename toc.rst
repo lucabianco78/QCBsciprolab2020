@@ -15,6 +15,7 @@
     Practical 6 <practical6.ipynb>
     Practical 7 <practical7.ipynb>
     Practical 8 <practical8.ipynb>
+    Practical 9 <practical9.ipynb>
 |space|
 ==========
 
