@@ -42,6 +42,7 @@
   <link rel="stylesheet" href="_static/css/jupman-web.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Practical 9" href="practical9.html" />
     <link rel="prev" title="Practical 7" href="practical7.html" /> 
 </head>
 
@@ -245,6 +246,21 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="practical9.html">Practical 9</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="practical9.html#Slides">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practical9.html#Numpy">Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practical9.html#Numpy-ndarray">Numpy ndarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practical9.html#Random-arrays">Random arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practical9.html#Numpy-to-and-from-pandas">Numpy to and from pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practical9.html#Reshaping">Reshaping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practical9.html#Iterating-over-arrays-and-Indexing">Iterating over arrays and Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practical9.html#Broadcasting-and-arithmetic-functions">Broadcasting and arithmetic functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practical9.html#Filtering">Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practical9.html#Linear-algebra">Linear algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practical9.html#Matplotlib">Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practical9.html#Exercises">Exercises</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="toc.html"> </a></li>
@@ -627,19 +643,19 @@ import numpy as np
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Values and index explicitly defined
-A    11
-B    17
-C    10
-D     1
-E    11
-F     8
-G    10
-H    18
-I    10
-L     7
+A     1
+B     9
+C     4
+D     7
+E    20
+F     7
+G    13
+H    10
+I     4
+L     8
 dtype: int64
 The index: Index([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;F&#39;, &#39;G&#39;, &#39;H&#39;, &#39;I&#39;, &#39;L&#39;], dtype=&#39;object&#39;)
-The values: [11 17 10  1 11  8 10 18 10  7]
+The values: [ 1  9  4  7 20  7 13 10  4  8]
 ------------------------
 
 From dictionary
@@ -655,19 +671,19 @@ Index([&#39;one&#39;, &#39;two&#39;, &#39;ten&#39;, &#39;three&#39;, &#39;four&#
 ------------------------
 
 Default index
-0     5
-1     4
-2     9
-3    10
-4     7
-5     7
-6     2
-7     5
-8     2
-9     7
+0    3
+1    3
+2    2
+3    0
+4    3
+5    8
+6    2
+7    3
+8    7
+9    7
 dtype: int64
 RangeIndex(start=0, stop=10, step=1)
-[ 5  4  9 10  7  7  2  5  2  7]
+[3 3 2 0 3 8 2 3 7 7]
 ------------------------
 
 Same value repeated
@@ -734,58 +750,58 @@ RangeIndex(start=0, stop=10, step=1)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-A     2
-B    12
-C     9
-D    11
-E     0
-F    11
-G    15
-H    10
-I     5
-L    16
+A     1
+B    19
+C    10
+D     5
+E     9
+F    12
+G     9
+H     4
+I    12
+L    10
 dtype: int64
 
-Value at label &#34;A&#34;: 2
-Value at index 1: 12
+Value at label &#34;A&#34;: 1
+Value at index 1: 19
 
 Slicing from 1 to 3:
-B    12
-C     9
+B    19
+C    10
 dtype: int64
 
 Slicing from C to H:
-C     9
-D    11
-E     0
-F    11
-G    15
-H    10
+C    10
+D     5
+E     9
+F    12
+G     9
+H     4
 dtype: int64
 
 Retrieving from list:
-B    12
-D    11
-F    11
-H    10
-L    16
+B    19
+D     5
+F    12
+H     4
+L    10
 dtype: int64
-A     2
-C     9
-E     0
-G    15
+A     1
+C    10
+E     9
+G     9
 dtype: int64
 
 Top 3
-A     2
-B    12
-C     9
+A     1
+B    19
+C    10
 dtype: int64
 
 Bottom 3
-H    10
-I     5
-L    16
+H     4
+I    12
+L    10
 dtype: int64
 </pre></div></div>
 </div>
@@ -817,8 +833,8 @@ dtype: int64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[9, 9, 17, 2, 19, 5, 7, 8, 3, 19]
-[4.5, 4.5, 8.5, 1.0, 9.5, 2.5, 3.5, 4.0, 1.5, 9.5]
+[11, 9, 18, 16, 3, 19, 12, 7, 14, 17]
+[5.5, 4.5, 9.0, 8.0, 1.5, 9.5, 6.0, 3.5, 7.0, 8.5]
 </pre></div></div>
 </div>
 <p>With pandas instead:</p>
@@ -845,28 +861,28 @@ dtype: int64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-A     7
-B    13
-C     0
-D     2
-E     3
-F     0
-G     1
-H     5
-I    17
-L    16
+A     9
+B     0
+C     5
+D     7
+E     1
+F    18
+G    10
+H    18
+I     4
+L    18
 dtype: int64
 
-A    3.5
-B    6.5
-C    0.0
-D    1.0
-E    1.5
-F    0.0
-G    0.5
-H    2.5
-I    8.5
-L    8.0
+A    4.5
+B    0.0
+C    2.5
+D    3.5
+E    0.5
+F    9.0
+G    5.0
+H    9.0
+I    2.0
+L    9.0
 dtype: float64
 </pre></div></div>
 </div>
@@ -901,35 +917,34 @@ dtype: float64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-A     1
-B    13
-C     9
-D    18
-E    16
-F    16
-G    10
-H    11
-I    10
+A     0
+B     5
+C     0
+D    11
+E     6
+F    14
+G    18
+H    15
+I     0
 L     0
 dtype: int64
 
 A    False
-B     True
+B    False
 C    False
 D     True
-E     True
+E    False
 F     True
-G    False
+G     True
 H     True
 I    False
 L    False
 dtype: bool
 
-B    13
-D    18
-E    16
-F    16
-H    11
+D    11
+F    14
+G    18
+H    15
 dtype: int64
 </pre></div></div>
 </div>
@@ -979,46 +994,46 @@ dtype: int64
 <div class="highlight"><pre>
 The dimensions of these Series: (10,)
 
-D    9
-E    1
-F    7
-G    3
-H    4
-A    0
-Z    6
+D    8
+E    3
+F    0
+G    8
+H    9
+A    5
+Z    1
 Y    1
 dtype: int64
 ---- S + S1 ----
-A    10.0
+A     5.0
 B     NaN
 C     NaN
-D    18.0
-E     2.0
-F    12.0
-G     7.0
-H     4.0
+D    15.0
+E    12.0
+F     4.0
+G     9.0
+H    18.0
 I     NaN
 L     NaN
 Y     NaN
 Z     NaN
 dtype: float64
 ---- Dropping NaNs ----
-A    10.0
-D    18.0
-E     2.0
-F    12.0
-G     7.0
-H     4.0
+A     5.0
+D    15.0
+E    12.0
+F     4.0
+G     9.0
+H    18.0
 dtype: float64
 ---- Filling NaNs ----
-A          10
+A           5
 B    my_value
 C    my_value
-D          18
-E           2
-F          12
-G           7
-H           4
+D          15
+E          12
+F           4
+G           9
+H          18
 I    my_value
 L    my_value
 Y    my_value
@@ -1055,34 +1070,34 @@ dtype: object
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-A    10.0
+A     5.0
 B     NaN
 C     NaN
-D    18.0
-E     2.0
-F    12.0
-G     7.0
-H     4.0
+D    15.0
+E    12.0
+F     4.0
+G     9.0
+H    18.0
 I     NaN
 L     NaN
 Y     NaN
 Z     NaN
 dtype: float64
 ---- Filling with avg value ----
-A    10.000000
-B     8.833333
-C     8.833333
-D    18.000000
-E     2.000000
-F    12.000000
-G     7.000000
-H     4.000000
-I     8.833333
-L     8.833333
-Y     8.833333
-Z     8.833333
+A     5.0
+B    10.5
+C    10.5
+D    15.0
+E    12.0
+F     4.0
+G     9.0
+H    18.0
+I    10.5
+L    10.5
+Y    10.5
+Z    10.5
 dtype: float64
-Min:2.0 (index: 4) Max: 18.0 (index: 3)
+Min:4.0 (index: 5) Max: 18.0 (index: 7)
 </pre></div></div>
 </div>
 <p>Let’s see some operators introduced above in action.</p>
@@ -1124,62 +1139,61 @@ Min:2.0 (index: 4) Max: 18.0 (index: 3)
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 The data:
-A     5
-B     4
-C    10
-D     3
-E     4
-F     1
-G     4
-H     8
-I     7
-L     5
+A     0
+B     8
+C     5
+D    10
+E     5
+F     7
+G     0
+H     7
+I     9
+L     9
 dtype: int64
 
 Its description
 count    10.000000
-mean      5.100000
-std       2.601282
-min       1.000000
-25%       4.000000
-50%       4.500000
-75%       6.500000
+mean      6.000000
+std       3.559026
+min       0.000000
+25%       5.000000
+50%       7.000000
+75%       8.750000
 max      10.000000
 dtype: float64
 
 Specifying different quantiles:
-0.1    2.8
-0.2    3.8
-0.8    7.2
-0.9    8.2
+0.1    0.0
+0.2    4.0
+0.8    9.0
+0.9    9.1
 dtype: float64
 
 Histogram:
-4     3
+9     2
+7     2
 5     2
+0     2
 10    1
 8     1
-7     1
-3     1
-1     1
 dtype: int64
 
 The type is a Series:
 &lt;class &#39;pandas.core.series.Series&#39;&gt;
 Summing the values:
-51
+60
 
 The cumulative sum:
-A     5
-B     9
-C    19
-D    22
-E    26
-F    27
-G    31
-H    39
-I    46
-L    51
+A     0
+B     8
+C    13
+D    23
+E    28
+F    35
+G    35
+H    42
+I    51
+L    60
 dtype: int64
 </pre></div></div>
 </div>
@@ -1343,16 +1357,16 @@ import matplotlib.pyplot as plt
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 The data:
-A     8
-B     7
-C     9
-D     8
+A     1
+B    10
+C     0
+D     5
 E     6
-F     6
-G     6
-H     0
-I     1
-L    10
+F     8
+G     4
+H     5
+I    10
+L     3
 dtype: int64
 </pre></div></div>
 </div>
@@ -1361,7 +1375,7 @@ dtype: int64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.figure.Figure at 0x7f75584da240&gt;
+&lt;matplotlib.figure.Figure at 0x7f964c553630&gt;
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -1369,7 +1383,7 @@ dtype: int64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.figure.Figure at 0x7f75047b1160&gt;
+&lt;matplotlib.figure.Figure at 0x7f95f8b2eb38&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1377,12 +1391,12 @@ dtype: int64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.figure.Figure at 0x7f75047c2748&gt;
+&lt;matplotlib.figure.Figure at 0x7f9601b9eb00&gt;
 </pre></div></div>
 </div>
 <p><strong>Example:</strong> Let’s create a series representing the sin, cos and sqrt functions and plot them.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2721,6 +2735,8 @@ transcripts associated to genes belonging to the biotype. Finally, plots them in
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="practical9.html" class="btn btn-neutral float-right" title="Practical 9" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="practical7.html" class="btn btn-neutral float-left" title="Practical 7" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

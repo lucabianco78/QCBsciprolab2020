@@ -41,7 +41,8 @@
   <link rel="stylesheet" href="_static/css/jupman.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/jupman-web.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Practical 8" href="practical8.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,7 +90,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Scientific Programming for QCB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#General-Info">General Info</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="index.html#Timetable-and-lecture-rooms">Timetable and lecture rooms</a></li>
@@ -246,6 +247,21 @@
 <li class="toctree-l2"><a class="reference internal" href="practical8.html#Exercises">Exercises</a></li>
 </ul>
 </li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Practical 9</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Slides">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Numpy">Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Numpy-ndarray">Numpy ndarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Random-arrays">Random arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Numpy-to-and-from-pandas">Numpy to and from pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Reshaping">Reshaping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Iterating-over-arrays-and-Indexing">Iterating over arrays and Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Broadcasting-and-arithmetic-functions">Broadcasting and arithmetic functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Filtering">Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Linear-algebra">Linear algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Matplotlib">Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Exercises">Exercises</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="toc.html"> </a></li>
 </ul>
 
@@ -281,6 +297,8 @@
     <!-- Commented because doesn't work with sections,
          see https://github.com/DavidLeoni/jupman/issues/39
     <li><a href="toc-page.html">Docs</a> &raquo;</li>
+    
+        <li><a href="toc.html"> </a> &raquo;</li>
     
     <li>Practical 9</li>
     -->
@@ -1636,7 +1654,7 @@ A transposed:
 <p>The complete list of all available methods can be found in the <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/routines.linalg.html">documentation</a>.</p>
 <p><strong>Example:</strong> Let’s create a random 4x4 matrix and invert it. Let’s finally check that the product of the matrix by its inversion yields the 4x4 identity matrix.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1652,7 +1670,7 @@ A transposed:
 <span class="n">A_1</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A_1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A_1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A_1</span><span class="p">))</span> <span class="c1"># equivalent to print(A.dot(A_1))</span>
 </pre></div>
 </div>
 </div>
@@ -1662,21 +1680,21 @@ A transposed:
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Matrix A:
-[[5 7 2 3]
- [5 7 0 6]
- [4 0 2 9]
- [9 8 3 7]]
+[[0 7 7 0]
+ [0 5 8 4]
+ [3 3 5 2]
+ [9 4 7 3]]
 
 inv(A)
-[[-0.64041096 -0.01712329 -0.22260274  0.57534247]
- [ 0.34589041  0.07876712  0.0239726  -0.24657534]
- [ 0.69520548 -0.36643836  0.23630137 -0.28767123]
- [ 0.13013699  0.0890411   0.15753425 -0.19178082]]
+[[ 1.58730159e-02 -2.46716228e-16 -3.33333333e-01  2.22222222e-01]
+ [ 3.80952381e-01  1.00000000e+00 -4.00000000e+00  1.33333333e+00]
+ [-2.38095238e-01 -1.00000000e+00  4.00000000e+00 -1.33333333e+00]
+ [-1.66533454e-16  1.00000000e+00 -3.00000000e+00  1.00000000e+00]]
 
-[[ 1.00000000e+00  2.77555756e-17  3.33066907e-16 -4.16333634e-16]
- [ 3.33066907e-16  1.00000000e+00  2.22044605e-16 -3.88578059e-16]
- [-5.55111512e-17 -2.77555756e-17  1.00000000e+00  8.32667268e-17]
- [-5.55111512e-17  2.77555756e-17  1.66533454e-16  1.00000000e+00]]
+[[1.00000000e+00 3.33066907e-16 4.44089210e-15 2.22044605e-16]
+ [1.18329136e-30 1.00000000e+00 0.00000000e+00 8.88178420e-16]
+ [1.38777878e-16 8.88178420e-16 1.00000000e+00 6.66133815e-16]
+ [2.77555756e-17 2.22044605e-16 1.77635684e-15 1.00000000e+00]]
 </pre></div></div>
 </div>
 <p><strong>Example:</strong> Let’s solve the following system of linear equations:<span class="math notranslate nohighlight">\(\begin{cases} 2x + y - 2z = 3\\ x - y - z = 0\\ x + y + 3z = 12\end{cases}\)</span></p>
@@ -1944,6 +1962,13 @@ Identities are OK!
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="practical8.html" class="btn btn-neutral float-left" title="Practical 8" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
