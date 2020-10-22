@@ -1274,7 +1274,7 @@ Seq(&#39;GACGGGCGGGGAGGGTTTGGTTTTTTTTGGTTTTTAAAAAATTCAGGTTTNNAA...TTT&#39;)
 <p>The input of <code class="docutils literal notranslate"><span class="pre">Bio.SeqIO.index(filename,file_type)</span></code> is the file name to read sequences from and the file type (like fasta, genebank,…).</p>
 <p><strong>Example:</strong> Let’s read all the .fasta file <a class="reference external" href="files_sample/contigs82.fasta">contigs82.fasta</a> in memory (as an index) printing off the entry corresponding to contig “MDC019140.399”.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1448,7 +1448,7 @@ MVTVEEFRRAQCAEGPATVMAIGTATPSNCVDQSTYPDYYFRITNSEHKVELKEKFKRMCEKSMIKKRYMHLTEEILKEN
 </div>
 <div class="section" id="Multiple-sequence-alignment">
 <h2>Multiple sequence alignment<a class="headerlink" href="#Multiple-sequence-alignment" title="Permalink to this headline">¶</a></h2>
-<p><strong>Multiple Sequence Alignments</strong>, as the name says, are a collection of multiple sequences which have been aligned together – usually with the insertion of gap characters, and addition of leading or trailing gaps – such that all the sequence strings are the same length.</p>
+<p><strong>Multiple Sequence Alignments</strong>, as the name says, are a collection of multiple sequences which have been aligned together – usually with the insertion of gap characters, and addition of leading or trailing gaps – such that all the sequence strings have the same length.</p>
 <p><img alt="msa" src="_images/msa.gif" /></p>
 <p>Such an alignment can be regarded as a matrix of letters, in biopython each row is a <code class="docutils literal notranslate"><span class="pre">SeqRecord</span></code> object. These alignments are stored in an object <code class="docutils literal notranslate"><span class="pre">MultipleSeqAlignment</span></code></p>
 <div class="section" id="Parsing-multiple-sequence-alignments">
@@ -1585,8 +1585,8 @@ LLLAILPD-NNGSL-YGDLKRICETELGLISQCCLTKHVFKI---------SKQYLANVSLKINVKMGGRN-TVLVDAIS
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="Writing-multiple-alignments">
-<h3>Writing multiple alignments<a class="headerlink" href="#Writing-multiple-alignments" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Writing-multiple-sequence-alignments">
+<h3>Writing multiple sequence alignments<a class="headerlink" href="#Writing-multiple-sequence-alignments" title="Permalink to this headline">¶</a></h3>
 <p>Biopython provides a function <code class="docutils literal notranslate"><span class="pre">Bio.AlignIO.write()</span></code> to write alignments to file. The basic syntax is:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>N = Bio.AlignIO.write(alignments,outfile,file_format)
 </pre></div>
@@ -1594,7 +1594,7 @@ LLLAILPD-NNGSL-YGDLKRICETELGLISQCCLTKHVFKI---------SKQYLANVSLKINVKMGGRN-TVLVDAIS
 <p>where <code class="docutils literal notranslate"><span class="pre">alignments</span></code> are a MultipleSeqAlignment object with the alignments to write to the output file with name <code class="docutils literal notranslate"><span class="pre">outfile</span></code> that has format <code class="docutils literal notranslate"><span class="pre">file_format</span></code> (a low case string with the file format). N is the number of entries written to the file.</p>
 <p><strong>Example:</strong> Let’s create some multiple sequence alignments and store them in <a class="reference external" href="http://www.phylo.org/tools/obsolete/phylip.html">phylip</a> format. The output file is present here <a class="reference external" href="file_samples/my_malign.phy">my_malign.phy</a>. Finally, read and print the content of the file.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1653,6 +1653,8 @@ ACTAGTACAGCT- Theta
 -CTACTACAGGTG Iota
 </pre></div></div>
 </div>
+<p>The content of the file is reported in the following screenshot:</p>
+<p><img alt="phylimg" src="_images/phylip_aligns.png" /></p>
 <p>Note that it is also possible to convert one format into the other (provided that all information needed for the second format is available) by using the function:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Bio.AlignIO.convert(input_file, input_file_format, output_file, output_file_format)
 </pre></div>
