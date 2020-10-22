@@ -609,7 +609,7 @@ documentation :-).</p>
 <p>All the information on Seq objects can be found <a class="reference external" href="http://biopython.org/DIST/docs/api/Bio.Seq.Seq-class.html">here</a>.</p>
 <div class="section" id="The-alphabet">
 <h3>The alphabet<a class="headerlink" href="#The-alphabet" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">Seq</span></code> objects are composed by two information: the actual sequence and the alphabet the sequence refers to. We normally will use the <a class="reference external" href="http://www.chem.qmw.ac.uk/iupac/">IUPAC</a> alphabet as defined in the <code class="docutils literal notranslate"><span class="pre">Bio.Alphabet.IUPAC</span></code> which provides a suitable alphabet to deal with DNA, RNA and proteins. Several options are available, including <code class="docutils literal notranslate"><span class="pre">Bio.Alphabet.generic_dna</span></code> or <code class="docutils literal notranslate"><span class="pre">Bio.Alphabet.generic_protein</span></code>, <code class="docutils literal notranslate"><span class="pre">Bio.Alphabet.ThreeLetterProtein</span></code> and other.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Seq</span></code> objects are composed by two information: the actual sequence and the alphabet the sequence refers to. We normally will use the <a class="reference external" href="https://www.bioinformatics.org/sms/iupac.html">IUPAC</a> alphabet as defined in the <code class="docutils literal notranslate"><span class="pre">Bio.Alphabet.IUPAC</span></code> which provides a suitable alphabet to deal with DNA, RNA and proteins. Several options are available, including <code class="docutils literal notranslate"><span class="pre">Bio.Alphabet.generic_dna</span></code> or <code class="docutils literal notranslate"><span class="pre">Bio.Alphabet.generic_protein</span></code>, <code class="docutils literal notranslate"><span class="pre">Bio.Alphabet.ThreeLetterProtein</span></code> and other.</p>
 <p>Specifying an alphabet quickly tells you what information you are dealing with and moreover it provides a way to specify a constraint on the data.</p>
 <p>If the definition of the alphabet is not specified, the default one is used (<code class="docutils literal notranslate"><span class="pre">Alphabet</span></code>).</p>
 <div class="nbinput docutils container">
@@ -680,7 +680,7 @@ my_prot&#39;s alphabet: IUPACProtein()
 GATTATACGTACMGNAAAAKKGSEQE
 </pre></div></div>
 </div>
-<p>We can also loop through the elements and slice strings with the usual [S:E:step] operator (and as usual S is included, E is excluded). We can also convert a Seq object into a string.</p>
+<p>We can also loop through the elements and slice strings with the usual [S:E:step] operator (and as usual S is included, E is excluded). It is also possible to convert a Seq object into a string.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -819,7 +819,7 @@ GCGATTTTCGATCCTATATAGGCCCATCGATC
 <li><p><code class="docutils literal notranslate"><span class="pre">Seq.transcribe()</span></code> that transcribes a DNA sequence into mRNA (converting Ts in Us).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Seq.back_transcribe()</span></code> that back-transcribes a mRNA sequence into DNA (converting Us in Ts).</p></li>
 </ol>
-<p>The alphabet of the transcribed sequence is converted into mRNA. Note that transcribing a protein will result in a <strong>ValueError</strong>.</p>
+<p>The alphabet of the transcribed sequence is changed to RNA. Note that transcribing a protein will result in a <strong>ValueError</strong>.</p>
 <p>Alike, a DNA or mRNA sequence can be translated into a protein with:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Seq.translate(table=N,</span> <span class="pre">to_stop=True/False,</span> <span class="pre">stop_symbol</span> <span class="pre">=symbol)</span></code> that converts a DNA sequence or mRNA into the corresponding protein.</p>
 <p>Optionally, the translate method accepts a parameter <code class="docutils literal notranslate"><span class="pre">table</span></code> to specify the NCBI translation table used (see below for codes). <code class="docutils literal notranslate"><span class="pre">to_stop</span></code> makes the translation stop at the first stop codon if True (<strong>in this case the stop codon is not translated!</strong>), <code class="docutils literal notranslate"><span class="pre">stop_symbol</span></code> to replace the asterisk with any other stop character (Es. “&#64;”).</p>
