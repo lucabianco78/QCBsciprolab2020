@@ -568,9 +568,9 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Biopython">
 <h2>Biopython<a class="headerlink" href="#Biopython" title="Permalink to this headline">¶</a></h2>
 <p>From the Biopython tutorial: The Biopython Project is an international association of developers of freely available Python tools for computational molecular biology.</p>
-<p>The goal of Biopython is <strong>to make it as easy as possible to use Python for bioinformatics by creating high-quality, reusable modules and classes.</strong> Biopython features include parsers for various Bioinformatics file formats (FASTA, FASTQ, BLAST, PDB, Clustalw, Genbank,…), access to online services (NCBI, Expasy,…), interfaces to common and not-so-common programs (Clustalw, DSSP, MSMS…), a standard sequence class, various clustering modules, a KD tree data structure etc. and even
-documentation.</p>
-<p>In this practical we will see some features of Biopython but refer to <a class="reference external" href="http://biopython.org/wiki/Documentation">biopython documentation</a> to discover all its features, recipes etc.</p>
+<p>The goal of Biopython is <strong>to make it as easy as possible to use Python for bioinformatics by creating high-quality, reusable modules and classes.</strong> Biopython features include parsers for various Bioinformatics file formats (FASTA, FASTQ, BLAST, PDB, Clustalw, Genbank,…), access to online services (NCBI, Expasy,…), interfaces to common and not-so-common programs (Clustalw, DSSP, MSMS…), a standard sequence class, various clustering modules, a KD tree data structure etc. and even some
+documentation :-).</p>
+<p>In this practical we will see some features of Biopython but please refer to <a class="reference external" href="http://biopython.org/wiki/Documentation">biopython documentation</a> to discover all its features, recipes etc.</p>
 <p>These notes are largely based on what available <a class="reference external" href="http://biopython.org/DIST/docs/tutorial/Tutorial.pdf">here</a>.</p>
 </div>
 <div class="section" id="Installation-of-Biopython">
@@ -584,7 +584,7 @@ documentation.</p>
 <p>Biopython needs to be installed.</p>
 <p><strong>In windows</strong> installing Biopython should be as easy as opening the command prompt as admininstrator (typing <code class="docutils literal notranslate"><span class="pre">cmd</span></code> and then right clicking on the link choosing run as admininstrator) and then <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">biopython</span></code>. If that does not work, you should be able to install biopython with the following: <code class="docutils literal notranslate"><span class="pre">python3.xx</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">biopython</span></code> (where you should change python3.xx with the path to your python3.xx executable).</p>
 <p><strong>In linux</strong> <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">biopython</span></code> will install biopython for python3 up to python3.5. On python 3.6 and later the command is: <code class="docutils literal notranslate"><span class="pre">python3.6</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">biopython</span></code> or, more in general, <code class="docutils literal notranslate"><span class="pre">pythonX.X</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">biopython</span></code>.</p>
-<p>Detailed installation instructions can be found <a class="reference external" href="http://biopython.org/DIST/docs/install/Installation.html">here</a>.</p>
+<p>Detailed installation instructions can be found <a class="reference external" href="https://github.com/biopython/biopython">here</a>.</p>
 </div>
 <div class="section" id="General-overview">
 <h2>General overview<a class="headerlink" href="#General-overview" title="Permalink to this headline">¶</a></h2>
