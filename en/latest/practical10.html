@@ -607,30 +607,23 @@ documentation :-).</p>
 <p>Biopython has a specific object <code class="docutils literal notranslate"><span class="pre">Seq</span></code> to deal with biological sequences which is a lot more powerful than the <code class="docutils literal notranslate"><span class="pre">str</span></code> object of python when it comes to manage biological data. The object <strong>Seq</strong> has methods like <strong>translate()</strong> and <strong>reverse_complement()</strong> which are very handy.</p>
 <p>As in the case of python’s <code class="docutils literal notranslate"><span class="pre">str</span></code> objects, the object <code class="docutils literal notranslate"><span class="pre">Seq</span></code> is immutable. The mutable version is <code class="docutils literal notranslate"><span class="pre">MutableSeq</span></code>.</p>
 <p>All the information on Seq objects can be found <a class="reference external" href="http://biopython.org/DIST/docs/api/Bio.Seq.Seq-class.html">here</a>.</p>
-<div class="section" id="The-alphabet">
-<h3>The alphabet<a class="headerlink" href="#The-alphabet" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">Seq</span></code> objects are composed by two information: the actual sequence and the alphabet the sequence refers to. We normally will use the <a class="reference external" href="https://www.bioinformatics.org/sms/iupac.html">IUPAC</a> alphabet as defined in the <code class="docutils literal notranslate"><span class="pre">Bio.Alphabet.IUPAC</span></code> which provides a suitable alphabet to deal with DNA, RNA and proteins. Several options are available, including <code class="docutils literal notranslate"><span class="pre">Bio.Alphabet.generic_dna</span></code> or <code class="docutils literal notranslate"><span class="pre">Bio.Alphabet.generic_protein</span></code>, <code class="docutils literal notranslate"><span class="pre">Bio.Alphabet.ThreeLetterProtein</span></code> and other.</p>
-<p>Specifying an alphabet quickly tells you what information you are dealing with and moreover it provides a way to specify a constraint on the data.</p>
-<p>If the definition of the alphabet is not specified, the default one is used (<code class="docutils literal notranslate"><span class="pre">Alphabet</span></code>).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
-<span class="kn">from</span> <span class="nn">Bio.Alphabet</span> <span class="kn">import</span> <span class="n">IUPAC</span>
 
-<span class="c1">#No alphabet specified</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GATTACATAATA&quot;</span><span class="p">)</span>
-<span class="n">dna_seq</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GATTATACGTAC&quot;</span><span class="p">,</span> <span class="n">IUPAC</span><span class="o">.</span><span class="n">unambiguous_dna</span><span class="p">)</span>
+<span class="n">dna_seq</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GATTATACGTAC&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;S:&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;S&#39;s alphabet:&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">alphabet</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dna_seq:&quot;</span><span class="p">,</span> <span class="n">dna_seq</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dna_seq&#39;s alphabet:&quot;</span><span class="p">,</span> <span class="n">dna_seq</span><span class="o">.</span><span class="n">alphabet</span><span class="p">)</span>
 
-<span class="n">my_prot</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;MGNAAAAKKGSEQE&quot;</span><span class="p">,</span> <span class="n">IUPAC</span><span class="o">.</span><span class="n">protein</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dna_seq:&quot;</span><span class="p">,</span> <span class="n">dna_seq</span><span class="p">)</span>
+
+
+<span class="n">my_prot</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;MGNAAAAKKGSEQE&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;my_prot:&quot;</span><span class="p">,</span> <span class="n">my_prot</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;my_prot&#39;s alphabet:&quot;</span><span class="p">,</span> <span class="n">my_prot</span><span class="o">.</span><span class="n">alphabet</span><span class="p">)</span>
+
 </pre></div>
 </div>
 </div>
@@ -639,59 +632,48 @@ documentation :-).</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ImportError</span>                               Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-1-b3b0a618da62&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">from</span> Bio<span class="ansi-blue-fg">.</span>Seq <span class="ansi-green-fg">import</span> Seq
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> Bio<span class="ansi-blue-fg">.</span>Alphabet <span class="ansi-green-fg">import</span> IUPAC
-<span class="ansi-green-intense-fg ansi-bold">      3</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-red-fg">#No alphabet specified</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> s <span class="ansi-blue-fg">=</span> Seq<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;GATTACATAATA&#34;</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.6/site-packages/Bio/Alphabet/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     19</span>
-<span class="ansi-green-intense-fg ansi-bold">     20</span> raise ImportError(
-<span class="ansi-green-fg">---&gt; 21</span><span class="ansi-red-fg">     </span><span class="ansi-blue-fg">&#34;Bio.Alphabet has been removed from Biopython. In many cases, the alphabet can simply be ignored and removed from scripts. In a few cases, you may need to specify the ``molecule_type`` as an annotation on a SeqRecord for your script to work correctly. Please see https://biopython.org/wiki/Alphabet for more information.&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">     22</span> )
-
-<span class="ansi-red-fg">ImportError</span>: Bio.Alphabet has been removed from Biopython. In many cases, the alphabet can simply be ignored and removed from scripts. In a few cases, you may need to specify the ``molecule_type`` as an annotation on a SeqRecord for your script to work correctly. Please see https://biopython.org/wiki/Alphabet for more information.
+S: GATTACATAATA
+dna_seq: GATTATACGTAC
+my_prot: MGNAAAAKKGSEQE
 </pre></div></div>
-</div>
 </div>
 </div>
 <div class="section" id="Looping,-slicing-and-concatenation">
 <h2>Looping, slicing and concatenation<a class="headerlink" href="#Looping,-slicing-and-concatenation" title="Permalink to this headline">¶</a></h2>
-<p>Note also that <strong>Seq objects behave like strings</strong>, but the consistency of the alphabet is checked too. For example we cannot concatenate a <strong>unambiguous_dna</strong> with a <strong>IUPAC.protein</strong> sequence. This is the error message we would get:</p>
-<p><img alt="mess" src="_images/mess.png" /></p>
-<p>To do it one should change the alphabet to <code class="docutils literal notranslate"><span class="pre">generic_alphabet</span></code>:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<p>Note also that <strong>Seq objects behave like strings</strong>, and the consistency of the alphabet (i.e. if the sequence is DNA, RNA, aminoacid sequence…) is not checked anymore in the latest version. We can concatenate a sequence of DNA with that of aminoacids…</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
-<span class="kn">from</span> <span class="nn">Bio.Alphabet</span> <span class="kn">import</span> <span class="n">generic_alphabet</span>
 
-<span class="n">dna_seq</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GATTATACGTAC&quot;</span><span class="p">,</span> <span class="n">IUPAC</span><span class="o">.</span><span class="n">unambiguous_dna</span><span class="p">)</span>
-<span class="n">my_prot</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;MGNAAAAKKGSEQE&quot;</span><span class="p">,</span> <span class="n">IUPAC</span><span class="o">.</span><span class="n">protein</span><span class="p">)</span>
+<span class="n">dna_seq</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GATTATACGTAC&quot;</span><span class="p">)</span>
+<span class="n">my_prot</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;MGNAAAAKKGSEQE&quot;</span><span class="p">)</span>
 
-<span class="n">my_prot</span><span class="o">.</span><span class="n">alphabet</span> <span class="o">=</span> <span class="n">generic_alphabet</span>
 
 <span class="c1">#Does it really make sense though?!?</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">dna_seq</span> <span class="o">+</span> <span class="n">my_prot</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+GATTATACGTACMGNAAAAKKGSEQE
+</pre></div></div>
+</div>
 <p>We can also loop through the elements and slice strings with the usual [S:E:step] operator (and as usual S is included, E is excluded). It is also possible to convert a Seq object into a string.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
-<span class="kn">from</span> <span class="nn">Bio.Alphabet</span> <span class="kn">import</span> <span class="n">IUPAC</span>
 
-<span class="n">dna_seq</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GATTATACGTACGGCTA&quot;</span><span class="p">,</span> <span class="n">IUPAC</span><span class="o">.</span><span class="n">unambiguous_dna</span><span class="p">)</span>
+<span class="n">dna_seq</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GATTATACGTACGGCTA&quot;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">dna_seq</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
@@ -711,6 +693,18 @@ documentation :-).</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+G A T T A T A C G T A C G G C T A
+ATACGT
+Reversed:  ATCGGCATGCATATTAG
+As string: GATTATACGTACGGCTA
+&lt;class &#39;str&#39;&gt;
+</pre></div></div>
+</div>
 <p>The object Seq provides several methods similar to the corresponding methods of strings:</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Seq.count(s)</span></code> : counts the number of times s appears in the sequence;</p></li>
@@ -718,16 +712,15 @@ documentation :-).</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">Seq.lower()</span></code> : makes the sequence of the object Seq lower case</p></li>
 </ol>
 <p><strong>Example:</strong> Let’s compute the GC content of the sequence “GATTRWWACGTACGGCTASATTACSCCGGCTA”.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
-<span class="kn">from</span> <span class="nn">Bio.Alphabet</span> <span class="kn">import</span> <span class="n">IUPAC</span>
 <span class="kn">from</span> <span class="nn">Bio.SeqUtils</span> <span class="kn">import</span> <span class="n">GC</span>
 
-<span class="n">dna_seq</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GATTRWWACGTACGGCTASATTACSCCGGCTA&quot;</span><span class="p">,</span> <span class="n">IUPAC</span><span class="o">.</span><span class="n">ambiguous_dna</span><span class="p">)</span>
+<span class="n">dna_seq</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GATTRWWACGTACGGCTASATTACSCCGGCTA&quot;</span><span class="p">)</span>
 
 <span class="n">gc</span> <span class="o">=</span> <span class="p">(</span><span class="n">dna_seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">dna_seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">))</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">dna_seq</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GC </span><span class="si">% i</span><span class="s2">s </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">gc</span><span class="p">))</span>
@@ -740,6 +733,17 @@ documentation :-).</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+GC % is 40.62
+GC % is 46.88
+original: GATTRWWACGTACGGCTASATTACSCCGGCTA
+lower_case: gattrwwacgtacggctasattacsccggcta
+</pre></div></div>
+</div>
 <p>The difference in the results goes down to the fact that Biopython’s GC method takes into account ambiguous nucleotides like (S which stands for C or G <a class="reference external" href="https://www.bioinformatics.org/sms/iupac.html">ref iupac</a>). This is a method provided in the <strong>SeqUtils</strong> module (more info on all the methods <a class="reference external" href="http://biopython.org/DIST/docs/api/Bio.SeqUtils-module.html">here</a>).</p>
 <div class="section" id="Complement-and-reverse-complement">
 <h3>Complement and reverse complement<a class="headerlink" href="#Complement-and-reverse-complement" title="Permalink to this headline">¶</a></h3>
@@ -748,29 +752,38 @@ documentation :-).</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">Seq.complement()</span></code> to complement the sequence</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Seq.reverse_complement()</span></code> to reverse complement the sequence.</p></li>
 </ol>
-<p>Note that these methods will fail with a <code class="docutils literal notranslate"><span class="pre">Value</span> <span class="pre">Error</span></code> if we try to apply them to something that is not a nucleotide sequence (e.g. proteins).</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
-<span class="kn">from</span> <span class="nn">Bio.Alphabet</span> <span class="kn">import</span> <span class="n">IUPAC</span>
 
-<span class="n">my_seq</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GATCGATGGGCCTATATAGGATCGAAAATCGC&quot;</span><span class="p">,</span> <span class="n">IUPAC</span><span class="o">.</span><span class="n">unambiguous_dna</span><span class="p">)</span>
+<span class="n">my_seq</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GATCGATGGGCCTATATAGGATCGAAAATCGC&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sequence (alphabet: </span><span class="si">{}</span><span class="s2">):&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">my_seq</span><span class="o">.</span><span class="n">alphabet</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">my_seq</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original sequence:</span><span class="se">\t</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">my_seq</span><span class="p">)</span> <span class="p">)</span>
 <span class="n">comp</span>  <span class="o">=</span> <span class="n">my_seq</span><span class="o">.</span><span class="n">complement</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Complement (alphabet: </span><span class="si">{}</span><span class="s2">):&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">comp</span><span class="o">.</span><span class="n">alphabet</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Complement:</span><span class="se">\t\t</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">comp</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">revcomp</span> <span class="o">=</span> <span class="n">my_seq</span><span class="o">.</span><span class="n">reverse_complement</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rev Complement (alphabet: </span><span class="si">{}</span><span class="s2">):&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">revcomp</span><span class="o">.</span><span class="n">alphabet</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">revcomp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reverse complement:</span><span class="se">\t</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">revcomp</span><span class="p">))</span>
+
+
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Original sequence:      GATCGATGGGCCTATATAGGATCGAAAATCGC
+
+Complement:             CTAGCTACCCGGATATATCCTAGCTTTTAGCG
+
+Reverse complement:     GCGATTTTCGATCCTATATAGGCCCATCGATC
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Transcription-and-translation">
@@ -783,28 +796,24 @@ documentation :-).</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">Seq.transcribe()</span></code> that transcribes a DNA sequence into mRNA (converting Ts in Us).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Seq.back_transcribe()</span></code> that back-transcribes a mRNA sequence into DNA (converting Us in Ts).</p></li>
 </ol>
-<p>The alphabet of the transcribed sequence is changed to RNA. Note that transcribing a protein will result in a <strong>ValueError</strong>.</p>
+<p>Note that transcribing a protein will result in a <strong>TranslationError</strong>.</p>
 <p>Alike, a DNA or mRNA sequence can be translated into a protein with:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Seq.translate(table=N,</span> <span class="pre">to_stop=True/False,</span> <span class="pre">stop_symbol</span> <span class="pre">=symbol)</span></code> that converts a DNA sequence or mRNA into the corresponding protein.</p>
 <p>Optionally, the translate method accepts a parameter <code class="docutils literal notranslate"><span class="pre">table</span></code> to specify the NCBI translation table used (see below for codes). <code class="docutils literal notranslate"><span class="pre">to_stop</span></code> makes the translation stop at the first stop codon if True (<strong>in this case the stop codon is not translated!</strong>), <code class="docutils literal notranslate"><span class="pre">stop_symbol</span></code> to replace the asterisk with any other stop character (Es. “&#64;”).</p>
 <p><img alt="ncbitab" src="_images/ncbi_table.png" /> Stop codons will be represented by an asterisk.</p>
 <p><strong>Example:</strong> Let’s translate into mRNA the coding sequence: ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
-<span class="kn">from</span> <span class="nn">Bio.Alphabet</span> <span class="kn">import</span> <span class="n">IUPAC</span>
 
-<span class="n">coding_dna</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG&quot;</span><span class="p">,</span>
-                 <span class="n">IUPAC</span><span class="o">.</span><span class="n">unambiguous_dna</span><span class="p">)</span>
+<span class="n">coding_dna</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">coding_dna</span><span class="p">)</span>
 
 <span class="n">mrna</span> <span class="o">=</span> <span class="n">coding_dna</span><span class="o">.</span><span class="n">transcribe</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">mrna</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mrna</span><span class="o">.</span><span class="n">alphabet</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;... and back&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">mrna</span><span class="o">.</span><span class="n">back_transcribe</span><span class="p">())</span>
@@ -819,13 +828,35 @@ documentation :-).</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mitocondrial translation: (TGA is W!)&quot;</span><span class="p">)</span>
 <span class="n">mit_prot</span> <span class="o">=</span> <span class="n">mrna</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">mit_prot</span><span class="p">)</span>
-
+<span class="c1">#The following produces a translation error!</span>
+<span class="c1">#print(&quot;RE-Translated protein: {}&quot;.format(prot.translate()))</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG
+AUGGCCAUUGUAAUGGGCCGCUGAAAGGGUGCCCGAUAG
+
+... and back
+ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG
+
+Translation to protein:
+MAIVMGR*KGAR*
+
+Up to first stop:
+MAIVMGR
+
+Mitocondrial translation: (TGA is W!)
+MAIVMGRWKGAR*
+</pre></div></div>
+</div>
 <p>Translation tables can be accessed at runtime through:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -844,6 +875,62 @@ documentation :-).</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Table 1 Standard, SGC0
+
+  |  T      |  C      |  A      |  G      |
+--+---------+---------+---------+---------+--
+T | TTT F   | TCT S   | TAT Y   | TGT C   | T
+T | TTC F   | TCC S   | TAC Y   | TGC C   | C
+T | TTA L   | TCA S   | TAA Stop| TGA Stop| A
+T | TTG L(s)| TCG S   | TAG Stop| TGG W   | G
+--+---------+---------+---------+---------+--
+C | CTT L   | CCT P   | CAT H   | CGT R   | T
+C | CTC L   | CCC P   | CAC H   | CGC R   | C
+C | CTA L   | CCA P   | CAA Q   | CGA R   | A
+C | CTG L(s)| CCG P   | CAG Q   | CGG R   | G
+--+---------+---------+---------+---------+--
+A | ATT I   | ACT T   | AAT N   | AGT S   | T
+A | ATC I   | ACC T   | AAC N   | AGC S   | C
+A | ATA I   | ACA T   | AAA K   | AGA R   | A
+A | ATG M(s)| ACG T   | AAG K   | AGG R   | G
+--+---------+---------+---------+---------+--
+G | GTT V   | GCT A   | GAT D   | GGT G   | T
+G | GTC V   | GCC A   | GAC D   | GGC G   | C
+G | GTA V   | GCA A   | GAA E   | GGA G   | A
+G | GTG V   | GCG A   | GAG E   | GGG G   | G
+--+---------+---------+---------+---------+--
+
+Table 2 Vertebrate Mitochondrial, SGC1
+
+  |  T      |  C      |  A      |  G      |
+--+---------+---------+---------+---------+--
+T | TTT F   | TCT S   | TAT Y   | TGT C   | T
+T | TTC F   | TCC S   | TAC Y   | TGC C   | C
+T | TTA L   | TCA S   | TAA Stop| TGA W   | A
+T | TTG L   | TCG S   | TAG Stop| TGG W   | G
+--+---------+---------+---------+---------+--
+C | CTT L   | CCT P   | CAT H   | CGT R   | T
+C | CTC L   | CCC P   | CAC H   | CGC R   | C
+C | CTA L   | CCA P   | CAA Q   | CGA R   | A
+C | CTG L   | CCG P   | CAG Q   | CGG R   | G
+--+---------+---------+---------+---------+--
+A | ATT I(s)| ACT T   | AAT N   | AGT S   | T
+A | ATC I(s)| ACC T   | AAC N   | AGC S   | C
+A | ATA M(s)| ACA T   | AAA K   | AGA Stop| A
+A | ATG M(s)| ACG T   | AAG K   | AGG Stop| G
+--+---------+---------+---------+---------+--
+G | GTT V   | GCT A   | GAT D   | GGT G   | T
+G | GTC V   | GCC A   | GAC D   | GGC G   | C
+G | GTA V   | GCA A   | GAA E   | GGA G   | A
+G | GTG V(s)| GCG A   | GAG E   | GGG G   | G
+--+---------+---------+---------+---------+--
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="MutableSeq">
 <h3>MutableSeq<a class="headerlink" href="#MutableSeq" title="Permalink to this headline">¶</a></h3>
@@ -853,15 +940,16 @@ documentation :-).</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">MutableSeq.toseq()</span></code> to convert a MutableSeq to a Seq.</p></li>
 </ol>
 <p>This will allow us to assign the value of characters within the MutableSeq with <code class="docutils literal notranslate"><span class="pre">MutableSeq[ind]</span> <span class="pre">=</span> <span class="pre">newValue</span></code>. Note also that methods like complement change the actual object if applied to a MutableSeq:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
-<span class="kn">from</span> <span class="nn">Bio.Alphabet</span> <span class="kn">import</span> <span class="n">IUPAC</span>
 
-<span class="n">coding_dna</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG&quot;</span><span class="p">,</span> <span class="n">IUPAC</span><span class="o">.</span><span class="n">unambiguous_dna</span><span class="p">)</span>
+<span class="n">coding_dna</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG&quot;</span><span class="p">)</span>
+<span class="c1">#cannot do the following because Seq is immutable</span>
+<span class="c1">#coding_dna[10:20] = &quot;TATATATATA&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Coding DNA:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">coding_dna</span><span class="p">)</span>
 <span class="n">mut_dna</span> <span class="o">=</span> <span class="n">coding_dna</span><span class="o">.</span><span class="n">tomutable</span><span class="p">()</span>
@@ -879,6 +967,24 @@ documentation :-).</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">mut_dna</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Coding DNA:
+ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG
+Mutable DNA:
+ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG
+Mutable DNA now:
+ATGGCCATTGTATATATATACTGAAAGGGTGCCCGATAG
+
+Rev comp (Seq not changed!):
+ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG
+Rev comp (MutableSeq changed!):
+CTATCGGGCACCCTTTCAGTATATATATACAATGGCCAT
+</pre></div></div>
 </div>
 </div>
 </div>
@@ -905,7 +1011,7 @@ documentation :-).</p>
 <p><strong>Example:</strong></p>
 <p>Read a fasta file <a class="reference external" href="file_samples/NC_005816.fna">NC005816.fna</a> containing the whole sequence for Yersinia pestis biovar Microtus str. 91001 plasmid pPCP1 and retrieve some information about the sequence.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -956,8 +1062,8 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 <p><strong>WARNING:</strong> When dealing with very large FASTA or FASTQ files, the overhead of working with all these objects can make scripts too slow. In this case <code class="docutils literal notranslate"><span class="pre">SimpleFastaParser</span></code> and <code class="docutils literal notranslate"><span class="pre">FastqGeneralIterator</span></code> parsers might be better as they return just a tuple of strings for each record.</p>
 </div>
 <p>For example, to use <code class="docutils literal notranslate"><span class="pre">SimpleFastaParser</span></code>:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -985,6 +1091,33 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Header:
+gi|45478711|ref|NC_005816.1| Yersinia pestis biovar Microtus str. 91001 plasmid pPCP1, complete sequence
+Sequence:
+TGTAACGAACGGTGCAATAGTGATCCACACCCAACGCCTGAAATCAGATC
+AGGGGGTAATCTGCTCTCCTGATTCAGGAGAGTTTATGGTCACTTTTGAG
+...
+
+
+1st entry:
+MDC020656.85  has size  2802
+GAGGGGTTTAGTTCCTCATACTCGCAAAGCAAAGATACATAAATTTAGAA...
+
+2nd entry:
+MDC013284.379  has size  5173
+TATCGTTTCCTCTGAGTAGAATATCGTTATAACAAGATTTTTTTTTTCCT...
+
+3rd entry:
+MDC018185.241  has size  23761
+AAAACGAGGAAAATCCATCTTGATGAACAGGAGATGCGGAGGAAAAAAAT...
+
+</pre></div></div>
+</div>
 <div class="section" id="BioSeqIO.parse()">
 <h3>BioSeqIO.parse()<a class="headerlink" href="#BioSeqIO.parse()" title="Permalink to this headline">¶</a></h3>
 <p>The method <code class="docutils literal notranslate"><span class="pre">Bio.SeqIO.parse</span></code> is used to parse some sequence data into a <strong>SeqRecord iterator</strong>. In particular, the basic syntax is:</p>
@@ -993,8 +1126,8 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">filename</span></code> is typically an open handle to a file and <code class="docutils literal notranslate"><span class="pre">file_format</span></code> is a lower case string describing the file format. Possible options include <strong>fasta, fastq-illumina, abi, ace, clustal…</strong> all the options are available <a class="reference external" href="http://biopython.org/wiki/SeqIO">here</a>.</p>
 <p><strong>Example:</strong> Let’s read the first 10 entries in the .fasta file <a class="reference external" href="file_samples/contigs82.fasta">contigs82.fasta</a> printing off the length of the sequence and the first 50 bases of each sequence followed by “…”.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1010,10 +1143,47 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Seq MDC020656.85 has length 2802
+GAGGGGTTTAGTTCCTCATACTCGCAAAGCAAAGATACATAAATTTAGAA...
+
+Seq MDC001115.177 has length 3118
+TGAATGGTGAAAATTAGCCAGAAGATCTTCTCCACACATGACATATGCAT...
+
+Seq MDC013284.379 has length 5173
+TATCGTTTCCTCTGAGTAGAATATCGTTATAACAAGATTTTTTTTTTCCT...
+
+Seq MDC018185.243 has length 22724
+CCATTAGTGACCCCCAATGCGGATTAACCAAGCACGGTCAAGATAACCAA...
+
+Seq MDC018185.241 has length 23761
+AAAACGAGGAAAATCCATCTTGATGAACAGGAGATGCGGAGGAAAAAAAT...
+
+Seq MDC004527.213 has length 3551
+CTTGTATGTTGAAGCTTTGTGAGTGGAGCATATAGGTTGAGGTAGTGTTC...
+
+Seq MDC003661.174 has length 3334
+AGTAAGGTTGTAGAATTCAATTTCCACGGAACTCCAGCACAGCTTAGGCA...
+
+Seq MDC012176.157 has length 2236
+ATAGTCACTGACAGCCGGTGACAGTTCGACAACAATAAGTTCAGGATGTT...
+
+Seq MDC001204.812 has length 5804
+TAATGTCCGAAAAAGATGAAAATGTAGTTTGCATGAAGAAGGAGCTGTCC...
+
+Seq MDC001204.810 has length 9798
+ATGCTGCTGACATATTCCAATCGACTACACGTCACATCCGTTGCTATTAT...
+
+</pre></div></div>
+</div>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">Bio.SeqIO.parse</span></code> returns an iterator, therefore it is possible to manually fetch one SeqRecord after the other with the <code class="docutils literal notranslate"><span class="pre">next(iterator)</span></code> method.</p>
-<p><strong>Example:</strong> Let’s get the first 3 entries of the .fasta file <a class="reference external" href="file_samples/contigs82.fasta">contigs82.fasta</a> printing off the length of the sequence and the first 50 bases of each sequence followed by “…”.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<p><strong>Example:</strong> Let’s read the first 3 entries of the .fasta file <a class="reference external" href="file_samples/contigs82.fasta">contigs82.fasta</a> printing off the length of the sequence and the first 50 bases of each sequence followed by “…”.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1032,6 +1202,25 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1st entry:
+MDC020656.85  has size  2802
+GAGGGGTTTAGTTCCTCATACTCGCAAAGCAAAGATACATAAATTTAGAA...
+
+2nd entry:
+MDC001115.177  has size  3118
+TGAATGGTGAAAATTAGCCAGAAGATCTTCTCCACACATGACATATGCAT...
+
+3rd entry:
+MDC013284.379  has size  5173
+TATCGTTTCCTCTGAGTAGAATATCGTTATAACAAGATTTTTTTTTTCCT...
+
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="Sequences-as-dictionaries">
 <h3>Sequences as dictionaries<a class="headerlink" href="#Sequences-as-dictionaries" title="Permalink to this headline">¶</a></h3>
@@ -1043,8 +1232,8 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 </ol>
 <p>The input of <code class="docutils literal notranslate"><span class="pre">Bio.SeqIO.to_dict(file_handle/iterator)</span></code> is a open file handler or the iterator to SeqRecords (like the output of Bio.SeqIO.parse()).</p>
 <p><strong>Example:</strong> Let’s read all the .fasta file <a class="reference external" href="file_samples/contigs82.fasta">contigs82.fasta</a> in memory printing off the entry corresponding to contig “MDC019140.399”.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1064,10 +1253,28 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;MDC020656.85&#39;, &#39;MDC001115.177&#39;, &#39;MDC013284.379&#39;, &#39;MDC018185.243&#39;, &#39;MDC018185.241&#39;]
+
+Number of sequences:  82
+
+Description: MDC019140.399
+
+ID: MDC019140.399
+Name: MDC019140.399
+Description: MDC019140.399
+Number of features: 0
+Seq(&#39;GACGGGCGGGGAGGGTTTGGTTTTTTTTGGTTTTTAAAAAATTCAGGTTTNNAA...TTT&#39;)
+</pre></div></div>
+</div>
 <p>The input of <code class="docutils literal notranslate"><span class="pre">Bio.SeqIO.index(filename,file_type)</span></code> is the file name to read sequences from and the file type (like fasta, genebank,…).</p>
 <p><strong>Example:</strong> Let’s read all the .fasta file <a class="reference external" href="files_sample/contigs82.fasta">contigs82.fasta</a> in memory (as an index) printing off the entry corresponding to contig “MDC019140.399”.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1087,10 +1294,31 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+SeqDict is an iterator:
+KeysView(SeqIO.index(&#39;file_samples/contigs82.fasta&#39;, &#39;fasta&#39;, alphabet=None, key_function=None))
+
+[&#39;MDC020656.85&#39;, &#39;MDC001115.177&#39;, &#39;MDC013284.379&#39;, &#39;MDC018185.243&#39;, &#39;MDC018185.241&#39;, &#39;MDC004527.213&#39;, &#39;MDC003661.174&#39;, &#39;MDC012176.157&#39;, &#39;MDC001204.812&#39;, &#39;MDC001204.810&#39;, &#39;MDC004389.256&#39;, &#39;MDC024257.15&#39;, &#39;MDC018297.229&#39;, &#39;MDC001802.364&#39;, &#39;MDC016621.241&#39;, &#39;MDC014057.243&#39;, &#39;MDC021015.302&#39;, &#39;MDC018185.242&#39;, &#39;MDC051782.000&#39;, &#39;MDC017187.314&#39;, &#39;MDC017187.311&#39;, &#39;MDC012865.410&#39;, &#39;MDC000427.83&#39;, &#39;MDC017187.319&#39;, &#39;MDC017187.318&#39;, &#39;MDC004081.319&#39;, &#39;MDC021913.275&#39;, &#39;MDC015147.205&#39;, &#39;MDC000038.355&#39;, &#39;MDC016032.95&#39;, &#39;MDC052568.000&#39;, &#39;MDC008119.414&#39;, &#39;MDC026201.7&#39;, &#39;MDC003995.601&#39;, &#39;MDC009211.561&#39;, &#39;MDC009211.567&#39;, &#39;MDC054294.001&#39;, &#39;MDC004364.265&#39;, &#39;MDC002360.219&#39;, &#39;MDC003408.117&#39;, &#39;MDC015155.172&#39;, &#39;MDC053310.000&#39;, &#39;MDC019140.398&#39;, &#39;MDC019140.399&#39;, &#39;MDC011390.337&#39;, &#39;MDC007154.375&#39;, &#39;MDC006346.716&#39;, &#39;MDC010588.505&#39;, &#39;MDC002519.240&#39;, &#39;MDC031322.5&#39;, &#39;MDC010588.502&#39;, &#39;MDC006346.711&#39;, &#39;MDC011551.182&#39;, &#39;MDC002717.156&#39;, &#39;MDC006346.719&#39;, &#39;MDC007838.447&#39;, &#39;MDC007018.186&#39;, &#39;MDC017873.233&#39;, &#39;MDC016296.138&#39;, &#39;MDC019067.226&#39;, &#39;MDC036568.1&#39;, &#39;MDC014019.318&#39;, &#39;MDC007995.528&#39;, &#39;MDC026961.60&#39;, &#39;MDC013443.168&#39;, &#39;MDC022800.298&#39;, &#39;MDC021558.159&#39;, &#39;MDC002479.192&#39;, &#39;MDC010751.301&#39;, &#39;MDC000219.190&#39;, &#39;MDC020963.161&#39;, &#39;MDC020963.162&#39;, &#39;MDC051637.000&#39;, &#39;MDC005174.220&#39;, &#39;MDC040033.7&#39;, &#39;MDC019674.147&#39;, &#39;MDC010450.877&#39;, &#39;MDC007097.457&#39;, &#39;MDC016278.70&#39;, &#39;MDC013723.254&#39;, &#39;MDC002838.179&#39;, &#39;MDC009771.217&#39;]
+
+Number of sequences:  82
+
+Description: MDC019140.399
+
+ID: MDC019140.399
+Name: MDC019140.399
+Description: MDC019140.399
+Number of features: 0
+Seq(&#39;GACGGGCGGGGAGGGTTTGGTTTTTTTTGGTTTTTAAAAAATTCAGGTTTNNAA...TTT&#39;)
+</pre></div></div>
+</div>
 <p>The input of <code class="docutils literal notranslate"><span class="pre">Bio.SeqIO.index_db(indexName.idx,filenames,</span> <span class="pre">file_format)</span></code> is the name of the (SQLite3) index to store (.idx), the file (or files) to index and the format of those files like fasta, genebank,…</p>
 <p><strong>Example:</strong> Let’s read all the .fasta file <a class="reference external" href="files_sample/contigs82.fasta">contigs82.fasta</a> in memory (as an index) printing off the entry corresponding to contig “MDC019140.399”.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1110,6 +1338,27 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+SeqDict is an iterator:
+KeysView(SeqIO.index_db(&#39;file_samples/ctgs.idx&#39;, filenames=[&#39;file_samples/contigs82.fasta&#39;], format=&#39;fasta&#39;, key_function=None))
+
+[&#39;MDC020656.85&#39;, &#39;MDC001115.177&#39;, &#39;MDC013284.379&#39;, &#39;MDC018185.243&#39;, &#39;MDC018185.241&#39;, &#39;MDC004527.213&#39;, &#39;MDC003661.174&#39;, &#39;MDC012176.157&#39;, &#39;MDC001204.812&#39;, &#39;MDC001204.810&#39;, &#39;MDC004389.256&#39;, &#39;MDC024257.15&#39;, &#39;MDC018297.229&#39;, &#39;MDC001802.364&#39;, &#39;MDC016621.241&#39;, &#39;MDC014057.243&#39;, &#39;MDC021015.302&#39;, &#39;MDC018185.242&#39;, &#39;MDC051782.000&#39;, &#39;MDC017187.314&#39;, &#39;MDC017187.311&#39;, &#39;MDC012865.410&#39;, &#39;MDC000427.83&#39;, &#39;MDC017187.319&#39;, &#39;MDC017187.318&#39;, &#39;MDC004081.319&#39;, &#39;MDC021913.275&#39;, &#39;MDC015147.205&#39;, &#39;MDC000038.355&#39;, &#39;MDC016032.95&#39;, &#39;MDC052568.000&#39;, &#39;MDC008119.414&#39;, &#39;MDC026201.7&#39;, &#39;MDC003995.601&#39;, &#39;MDC009211.561&#39;, &#39;MDC009211.567&#39;, &#39;MDC054294.001&#39;, &#39;MDC004364.265&#39;, &#39;MDC002360.219&#39;, &#39;MDC003408.117&#39;, &#39;MDC015155.172&#39;, &#39;MDC053310.000&#39;, &#39;MDC019140.398&#39;, &#39;MDC019140.399&#39;, &#39;MDC011390.337&#39;, &#39;MDC007154.375&#39;, &#39;MDC006346.716&#39;, &#39;MDC010588.505&#39;, &#39;MDC002519.240&#39;, &#39;MDC031322.5&#39;, &#39;MDC010588.502&#39;, &#39;MDC006346.711&#39;, &#39;MDC011551.182&#39;, &#39;MDC002717.156&#39;, &#39;MDC006346.719&#39;, &#39;MDC007838.447&#39;, &#39;MDC007018.186&#39;, &#39;MDC017873.233&#39;, &#39;MDC016296.138&#39;, &#39;MDC019067.226&#39;, &#39;MDC036568.1&#39;, &#39;MDC014019.318&#39;, &#39;MDC007995.528&#39;, &#39;MDC026961.60&#39;, &#39;MDC013443.168&#39;, &#39;MDC022800.298&#39;, &#39;MDC021558.159&#39;, &#39;MDC002479.192&#39;, &#39;MDC010751.301&#39;, &#39;MDC000219.190&#39;, &#39;MDC020963.161&#39;, &#39;MDC020963.162&#39;, &#39;MDC051637.000&#39;, &#39;MDC005174.220&#39;, &#39;MDC040033.7&#39;, &#39;MDC019674.147&#39;, &#39;MDC010450.877&#39;, &#39;MDC007097.457&#39;, &#39;MDC016278.70&#39;, &#39;MDC013723.254&#39;, &#39;MDC002838.179&#39;, &#39;MDC009771.217&#39;]
+
+Number of sequences:  82
+
+Description: MDC019140.399
+
+ID: MDC019140.399
+Name: MDC019140.399
+Description: MDC019140.399
+Number of features: 0
+Seq(&#39;GACGGGCGGGGAGGGTTTGGTTTTTTTTGGTTTTTAAAAAATTCAGGTTTNNAA...TTT&#39;)
+</pre></div></div>
+</div>
 <p>Note that a file ctgs.idx has been created to store ids and offsets.</p>
 </div>
 <div class="section" id="Writing-sequence-files">
@@ -1123,24 +1372,23 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 <p><strong>WARNING:</strong> If you write a file that is already present, <code class="docutils literal notranslate"><span class="pre">SeqIO.write</span></code> will just rewrite it without telling you.</p>
 </div>
 <p><strong>Example:</strong> Write three protein records to file then read the file and print the three sequences.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
 <span class="kn">from</span> <span class="nn">Bio.SeqRecord</span> <span class="kn">import</span> <span class="n">SeqRecord</span>
-<span class="kn">from</span> <span class="nn">Bio.Alphabet</span> <span class="kn">import</span> <span class="n">generic_protein</span>
 
 <span class="n">rec1</span> <span class="o">=</span> <span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;MMYQQGCFAGGTVLRLAKDLAENNRGARVLVVCSEITAVTFRGPSETHLDSMVGQALFGD&quot;</span> \
 <span class="o">+</span><span class="s2">&quot;GAGAVIVGSDPDLSVERPLYELVWTGATLLPDSEGAIDGHLREVGLTFHLLKDVPGLISK&quot;</span> \
 <span class="o">+</span><span class="s2">&quot;NIEKSLKEAFTPLGISDWNSTFWIAHPGGPAILDQVEAKLGLKEEKMRATREVLSEYGNM&quot;</span> \
-<span class="o">+</span><span class="s2">&quot;SSAC&quot;</span><span class="p">,</span> <span class="n">generic_protein</span><span class="p">),</span>
+<span class="o">+</span><span class="s2">&quot;SSAC&quot;</span><span class="p">),</span>
 <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;gi|14150838|gb|AAK54648.1|AF376133_1&quot;</span><span class="p">,</span>
 <span class="n">description</span><span class="o">=</span><span class="s2">&quot;chalcone synthase [Cucumis sativus]&quot;</span><span class="p">)</span>
 
 <span class="n">rec2</span> <span class="o">=</span> <span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;YPDYYFRITNREHKAELKEKFQRMCDKSMIKKRYMYLTEEILKENPSMCEYMAPSLDARQ&quot;</span> \
-<span class="o">+</span><span class="s2">&quot;DMVVVEIPKLGKEAAVKAIKEWGQ&quot;</span><span class="p">,</span> <span class="n">generic_protein</span><span class="p">),</span>
+<span class="o">+</span><span class="s2">&quot;DMVVVEIPKLGKEAAVKAIKEWGQ&quot;</span><span class="p">),</span>
 <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;gi|13919613|gb|AAK33142.1|&quot;</span><span class="p">,</span>
 <span class="n">description</span><span class="o">=</span><span class="s2">&quot;chalcone synthase [Fragaria vesca subsp. bracteata]&quot;</span><span class="p">)</span>
 
@@ -1150,7 +1398,7 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 <span class="o">+</span><span class="s2">&quot;NKGARVLVVCSEITAVTFRGPNDTHLDSLVGQALFGDGAAAVIIGSDPIPEVERPLFELV&quot;</span> \
 <span class="o">+</span><span class="s2">&quot;SAAQTLLPDSEGAIDGHLREVGLTFHLLKDVPGLISKNIEKSLVEAFQPLGISDWNSLFW&quot;</span> \
 <span class="o">+</span><span class="s2">&quot;IAHPGGPAILDQVELKLGLKQEKLKATRKVLSNYGNMSSACVLFILDEMRKASAKEGLGT&quot;</span> \
-<span class="o">+</span><span class="s2">&quot;TGEGLEWGVLFGFGPGLTVETVVLHSVAT&quot;</span><span class="p">,</span> <span class="n">generic_protein</span><span class="p">),</span>
+<span class="o">+</span><span class="s2">&quot;TGEGLEWGVLFGFGPGLTVETVVLHSVAT&quot;</span><span class="p">),</span>
 <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;gi|13925890|gb|AAK49457.1|&quot;</span><span class="p">,</span>
 <span class="n">description</span><span class="o">=</span><span class="s2">&quot;chalcone synthase [Nicotiana tabacum]&quot;</span><span class="p">)</span>
 
@@ -1172,6 +1420,30 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ID: gi|14150838|gb|AAK54648.1|AF376133_1
+Name: &lt;unknown name&gt;
+Description: chalcone synthase [Cucumis sativus]
+Number of features: 0
+Seq(&#39;MMYQQGCFAGGTVLRLAKDLAENNRGARVLVVCSEITAVTFRGPSETHLDSMVG...SAC&#39;)
+3 sequences written!
+
+Reading file
+Sequence  1 ( gi|14150838|gb|AAK54648.1|AF376133_1 )
+MMYQQGCFAGGTVLRLAKDLAENNRGARVLVVCSEITAVTFRGPSETHLDSMVGQALFGDGAGAVIVGSDPDLSVERPLYELVWTGATLLPDSEGAIDGHLREVGLTFHLLKDVPGLISKNIEKSLKEAFTPLGISDWNSTFWIAHPGGPAILDQVEAKLGLKEEKMRATREVLSEYGNMSSAC
+
+Sequence  2 ( gi|13919613|gb|AAK33142.1| )
+YPDYYFRITNREHKAELKEKFQRMCDKSMIKKRYMYLTEEILKENPSMCEYMAPSLDARQDMVVVEIPKLGKEAAVKAIKEWGQ
+
+Sequence  3 ( gi|13925890|gb|AAK49457.1| )
+MVTVEEFRRAQCAEGPATVMAIGTATPSNCVDQSTYPDYYFRITNSEHKVELKEKFKRMCEKSMIKKRYMHLTEEILKENPNICAYMAPSLDARQDIVVVEVPKLGKEAAQKAIKEWGQPKSKITHLVFCTTSGVDMPGCDYQLTKLLGLRPSVKRFMMYQQGCFAGGTVLRMAKDLAENNKGARVLVVCSEITAVTFRGPNDTHLDSLVGQALFGDGAAAVIIGSDPIPEVERPLFELVSAAQTLLPDSEGAIDGHLREVGLTFHLLKDVPGLISKNIEKSLVEAFQPLGISDWNSLFWIAHPGGPAILDQVELKLGLKQEKLKATRKVLSNYGNMSSACVLFILDEMRKASAKEGLGTTGEGLEWGVLFGFGPGLTVETVVLHSVAT
+
+</pre></div></div>
+</div>
 </div>
 </div>
 <div class="section" id="Multiple-sequence-alignment">
@@ -1190,8 +1462,8 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 <p>where <code class="docutils literal notranslate"><span class="pre">file_handle</span></code> is the handler to the opened file, while the <code class="docutils literal notranslate"><span class="pre">alignment_format</span></code> is a lower case string with the alignment format (e.g. fasta, clustal, stockholm, mauve, phylip,…). Check <a class="reference external" href="http://biopython.org/wiki/AlignIO">here</a> for all possible formats.</p>
 <p>When more than one multiple alignment has to be read we will have to use the <code class="docutils literal notranslate"><span class="pre">parse</span></code> function, for single entries, we would use the function <code class="docutils literal notranslate"><span class="pre">read</span></code>.</p>
 <p><strong>Example:</strong> Load and visualize the seed alignment of the <a class="reference external" href="http://pfam.xfam.org/family/Piwi">Piwi (PF02171) family</a> stored in the pfam (stockholm) format. Information on the format can be found <a class="reference external" href="https://en.wikipedia.org/wiki/Stockholm_format">here</a>. The file is available here: <a class="reference external" href="file_samples/PF02171_seed.sth">PF02171_seed.sth</a>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1204,11 +1476,35 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Alignment with 16 rows and 395 columns
+YLFFILDK-NSPEP-YGSIKRVCNTMLGVPSQCAISKHILQS--...QDV AGO1_SCHPO/500-799
+FILCILPERKTSDI-YGPWKKICLTEEGIHTQCICPIKI-----...FTK AGO6_ARATH/541-851
+FILCVLPDKKNSDL-YGPWKKKNLTEFGIVTQCMAPTRQPND--...FMK AGO4_ARATH/577-885
+CIIVVLQS-KNSDI-YMTVKEQSDIVHGIMSQCVLMKNVSRP--...HVK TAG76_CAEEL/660-966
+LIVVVLPG--KTPI-YAEVKRVGDTVLGIATQCVQAKNAIRT--...HLV O16720_CAEEL/566-867
+TFVFIITD-DSITT-LHQRYKMIEKDTKMIVQDMKLSKALSV--...LWN O62275_CAEEL/594-924
+DILVGIAR-EKKPD-VHDILKYFEESIGLQTIQLCQQTVDKMMG...NYK YQ53_CAEEL/650-977
+TIVFGIIA-EKRPD-MHDILKYFEEKLGQQTIQISSETADKFMR...NYK NRDE3_CAEEL/673-1001
+MLVVMLAD-DNKTR-YDSLKKYLCVECPIPNQCVNLRTLAGKSK...SLH Q17567_CAEEL/397-708
+IVMVVMRS-PNEEK-YSCIKKRTCVDRPVPSQVVTLKVIAPRQQ...SIN AUB_DROME/555-852
+LILCLVPN-DNAER-YSSIKKRGYVDRAVPTQVVTLKTTKNRSL...NLH PIWI_DROME/538-829
+IVVCLLSS-NRKDK-YDAIKKYLCTDCPTPSQCVVARTLGKQQT...SIH PIWL1_HUMAN/555-847
+GIMLVLPE-YNTPL-YYKLKSYLINS--IPSQFMRYDILSNRNL...VNR PIWI_ARCFU/110-406
+CFALIIGKEKYKDNDYYEILKKQLFDLKIISQNILWENWRKDDK...NWK Y1321_METJA/426-699
+LVIVFLEEYPKVDP-YKSFLLYDFVKRELLKKMIPSQVILNRTL...GIE O67434_AQUAE/419-694
+LLLAILPD-NNGSL-YGDLKRICETELGLISQCCLTKHVFKI--...YLE AGO10_ARATH/625-946
+</pre></div></div>
+</div>
 <p>The code above prints a summary of the information, but each <code class="docutils literal notranslate"><span class="pre">Bio.Align.MultipleSeqAlignment</span></code> is composed of several alignment records (<code class="docutils literal notranslate"><span class="pre">SeqRecord</span></code>) that we can access with all their information looping through the object. Each <code class="docutils literal notranslate"><span class="pre">SeqRecord</span></code> contains several information like the <strong>ID, Name, Description, Number of features, start, end and sequence</strong>.</p>
 <p><strong>Example:</strong></p>
 <p>Load the seed alignment of the <a class="reference external" href="http://pfam.xfam.org/family/Piwi">Piwi (PF02171) family</a> stored in the pfam (stockholm) format <a class="reference external" href="file_samples/PF02171_seed.sth">PF02171_seed.sth</a>. For each record print the description, start and the end point, the sequence and the external dbxrefs (if any).</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1231,6 +1527,63 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+AGO1_SCHPO/500-799 S:500 E:799
+YLFFILDK-NSPEP-YGSIKRVCNTMLGVPSQCAISKHILQS---------KPQYCANLGMKINVKVGGIN-CSLIPKSNP----LGNVPTL---------ILGGDVYHPGVGA----------TGVSIASIVASVD-LNGCKYTAVSRSQPRHQEVIEG-MKD------------IVVYLLQGFRAMTKQ-QPQRIIYFRDGTSEGQFLSVINDELSQIKEACH-------SLSPKYN--PKILVCTTQKRHHARFFIKNKSDG----------------------DRNGNPLPGTII---EKHVTHPYQYDFYLISHPSLQGVSVPVHYTVLHDEIQMPPDQF-QTL------CYNLCYVYARAT----SAVSLVPPVYYAHLVSNLARYQDV
+
+AGO6_ARATH/541-851 S:541 E:851
+FILCILPERKTSDI-YGPWKKICLTEEGIHTQCICPIKI------------SDQYLTNVLLKINSKLGGIN-SLLGIEYSYNIPLINKIPTL---------ILGMDVSHGPPGR---------ADVPSVAAVVGSKCWPLISRYRAAVRTQSPRLEMIDSLFQPIENTE--KGDNGIMNELFVEFYRTSRARKPKQIIIFRDGVSESQFEQVLKIEVDQIIKAYQ-------RLGESDV--PKFTVIVAQKNHHTKLFQAKGPE---------------------------NVPAGTVV---DTKIVHPTNYDFYMCAHAGKIGTSRPAHYHVLLDEIGFSPDDL-QNL------IHSLSYVNQRST----TATSIVAPVRYAHLAAAQVAQFTK
+
+AGO4_ARATH/577-885 S:577 E:885
+FILCVLPDKKNSDL-YGPWKKKNLTEFGIVTQCMAPTRQPND-----------QYLTNLLLKINAKLGGLN-SMLSVERTPAFTVISKVPTI---------ILGMDVSHGSPGQ---------SDVPSIAAVVSSREWPLISKYRASVRTQPSKAEMIESLVKKNGT-----EDDGIIKELLVDFYTSSNKRKPEHIIIFRDGVSESQFNQVLNIELDQIIEACK-------LLDANWN--PKFLLLVAQKNHHTKFFQPTSPE---------------------------NVPPGTII---DNKICHPKNNDFYLCAHAGMIGTTRPTHYHVLYDEIGFSADEL-QEL------VHSLSYVYQRST----SAISVVAPICYAHLAAAQLGTFMK
+
+TAG76_CAEEL/660-966 S:660 E:966
+CIIVVLQS-KNSDI-YMTVKEQSDIVHGIMSQCVLMKNVSRP---------TPATCANIVLKLNMKMGGIN--SRIVADKITNKYLVDQPTM---------VVGIDVTHPTQAEM-------RMNMPSVAAIVANVD-LLPQSYGANVKVQKKCRESVVY-LLD------------AIRERIITFYRHTKQ-KPARIIVYRDGVSEGQFSEVLREEIQSIRTACL-------AIAEDFR--PPITYIVVQKRHHARIFCKYQNDM---------------------VGKAKNVPPGTTV---DTGIVSPEGFDFYLCSHYGVQGTSRPARYHVLLDECKFTADEI-QSI------TYGMCHTYGRCT----RSVSIPTPVYYADLVATRARCHVK
+
+O16720_CAEEL/566-867 S:566 E:867
+LIVVVLPG--KTPI-YAEVKRVGDTVLGIATQCVQAKNAIRT---------TPQTLSNLCLKMNVKLGGVN-SILLPNVRPR---IFNEPVI---------FLGCDITHPAAGD---------TRKPSIAAVVGSMD-AHPSRYAATVRVQQHRQEIITD-LTY------------MVRELLVQFYRNTRF-KPARIVVYRDGVSEGQLFNVLQYELRAIREACV-------MLESGYQ--PGITFIAVQKRHHTRLFAADKADQ---------------------VGKAFNIPPGTTV---DVGITHPTEFDFFLCSHAGIQGTSRPSHYHVLWDDNDLTADEL-QQL------TYQMCHTYVRCT----RSVSIPAPAYYAHLVAFRARYHLV
+
+O62275_CAEEL/594-924 S:594 E:924
+TFVFIITD-DSITT-LHQRYKMIEKDTKMIVQDMKLSKALSV--IN---AGKRLTLENVINKTNVKLGGSN--YVFVDAKKQL-----DSHL---------IIGVGISAPPAGTKYAM-ENKGVLNPNVIGYAYNA--QHNQEFSGDFVLNSASQDTLAP-IED------------IVMHSLNEYQKFHDGGLPRRVIVYRTGTSEGNHGSIMAYEIPLARAAMR-------DFSPDIQ----LVYIVVSKDHSFRFFKPDLASLASRPQATSSTASRHSAMPAAPKAWDLNIAPGILV---DSIVTNPACKQFFLNSHITLQGTAKTPLYTVLADDAKVSMTAL-EDI------TYKLCHLHQIVG----LPTSLPTPLYVANEYAKRGRNLWN
+
+YQ53_CAEEL/650-977 S:650 E:977
+DILVGIAR-EKKPD-VHDILKYFEESIGLQTIQLCQQTVDKMMGG----QGGRQTIDNVMRKFNLKCGGTNFFVEIPNAVRGKAVCSNNETLRKKLLEHVQFIGFEISHGASRTLFDRSRSQMDGEPSVVGVSYSLT---NSTQLGGFTYLQTQKEYKLQKLDE------------FFPKCVRSYKEHSKT-LPTRIVIYRVGAGEGNFNRVKE-EVEEMRRTFD-------KIQPGYR--PHLVVIIAQRASHARVFPSCISGN---------------------RATDQNIPSGTCV---ENVLTSYGYDEFILSSQTPLIGTVRPCKYTILVNDAKWSKNEL-MHL------TYFRAFGHQVSY----QPPSVPDVLYAAENLAKRGRNNYK
+
+NRDE3_CAEEL/673-1001 S:673 E:1001
+TIVFGIIA-EKRPD-MHDILKYFEEKLGQQTIQISSETADKFMRD----HGGKQTIDNVIRKLNPKCGGTNFLIDVPESVGHRVVCNNSAEMRAKLYAKTQFIGFEMSHTGARTRFDIQKVMFDGDPTVVGVAYSL--KHSAQLGGFSYFQESRLHKLTN-LQE------------KMQICLNAYEQSSSY-LPETVVVYRVGSGEGDYPQIVN-EVNEMKLAAR-------KKKHGYN--PKFLVICTQRNSHIRVFPEHINERG--------------------KSMEQNVKSGTCV---DVPGASHGYEEFILCCQTPLIGTVKPTKYTIIVNDCRWSKNEI-MNV------TYHLAFAHQVSY----APPAIPNVSYAAQNLAKRGHNNYK
+
+Q17567_CAEEL/397-708 S:397 E:708
+MLVVMLAD-DNKTR-YDSLKKYLCVECPIPNQCVNLRTLAGKSKDGGENKNLGSIVLKIVLQMICKTGGA---LWKVNIPL-------KSTM---------IVGYDLYHDSTLK-----------GKTVGACVSTTS-NDFTQFYSQTRPHENPTQLGNN-LTH------------FVRKSLKQYYDNNDKTLPSRLILYRDGAGDGQIPYIKNTEVKLVRDACDAVTDKAAELSNKVQEKIKLAFIIVTKRVNMRILKQGSSS-----------------------KSAINPQPGTVV---DTTVTRPERMDFYLVPQFVNQGTVTPVSYNIIHDDTGLGPDKH-QQL------AFKLCHLYYNWQ----GTVRVPAPCQYAHKLAFLTAQSLH
+
+AUB_DROME/555-852 S:555 E:852
+IVMVVMRS-PNEEK-YSCIKKRTCVDRPVPSQVVTLKVIAPRQQKP---TGLMSIATKVVIQMNAKLMGA---PWQVVIPL-------HGLM---------TVGFDVCHSPKNK-----------NKSYGAFVATMDQKESFRYFSTVNEHIKGQELSEQ-MSV------------NMACALRSYQEQHRS-LPERILFFRDGVGDGQLYQVVNSEVNTLKDRLDEI---YKSAGKQEG--CRMTFIIVSKRINSRYFT-----------------------------GHRNPVPGTVV---DDVITLPERYDFFLVSQAVRIGTVSPTSYNVISDNMGLNADKL-QML------SYKMTHMYYNYS----GTIRVPAVCHYAHKLAFLVAESIN
+
+PIWI_DROME/538-829 S:538 E:829
+LILCLVPN-DNAER-YSSIKKRGYVDRAVPTQVVTLKTTKNRSL--------MSIATKIAIQLNCKLGYT---PWMIELPL-------SGLM---------TIGFDIAKSTRDR-----------KRAYGALIASMDLQQNSTYFSTV-TECSAFDVLANTLWP------------MIAKALRQYQHEHRK-LPSRIVFYRDGVSSGSLKQLFEFEVKDIIEKLKTE---YARVQLSP---PQLAYIVVTRSMNTRFFLN-----------------------------GQNPPPGTIV---DDVITLPERYDFYLVSQQVRQGTVSPTSYNVLYSSMGLSPEKM-QKL------TYKMCHLYYNWS----GTTRVPAVCQYAKKLATLVGTNLH
+
+PIWL1_HUMAN/555-847 S:555 E:847
+IVVCLLSS-NRKDK-YDAIKKYLCTDCPTPSQCVVARTLGKQQT-------VMAIATKIALQMNCKMGGE---LWRVDIPL-------KLVM---------IVGIDCYHDMTAG-----------RRSIAGFVASIN-EGMTRWFSRCIFQDRGQELVDG-LKV------------CLQAALRAW-NSCNEYMPSRIIVYRDGVGDGQLKTLVNYEVPQFLDCLK-------SIGRGYN--PRLTVIVVKKRVNTRFFAQSGGR-------------------------LQNPLPGTVI---DVEVTRPEWYDFFIVSQAVRSGSVSPTHYNVIYDNSGLKPDHI-QRL------TYKLCHIYYNWP----GVIRVPAPCQYAHKLAFLVGQSIH
+
+PIWI_ARCFU/110-406 S:110 E:406
+PDB; 2W42 B; 110-406;,PDB; 1YTU B; 110-406;,PDB; 2BGG B; 110-406;,PDB; 1W9H A; 110-406;,PDB; 2BGG A; 110-406;,PDB; 1YTU A; 110-406;,PDB; 2W42 A; 110-406;
+GIMLVLPE-YNTPL-YYKLKSYLINS--IPSQFMRYDILSNRNL--------TFYVDNLLVQFVSKLGGK---PWILNVDPEK--------------------GSDIIIGTGAT--------RIDNVNLFCFAMVFK-KDGTMLWNEISPIVTSSEYLTY-LKS------------TIKKVVYGFKKSNPDWDVEKLTLHVSG----KRPKMKDGETKILKETVE-------ELKKQEMVSRDVKYAILHLNETHPFWVMGDPN------------------------NRFHPYEGTKVKLSSKRYLLTLLQPYLKRNGLEMVTPIKPLSVEIVSDN--WTSEEYYHNVHEILDEIYYLSKMNWRGF----RSRNLPVTVNYPKLVAGIIANVNR
+
+Y1321_METJA/426-699 S:426 E:699
+CFALIIGKEKYKDNDYYEILKKQLFDLKIISQNILWENWRKDDK--------GYMTNNLLIQIMGKLGIK---YFILDSKTPYDY----------------IMGLDTGLGIFGN------------HRVGGCTVVYDSEGKIRRIQPIETPAPGERLHLP----------------YVIEYLEN--KANIDMENKNILFLRDG-------FIQNSERNDLKEISK-------ELN------SNIEVISIRKNNKYKVFTSDYRI------------------------GSVFGNDGIFLPHKTPFGSNPVKLSTWLRFNCGNEEGLK---IN----------ESI-MQL------LYDLTKMNYSALYGEGRYLRIPAPIHYADKFVKALGKNWK
+
+O67434_AQUAE/419-694 S:419 E:694
+PDB; 1YVU A; 419-694;,PDB; 2F8S A; 419-694;,PDB; 2F8T A; 419-694;,PDB; 2F8S B; 419-694;,PDB; 2NUB A; 419-694;,PDB; 2F8T B; 419-694;
+LVIVFLEEYPKVDP-YKSFLLYDFVKRELLKKMIPSQVILNRTLKN---ENLKFVLLNVAEQVLAKTGNIP--YKLKEIEGKVDA----------------FVGIDISRITRDG----------KTVNAVAFTKIFNSKGELVRYYLTSYPAFGEKLTEK----------------AIGDVFSLLEKLGF-KKGSKIVVHRDG-------RLYRDEVAAFK-----------KYGELYG--YSLELLEIIKRNNPRFFSNEKFI------------------------------KGYFYKLSEDSVILATYNQVY-------EGTHQPIKVRKVYGE--LPVEVL-CSQ------ILSLTLMNYSSF----QPIKLPATVHYSDKITKLMLRGIE
+
+AGO10_ARATH/625-946 S:625 E:946
+LLLAILPD-NNGSL-YGDLKRICETELGLISQCCLTKHVFKI---------SKQYLANVSLKINVKMGGRN-TVLVDAISCRIPLVSDIPTI---------IFGADVTHPENGE---------ESSPSIAAVVASQDWPEVTKYAGLVCAQAHRQELIQDLYKTWQDPVRGTVSGGMIRDLLISFRKATGQ-KPLRIIFYRDGVSEGQFYQVLLYELDAIRKACA-------SLEPNYQ--PPVTFIVVQKRHHTRLFANNHRDKN-------------------STDRSGNILPGTVV---DTKICHPTEFDFYLCSHAGIQGTSRPAHYHVLWDENNFTADGI-QSL------TNNLCYTYARCT----RSVSIVPPAYYAHLAAFRARFYLE
+
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="Writing-multiple-alignments">
 <h3>Writing multiple alignments<a class="headerlink" href="#Writing-multiple-alignments" title="Permalink to this headline">¶</a></h3>
@@ -1240,32 +1593,31 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">alignments</span></code> are a MultipleSeqAlignment object with the alignments to write to the output file with name <code class="docutils literal notranslate"><span class="pre">outfile</span></code> that has format <code class="docutils literal notranslate"><span class="pre">file_format</span></code> (a low case string with the file format). N is the number of entries written to the file.</p>
 <p><strong>Example:</strong> Let’s create some multiple sequence alignments and store them in <a class="reference external" href="http://www.phylo.org/tools/obsolete/phylip.html">phylip</a> format. The output file is present here <a class="reference external" href="file_samples/my_malign.phy">my_malign.phy</a>. Finally, read and print the content of the file.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 
-<span></span><span class="kn">from</span> <span class="nn">Bio.Alphabet</span> <span class="kn">import</span> <span class="n">generic_dna</span>
-<span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
+<span></span><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
 <span class="kn">from</span> <span class="nn">Bio.SeqRecord</span> <span class="kn">import</span> <span class="n">SeqRecord</span>
 <span class="kn">from</span> <span class="nn">Bio.Align</span> <span class="kn">import</span> <span class="n">MultipleSeqAlignment</span>
 <span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">AlignIO</span>
 
 <span class="n">align1</span> <span class="o">=</span> <span class="n">MultipleSeqAlignment</span><span class="p">([</span>
-<span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;ACTGCTAGCTAG&quot;</span><span class="p">,</span> <span class="n">generic_dna</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Alpha&quot;</span><span class="p">),</span>
-<span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;ACT-CTAGCTAG&quot;</span><span class="p">,</span> <span class="n">generic_dna</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Beta&quot;</span><span class="p">),</span>
-<span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;ACTGCTAGDTAG&quot;</span><span class="p">,</span> <span class="n">generic_dna</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Gamma&quot;</span><span class="p">),</span>
+<span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;ACTGCTAGCTAG&quot;</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Alpha&quot;</span><span class="p">),</span>
+<span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;ACT-CTAGCTAG&quot;</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Beta&quot;</span><span class="p">),</span>
+<span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;ACTGCTAGDTAG&quot;</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Gamma&quot;</span><span class="p">),</span>
 <span class="p">])</span>
 <span class="n">align2</span> <span class="o">=</span> <span class="n">MultipleSeqAlignment</span><span class="p">([</span>
-<span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GTCAGC-AG&quot;</span><span class="p">,</span> <span class="n">generic_dna</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Delta&quot;</span><span class="p">),</span>
-<span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GACAGCTAG&quot;</span><span class="p">,</span> <span class="n">generic_dna</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Epsilon&quot;</span><span class="p">),</span>
-<span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GTCAGCTAG&quot;</span><span class="p">,</span> <span class="n">generic_dna</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Zeta&quot;</span><span class="p">),</span>
+<span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GTCAGC-AG&quot;</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Delta&quot;</span><span class="p">),</span>
+<span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GACAGCTAG&quot;</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Epsilon&quot;</span><span class="p">),</span>
+<span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GTCAGCTAG&quot;</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Zeta&quot;</span><span class="p">),</span>
 <span class="p">])</span>
 <span class="n">align3</span> <span class="o">=</span> <span class="n">MultipleSeqAlignment</span><span class="p">([</span>
-<span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;ACTAGTACAGCTG&quot;</span><span class="p">,</span> <span class="n">generic_dna</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Eta&quot;</span><span class="p">),</span>
-<span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;ACTAGTACAGCT-&quot;</span><span class="p">,</span> <span class="n">generic_dna</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Theta&quot;</span><span class="p">),</span>
-<span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;-CTACTACAGGTG&quot;</span><span class="p">,</span> <span class="n">generic_dna</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Iota&quot;</span><span class="p">),</span>
+<span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;ACTAGTACAGCTG&quot;</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Eta&quot;</span><span class="p">),</span>
+<span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;ACTAGTACAGCT-&quot;</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Theta&quot;</span><span class="p">),</span>
+<span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;-CTACTACAGGTG&quot;</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Iota&quot;</span><span class="p">),</span>
 <span class="p">])</span>
 
 <span class="n">my_alignments</span> <span class="o">=</span> <span class="p">[</span><span class="n">align1</span><span class="p">,</span> <span class="n">align2</span><span class="p">,</span> <span class="n">align3</span><span class="p">]</span>
@@ -1279,6 +1631,27 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+3 entries written to the file
+
+Alignment with 3 rows and 12 columns
+ACTGCTAGCTAG Alpha
+ACT-CTAGCTAG Beta
+ACTGCTAGDTAG Gamma
+Alignment with 3 rows and 9 columns
+GTCAGC-AG Delta
+GACAGCTAG Epsilon
+GTCAGCTAG Zeta
+Alignment with 3 rows and 13 columns
+ACTAGTACAGCTG Eta
+ACTAGTACAGCT- Theta
+-CTACTACAGGTG Iota
+</pre></div></div>
 </div>
 <p>Note that it is also possible to convert one format into the other (provided that all information needed for the second format is available) by using the function:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Bio.AlignIO.convert(input_file, input_file_format, output_file, output_file_format)
@@ -1305,8 +1678,8 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 </pre></div>
 </div>
 <p><strong>Example:</strong> Load the seed alignment of the <a class="reference external" href="http://pfam.xfam.org/family/Piwi">Piwi (PF02171) family</a> stored in the pfam (stockholm) format <a class="reference external" href="file_samples/PF02171_seed.sth">PF02171_seed.sth</a>. For each record print the description, the first 20 bases and the final 20 bases of the sequence.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1323,9 +1696,32 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+AGO1_SCHPO/500-799       YLFFILDK-NSPEP-YGSIKLVPPVYYAHLVSNLARYQDV
+AGO6_ARATH/541-851       FILCILPERKTSDI-YGPWKIVAPVRYAHLAAAQVAQFTK
+AGO4_ARATH/577-885       FILCVLPDKKNSDL-YGPWKVVAPICYAHLAAAQLGTFMK
+TAG76_CAEEL/660-966      CIIVVLQS-KNSDI-YMTVKIPTPVYYADLVATRARCHVK
+O16720_CAEEL/566-867     LIVVVLPG--KTPI-YAEVKIPAPAYYAHLVAFRARYHLV
+O62275_CAEEL/594-924     TFVFIITD-DSITT-LHQRYLPTPLYVANEYAKRGRNLWN
+YQ53_CAEEL/650-977       DILVGIAR-EKKPD-VHDILVPDVLYAAENLAKRGRNNYK
+NRDE3_CAEEL/673-1001     TIVFGIIA-EKRPD-MHDILIPNVSYAAQNLAKRGHNNYK
+Q17567_CAEEL/397-708     MLVVMLAD-DNKTR-YDSLKVPAPCQYAHKLAFLTAQSLH
+AUB_DROME/555-852        IVMVVMRS-PNEEK-YSCIKVPAVCHYAHKLAFLVAESIN
+PIWI_DROME/538-829       LILCLVPN-DNAER-YSSIKVPAVCQYAKKLATLVGTNLH
+PIWL1_HUMAN/555-847      IVVCLLSS-NRKDK-YDAIKVPAPCQYAHKLAFLVGQSIH
+PIWI_ARCFU/110-406       GIMLVLPE-YNTPL-YYKLKLPVTVNYPKLVAGIIANVNR
+Y1321_METJA/426-699      CFALIIGKEKYKDNDYYEILIPAPIHYADKFVKALGKNWK
+O67434_AQUAE/419-694     LVIVFLEEYPKVDP-YKSFLLPATVHYSDKITKLMLRGIE
+AGO10_ARATH/625-946      LLLAILPD-NNGSL-YGDLKIVPPAYYAHLAAFRARFYLE
+</pre></div></div>
+</div>
 <p><strong>Example:</strong> Convert the seed alignment of the <a class="reference external" href="http://pfam.xfam.org/family/Piwi">Piwi (PF02171) family</a> stored in the pfam (stockholm) format <a class="reference external" href="file_samples/PF02171_seed.sth">PF02171_seed.sth</a> into phylip format. Print some stats on the data.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1344,6 +1740,16 @@ The record is a:  &lt;class &#39;Bio.SeqRecord.SeqRecord&#39;&gt;
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> multiple alignments converted to phylip&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">out</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+N. of seq: 16
+Len of seq: 395
+1 multiple alignments converted to phylip
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Biopython's-pairwise2-alignment">
@@ -1378,8 +1784,8 @@ aligns = pairwise2.align.localxx(seq1,seq2)
 </ul>
 <p><strong>Example:</strong></p>
 <p>Let’s perform the alignment of the two sequences “ACCGTTATATAGGCCA” and “ACGTACTAGTATAGGCCA”</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1419,11 +1825,40 @@ aligns = pairwise2.align.localxx(seq1,seq2)
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Alignment(seqA=&#39;ACCGT--TA-TATAGGCCA&#39;, seqB=&#39;A-CGTACTAGTATAGGCCA&#39;, score=15.0, start=0, end=19)
+Alignment(seqA=&#39;ACCGT--TA-TATAGGCCA&#39;, seqB=&#39;AC-GTACTAGTATAGGCCA&#39;, score=15.0, start=0, end=19)
+
+Looping through aligns
+ACCGT--TA-TATAGGCCA
+A-CGTACTAGTATAGGCCA
+Score: 15.0, Start: 0, End: 19
+
+ACCGT--TA-TATAGGCCA
+AC-GTACTAGTATAGGCCA
+Score: 15.0, Start: 0, End: 19
+
+
+Match: 1, Mismatch: -1, Gap open: -0.5, Gap extend: -0.2
+ACCGT--TA-TATAGGCCA
+A-CGTACTAGTATAGGCCA
+Score: 13.3, Start: 0, End: 19
+
+ACCGT--TA-TATAGGCCA
+AC-GTACTAGTATAGGCCA
+Score: 13.3, Start: 0, End: 19
+
+</pre></div></div>
+</div>
 <p>It is also possible to specify a substitution matrix like the <a class="reference external" href="https://en.wikipedia.org/wiki/BLOSUM">BLOSUM</a> to improve the alignment of protein sequences. Substitution matrices like the <strong>blosum62</strong> are present in Biopython and before using it we need to import it with <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">Bio.SubsMat.MatrixInfo</span> <span class="pre">import</span> <span class="pre">blosum62</span></code>.</p>
 <p>You can find all the substitution matrices available <a class="reference external" href="https://biopython.org/docs/1.75/api/Bio.SubsMat.MatrixInfo.html">here</a>.</p>
 <p><strong>Example:</strong> Align the alpha and beta subunits of the human hemoglobin protein stored in <a class="reference external" href="file_samples/hem_alpha.fasta">hem_alpha.fasta</a> and <a class="reference external" href="file_samples/hem_beta.fasta">hem_beta.fasta</a> with globalxx and with a blosum62 substitution matrix and gap open -10 and gap extension -0.5.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1457,6 +1892,22 @@ aligns = pairwise2.align.localxx(seq1,seq2)
 
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+80 optimal alignments
+MV-LSPADKTNV---K-A--A-WGKVGAHAG---EY-GA-EALE-RMFLSF----PTTK-TY--FPHFDL-SH-G--S---AQVK-G------HGKKV--A--DA-LTNAVAHVD-DMPNALS----A-LSD-LHAH--KLR-VDPV-NFKL-LSHCL---LVT--LAAHLPA----EFTPA-VH-ASLDKFLAS---VSTV------LTS--KYR-
+MVHL-----T--PEEKSAVTALWGKV-----NVDE-VG-GEAL-GR--L--LVVYP---WT-QRF--F--ES-FGDLSTPDA-V-MGNPKVKAHGKKVLGAFSD-GL----AH--LD--N-L-KGTFATLS-EL--HCDKL-HVDP-ENF--RL---LGNVLV-CVL-AH---HFGKEFTP-PV-QA------A-YQKV--VAGVANAL--AHKY-H
+Score: 72.0, Start: 0, End: 217
+
+2 optimal alignments
+MV-LSPADKTNVKAAWGKVGAHAGEYGAEALERMFLSFPTTKTYFPHF-DLS-----HGSAQVKGHGKKVADALTNAVAHVDDMPNALSALSDLHAHKLRVDPVNFKLLSHCLLVTLAAHLPAEFTPAVHASLDKFLASVSTVLTSKYR
+MVHLTPEEKSAVTALWGKV--NVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPKVKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPENFRLLGNVLVCVLAHHFGKEFTPPVQAAYQKVVAGVANALAHKYH
+Score: 292.5, Start: 0, End: 149
+</pre></div></div>
 </div>
 </div>
 </div>
