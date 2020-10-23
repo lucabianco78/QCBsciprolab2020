@@ -801,7 +801,7 @@ Reverse complement:     GCGATTTTCGATCCTATATAGGCCCATCGATC
 <p><code class="docutils literal notranslate"><span class="pre">Seq.translate(table=N,</span> <span class="pre">to_stop=True/False,</span> <span class="pre">stop_symbol</span> <span class="pre">=symbol)</span></code> that converts a DNA sequence or mRNA into the corresponding protein.</p>
 <p>Optionally, the translate method accepts a parameter <code class="docutils literal notranslate"><span class="pre">table</span></code> to specify the NCBI translation table used (see below for codes). <code class="docutils literal notranslate"><span class="pre">to_stop</span></code> makes the translation stop at the first stop codon if True (<strong>in this case the stop codon is not translated!</strong>), <code class="docutils literal notranslate"><span class="pre">stop_symbol</span></code> to replace the asterisk with any other stop character (Es. “&#64;”).</p>
 <p><img alt="ncbitab" src="_images/ncbi_table.png" /> Stop codons will be represented by an asterisk.</p>
-<p><strong>Example:</strong> Let’s translate into mRNA the coding sequence: ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG.</p>
+<p><strong>Example:</strong> Let’s transcribe into mRNA and translate into protein the following coding sequence: ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -1944,6 +1944,134 @@ Score: 292.5, Start: 0, End: 149
 <p>You can test the program using the <a class="reference external" href="https://en.wikipedia.org/wiki/TP53">TP53</a> family file <a class="reference external" href="file_samples/PF00870_seed.sth">PF00870_seed.sth</a>.</p>
 <div class="tggle" onclick="toggleVisibility('ex2');"><p>Show/Hide Solution</p>
 </div><div id="ex2" style="display:none;"></div><ol class="arabic simple" start="3">
+<li><p>Given the sequence of the Spike protein in an isolate of the Sars-Cov-2 in <a class="reference external" href="file_samples/Spike_sars_cov2_human.fasta">human</a> and in <a class="reference external" href="file_samples/Spike_sars_cov2_pangolin.fasta">pangolin</a> in fasta, read and store the sequences from the fasta files and align them with <code class="docutils literal notranslate"><span class="pre">pairwise2.align.globalxx</span></code> and check the percentage of identity between the two. Repeat the same analysis with the complete genome of the isolate from Wuhan <a class="reference external" href="file_samples/whuan_sarscov2_human.fasta">wuhan</a> and from
+<a class="reference external" href="file_samples/RaTG13_bat_coronavirus_isolate.fasta">bat</a>. <strong>Do not forget to translate them or you might use too much memory for your machine!!!</strong> Note that these are fasta files of the genomic sequence, therefore you should use biopython to translate them into proteins. To solve this exercise implement the following functions:</p></li>
+</ol>
+<ol class="loweralpha simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">readSingleFasta(filename)</span></code>: reads the fasta and returns a SeqRecord;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alignSequences(s1,s2)</span></code> : gets the two sequence records and aligns them returning the alignment;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getPercentageIdentity(s1,s2):</span></code> gets two aligned sequences and returns the percentage of identity between the two;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">printAlignDetails(alignments,</span> <span class="pre">num_entries</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">ends_size</span> <span class="pre">=</span> <span class="pre">10)</span></code> : that gets the alignments and prints the first <code class="docutils literal notranslate"><span class="pre">num_entries</span></code> plotting the alignment of the initial/final <code class="docutils literal notranslate"><span class="pre">ends_size</span></code> bases, the percentage of identity between the two sequences, the alignment score, the start and end point.</p></li>
+</ol>
+<div class="tggle" onclick="toggleVisibility('ex3_cov');"><p>Show/Hide Solution</p>
+</div><div id="ex3_cov" style="display:none;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">pairwise2</span>
+<span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+<span class="kn">from</span> <span class="nn">Bio.pairwise2</span> <span class="kn">import</span> <span class="n">format_alignment</span>
+
+
+
+
+
+<span class="k">def</span> <span class="nf">readSingleFasta</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">record</span> <span class="o">=</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">record</span>
+
+
+<span class="k">def</span> <span class="nf">alignSequences</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">):</span>
+        <span class="n">alignments</span> <span class="o">=</span> <span class="n">pairwise2</span><span class="o">.</span><span class="n">align</span><span class="o">.</span><span class="n">globalxx</span><span class="p">(</span><span class="n">s1</span><span class="o">.</span><span class="n">seq</span><span class="p">,</span><span class="n">s2</span><span class="o">.</span><span class="n">seq</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">alignments</span>
+
+<span class="k">def</span> <span class="nf">getPercentageIdentity</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">):</span>
+    <span class="c1">#We assume the length of the two sequences is the same, if not</span>
+    <span class="c1">#the following will give an error!</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">s2</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">cnt</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">printAlignDetails</span><span class="p">(</span><span class="n">alignments</span><span class="p">,</span> <span class="n">num_entries</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ends_size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">num_entries</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">alignments</span><span class="p">):</span>
+        <span class="n">num_entries</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">alignments</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_entries</span><span class="p">):</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">alignments</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> ... </span><span class="si">{}</span><span class="se">\n</span><span class="si">{}</span><span class="s2"> ... </span><span class="si">{}</span><span class="se">\n</span><span class="si">% i</span><span class="s2">dentity: </span><span class="si">{:.2f}</span><span class="se">\n</span><span class="s2">Score:</span><span class="si">{}</span><span class="se">\n</span><span class="s2">Start: </span><span class="si">{}</span><span class="s2"> - End: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">seqA</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">ends_size</span><span class="p">],</span>
+                                                   <span class="n">a</span><span class="o">.</span><span class="n">seqA</span><span class="p">[</span><span class="o">-</span><span class="n">ends_size</span><span class="p">:],</span>
+                                                   <span class="n">a</span><span class="o">.</span><span class="n">seqB</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">ends_size</span><span class="p">],</span>
+                                                   <span class="n">a</span><span class="o">.</span><span class="n">seqB</span><span class="p">[</span><span class="o">-</span><span class="n">ends_size</span><span class="p">:],</span>
+                                                   <span class="n">getPercentageIdentity</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">seqA</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">seqB</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span>
+                                                   <span class="n">a</span><span class="o">.</span><span class="n">score</span><span class="p">,</span>
+                                                   <span class="n">a</span><span class="o">.</span><span class="n">start</span><span class="p">,</span>
+                                                   <span class="n">a</span><span class="o">.</span><span class="n">end</span><span class="p">))</span>
+
+<span class="n">S_human</span> <span class="o">=</span> <span class="s2">&quot;file_samples/Spike_sars_cov2_human.fasta&quot;</span>
+<span class="n">S_pangolin</span> <span class="o">=</span> <span class="s2">&quot;file_samples/Spike_sars_cov2_pangolin.fasta&quot;</span>
+
+<span class="n">spike_human</span> <span class="o">=</span> <span class="n">readSingleFasta</span><span class="p">(</span><span class="n">S_human</span><span class="p">)</span>
+<span class="n">spike_pangolin</span> <span class="o">=</span> <span class="n">readSingleFasta</span><span class="p">(</span><span class="n">S_pangolin</span><span class="p">)</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">alignSequences</span><span class="p">(</span><span class="n">spike_human</span><span class="p">,</span> <span class="n">spike_pangolin</span><span class="p">)</span>
+<span class="n">printAlignDetails</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">ends_size</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">num_entries</span><span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">-------------------------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Bat vs human Sars-Cov-2 ---&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------------------&quot;</span><span class="p">)</span>
+<span class="n">cov_human</span> <span class="o">=</span> <span class="s2">&quot;file_samples/whuan_sarscov2_human.fasta&quot;</span>
+<span class="n">cov_bat</span> <span class="o">=</span> <span class="s2">&quot;file_samples/RaTG13_bat_coronavirus_isolate.fasta&quot;</span>
+
+<span class="n">cov_human</span> <span class="o">=</span> <span class="n">readSingleFasta</span><span class="p">(</span><span class="n">cov_human</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;N&quot;</span> <span class="c1">#adding an N to make it divisible by 3</span>
+<span class="n">cov_bat</span> <span class="o">=</span> <span class="n">readSingleFasta</span><span class="p">(</span><span class="n">cov_bat</span><span class="p">)</span>
+
+
+<span class="n">cov_prot_human</span> <span class="o">=</span> <span class="n">cov_human</span><span class="o">.</span><span class="n">translate</span><span class="p">()</span>
+<span class="n">cov_prot_bat</span> <span class="o">=</span> <span class="n">cov_bat</span><span class="o">.</span><span class="n">translate</span><span class="p">()</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">alignSequences</span><span class="p">(</span><span class="n">cov_prot_human</span><span class="p">,</span> <span class="n">cov_prot_bat</span><span class="p">)</span>
+<span class="n">printAlignDetails</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">ends_size</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">num_entries</span><span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+M-FVFLVL--LP---LVS-SQCVNLTT-RT ... LKGCCSCGSCCKFDEDDSEPVLKGVKLHYT
+MLF-F---FFL-HFALV-NSQCVNL-TGR- ... LKGCCSCGSCCKFDEDDSEPVLKGVKLHYT
+% identity: 84.18
+Score:1160.0
+Start: 0 - End: 1378
+M-FVFLVL-LP---LVS-SQCVNLTT-RT- ... LKGCCSCGSCCKFDEDDSEPVLKGVKLHYT
+MLF-F--FFL-HFALV-NSQCVNL-TGR-A ... LKGCCSCGSCCKFDEDDSEPVLKGVKLHYT
+% identity: 84.24
+Score:1160.0
+Start: 0 - End: 1377
+M-FVFLVL-LP---LVS-SQCVNLTT-RT- ... LKGCCSCGSCCKFDEDDSEPVLKGVKLHYT
+MLF-F-F-FL-HFALV-NSQCVNL-TGR-A ... LKGCCSCGSCCKFDEDDSEPVLKGVKLHYT
+% identity: 84.24
+Score:1160.0
+Start: 0 - End: 1377
+
+
+-------------------------------
+--- Bat vs human Sars-Cov-2 ---
+-------------------------------
+IKGLYLP-R*QTNQ-LSISCRSVL*TNFKI ... PM*F**LLRRMTKKKKKKKKK-------KX
+IKGLYL-SR*QTN-ELSISCRSVL*TNFKI ... -------L-------------IAS*ENDK-
+% identity: 77.94
+Score:8725.0
+Start: 0 - End: 11194
+IKGLYLPR*QTNQ-LSISCRSVL*TNFKIC ... PM*F**LLRRMTKKKKKKKKK-------KX
+IKGLYLSR*QTN-ELSISCRSVL*TNFKIC ... -------L-------------IAS*ENDK-
+% identity: 77.95
+Score:8725.0
+Start: 0 - End: 11193
+IKGLYLP-R*QTNQLSISCRSVL*TNFKIC ... PM*F**LLRRMTKKKKKKKKK-------KX
+IKGLYL-SR*QTNELSISCRSVL*TNFKIC ... -------L-------------IAS*ENDK-
+% identity: 77.95
+Score:8725.0
+Start: 0 - End: 11193
+</pre></div></div>
+</div>
+</div><ol class="arabic simple" start="4">
 <li><p>Given a multiple sequence alignment stored in “phylip” format, write three methods: <em>readAlignment</em> that reads the input file and prints the number of sequences present, <em>printAlignments(alignments)</em> that prints the alignments to the screen and <em>computeConsensus(alignments,minFrequency)</em> that creates the consensus of all the alignments. MinFrequency is the minimum frequency (that has to be &gt; 0.5) to keep a base in the consensus. “?” is put put if frequency &lt; minFrequency for all possible
 bases.</p></li>
 </ol>
@@ -1960,11 +2088,11 @@ ATCGT
 </div>
 <p>Test the script with the file <a class="reference external" href="file_samples/alpha-globin.phy">alpha-globin.phy</a>.</p>
 <div class="tggle" onclick="toggleVisibility('ex3a');"><p>Show/Hide Solution</p>
-</div><div id="ex3a" style="display:none;"></div><ol class="arabic simple" start="4">
+</div><div id="ex3a" style="display:none;"></div><ol class="arabic simple" start="5">
 <li><p>Load the contigs present in the <a class="reference external" href="file_samples/filtered_contigs.fasta">filtered_contigs.fasta</a> file and translate each DNA sequence into the corresponding protein. Count the number of stop codons (i.e. *) for each sequence and print them to the user (e.g. MDC020656.85 51). Finally, write the translated proteins in another .fasta file (e.g. filtered_contigs_translated.fasta).</p></li>
 </ol>
 <div class="tggle" onclick="toggleVisibility('ex3');"><p>Show/Hide Solution</p>
-</div><div id="ex3" style="display:none;"></div><ol class="arabic simple" start="5">
+</div><div id="ex3" style="display:none;"></div><ol class="arabic simple" start="6">
 <li><p>Write the following three functions:</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">countMatches(s1,s2)</span></code> that takes two sequences aligned with pairwise2 local or global of the same length and returns how many elements match;</p></li>
