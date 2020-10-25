@@ -859,7 +859,7 @@ Range 0-6
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.figure.Figure at 0x7f8e77873780&gt;
+&lt;matplotlib.figure.Figure at 0x7f1fb241db00&gt;
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -867,7 +867,7 @@ Range 0-6
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.figure.Figure at 0x7f8e77625780&gt;
+&lt;matplotlib.figure.Figure at 0x7f1fb22507f0&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -875,7 +875,7 @@ Range 0-6
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.figure.Figure at 0x7f8e749e0cf8&gt;
+&lt;matplotlib.figure.Figure at 0x7f1fad53d240&gt;
 </pre></div></div>
 </div>
 <p>It is also possible to specify the size of the output (with the tuple <code class="docutils literal notranslate"><span class="pre">size</span></code>) to get a matrix instead.</p>
@@ -902,10 +902,10 @@ Range 0-6
 <div class="highlight"><pre>
 Uniform distr. in (0,1). 4x3 matrix:
 
-[[0.10311798 0.80590763 0.18172353]
- [0.31772665 0.82672934 0.30604273]
- [0.7099377  0.82138698 0.83405689]
- [0.37092747 0.33625126 0.44150803]]
+[[0.04319745 0.80810316 0.95688607]
+ [0.38279799 0.06599466 0.83906502]
+ [0.64017936 0.17292249 0.6691821 ]
+ [0.30912131 0.57479797 0.96046875]]
 </pre></div></div>
 </div>
 <p>To always get the same values we need to initialize the random seed (a parameter of the pseudo-random sequence generator) always to the same value.</p>
@@ -942,17 +942,17 @@ Uniform distr. in (0,1). 4x3 matrix:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
- u: [[0.75299981 0.29082168]
- [0.50203555 0.11971283]
- [0.77785686 0.82675263]]
+ u: [[0.76180262 0.30145968]
+ [0.42649499 0.6514337 ]
+ [0.46345338 0.27718304]]
 
- u1:[[0.31962424 0.16001274]
- [0.41618944 0.30455412]
- [0.59876499 0.1789041 ]]
+ u1:[[0.7564963  0.80978551]
+ [0.02806826 0.70233526]
+ [0.04354717 0.08700437]]
 
- u2:[[0.4316276  0.42431593]
- [0.03916182 0.3295284 ]
- [0.71336597 0.18519644]]
+ u2:[[0.53011366 0.61936712]
+ [0.67975182 0.85019137]
+ [0.04757717 0.2940392 ]]
 
 With random seed reinit.
  u: [0.63696169 0.26978671 0.04097352]
@@ -1215,38 +1215,38 @@ Row:  [ 9 10 11] is a &lt;class &#39;numpy.ndarray&#39;&gt;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[[3 8 9 1]
- [6 7 3 3]
- [5 9 3 6]]
+[[3 0 1 6]
+ [3 9 7 3]
+ [0 4 0 0]]
 
-myA[2,2] =  3
+myA[2,2] =  0
 myA[1,3] =  3
-myA[0,3] =  1
-second row: [6 7 3 3]
+myA[0,3] =  6
+second row: [3 9 7 3]
 
 3D matrix
  - shape: (3, 3, 3)
-[[[8 5 9]
-  [5 1 9]
-  [2 0 3]]
+[[[0 3 1]
+  [2 6 0]
+  [0 7 9]]
 
- [[4 2 2]
-  [8 9 6]
-  [8 4 8]]
+ [[9 3 7]
+  [0 4 4]
+  [1 7 2]]
 
- [[9 8 8]
-  [8 7 2]
-  [0 5 0]]]
+ [[1 4 1]
+  [5 9 9]
+  [4 5 1]]]
 
-myB[0,2,2] =  3
+myB[0,2,2] =  9
 Second matrix:
-[[4 2 2]
- [8 9 6]
- [8 4 8]]
+[[9 3 7]
+ [0 4 4]
+ [1 7 2]]
 Third row of second matrix:
-[8 4 8]
+[1 7 2]
 Second column of second matrix:
-[2 9 4]
+[3 4 7]
 </pre></div></div>
 </div>
 </div>
@@ -1306,92 +1306,92 @@ Second column of second matrix:
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Matrix A 3x2
-[[1 7]
- [0 3]
- [7 3]]
+[[1 4]
+ [1 0]
+ [5 0]]
 
 Matrix B 3x3x3
-[[[7 8 5]
-  [5 0 9]
-  [1 9 3]]
+[[[5 5 8]
+  [2 7 5]
+  [3 2 7]]
 
- [[5 7 0]
-  [8 5 4]
-  [9 1 4]]
+ [[6 7 8]
+  [5 2 7]
+  [1 4 1]]
 
- [[4 5 3]
-  [6 8 3]
-  [3 1 5]]]
+ [[4 3 5]
+  [2 4 5]
+  [9 1 7]]]
 
 Matrix C 3x1
-[[5]
- [3]
- [3]]
+[[8]
+ [5]
+ [1]]
 
 A squared
-[[ 1 49]
- [ 0  9]
- [49  9]]
+[[ 1 16]
+ [ 1  0]
+ [25  0]]
 
 A square-rooted
-[[1.         2.64575131]
- [0.         1.73205081]
- [2.64575131 1.73205081]]
+[[1.         2.        ]
+ [1.         0.        ]
+ [2.23606798 0.        ]]
 
 B square-rooted
-[[[2.64575131 2.82842712 2.23606798]
-  [2.23606798 0.         3.        ]
-  [1.         3.         1.73205081]]
+[[[2.23606798 2.23606798 2.82842712]
+  [1.41421356 2.64575131 2.23606798]
+  [1.73205081 1.41421356 2.64575131]]
 
- [[2.23606798 2.64575131 0.        ]
-  [2.82842712 2.23606798 2.        ]
-  [3.         1.         2.        ]]
+ [[2.44948974 2.64575131 2.82842712]
+  [2.23606798 1.41421356 2.64575131]
+  [1.         2.         1.        ]]
 
- [[2.         2.23606798 1.73205081]
-  [2.44948974 2.82842712 1.73205081]
-  [1.73205081 1.         2.23606798]]]
+ [[2.         1.73205081 2.23606798]
+  [1.41421356 2.         2.23606798]
+  [3.         1.         2.64575131]]]
 A + C
-[[ 6 12]
- [ 3  6]
- [10  6]]
+[[ 9 12]
+ [ 6  5]
+ [ 6  1]]
 
 B + C
-[[[12 13 10]
-  [ 8  3 12]
-  [ 4 12  6]]
+[[[13 13 16]
+  [ 7 12 10]
+  [ 4  3  8]]
 
- [[10 12  5]
-  [11  8  7]
-  [12  4  7]]
+ [[14 15 16]
+  [10  7 12]
+  [ 2  5  2]]
 
- [[ 9 10  8]
-  [ 9 11  6]
-  [ 6  4  8]]]
+ [[12 11 13]
+  [ 7  9 10]
+  [10  2  8]]]
 
 B
-[[[7 8 5]
-  [5 0 9]
-  [1 9 3]]
+[[[5 5 8]
+  [2 7 5]
+  [3 2 7]]
 
- [[5 7 0]
-  [8 5 4]
-  [9 1 4]]
+ [[6 7 8]
+  [5 2 7]
+  [1 4 1]]
 
- [[4 5 3]
-  [6 8 3]
-  [3 1 5]]]
+ [[4 3 5]
+  [2 4 5]
+  [9 1 7]]]
 Sub array B - 20
-[[[-13 -12   5]
-  [-15 -20   9]
-  [  1   9   3]]
+[[[-15 -15   8]
+  [-18 -13   5]
+  [  3   2   7]]
 
- [[-15 -13   0]
-  [-12 -15   4]
-  [  9   1   4]]
+ [[-14 -13   8]
+  [-15 -18   7]
+  [  1   4   1]]
 
- [[-16 -15   3]
-  [-14 -12   3]
-  [  3   1   5]]]
+ [[-16 -17   5]
+  [-18 -16   5]
+  [  9   1   7]]]
 </pre></div></div>
 </div>
 <p>A lot of mathematical and statistical functions can be applied. Examples include trigonometric functions like <strong>sin, cos, tan,…</strong>, statistical functions like <strong>mean, std, max, min, cumsum,…</strong> see the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.math.html">documentation</a> for a complete list.</p>
@@ -1593,13 +1593,117 @@ ALL(vals) on rows:
 [False False False]
 </pre></div></div>
 </div>
+<p>We can apply all and any on 3D matrices as well, note the behaviour of <code class="docutils literal notranslate"><span class="pre">axis</span></code> in this case, that can assume values in [0,1,2] as in the following picture and example:</p>
+<p><img alt="allany3d" src="_images/allany3d.png" /></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">v1</span> <span class="o">=</span> <span class="p">[[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]]</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="p">[[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">],[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]]</span>
+<span class="n">v3</span> <span class="o">=</span> <span class="p">[[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;vals:&quot;</span><span class="p">)</span>
+<span class="n">vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span><span class="n">v3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The matrix is </span><span class="si">{}</span><span class="s2">D&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">vals</span><span class="o">.</span><span class="n">ndim</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First matrix:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">First row, all matrices:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vals</span><span class="p">[:,</span><span class="mi">0</span><span class="p">,:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Second column, all matrices:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vals</span><span class="p">[:,:,</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">AXIS=0&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ANY:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ALL &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">AXIS=1&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ANY:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ALL:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">AXIS=2&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ANY:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ALL:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+vals:
+[[[ True False]
+  [False  True]]
+
+ [[False False]
+  [ True  True]]
+
+ [[False False]
+  [False  True]]]
+
+The matrix is 3D
+First matrix:
+[[ True False]
+ [False  True]]
+
+First row, all matrices:
+[[ True False]
+ [False False]
+ [False False]]
+
+Second column, all matrices:
+[[False  True]
+ [False  True]
+ [False  True]]
+
+AXIS=0
+ANY:
+[[ True False]
+ [ True  True]]
+ALL
+[[False False]
+ [False  True]]
+
+AXIS=1
+ANY:
+[[ True  True]
+ [ True  True]
+ [False  True]]
+ALL:
+[[False False]
+ [False False]
+ [False False]]
+
+AXIS=2
+ANY:
+[[ True  True]
+ [False  True]
+ [False  True]]
+ALL:
+[[False False]
+ [False  True]
+ [False False]]
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="Linear-algebra">
 <h2>Linear algebra<a class="headerlink" href="#Linear-algebra" title="Permalink to this headline">¶</a></h2>
 <p>In numpy the product operator <code class="docutils literal notranslate"><span class="pre">*</span></code> is used to perform element-wise product, and therefore the arrays in input must have the same size. Matrix-matrix multiplication can be done through the <code class="docutils literal notranslate"><span class="pre">np.dot(x,y)</span></code> method, which is also a method of the object <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> and therefore if <code class="docutils literal notranslate"><span class="pre">x</span></code> is a <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> of compatible size with <code class="docutils literal notranslate"><span class="pre">y</span></code>, we can perform their product with <code class="docutils literal notranslate"><span class="pre">x.dot(y)</span></code>.</p>
 <p>A ndarray can be transposed by using the method <code class="docutils literal notranslate"><span class="pre">T</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1635,14 +1739,14 @@ A (3x3)
  [1 1 1]]
 
 B (3x2)
-[[6 0]
- [7 4]
- [7 6]]
+[[8 4]
+ [1 0]
+ [4 5]]
 
 AxB (3x2)
-[[41 26]
- [41 26]
- [20 10]]
+[[22 19]
+ [22 19]
+ [13  9]]
 
 A transposed:
 [[1 1 1]
@@ -1654,7 +1758,7 @@ A transposed:
 <p>The complete list of all available methods can be found in the <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/routines.linalg.html">documentation</a>.</p>
 <p><strong>Example:</strong> Let’s create a random 4x4 matrix and invert it. Let’s finally check that the product of the matrix by its inversion yields the 4x4 identity matrix.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1680,26 +1784,26 @@ A transposed:
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Matrix A:
-[[0 7 7 0]
- [0 5 8 4]
- [3 3 5 2]
- [9 4 7 3]]
+[[1 3 6 4]
+ [1 9 9 1]
+ [3 3 3 0]
+ [3 8 9 0]]
 
 inv(A)
-[[ 1.58730159e-02 -2.46716228e-16 -3.33333333e-01  2.22222222e-01]
- [ 3.80952381e-01  1.00000000e+00 -4.00000000e+00  1.33333333e+00]
- [-2.38095238e-01 -1.00000000e+00  4.00000000e+00 -1.33333333e+00]
- [-1.66533454e-16  1.00000000e+00 -3.00000000e+00  1.00000000e+00]]
+[[ 0.02222222 -0.08888889  0.42222222 -0.06666667]
+ [-0.13333333  0.53333333  0.46666667 -0.6       ]
+ [ 0.11111111 -0.44444444 -0.55555556  0.66666667]
+ [ 0.17777778  0.28888889  0.37777778 -0.53333333]]
 
-[[1.00000000e+00 3.33066907e-16 4.44089210e-15 2.22044605e-16]
- [1.18329136e-30 1.00000000e+00 0.00000000e+00 8.88178420e-16]
- [1.38777878e-16 8.88178420e-16 1.00000000e+00 6.66133815e-16]
- [2.77555756e-17 2.22044605e-16 1.77635684e-15 1.00000000e+00]]
+[[ 1.00000000e+00  0.00000000e+00  2.22044605e-16 -4.44089210e-16]
+ [ 0.00000000e+00  1.00000000e+00  3.33066907e-16 -4.44089210e-16]
+ [-1.38777878e-17 -2.22044605e-16  1.00000000e+00 -1.11022302e-16]
+ [ 6.93889390e-17  2.22044605e-16 -1.11022302e-16  1.00000000e+00]]
 </pre></div></div>
 </div>
 <p><strong>Example:</strong> Let’s solve the following system of linear equations:<span class="math notranslate nohighlight">\(\begin{cases} 2x + y - 2z = 3\\ x - y - z = 0\\ x + y + 3z = 12\end{cases}\)</span></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1757,7 +1861,7 @@ Ax:
 <p>Figures can also be saved to files with <code class="docutils literal notranslate"><span class="pre">plt.savefig('filename')</span></code>.</p>
 <p><strong>Example:</strong> [adapted from documentation] Let’s plot the function <span class="math notranslate nohighlight">\(cos(2 * \Pi * x)*sin(2 * \Pi * x)\)</span> for x ranging from 0 to 10, annotating the point (5,0).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1797,12 +1901,12 @@ Ax:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/practical9_40_0.png" src="_images/practical9_40_0.png" />
+<img alt="_images/practical9_42_0.png" src="_images/practical9_42_0.png" />
 </div>
 </div>
 <p><strong>Example:</strong> Let’s plot simultaneusly <span class="math notranslate nohighlight">\(sin(2 * \Pi * x)\)</span>, <span class="math notranslate nohighlight">\(cos(2 \Pi x)\)</span> and <span class="math notranslate nohighlight">\(sin(2 \Pi x)*cos(2 \Pi x)\)</span> for x ranging from 0 to 5.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1830,7 +1934,7 @@ Ax:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/practical9_42_0.png" src="_images/practical9_42_0.png" />
+<img alt="_images/practical9_44_0.png" src="_images/practical9_44_0.png" />
 </div>
 </div>
 </div>

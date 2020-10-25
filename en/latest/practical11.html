@@ -570,7 +570,7 @@ div.rendered_html tbody tr:hover {
 <p>From the Biopython tutorial: The Biopython Project is an international association of developers of freely available Python tools for computational molecular biology. The goal of Biopython is to make it as easy as possible to use Python for bioinformatics by creating high-quality, reusable modules and classes. Biopython features include parsers for various Bioinformatics file formats (BLAST, Clustalw, FASTA, Genbank,…), access to online services (NCBI, Expasy,…), interfaces to common and
 not-so-common programs (Clustalw, DSSP, MSMS…), a standard sequence class, various clustering modules, a KD tree data structure etc. and even some documentation :-).</p>
 <p>In this practical we will see some features of Biopython but refer to <a class="reference external" href="http://biopython.org/wiki/Documentation">biopython documentation</a> to discover all its features, recipes etc.</p>
-<p>These notes are largely based on what is available <a class="reference external" href="http://biopython.org/DIST/docs/tutorial/Tutorial.pdf">here</a>.</p>
+<p>These notes are largely based on the tutorial that is available <a class="reference external" href="http://biopython.org/DIST/docs/tutorial/Tutorial.pdf">here</a>.</p>
 </div>
 <div class="section" id="BLAST">
 <h2>BLAST<a class="headerlink" href="#BLAST" title="Permalink to this headline">¶</a></h2>
@@ -741,7 +741,7 @@ blast_records = NCBIXML.parse(result_handle)
 </ol>
 <p>More information on the BLAST record can be found <a class="reference external" href="http://biopython.org/DIST/docs/api/Bio.Blast.Record-module.html">here</a>.</p>
 <p><strong>Example:</strong></p>
-<p>Let’s blast the serum albumin sequence (gi number <a class="reference external" href="https://www.ncbi.nlm.nih.gov/nuccore/AF542069.1">23307792</a>) on the human genome and report all the information reported by BLAST. (warning might take a while to run!)</p>
+<p>Let’s blast the serum albumin sequence (gi number <a class="reference external" href="https://www.ncbi.nlm.nih.gov/nuccore/AF542069.1">23307792</a>) on the human genome and report all the information reported by BLAST. (warning: it might take a while to run!)</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -1853,7 +1853,7 @@ Output written to &#34;blast_res_apple.xml&#34;
 <p><strong>Example:</strong></p>
 <p>Let’s get a list of all available databases in Entrez as a dictionary. Let’s then get a summary of the entries in ‘sra’.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1897,24 +1897,24 @@ Output written to &#34;blast_res_apple.xml&#34;
 <div class="highlight"><pre>
 
 As a list:
-[&#39;pubmed&#39;, &#39;protein&#39;, &#39;nuccore&#39;, &#39;ipg&#39;, &#39;nucleotide&#39;, &#39;structure&#39;, &#39;sparcle&#39;, &#39;genome&#39;, &#39;annotinfo&#39;, &#39;assembly&#39;, &#39;bioproject&#39;, &#39;biosample&#39;, &#39;blastdbinfo&#39;, &#39;books&#39;, &#39;cdd&#39;, &#39;clinvar&#39;, &#39;gap&#39;, &#39;gapplus&#39;, &#39;grasp&#39;, &#39;dbvar&#39;, &#39;gene&#39;, &#39;gds&#39;, &#39;geoprofiles&#39;, &#39;homologene&#39;, &#39;medgen&#39;, &#39;mesh&#39;, &#39;ncbisearch&#39;, &#39;nlmcatalog&#39;, &#39;omim&#39;, &#39;orgtrack&#39;, &#39;pmc&#39;, &#39;popset&#39;, &#39;proteinclusters&#39;, &#39;pcassay&#39;, &#39;biosystems&#39;, &#39;pccompound&#39;, &#39;pcsubstance&#39;, &#39;seqannot&#39;, &#39;snp&#39;, &#39;sra&#39;, &#39;taxonomy&#39;, &#39;biocollections&#39;, &#39;gtr&#39;]
+[&#39;pubmed&#39;, &#39;protein&#39;, &#39;nuccore&#39;, &#39;ipg&#39;, &#39;nucleotide&#39;, &#39;structure&#39;, &#39;sparcle&#39;, &#39;protfam&#39;, &#39;genome&#39;, &#39;annotinfo&#39;, &#39;assembly&#39;, &#39;bioproject&#39;, &#39;biosample&#39;, &#39;blastdbinfo&#39;, &#39;books&#39;, &#39;cdd&#39;, &#39;clinvar&#39;, &#39;gap&#39;, &#39;gapplus&#39;, &#39;grasp&#39;, &#39;dbvar&#39;, &#39;gene&#39;, &#39;gds&#39;, &#39;geoprofiles&#39;, &#39;homologene&#39;, &#39;medgen&#39;, &#39;mesh&#39;, &#39;ncbisearch&#39;, &#39;nlmcatalog&#39;, &#39;omim&#39;, &#39;orgtrack&#39;, &#39;pmc&#39;, &#39;popset&#39;, &#39;proteinclusters&#39;, &#39;pcassay&#39;, &#39;biosystems&#39;, &#39;pccompound&#39;, &#39;pcsubstance&#39;, &#39;seqannot&#39;, &#39;snp&#39;, &#39;sra&#39;, &#39;taxonomy&#39;, &#39;biocollections&#39;, &#39;gtr&#39;]
 
-Entries count: 12,194,504
-LastUpdate: 23/10/2020 4:15
+Entries count: 12,200,816
+LastUpdate: 24/10/2020 3:54
 Description: SRA Database
 </pre></div></div>
 </div>
 <p>Note that effectively <strong>einfo</strong> returned a handler to an object that can be read by the <strong>read</strong> function that produces a dictionary. This dictionary had one key only “DbList” that is the list of available databases in the first case, while the key when db was specified is “DbInfo”.</p>
-<p><strong>Example:</strong> Fetch the first three entries (retmax = 3) in pubmed that are related to the species “Malus Domestica” and report the title of the publication.</p>
+<p><strong>Example:</strong> Fetch the latest 10 entries (retmax = 10) in pubmed that are related to the species “Pyrus Communis” and report the title of the publication.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">Entrez</span>
 
 <span class="n">Entrez</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;my_email&quot;</span>
-<span class="n">handle</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">esearch</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="s2">&quot;pubmed&quot;</span><span class="p">,</span> <span class="n">term</span><span class="o">=</span><span class="s2">&quot;Malus Domestica&quot;</span><span class="p">,</span> <span class="n">retmax</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">handle</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">esearch</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="s2">&quot;pubmed&quot;</span><span class="p">,</span> <span class="n">term</span><span class="o">=</span><span class="s2">&quot;Pyrus communis&quot;</span><span class="p">,</span> <span class="n">retmax</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">res</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">el</span> <span class="p">,</span> <span class="s2">&quot; : &quot;</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="n">el</span><span class="p">])</span>
@@ -1928,7 +1928,9 @@ Description: SRA Database
     <span class="c1">#print(res)</span>
     <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s2">&quot;Title&quot;</span><span class="p">])</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s2">&quot;Source&quot;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;FullJournalName&#39;</span><span class="p">],</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;SO&#39;</span><span class="p">]))</span>
+
+
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 
 </pre></div>
@@ -1939,25 +1941,53 @@ Description: SRA Database
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Count  :  6481
-RetMax  :  3
+Count  :  356
+RetMax  :  10
 RetStart  :  0
-IdList  :  [&#39;33089679&#39;, &#39;33087981&#39;, &#39;33082977&#39;]
-TranslationSet  :  [{&#39;From&#39;: &#39;Malus Domestica&#39;, &#39;To&#39;: &#39;&#34;malus&#34;[MeSH Terms] OR &#34;malus&#34;[All Fields] OR (&#34;malus&#34;[All Fields] AND &#34;domestica&#34;[All Fields]) OR &#34;malus domestica&#34;[All Fields]&#39;}]
-TranslationStack  :  [{&#39;Term&#39;: &#39;&#34;malus&#34;[MeSH Terms]&#39;, &#39;Field&#39;: &#39;MeSH Terms&#39;, &#39;Count&#39;: &#39;5481&#39;, &#39;Explode&#39;: &#39;Y&#39;}, {&#39;Term&#39;: &#39;&#34;malus&#34;[All Fields]&#39;, &#39;Field&#39;: &#39;All Fields&#39;, &#39;Count&#39;: &#39;6488&#39;, &#39;Explode&#39;: &#39;N&#39;}, &#39;OR&#39;, {&#39;Term&#39;: &#39;&#34;malus&#34;[All Fields]&#39;, &#39;Field&#39;: &#39;All Fields&#39;, &#39;Count&#39;: &#39;6488&#39;, &#39;Explode&#39;: &#39;N&#39;}, {&#39;Term&#39;: &#39;&#34;domestica&#34;[All Fields]&#39;, &#39;Field&#39;: &#39;All Fields&#39;, &#39;Count&#39;: &#39;6274&#39;, &#39;Explode&#39;: &#39;N&#39;}, &#39;AND&#39;, &#39;GROUP&#39;, &#39;OR&#39;, {&#39;Term&#39;: &#39;&#34;malus domestica&#34;[All Fields]&#39;, &#39;Field&#39;: &#39;All Fields&#39;, &#39;Count&#39;: &#39;967&#39;, &#39;Explode&#39;: &#39;N&#39;}, &#39;OR&#39;, &#39;GROUP&#39;]
-QueryTranslation  :  &#34;malus&#34;[MeSH Terms] OR &#34;malus&#34;[All Fields] OR (&#34;malus&#34;[All Fields] AND &#34;domestica&#34;[All Fields]) OR &#34;malus domestica&#34;[All Fields]
+IdList  :  [&#39;33038244&#39;, &#39;32992651&#39;, &#39;32990517&#39;, &#39;32972020&#39;, &#39;32942590&#39;, &#39;32899287&#39;, &#39;32894061&#39;, &#39;32889351&#39;, &#39;32882874&#39;, &#39;32849839&#39;]
+TranslationSet  :  [{&#39;From&#39;: &#39;Pyrus&#39;, &#39;To&#39;: &#39;&#34;pyrus&#34;[MeSH Terms] OR &#34;pyrus&#34;[All Fields]&#39;}]
+TranslationStack  :  [{&#39;Term&#39;: &#39;&#34;pyrus&#34;[MeSH Terms]&#39;, &#39;Field&#39;: &#39;MeSH Terms&#39;, &#39;Count&#39;: &#39;1092&#39;, &#39;Explode&#39;: &#39;Y&#39;}, {&#39;Term&#39;: &#39;&#34;pyrus&#34;[All Fields]&#39;, &#39;Field&#39;: &#39;All Fields&#39;, &#39;Count&#39;: &#39;1573&#39;, &#39;Explode&#39;: &#39;N&#39;}, &#39;OR&#39;, &#39;GROUP&#39;, {&#39;Term&#39;: &#39;communis[All Fields]&#39;, &#39;Field&#39;: &#39;All Fields&#39;, &#39;Count&#39;: &#39;6139&#39;, &#39;Explode&#39;: &#39;N&#39;}, &#39;AND&#39;, &#39;GROUP&#39;]
+QueryTranslation  :  (&#34;pyrus&#34;[MeSH Terms] OR &#34;pyrus&#34;[All Fields]) AND communis[All Fields]
 
-Results for id: 33089679
-Optimization of Culture Conditions for the Efficient Biosynthesis of Trilobatin from Phloretin by Engineered &lt;i&gt;Escherichia coli&lt;/i&gt; Harboring the Apple Phloretin-4&#39;-&lt;i&gt;O&lt;/i&gt;-glycosyltransferase.
-J Agric Food Chem
+Results for id: 33038244
+From the roots to the stem: unveiling pear root colonization and infection pathways by Erwinia amylovora.
+FEMS microbiology ecology, 2020 Oct 10;
 
-Results for id: 33087981
-Effect of in-vitro digestion on the bio active compounds and biological activities of fruit pomaces.
-J Food Sci Technol
+Results for id: 32992651
+Bioactive Compounds and Health-Promoting Properties of Pear (&lt;i&gt;Pyrus communis&lt;/i&gt; L.) Fruits.
+Molecules (Basel, Switzerland), 2020 Sep 27;25(19)
 
-Results for id: 33082977
-Identification of two QTLs associated with high fruit acidity in apple using pooled genome sequencing analysis.
-Hortic Res
+Results for id: 32990517
+First report of &lt;i&gt;Phytophthora chlamydospora&lt;/i&gt; causing postharvest fruit rot on apples and pears in the Netherlands.
+Plant disease, 2020 Sep 29;
+
+Results for id: 32972020
+Organic Control of Pear Psylla in Pear with Trunk Injection.
+Insects, 2020 Sep 22;11(9)
+
+Results for id: 32942590
+The Impact of Plant-Based Coatings in &#34;ROCHA&#34; Pear Preservation during Cold Storage: A Metabolomic Approach.
+Foods (Basel, Switzerland), 2020 Sep 15;9(9)
+
+Results for id: 32899287
+Characterization of &lt;i&gt;PcLEA14&lt;/i&gt;, a Group 5 Late Embryogenesis Abundant Protein Gene from Pear (&lt;i&gt;Pyrus communis&lt;/i&gt;).
+Plants (Basel, Switzerland), 2020 Sep 3;9(9)
+
+Results for id: 32894061
+Genome-wide identification of lysin motif containing protein family genes in eight rosaceae species, and expression analysis in response to pathogenic fungus Botryosphaeria dothidea in Chinese white pear.
+BMC genomics, 2020 Sep 7;21(1):612
+
+Results for id: 32889351
+Elucidating the involvement of ethylene and oxidative stress during on- and off-tree ripening of two pear cultivars with different ripening patterns.
+Plant physiology and biochemistry : PPB, 2020 Oct;155:842-850
+
+Results for id: 32882874
+Physicochemical Fingerprint of &#34;Pera Rocha do Oeste&#34;. A PDO Pear Native from Portugal.
+Foods (Basel, Switzerland), 2020 Sep 1;9(9)
+
+Results for id: 32849839
+RIGD: A Database for Intronless Genes in the Rosaceae.
+Frontiers in genetics, 2020;11:868
 
 </pre></div></div>
 </div>
@@ -6107,7 +6137,7 @@ model &lt;Model id=0&gt; has 4 chains
         - atom: O x: 18.85700035095215 y:-12.720999717712402 z:17.263999938964844
 </pre></div></div>
 </div>
-<p>Once we have the coordinates of an atom we can compute distances between atoms or angles. We can also align two structures rototranslating the two to minimize their distance. We will not cover this and many other features that are provided by Biopython, such as Pyhlogentic analysis tools, interface towards pathways in KEGG, clustering, etc. If you are interested can find all the features available in the <a class="reference external" href="http://biopython.org/DIST/docs/tutorial/Tutorial.pdf">Biopython tutorial</a>.</p>
+<p>Once we have the coordinates of an atom we can compute distances between atoms or angles. We can also align two structures rototranslating the two to minimize their distance. We will not cover this and many other features that are provided by Biopython, such as Pyhlogentic analysis tools, interface towards pathways in KEGG, clustering, etc. If you are interested, you can read about all the features available in the <a class="reference external" href="http://biopython.org/DIST/docs/tutorial/Tutorial.pdf">Biopython tutorial</a>.</p>
 </div>
 <div class="section" id="Exercises">
 <h2>Exercises<a class="headerlink" href="#Exercises" title="Permalink to this headline">¶</a></h2>
@@ -6115,20 +6145,22 @@ model &lt;Model id=0&gt; has 4 chains
 <li><p>Write a python script that retrieves all the information present in SRA regarding PacBio sequencing performed on E.coli strain K12 (query term is “E.coli K12 wgs PacBio”). Print the number of results and for each id report the title, the accession id, the total number of spots and total number of bases sequenced.</p></li>
 </ol>
 <p>Sample output:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Entries found: 10
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Entries found: 11
+Results for id: 9966072
+WGS of E. coli K12 with PacBio HiFi
+ - acc=&quot;SRR10971019&quot;
+ - total_spots=&quot;95514&quot;
+ - total_bases=&quot;1389500381&quot;
 Results for id: 6705337
+PacBio RSII sequencing of E. coli K12
  - acc=&quot;SRR8154667&quot;
  - total_spots=&quot;163482&quot;
  - total_bases=&quot;1561717136&quot;
 Results for id: 6705336
+PacBio RSII sequencing of E. coli K12
  - acc=&quot;SRR8154668&quot;
  - total_spots=&quot;163482&quot;
  - total_bases=&quot;897324802&quot;
-Results for id: 6705335
- - acc=&quot;SRR8154669&quot;
- - total_spots=&quot;163482&quot;
- - total_bases=&quot;1570240924&quot;
-
  ...
  ...
 </pre></div>
