@@ -1,0 +1,13 @@
+ScaffID	s_start	s_end	type	contig	c_start	c_end	c_strand
+my_scaff	1	6	W	s1	1	6	+
+my_scaff	7	9	N	3	scaffold	yes	na
+my_scaff	10 	12	W	s2	1	3	-
+my_scaff	13	15	N	3	scaffold	yes	na
+my_scaff	16	17	W	s3	1	2	+
+my_scaff2	1	20	W	sequence1	1	20	-
+my_scaff2	21	30	N	10	scaffold	yes	na
+my_scaff2	31	40	W	sequence3	1	10	+
+scaffold3	1	20	N	20	scaffold	yes	na
+scaffold3	21	30	W	sequence4	1	10	-
+scaffold3	31	40	W	sequence4	1	10	+
+scaffold3	21	30	W	sequence4	1	10	-
