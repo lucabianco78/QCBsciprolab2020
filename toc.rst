@@ -19,7 +19,7 @@
     Practical 10 <practical10.ipynb>
     Practical 11 <practical11.ipynb>
     Material <material.ipynb>
-
+    Midterm <MT1_no_sol.ipynb>
 |space|
 ==========
 
